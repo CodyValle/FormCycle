@@ -16,12 +16,11 @@
 	function sendCustInfo(&$clean) {
 		include 'loginCapstone.php';
 		
-		print("insert into CustData (fname, lname, address, address2, city, state, country, zip, phone, email, custid) values ('" . $clean[fname] . "','" . $clean[lname] . "','" . $clean[address] . "','" . $clean[address2] . "','" . $clean[city] . "','" . $clean[state] . "','" . $clean[country] . "','" . $clean[zip] . "', '" . $clean[phone] . "','" . $clean[email] . "', UNHEX(REPLACE(UUID(), '-', '')));");
-		if (mysqli_query($con, "insert into CustData (fname, lname, address, address2, city, state, country, zip, phone, email, custid) values ('" . $clean[fname] . "','" . $clean[lname] . "','" . $clean[address] . "','" . $clean[address2] . "','" . $clean[city] . "','" . $clean[state] . "','" . $clean[country] . "','" . $clean[zip] . "', '" . $clean[phone] . "','" . $clean[email] . "', UNHEX(REPLACE(UUID(), '-', '')));"))
+		if (mysqli_query($con, "insert into CustData (fname, lname, address, address2, city, state, country, zip, phone, email, custid) values ('" . $clean['fname'] . "','" . $clean['lname'] . "','" . $clean['address'] . "','" . $clean['address2'] . "','" . $clean['city'] . "','" . $clean['state'] . "','" . $clean['country'] . "','" . $clean['zip'] . "', '" . $clean['phone'] . "','" . $clean['email'] . "', UNHEX(REPLACE(UUID(), '-', '')));"))
 		{
-			$string = mysqli_use_result($con);
-			print("String: " . $string);
-			//getCustID($clean);
+			//$string = mysqli_use_result($con);
+			//print("String: " . $string);
+			getCustID($clean);
 			return true;
 		}
 
@@ -33,7 +32,7 @@
 		include 'loginCapstone.php';
 		
 		// Get the customer's handle
-		$guid = mysqli_query($con, "select HEX(custid) from CustData where fname='" . $clean[fname] . "' and lname='" . $clean[lname] . "' and address='" . $clean[address] . "' and city='" . $clean[city] . "' and phone='" . $clean[phone] . "' and email='" . $clean[email] . "';");
+		$guid = mysqli_query($con, "select HEX(custid) from CustData where fname='" . $clean['fname'] . "' and lname='" . $clean['lname'] . "' and address='" . $clean['address'] . "' and city='" . $clean['city'] . "' and phone='" . $clean['phone'] . "' and email='" . $clean['email'] . "';");
 		if (mysqli_num_rows($guid) < 1)
 		{
 			// Customer is not found
@@ -52,6 +51,6 @@
 		$row = mysqli_fetch_assoc($guid);
 		
 		foreach ($row as $cname => $cvalue)
-			$clean[custid] = $cvalue;
+			$clean['custid'] = $cvalue;
 	}
 ?>

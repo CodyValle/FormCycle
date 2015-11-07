@@ -19,7 +19,7 @@
 =======
 	include '/home/ubuntu/pwd/MYSQLpwd.php';
 	
-	$con = new mysqli(localhost, $username, $password, $database);
+	$con = new mysqli('localhost', $username, $password, $database);
 	
 	if ($con->connect_error) { die("SRV"); } // Server error.
 >>>>>>> 0b28e4fc0a17aefc275313e08e621359aab1f3bf
