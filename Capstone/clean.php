@@ -10,8 +10,8 @@
 	$statement .= "delete from TuneData;";
 	
 	if (mysqli_multi_query($con, $statement))
-		print("SUC");
-	else print("ERR");
+		print("SUC" . PHP_EOL);
+	else print("ERR" . PHP_EOL);
 	
-	mysqli_close();
+	mysqli_close($con);
 ?>

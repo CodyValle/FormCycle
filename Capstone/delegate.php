@@ -15,10 +15,6 @@
 			include 'workOrder.php';
 			sendWorkOrderInfo();
 			break;
-			
-		case "merrillTest":
-			print($_POST[pwd]);
-			break;
 		
 		case "junky":
 			include 'junkData.php';

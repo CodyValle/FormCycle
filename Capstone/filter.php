@@ -1,24 +1,24 @@
 <?php
-	if (!$clean)
+	if (!isset($clean))
 	{
 		$clean = array();
 		
-		if ($_POST[fname])
-			clean[fname] = $_POST[fname];
-		if ($_POST[lname])
-			clean[lname] = $_POST[lname];
-		if ($_POST[address])
-			clean[address] = $_POST[address];
-		if ($_POST[address2])
-			clean[address2] = $_POST[address2];
-		if ($_POST[state])
-			clean[state] = $_POST[state];
-		if ($_POST[zip])
-			clean[zip] = $_POST[zip];
-		if ($_POST[phone])
-			clean[phone] = $_POST[phone];
-		if ($_POST[email])
-			clean[email] = $_POST[email];
+		if (isset($_POST['fname']))
+			$clean[fname] = $_POST[fname];
+		if (isset($_POST['lname']))
+			$clean[lname] = $_POST[lname];
+		if (isset($_POST['address']))
+			$clean[address] = $_POST[address];
+		if (isset($_POST['address2']))
+			$clean[address2] = $_POST[address2];
+		if (isset($_POST['state']))
+			$clean[state] = $_POST[state];
+		if (isset($_POST['zip']))
+			$clean[zip] = $_POST[zip];
+		if (isset($_POST['phone']))
+			$clean[phone] = $_POST[phone];
+		if (isset($_POST['email']))
+			$clean[email] = $_POST[email];
 	
 		/*
 		if (isset($_POST[username])) {
