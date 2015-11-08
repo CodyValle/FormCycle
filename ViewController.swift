@@ -43,6 +43,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var zip: UITextField!
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var email: UITextField!
+    
+    struct MyVariables {
+        static var firstName = ""
+        static var lastName = ""
+        static var myAddress = ""
+        static var myAddress2 = ""
+        static var myCity = ""
+        static var myState = ""
+        static var myZip = ""
+        static var myPhone = ""
+        static var myEmail = ""
+    }
+    
+    //MARK: Variables from first New Order Page
+    @IBAction func nextPage(sender: AnyObject) {
+        MyVariables.firstName = fname.text!
+        MyVariables.lastName = lname.text!
+        MyVariables.myAddress = address.text!
+        MyVariables.myAddress2 = address2.text!
+        MyVariables.myCity = city.text!
+        MyVariables.myState = state.text!
+        MyVariables.myZip = zip.text!
+        MyVariables.myPhone = phone.text!
+        MyVariables.myEmail = email.text!
+    }
+    
     //Bike Information Vars
     @IBOutlet weak var brand: UITextField!
     @IBOutlet weak var model: UITextField!
@@ -51,8 +77,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func SubmitButton(sender: AnyObject) {
-     
-        let NewParams = ["acton":"workOrder","fname": fname.text!, "lname": lname.text!, "address":address.text!, "address2":address2.text!, "city":city.text!, "state":state.text!, "zip":zip.text!, "phone":phone.text!, "email":email.text!, "brand":brand.text!, "model":model.text!, "color":color.text!, "notes":notes.text!]
+        let NewParams = ["action1":"workOrder","fname":MyVariables.firstName, "lname":MyVariables.lastName, "address":MyVariables.myAddress, "address2":MyVariables.myAddress2, "city":MyVariables.myCity, "state":MyVariables.myState, "zip":MyVariables.myZip, "phone":MyVariables.myPhone, "email":MyVariables.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!, "notes":notes.text!]
         do {
             let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: NewParams)
             opt.start {response in
