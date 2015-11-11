@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftHTTP
+import Foundation
 
 class ViewController: UIViewController {
 
@@ -47,8 +48,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     
     struct MyVariables {
-        var firstName: String
-        static var lastName = "Rag"
+        static var firstName = ""
+        static var lastName = ""
         static var myAddress = ""
         static var myAddress2 = ""
         static var myCity = ""
@@ -58,16 +59,19 @@ class ViewController: UIViewController {
         static var myEmail = ""
     }
     
-    var applyAllVars = MyVariables(firstName:"")
+   // var applyAllVars = MyVariables(firstName:"")
     
     
     //MARK: Variables from first New Order Page
     
     
-    @IBAction func nextPage(sender: AnyObject) {
+    @IBAction func nextButton(sender: AnyObject) {
+    }
+        
     
+    @IBAction func submitCustInfo(sender: AnyObject) {
        // applyAllVars.firstName = fname.text!
-       // MyVariables.firstName = fname.text!
+        MyVariables.firstName = fname.text!
         MyVariables.lastName = lname.text!
         MyVariables.myAddress = address.text!
         MyVariables.myAddress2 = address2.text!
@@ -79,8 +83,15 @@ class ViewController: UIViewController {
         //print("hello World")
         //print(applyAllVars.firstName)
         //print(lname)
+        //print(MyVariables.firstName)
         //print(MyVariables.lastName)
     }
+    
+    //override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+     //   if (segue.identifier == "Load View") {
+            // pass data to next view
+     //   }
+    //}
     
     //Bike Information Vars
     @IBOutlet weak var brand: UITextField!
@@ -90,10 +101,39 @@ class ViewController: UIViewController {
     @IBOutlet weak var tagNumber: UITextField!
     
     
-    
+    //Takes the user back to the Home Page
     @IBAction func SubmitButton(sender: AnyObject) {
-        print(MyVariables.lastName)
-        let NewParams = ["action":"workOrder","fname":"john", "lname":MyVariables.lastName, "address":MyVariables.myAddress, "address2":MyVariables.myAddress2, "city":MyVariables.myCity, "state":MyVariables.myState, "zip":MyVariables.myZip, "phone":MyVariables.myPhone, "email":MyVariables.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!, "notes":notes.text!]
+        
+        let MyParams = ["action":"workOrder","fname":MyVariables.firstName, "lname":MyVariables.lastName, "address":MyVariables.myAddress, "address2":MyVariables.myAddress2, "city":MyVariables.myCity, "state":MyVariables.myState, "zip":MyVariables.myZip, "phone":MyVariables.myPhone, "email":MyVariables.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
+            "tagNum":tagNumber.text!,
+            "notes":notes.text!]
+        do {
+            let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+            opt.start {response in
+                if let error = response.error {
+                    print("got an error: \(error)")
+                    return
+                }
+                print(response.text!)
+                
+            }
+            
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
+        
+        //takes the user back a page... NEED TO FIX THIS TO GO BACK TO HOME PAGE.
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    
+    @IBAction func SendBikeData(sender: AnyObject) {
+        //print(Fname.text)
+        //print(MyVariables.myCity)
+        let NewParams = ["action":"workOrder","fname":MyVariables.firstName, "lname":MyVariables.lastName, "address":MyVariables.myAddress, "address2":MyVariables.myAddress2, "city":MyVariables.myCity, "state":MyVariables.myState, "zip":MyVariables.myZip, "phone":MyVariables.myPhone, "email":MyVariables.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
+            "tagNum":tagNumber.text!,
+            "notes":notes.text!]
         do {
             let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: NewParams)
             opt.start {response in
@@ -108,9 +148,21 @@ class ViewController: UIViewController {
         } catch let error {
             print("got an error creating the request: \(error)")
         }
+        
+        //takes the user back to the home page.
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
+    //Made to set the text pre-populated in the text
+    //boxes when the user pressed back on the 
+    //RepairInfo Page.
     
+    
+    @IBAction func backToCustInfo(sender: AnyObject) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     
     
     //MARK: Pre-Defined functions

@@ -7,46 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; };
+		14A0F8731BF2D5680077CFAD /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADDC031BEC5510005ECABA /* AppDelegate.swift */; };
 		14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADDC051BEC5510005ECABA /* ViewController.swift */; };
 		14ADDC091BEC5510005ECABA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC071BEC5510005ECABA /* Main.storyboard */; };
 		14ADDC0B1BEC5510005ECABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0A1BEC5510005ECABA /* Assets.xcassets */; };
 		14ADDC0E1BEC5510005ECABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */; };
-		14D42FF81BF1392700394101 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D42FF11BF138CE00394101 /* SwiftHTTP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		14D42FF01BF138CE00394101 /* PBXContainerItemProxy */ = {
+		14A0F8671BF2D3E60077CFAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 14D42FE91BF138CE00394101 /* SwiftHTTP.xcodeproj */;
+			containerPortal = 14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6BFD901619C8D8B500DD99B6;
 			remoteInfo = SwiftHTTP;
 		};
-		14D42FF21BF138CE00394101 /* PBXContainerItemProxy */ = {
+		14A0F8691BF2D3E60077CFAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 14D42FE91BF138CE00394101 /* SwiftHTTP.xcodeproj */;
+			containerPortal = 14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6BFD902119C8D8B500DD99B6;
 			remoteInfo = SwiftHTTPTests;
 		};
-		14D42FF41BF138CE00394101 /* PBXContainerItemProxy */ = {
+		14A0F86B1BF2D3E60077CFAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 14D42FE91BF138CE00394101 /* SwiftHTTP.xcodeproj */;
+			containerPortal = 14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D958025919E6EEEB003C8218;
 			remoteInfo = SwiftHTTPOSX;
 		};
-		14D42FF61BF138CE00394101 /* PBXContainerItemProxy */ = {
+		14A0F86D1BF2D3E60077CFAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 14D42FE91BF138CE00394101 /* SwiftHTTP.xcodeproj */;
+			containerPortal = 14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D958026319E6EEEB003C8218;
 			remoteInfo = SwiftHTTPOSXTests;
 		};
+		14A0F8741BF2D5680077CFAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BFD901519C8D8B500DD99B6;
+			remoteInfo = SwiftHTTP;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		14A0F8761BF2D5680077CFAD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				14A0F8731BF2D5680077CFAD /* SwiftHTTP.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		14ADDC001BEC5510005ECABA /* MyFormCycleHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFormCycleHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADDC031BEC5510005ECABA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ADDC051BEC5510005ECABA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +77,6 @@
 		14ADDC0A1BEC5510005ECABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ADDC0D1BEC5510005ECABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14ADDC0F1BEC5510005ECABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14D42FE91BF138CE00394101 /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,17 +84,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14D42FF81BF1392700394101 /* SwiftHTTP.framework in Frameworks */,
+				14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14A0F8611BF2D3E60077CFAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */,
+				14A0F86A1BF2D3E60077CFAD /* SwiftHTTPTests.xctest */,
+				14A0F86C1BF2D3E60077CFAD /* SwiftHTTP.framework */,
+				14A0F86E1BF2D3E60077CFAD /* SwiftHTTPOSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		14ADDBF71BEC5510005ECABA = {
 			isa = PBXGroup;
 			children = (
-				14D42FE91BF138CE00394101 /* SwiftHTTP.xcodeproj */,
+				14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */,
 				14ADDC021BEC5510005ECABA /* MyFormCycleHome */,
 				14ADDC011BEC5510005ECABA /* Products */,
 			);
@@ -99,17 +132,6 @@
 			path = MyFormCycleHome;
 			sourceTree = "<group>";
 		};
-		14D42FEA1BF138CE00394101 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				14D42FF11BF138CE00394101 /* SwiftHTTP.framework */,
-				14D42FF31BF138CE00394101 /* SwiftHTTPTests.xctest */,
-				14D42FF51BF138CE00394101 /* SwiftHTTP.framework */,
-				14D42FF71BF138CE00394101 /* SwiftHTTPOSXTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,10 +142,12 @@
 				14ADDBFC1BEC5510005ECABA /* Sources */,
 				14ADDBFD1BEC5510005ECABA /* Frameworks */,
 				14ADDBFE1BEC5510005ECABA /* Resources */,
+				14A0F8761BF2D5680077CFAD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				14A0F8751BF2D5680077CFAD /* PBXTargetDependency */,
 			);
 			name = MyFormCycleHome;
 			productName = MyFormCycleHome;
@@ -159,8 +183,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 14D42FEA1BF138CE00394101 /* Products */;
-					ProjectRef = 14D42FE91BF138CE00394101 /* SwiftHTTP.xcodeproj */;
+					ProductGroup = 14A0F8611BF2D3E60077CFAD /* Products */;
+					ProjectRef = 14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -171,32 +195,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		14D42FF11BF138CE00394101 /* SwiftHTTP.framework */ = {
+		14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwiftHTTP.framework;
-			remoteRef = 14D42FF01BF138CE00394101 /* PBXContainerItemProxy */;
+			remoteRef = 14A0F8671BF2D3E60077CFAD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		14D42FF31BF138CE00394101 /* SwiftHTTPTests.xctest */ = {
+		14A0F86A1BF2D3E60077CFAD /* SwiftHTTPTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SwiftHTTPTests.xctest;
-			remoteRef = 14D42FF21BF138CE00394101 /* PBXContainerItemProxy */;
+			remoteRef = 14A0F8691BF2D3E60077CFAD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		14D42FF51BF138CE00394101 /* SwiftHTTP.framework */ = {
+		14A0F86C1BF2D3E60077CFAD /* SwiftHTTP.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwiftHTTP.framework;
-			remoteRef = 14D42FF41BF138CE00394101 /* PBXContainerItemProxy */;
+			remoteRef = 14A0F86B1BF2D3E60077CFAD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		14D42FF71BF138CE00394101 /* SwiftHTTPOSXTests.xctest */ = {
+		14A0F86E1BF2D3E60077CFAD /* SwiftHTTPOSXTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SwiftHTTPOSXTests.xctest;
-			remoteRef = 14D42FF61BF138CE00394101 /* PBXContainerItemProxy */;
+			remoteRef = 14A0F86D1BF2D3E60077CFAD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -225,6 +249,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14A0F8751BF2D5680077CFAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftHTTP;
+			targetProxy = 14A0F8741BF2D5680077CFAD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		14ADDC071BEC5510005ECABA /* Main.storyboard */ = {
@@ -335,6 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MyFormCycleHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.merrill.MyFormCycleHome2;
@@ -349,6 +382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MyFormCycleHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.merrill.MyFormCycleHome2;
