@@ -3,40 +3,46 @@
 //  MyFormCycleHome
 //
 //  Created by Merrill Lines on 11/5/15.
-//  Copyright © 2015 Merrill Lines. All rights reserved.
+//  Copyright © 2015 Merrill Lines and FormCycle. All rights reserved.
 //
 
 import UIKit
 import SwiftHTTP
-import Foundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
 
     //MARK: Login Page text and Server Request
     @IBOutlet weak var USRTextField: UITextField!
     @IBOutlet weak var PWDTextField: UITextField!
-    @IBAction func MyButton(sender: AnyObject) {
-        let params = ["action": USRTextField.text!, "pwd": PWDTextField.text!]
-        do {
-            let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: params)
-            opt.start {response in
-                if let error = response.error {
-                    print("got an error: \(error)")
-                    return
-                }
-                print(response.text!)
-                
+    @IBAction func MyButton(sender: AnyObject)
+    {
+      let params = ["action": USRTextField.text!, "pwd": PWDTextField.text!]
+      do
+      {
+        let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: params)
+        opt.start
+        {
+          response in
+            if let error = response.error
+            {
+              print("got an error: \(error)")
+              return
             }
-            
-        } catch let error {
-            print("got an error creating the request: \(error)")
+            print(response.text!)
         }
+      }
+      catch let error
+      {
+        print("got an error creating the request: \(error)")
+      }
     }
     
     
     
     //MARK: New Order Page Text and Server Request
     
+    /** List of all Text Fields imported from New Order Page */
     @IBOutlet weak var fname: UITextField!
     @IBOutlet weak var lname: UITextField!
     @IBOutlet weak var address: UITextField!
