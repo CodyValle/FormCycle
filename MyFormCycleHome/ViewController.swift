@@ -53,16 +53,21 @@ class ViewController: UIViewController
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var email: UITextField!
     
-    struct MyVariables {
-        static var firstName = ""
-        static var lastName = ""
-        static var myAddress = ""
-        static var myAddress2 = ""
-        static var myCity = ""
-        static var myState = ""
-        static var myZip = ""
-        static var myPhone = ""
-        static var myEmail = ""
+    /* newOrderTextFieldStruct is a struct made to store text in Text Fields for
+    *  use when submitting the order on the Bike Info Page.
+    *  Initially sets all values in struct to the empty
+    *  string. */
+    struct newOrderTextFieldStruct
+    {
+      static var firstName = ""
+      static var lastName = ""
+      static var myAddress = ""
+      static var myAddress2 = ""
+      static var myCity = ""
+      static var myState = ""
+      static var myZip = ""
+      static var myPhone = ""
+      static var myEmail = ""
     }
     
    // var applyAllVars = MyVariables(firstName:"")
@@ -77,15 +82,15 @@ class ViewController: UIViewController
     
     @IBAction func submitCustInfo(sender: AnyObject) {
        // applyAllVars.firstName = fname.text!
-        MyVariables.firstName = fname.text!
-        MyVariables.lastName = lname.text!
-        MyVariables.myAddress = address.text!
-        MyVariables.myAddress2 = address2.text!
-        MyVariables.myCity = city.text!
-        MyVariables.myState = state.text!
-        MyVariables.myZip = zip.text!
-        MyVariables.myPhone = phone.text!
-        MyVariables.myEmail = email.text!
+        newOrderTextFieldStruct.firstName = fname.text!
+        newOrderTextFieldStruct.lastName = lname.text!
+        newOrderTextFieldStruct.myAddress = address.text!
+        newOrderTextFieldStruct.myAddress2 = address2.text!
+        newOrderTextFieldStruct.myCity = city.text!
+        newOrderTextFieldStruct.myState = state.text!
+        newOrderTextFieldStruct.myZip = zip.text!
+        newOrderTextFieldStruct.myPhone = phone.text!
+        newOrderTextFieldStruct.myEmail = email.text!
         //print("hello World")
         //print(applyAllVars.firstName)
         //print(lname)
@@ -110,7 +115,7 @@ class ViewController: UIViewController
     //Takes the user back to the Home Page
     @IBAction func SubmitButton(sender: AnyObject) {
         
-        let MyParams = ["action":"workOrder","fname":MyVariables.firstName, "lname":MyVariables.lastName, "address":MyVariables.myAddress, "address2":MyVariables.myAddress2, "city":MyVariables.myCity, "state":MyVariables.myState, "zip":MyVariables.myZip, "phone":MyVariables.myPhone, "email":MyVariables.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
+        let MyParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
             "tagNum":tagNumber.text!,
             "notes":notes.text!]
         do {
@@ -137,7 +142,7 @@ class ViewController: UIViewController
     @IBAction func SendBikeData(sender: AnyObject) {
         //print(Fname.text)
         //print(MyVariables.myCity)
-        let NewParams = ["action":"workOrder","fname":MyVariables.firstName, "lname":MyVariables.lastName, "address":MyVariables.myAddress, "address2":MyVariables.myAddress2, "city":MyVariables.myCity, "state":MyVariables.myState, "zip":MyVariables.myZip, "phone":MyVariables.myPhone, "email":MyVariables.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
+        let NewParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
             "tagNum":tagNumber.text!,
             "notes":notes.text!]
         do {
