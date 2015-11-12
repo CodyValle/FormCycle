@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -454,13 +454,13 @@
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="vrJ-S7-Yyd">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <action selector="SubmitButton:" destination="WuO-xh-qv8" id="CRb-HN-CRw"/>
+                                                <action selector="OrderCompleteSubmitButtonTop:" destination="WuO-xh-qv8" id="amP-zt-02X"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ccn-nr-UQM">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ccn-nr-UQM">
                                 <rect key="frame" x="20" y="112" width="272" height="30"/>
                                 <animations/>
                                 <constraints>
@@ -469,7 +469,7 @@
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bike Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6j-TP-A8K">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bike Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6j-TP-A8K">
                                 <rect key="frame" x="20" y="75" width="97" height="21"/>
                                 <animations/>
                                 <constraints>
@@ -479,13 +479,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-rb-RCD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-rb-RCD">
                                 <rect key="frame" x="308" y="112" width="272" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tix-kP-ASq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tix-kP-ASq">
                                 <rect key="frame" x="20" y="150" width="272" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
@@ -499,7 +499,7 @@
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiW-Qa-spl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiW-Qa-spl">
                                 <rect key="frame" x="20" y="188" width="51" height="25"/>
                                 <animations/>
                                 <constraints>
@@ -509,23 +509,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tag #" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-UV-CQ8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tag #" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-UV-CQ8">
                                 <rect key="frame" x="308" y="150" width="272" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sqf-fh-xim">
-                                <rect key="frame" x="234" y="496" width="132" height="68"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="29"/>
-                                <state key="normal" title="Submit" backgroundImage="btn">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="SendBikeData:" destination="WuO-xh-qv8" eventType="touchUpInside" id="GWe-jH-5aS"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -536,7 +525,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="a5e-YP-ja9" secondAttribute="trailing" constant="-20" id="4eh-mJ-SxQ"/>
                             <constraint firstItem="y4y-Sg-2fZ" firstAttribute="top" secondItem="Urb-UV-CQ8" secondAttribute="bottom" constant="40.5" id="9Yw-rA-Qaw"/>
                             <constraint firstItem="a5e-YP-ja9" firstAttribute="leading" secondItem="I40-et-3L7" secondAttribute="leadingMargin" constant="-20" id="9tS-YT-Rn0"/>
-                            <constraint firstItem="Sqf-fh-xim" firstAttribute="leading" secondItem="I40-et-3L7" secondAttribute="leadingMargin" constant="214" id="9xS-Ze-1ct"/>
                             <constraint firstItem="Tix-kP-ASq" firstAttribute="top" secondItem="ccn-nr-UQM" secondAttribute="bottom" constant="8" symbolic="YES" id="B4i-RI-GmX"/>
                             <constraint firstItem="Tix-kP-ASq" firstAttribute="trailing" secondItem="ccn-nr-UQM" secondAttribute="trailing" id="Bcg-vf-KU9"/>
                             <constraint firstItem="gIY-rb-RCD" firstAttribute="trailing" secondItem="I40-et-3L7" secondAttribute="trailingMargin" id="Gri-th-8V3"/>
@@ -544,7 +532,6 @@
                             <constraint firstItem="y4y-Sg-2fZ" firstAttribute="trailing" secondItem="I40-et-3L7" secondAttribute="trailingMargin" id="MTK-X6-zlC"/>
                             <constraint firstItem="gIY-rb-RCD" firstAttribute="top" secondItem="a5e-YP-ja9" secondAttribute="bottom" constant="52" id="PcI-U8-ukl"/>
                             <constraint firstItem="y4y-Sg-2fZ" firstAttribute="leading" secondItem="Tix-kP-ASq" secondAttribute="leading" id="Peg-7Z-bFQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Sqf-fh-xim" secondAttribute="trailing" constant="214" id="UrV-RE-KUz"/>
                             <constraint firstItem="y4y-Sg-2fZ" firstAttribute="trailing" secondItem="I40-et-3L7" secondAttribute="trailingMargin" id="Wrv-6f-xyB"/>
                             <constraint firstItem="y4y-Sg-2fZ" firstAttribute="leading" secondItem="I40-et-3L7" secondAttribute="leadingMargin" id="Xru-ye-JYZ"/>
                             <constraint firstItem="iiW-Qa-spl" firstAttribute="leading" secondItem="Tix-kP-ASq" secondAttribute="leading" id="bwA-w1-cYe"/>
@@ -554,11 +541,9 @@
                             <constraint firstItem="a5e-YP-ja9" firstAttribute="top" secondItem="I40-et-3L7" secondAttribute="topMargin" id="nyI-UN-mhW"/>
                             <constraint firstItem="ccn-nr-UQM" firstAttribute="leading" secondItem="z6j-TP-A8K" secondAttribute="leading" id="qXe-8e-aka"/>
                             <constraint firstItem="BIP-uw-IW0" firstAttribute="top" secondItem="y4y-Sg-2fZ" secondAttribute="bottom" constant="144" id="t4L-ND-41e"/>
-                            <constraint firstItem="BIP-uw-IW0" firstAttribute="top" secondItem="Sqf-fh-xim" secondAttribute="bottom" constant="36" id="thL-Vj-7jP"/>
                             <constraint firstItem="ccn-nr-UQM" firstAttribute="top" secondItem="z6j-TP-A8K" secondAttribute="bottom" constant="16" id="uOQ-VV-bCY"/>
                             <constraint firstItem="Tix-kP-ASq" firstAttribute="leading" secondItem="I40-et-3L7" secondAttribute="leadingMargin" id="v3N-TI-vfn"/>
                             <constraint firstItem="ccn-nr-UQM" firstAttribute="leading" secondItem="I40-et-3L7" secondAttribute="leadingMargin" id="vPg-Hf-IBQ"/>
-                            <constraint firstItem="Sqf-fh-xim" firstAttribute="top" secondItem="y4y-Sg-2fZ" secondAttribute="bottom" constant="40" id="vi7-Oo-5U5"/>
                             <constraint firstItem="Urb-UV-CQ8" firstAttribute="trailing" secondItem="I40-et-3L7" secondAttribute="trailingMargin" id="wB0-p1-HKA"/>
                             <constraint firstItem="iiW-Qa-spl" firstAttribute="top" secondItem="Tix-kP-ASq" secondAttribute="bottom" constant="8" symbolic="YES" id="xbq-Gc-NwP"/>
                             <constraint firstItem="Urb-UV-CQ8" firstAttribute="leading" secondItem="Tix-kP-ASq" secondAttribute="trailing" constant="16" id="zPs-Tw-OIj"/>
@@ -582,6 +567,6 @@
         <image name="img1" width="87" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zok-Ro-m6E"/>
+        <segue reference="XuZ-s3-vGP"/>
     </inferredMetricsTieBreakers>
 </document>

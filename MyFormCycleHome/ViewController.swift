@@ -1,10 +1,10 @@
 //
 //  ViewController.swift
-//  MyFormCycleHome
+//  FormCycle
 //
 //  Created by Merrill Lines on 11/5/15.
 //  Copyright © 2015 Merrill Lines and FormCycle. All rights reserved.
-//  ****This is a test comment!!****
+//
 
 import UIKit
 import SwiftHTTP
@@ -12,6 +12,10 @@ import SwiftHTTP
 class ViewController: UIViewController
 {
 
+  /* This is the Login Page which will be implemented at a later date. 
+   * Due to this, the section referred to as MARK: Login Page text and Server Request
+   * will remain commented out until finally becoming implemented.
+   */
   //MARK: Login Page text and Server Request
   @IBOutlet weak var USRTextField: UITextField!
   @IBOutlet weak var PWDTextField: UITextField!
@@ -42,7 +46,7 @@ class ViewController: UIViewController
   
   //MARK: New Order Page Text and Server Request
   
-  /** List of all Text Fields imported from New Order Page */
+  /* List all Text Fields imported from New Order Page */
   @IBOutlet weak var fname: UITextField!
   @IBOutlet weak var lname: UITextField!
   @IBOutlet weak var address: UITextField!
@@ -70,18 +74,13 @@ class ViewController: UIViewController
     static var myEmail = ""
   }
   
-   // var applyAllVars = MyVariables(firstName:"")
-  
-  
-  //MARK: Variables from first New Order Page
-  
-  
-  @IBAction func nextButton(sender: AnyObject) {
-  }
     
-  
-  @IBAction func submitCustInfo(sender: AnyObject) {
-     // applyAllVars.firstName = fname.text!
+  /* New Order Page: Customer Information. This section denotes the variables
+   * as well as the functions that pretain to the Customer Information Page.
+   */
+  //MARK: Variables and functions for Customer Information Page.
+  @IBAction func submitCustInfo(sender: AnyObject)
+  {
     newOrderTextFieldStruct.firstName = fname.text!
     newOrderTextFieldStruct.lastName = lname.text!
     newOrderTextFieldStruct.myAddress = address.text!
@@ -91,20 +90,12 @@ class ViewController: UIViewController
     newOrderTextFieldStruct.myZip = zip.text!
     newOrderTextFieldStruct.myPhone = phone.text!
     newOrderTextFieldStruct.myEmail = email.text!
-    //print("hello World")
-    //print(applyAllVars.firstName)
-    //print(lname)
-    //print(MyVariables.firstName)
-    //print(MyVariables.lastName)
   }
   
-  //override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-   //   if (segue.identifier == "Load View") {
-      // pass data to next view
-   //   }
-  //}
-  
-  //Bike Information Vars
+  /* New Order Page: Bike Information. This section denotes the variables
+   * as well as the functions that pretain to the Bike Information Page.
+   */
+  //MARK: Variables and functions for Bike Information Page.
   @IBOutlet weak var brand: UITextField!
   @IBOutlet weak var model: UITextField!
   @IBOutlet weak var color: UITextField!
@@ -113,62 +104,37 @@ class ViewController: UIViewController
   
   
   //Takes the user back to the Home Page
-  @IBAction func SubmitButton(sender: AnyObject) {
-    
+  @IBAction func OrderCompleteSubmitButtonTop(sender: AnyObject)
+	{
     let MyParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
       "tagNum":tagNumber.text!,
       "notes":notes.text!]
-    do {
-      let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
-      opt.start {response in
-        if let error = response.error {
+		do
+		{
+			let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+			opt.start
+			{
+				response in
+			  if let error = response.error
+				{
           print("got an error: \(error)")
           return
-        }
-        print(response.text!)
-        
+				}
+				print(response.text!)
       }
-      
-    } catch let error {
+    }
+		catch let error
+		{
       print("got an error creating the request: \(error)")
     }
-    
-    //takes the user back a page... NEED TO FIX THIS TO GO BACK TO HOME PAGE.
-    dismissViewControllerAnimated(true, completion: nil)
-    
-  }
-  
-  
-  @IBAction func SendBikeData(sender: AnyObject) {
-    //print(Fname.text)
-    //print(MyVariables.myCity)
-    let NewParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
-    "tagNum":tagNumber.text!,
-    "notes":notes.text!]
-    do {
-      let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: NewParams)
-      opt.start {response in
-      if let error = response.error {
-          print("got an error: \(error)")
-          return
-        }
-        print(response.text!)
-        
-      }
-      
-    } catch let error {
-      print("got an error creating the request: \(error)")
-    }
-    
-    //takes the user back to the home page.
+    /* takes the user back a page... NEED TO FIX THIS TO GO BACK TO HOME PAGE. */
     dismissViewControllerAnimated(true, completion: nil)
   }
   
-  //Made to set the text pre-populated in the text
-  //boxes when the user pressed back on the 
-  //RepairInfo Page.
-  
-  
+  /* Made to set the text pre-populated in the text
+   * boxes when the user pressed back on the
+   * RepairInfo Page.
+   */
   @IBAction func backToCustInfo(sender: AnyObject) {
     
     dismissViewControllerAnimated(true, completion: nil)
