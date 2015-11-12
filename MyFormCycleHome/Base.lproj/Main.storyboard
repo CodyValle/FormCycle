@@ -324,13 +324,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer ID: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeD-mk-gvC">
-                                <rect key="frame" x="20" y="107" width="102" height="23"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAw-Sd-xT6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                 <animations/>
@@ -355,11 +348,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM1-Ty-zBQ">
-                                <rect key="frame" x="205" y="425" width="191" height="89"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM1-Ty-zBQ">
+                                <rect key="frame" x="100" y="379" width="354" height="109"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
-                                <state key="normal" title="Submit" backgroundImage="btn">
+                                <state key="normal" title="Submit Info" backgroundImage="btn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -380,12 +373,13 @@
                             <constraint firstItem="99s-It-F5M" firstAttribute="top" secondItem="fyT-nh-IbO" secondAttribute="bottom" constant="8" id="ARE-sI-oyc"/>
                             <constraint firstItem="z1f-GT-08i" firstAttribute="trailing" secondItem="e5S-5f-ly1" secondAttribute="trailingMargin" id="AtN-tp-PLR"/>
                             <constraint firstItem="SAw-Sd-xT6" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" constant="-20" id="Ddd-aa-lzY"/>
-                            <constraint firstItem="ZMd-01-jP1" firstAttribute="top" secondItem="xeD-mk-gvC" secondAttribute="bottom" constant="7" id="LWu-E9-G72"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xM1-Ty-zBQ" secondAttribute="trailing" constant="126" id="Gac-cf-yCL"/>
+                            <constraint firstItem="xM1-Ty-zBQ" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" constant="80" id="Jks-Ve-gkc"/>
                             <constraint firstItem="RHi-EF-ivw" firstAttribute="leading" secondItem="RLe-1l-VBz" secondAttribute="trailing" constant="18" id="MwX-1Y-Eo0"/>
-                            <constraint firstItem="xeD-mk-gvC" firstAttribute="top" secondItem="a7c-lM-aBj" secondAttribute="bottom" constant="13" id="NuC-kb-Odf"/>
                             <constraint firstItem="a7c-lM-aBj" firstAttribute="top" secondItem="SAw-Sd-xT6" secondAttribute="bottom" constant="9" id="OWF-I4-429"/>
                             <constraint firstItem="fyT-nh-IbO" firstAttribute="leading" secondItem="ZMd-01-jP1" secondAttribute="trailing" constant="8" id="PnL-NO-C5b"/>
                             <constraint firstItem="99s-It-F5M" firstAttribute="trailing" secondItem="e5S-5f-ly1" secondAttribute="trailingMargin" id="U2t-mw-XSE"/>
+                            <constraint firstItem="xM1-Ty-zBQ" firstAttribute="top" secondItem="07s-Vb-98f" secondAttribute="bottom" constant="22" id="WGK-tX-Svm"/>
                             <constraint firstItem="07s-Vb-98f" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="X8I-fL-ttE"/>
                             <constraint firstItem="0XU-ee-0EK" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="YsF-7y-SSJ"/>
                             <constraint firstItem="99s-It-F5M" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="b2d-VW-BAm"/>
@@ -402,7 +396,6 @@
                             <constraint firstItem="0XU-ee-0EK" firstAttribute="top" secondItem="nES-VS-pcS" secondAttribute="bottom" constant="8" id="ntM-p1-Zai"/>
                             <constraint firstItem="a7c-lM-aBj" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="o7n-fp-YEo"/>
                             <constraint firstItem="z1f-GT-08i" firstAttribute="top" secondItem="99s-It-F5M" secondAttribute="bottom" constant="8" id="ohH-ZK-4mh"/>
-                            <constraint firstItem="xeD-mk-gvC" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="r7t-iH-Z9Z"/>
                             <constraint firstItem="07s-Vb-98f" firstAttribute="top" secondItem="0XU-ee-0EK" secondAttribute="bottom" constant="8" id="sw0-d5-9F2"/>
                             <constraint firstItem="RHi-EF-ivw" firstAttribute="trailing" secondItem="e5S-5f-ly1" secondAttribute="trailingMargin" id="u7Y-j0-fLR"/>
                             <constraint firstItem="fyT-nh-IbO" firstAttribute="trailing" secondItem="e5S-5f-ly1" secondAttribute="trailingMargin" id="uZe-Yl-KaL"/>
