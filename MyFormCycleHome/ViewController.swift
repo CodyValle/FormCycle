@@ -13,10 +13,10 @@ class ViewController: UIViewController
 {
 
   //MARK: Login Page text and Server Request
-  /*@IBOutlet weak var USRTextField: UITextField!
+  @IBOutlet weak var USRTextField: UITextField!
   @IBOutlet weak var PWDTextField: UITextField!
   @IBAction func MyButton(sender: AnyObject)
-  {
+  {/*
     let params = ["action": USRTextField.text!, "pwd": PWDTextField.text!]
     do
     {
@@ -35,8 +35,8 @@ class ViewController: UIViewController
     catch let error
     {
     print("got an error creating the request: \(error)")
-    }
-  }*/
+    }*/
+  }
   
   
   
