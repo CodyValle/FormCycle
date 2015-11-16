@@ -72,6 +72,7 @@ class ViewController: UIViewController
     static var myZip = ""
     static var myPhone = ""
     static var myEmail = ""
+		static var submitOrder = false
   }
   
     
@@ -90,6 +91,13 @@ class ViewController: UIViewController
     newOrderTextFieldStruct.myZip = zip.text!
     newOrderTextFieldStruct.myPhone = phone.text!
     newOrderTextFieldStruct.myEmail = email.text!
+		
+		
+		if(newOrderTextFieldStruct.submitOrder == true)
+		{
+			//dismissViewControllerAnimated(true, completion: nil)
+		
+		}
   }
   
   /* New Order Page: Bike Information. This section denotes the variables
@@ -103,9 +111,11 @@ class ViewController: UIViewController
   @IBOutlet weak var tagNumber: UITextField!
   
   
-  //Takes the user back to the Home Page
+  /*Submits the post request with all of the appropiate fields and then
+	* returns back to the Home Page. */
   @IBAction func OrderCompleteSubmitButtonTop(sender: AnyObject)
 	{
+		newOrderTextFieldStruct.submitOrder = true
     let MyParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
       "tagNum":tagNumber.text!,
       "notes":notes.text!]
@@ -128,7 +138,8 @@ class ViewController: UIViewController
       print("got an error creating the request: \(error)")
     }
     /* takes the user back a page... NEED TO FIX THIS TO GO BACK TO HOME PAGE. */
-    dismissViewControllerAnimated(true, completion: nil)
+		self.presentingViewController; self.dismissViewControllerAnimated(true, completion:nil)
+    //dismissViewControllerAnimated(true, completion: nil)
   }
   
   /* Made to set the text pre-populated in the text
