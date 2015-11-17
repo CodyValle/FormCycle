@@ -1,53 +1,73 @@
 <?php
-	function pushWorkOrder() {
-		include 'customer.php';
+	/*
+	File: workOrder.php
+	Short: Performs all needed functions that deal with work orders.
+	Long: Able to add a work order to the database.
+	*/
+	
+	/*
+	Function: pushWorkOrder
+	Descrip: Utilizes the $clean array to add a work order to the database.
+	*/
+	function pushWorkOrder()
+	{
 		include 'filter.php';
+		include 'customer.php';
+		include 'bike.php';
 		
-		if (!checkCustExists($clean))
-			sendCustInfo($clean);
-		
-		sendWorkOrderInfo($clean);
+		// Sends customer information. Most importantly, adds custid to $clean.
+		if (!sendCustInfo($clean))
+			die("CST");
+		// Sends bike information. Most importanlty, add bikeid to $clean.
+		if (!sendBikeInfo($clean))
+			die("BIK");
+		// Sends the work order information.
+		if (sendWorkOrderInfo($clean))
+			die("ORD");
 	}
 	
-	function sendWorkOrderInfo(&$clean) {
-		include 'loginCapstone.php';
-		
-		mysqli_query($con, "insert into WorkOrderData (open, tune, workid, custid, bikeid) values ('" . $clean[open] . "','" . $clean[tune] . "',UNHEX(REPLACE(UUID(), '-', '')),'" . $clean[custid] . "', UNHEX(REPLACE(UUID(), '-', '')));");
-		
-		getWorkID($clean);
-		
-		$string .= "insert into WorkOrderNotes (pre, post, workid) values ('". $clean[pre] . "','" . $clean[post] . "',UNHEX(REPLACE(UUID(), '-', '')));";
-		
-		if (!mysqli_multi_query($con, $string))
-			print(mysqli_connect_error());
-
-		mysqli_close();
-	}
-	
-	function getWorkID(&$clean)
+	/*
+	Function: sendWorkOrderInfo
+	Descrip: Adds the work order information to the database.
+	*/
+	function sendWorkOrderInfo(&$clean)
 	{
 		include 'loginCapstone.php';
 		
-		// Get the customer's handle
-		$guid = mysqli_query($con, "select HEX(workid) from CustData where open='" . $clean[open] . "' and tune='" . $clean[lname] . "' and address='" . $clean[address] . "' and city='" . $clean[city] . "' and phone='" . $clean[phone] . "' and email='" . $clean[email] . "';");
-		if (mysqli_num_rows($guid) < 1)
+		// Using the values in the clean array, send a MySQL statement to insert
+		// the work order into the WorkOrderData table.
+		if (mysqli_query($con, "insert into WorkOrderData
+								(open, tune, workid, custid, bikeid)
+								values
+								('" . $clean['open'] . "',
+								 '" . $clean['tune'] . "',
+								 UNHEX(REPLACE(UUID(),'-','')),
+								 '" . $clean['custid'] . "',
+								 '" . $clean['bikeid'] . "');"))
 		{
-			// Customer is not found
-			/* Options:
-				- send the data
-				- return failure
-				*/
-			print("Customer not found");
-			return "";
+			// Get the workid
+			$guid = mysqli_query($con, "select workid from WorkOrderData where
+										rowid='" . $con->insert_id . "';");
+			
+			// Put the workid into the clean array.
+			// *****This code could use som ecleaning up*******
+			$row = mysqli_fetch_assoc($guid);
+			
+			foreach ($row as $cname => $cvalue)
+				$clean['workid'] = $cvalue;
+				
+			// Push the work order notes into the WorkOrderNotes table
+			if (!mysqli_query($con, "insert into WorkOrderNotes
+									(pre, post, workid)
+									values
+									('". $clean['pre'] . "',
+									 '" . $clean['post'] . "',
+									 '" . $clean['workid'] . "');"))
+				die("WRK");
+				
+			return true;
 		}
-		else if (mysqli_num_rows($guid) > 1)
-		{
-			print("Multiple customers..."); // This should not happen
-		}
-		
-		$row = mysqli_fetch_assoc($guid);
-		
-		foreach ($row as $cname => $cvalue)
-			$clean[custid] = $cvalue;
+
+		return false;
 	}
 ?>

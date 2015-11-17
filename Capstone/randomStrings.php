@@ -1,4 +1,16 @@
 <?php
+	/*
+	File: randomStrings.php
+	Short: Creates random strings.
+	Long: Creates random strings that consist of specified junk.
+	*/
+	
+	/*
+	Function: RandomString
+	Param length: The length of the desired string.
+	Descrip: Creates a 'length' long string consisting of numbers, capital letters,
+	and lower case letters.
+	*/
 	function RandomString($length = 10)
 	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -9,6 +21,11 @@
 		return $randomString;
 	}
 	
+	/*
+	Function: RandomNumericString
+	Param length: The length of the desired string.
+	Descrip: Creates a 'length' long string consisting of numbers.
+	*/
 	function RandomNumericString($length = 10)
 	{
 		$characters = '0123456789';
@@ -19,6 +36,12 @@
 		return $randomString;
 	}
 	
+	/*
+	Function: RandomAlphaString
+	Param length: The length of the desired string.
+	Descrip: Creates a 'length' long string consisting of capital letters
+	and lower case letters.
+	*/
 	function RandomAlphaString($length = 10)
 	{
 		$characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

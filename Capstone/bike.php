@@ -3,7 +3,10 @@
 	{
 		include 'loginCapstone.php';
 
-		$test = mysqli_query($con, "select bikeid from BikeData where brand='" . $clean['brand'] . "' and model='" . $clean['model'] . "' and color='" . $clean['color'] . "';");
+		$test = mysqli_query($con, "select bikeid from BikeData where
+									brand='" . $clean['brand'] . "'
+									and model='" . $clean['model'] . "'
+									and color='" . $clean['color'] . "';");
 		
 		$num = mysqli_num_rows($test);
 		if ($num < 1)
@@ -24,9 +27,15 @@
 			return insertBikeNotes($clean);
 		}
 		
-		if (mysqli_query($con, "insert into BikeData (brand, model, color, bikeid) values ('" . $clean['brand'] . "','" . $clean['model'] . "','" . $clean['color'] . "', UNHEX(REPLACE(UUID(), '-', '')));"))
+		if (mysqli_query($con, "insert into BikeData (brand, model, color, bikeid)
+								values
+								('" . $clean['brand'] . "',
+								 '" . $clean['model'] . "',
+								 '" . $clean['color'] . "',
+								 UNHEX(REPLACE(UUID(), '-', '')));"))
 		{
-			$guid = mysqli_query($con, "select bikeid from BikeData where rowid='" . $con->insert_id . "';");
+			$guid = mysqli_query($con, "select bikeid from BikeData where
+										rowid='" . $con->insert_id . "';");
 			
 			$clean['bikeid'] = getBikeID($guid);
 			
@@ -40,7 +49,10 @@
 	function insertBikeNotes(&$clean)
 	{
 		include 'loginCapstone.php';
-		return mysqli_query($con, "insert into BikeNoteData (bikeid, notes) values ('" . $clean['bikeid'] . "','" . $clean['notes'] . "');");
+		return mysqli_query($con, "insert into BikeNoteData (bikeid, notes)
+									values
+									('" . $clean['bikeid'] . "',
+									 '" . $clean['notes'] . "');");
 	}
 	
 	function getBikeID($record)
