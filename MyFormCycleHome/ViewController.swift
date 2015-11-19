@@ -100,11 +100,11 @@ class ViewController: UIViewController
     newOrderTextFieldStruct.myEmail = email.text!
 		
 		
-		if(newOrderTextFieldStruct.submitOrder == true)
+		/*if(newOrderTextFieldStruct.submitOrder == true)
 		{
 			//dismissViewControllerAnimated(true, completion: nil)
 		
-		}
+		}*/
   }
 //***************************************************************************
     
