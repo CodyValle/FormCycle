@@ -14,6 +14,7 @@
 		14ADDC091BEC5510005ECABA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC071BEC5510005ECABA /* Main.storyboard */; };
 		14ADDC0B1BEC5510005ECABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0A1BEC5510005ECABA /* Assets.xcassets */; };
 		14ADDC0E1BEC5510005ECABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */; };
+		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,13 @@
 			remoteGlobalIDString = 6BFD901519C8D8B500DD99B6;
 			remoteInfo = SwiftHTTP;
 		};
+		8FAA46EF1BFE5ABD00E39874 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14ADDBF81BEC5510005ECABA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14ADDBFF1BEC5510005ECABA;
+			remoteInfo = MyFormCycleHome;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +85,9 @@
 		14ADDC0A1BEC5510005ECABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ADDC0D1BEC5510005ECABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14ADDC0F1BEC5510005ECABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FAA46EA1BFE5ABD00E39874 /* MyFormCycleHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFormCycleHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormCycleHomeTests.swift; sourceTree = "<group>"; };
+		8FAA46EE1BFE5ABD00E39874 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +96,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FAA46E71BFE5ABD00E39874 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +125,7 @@
 			children = (
 				14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */,
 				14ADDC021BEC5510005ECABA /* MyFormCycleHome */,
+				8FAA46EB1BFE5ABD00E39874 /* MyFormCycleHomeTests */,
 				14ADDC011BEC5510005ECABA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				14ADDC001BEC5510005ECABA /* MyFormCycleHome.app */,
+				8FAA46EA1BFE5ABD00E39874 /* MyFormCycleHomeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +150,15 @@
 				14ADDC0F1BEC5510005ECABA /* Info.plist */,
 			);
 			path = MyFormCycleHome;
+			sourceTree = "<group>";
+		};
+		8FAA46EB1BFE5ABD00E39874 /* MyFormCycleHomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */,
+				8FAA46EE1BFE5ABD00E39874 /* Info.plist */,
+			);
+			path = MyFormCycleHomeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +183,24 @@
 			productReference = 14ADDC001BEC5510005ECABA /* MyFormCycleHome.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8FAA46E91BFE5ABD00E39874 /* MyFormCycleHomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FAA46F61BFE5ABD00E39874 /* Build configuration list for PBXNativeTarget "MyFormCycleHomeTests" */;
+			buildPhases = (
+				8FAA46E61BFE5ABD00E39874 /* Sources */,
+				8FAA46E71BFE5ABD00E39874 /* Frameworks */,
+				8FAA46E81BFE5ABD00E39874 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FAA46F01BFE5ABD00E39874 /* PBXTargetDependency */,
+			);
+			name = MyFormCycleHomeTests;
+			productName = MyFormCycleHomeTests;
+			productReference = 8FAA46EA1BFE5ABD00E39874 /* MyFormCycleHomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -167,6 +214,11 @@
 					14ADDBFF1BEC5510005ECABA = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 6VTPDG2HNK;
+					};
+					8FAA46E91BFE5ABD00E39874 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = V4G46U8Q3F;
+						TestTargetID = 14ADDBFF1BEC5510005ECABA;
 					};
 				};
 			};
@@ -190,6 +242,7 @@
 			projectRoot = "";
 			targets = (
 				14ADDBFF1BEC5510005ECABA /* MyFormCycleHome */,
+				8FAA46E91BFE5ABD00E39874 /* MyFormCycleHomeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +289,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8FAA46E81BFE5ABD00E39874 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -248,6 +308,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8FAA46E61BFE5ABD00E39874 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -255,6 +323,11 @@
 			isa = PBXTargetDependency;
 			name = SwiftHTTP;
 			targetProxy = 14A0F8741BF2D5680077CFAD /* PBXContainerItemProxy */;
+		};
+		8FAA46F01BFE5ABD00E39874 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14ADDBFF1BEC5510005ECABA /* MyFormCycleHome */;
+			targetProxy = 8FAA46EF1BFE5ABD00E39874 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -391,6 +464,30 @@
 			};
 			name = Release;
 		};
+		8FAA46F11BFE5ABD00E39874 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyFormCycleHomeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.MyFormCycleHomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFormCycleHome.app/MyFormCycleHome";
+			};
+			name = Debug;
+		};
+		8FAA46F21BFE5ABD00E39874 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyFormCycleHomeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.MyFormCycleHomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFormCycleHome.app/MyFormCycleHome";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -408,6 +505,15 @@
 			buildConfigurations = (
 				14ADDC131BEC5510005ECABA /* Debug */,
 				14ADDC141BEC5510005ECABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FAA46F61BFE5ABD00E39874 /* Build configuration list for PBXNativeTarget "MyFormCycleHomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FAA46F11BFE5ABD00E39874 /* Debug */,
+				8FAA46F21BFE5ABD00E39874 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
