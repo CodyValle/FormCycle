@@ -87,7 +87,7 @@ class ViewController: UIViewController
    */
   //MARK: Variables and functions for Customer Information Page.
   @IBAction func submitCustInfo(sender: AnyObject)
-  {/*
+  {
     
     newOrderTextFieldStruct.firstName = fname.text! + " "
     newOrderTextFieldStruct.lastName = lname.text! + " "
@@ -97,7 +97,7 @@ class ViewController: UIViewController
     newOrderTextFieldStruct.myState = state.text! + " "
     newOrderTextFieldStruct.myZip = zip.text!
     newOrderTextFieldStruct.myPhone = phone.text!
-    newOrderTextFieldStruct.myEmail = email.text!*/
+    newOrderTextFieldStruct.myEmail = email.text!
   }
 //***************************************************************************
     
@@ -218,6 +218,16 @@ class ViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+//********************* PRACTICE TEST FUNCTIONS *********************
+    
+    func somefuncReturnsTrue() -> Bool {
+    return true
+    }
+    func funcDoesntExistsYet() {
+ //   @IBOutlet weak int x = 25
+    }
+    
+//*******************************************************************
     
 }
 
