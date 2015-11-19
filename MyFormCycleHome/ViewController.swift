@@ -74,7 +74,11 @@ class ViewController: UIViewController
     static var myZip = ""
     static var myPhone = ""
     static var myEmail = ""
-		static var submitOrder = false
+    static var myBrand = ""
+    static var myModel = ""
+    static var myColor = ""
+    static var myNotes = ""
+    static var myTagNumber = ""
   }
   
     
@@ -116,11 +120,16 @@ class ViewController: UIViewController
   @IBOutlet weak var tagNumber: UITextField!
   
   
-  /*Submits the post request with all of the appropiate fields and then
-	* returns back to the Home Page. */
-  @IBAction func OrderCompleteSubmitButtonTop(sender: AnyObject)
+  //Takes the user back to the Home Page
+  @IBAction func OrderCompleteSubmitButtonTop(sender: UIBarButtonItem)
 	{
-		newOrderTextFieldStruct.submitOrder = true
+      /*
+        newOrderTextFieldStruct.myBrand = brand.text! + " "
+        newOrderTextFieldStruct.myModel = model.text! + " "
+        newOrderTextFieldStruct.myColor = color.text!
+        newOrderTextFieldStruct.myNotes = notes.text!
+        newOrderTextFieldStruct.myTagNumber = tagNumber.text!
+        */
     let MyParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
       "tagNum":tagNumber.text!,
       "notes":notes.text!]

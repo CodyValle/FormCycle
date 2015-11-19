@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8FAA46E91BFE5ABD00E39874"
+               BuildableName = "MyFormCycleHomeTests.xctest"
+               BlueprintName = "MyFormCycleHomeTests"
+               ReferencedContainer = "container:MyFormCycleHome.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
