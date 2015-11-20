@@ -21,7 +21,7 @@ class ViewController: UIViewController
   @IBOutlet weak var USRTextField: UITextField!
   @IBOutlet weak var PWDTextField: UITextField!
 	
-	/* Function to allow the user a secret link to This Bike Life's Webpage.
+	/* Function to allow the user a secret link to "This Bike Life's" Webpage.
   *  We just wanted to have some fun and see if anyone finds this easter egg. 
 	*/
 	@IBAction func myLogoWebpageLink(sender: AnyObject) {
