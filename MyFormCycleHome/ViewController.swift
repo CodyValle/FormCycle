@@ -206,6 +206,29 @@ class ViewController: UIViewController
             newOrderTextFieldStruct.myColor = color.text!
             newOrderTextFieldStruct.myNotes = notes.text!
             newOrderTextFieldStruct.myTagNumber = tagNumber.text!
+           
+            let MyParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":newOrderTextFieldStruct.myBrand, "model":newOrderTextFieldStruct.myModel, "color":newOrderTextFieldStruct.myColor,
+                "tagNum":newOrderTextFieldStruct.myTagNumber,
+                "notes":newOrderTextFieldStruct.myNotes]
+            do
+            {
+                let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+                opt.start
+                    {
+                        response in
+                        if let error = response.error
+                        {
+                            print("got an error: \(error)")
+                            return
+                        }
+                        print(response.text!)
+                }
+            }
+            catch let error
+            {
+                print("got an error creating the request: \(error)")
+            }
+
             
         }
         if segue.identifier == "loadCustomerInfo"{
