@@ -169,6 +169,7 @@ class ViewController: UIViewController
     
 //*********************** LOAD INVOICE PAGE *******************************
     
+    
     @IBOutlet weak var invNotes: UILabel!
     @IBOutlet weak var invTagNum: UILabel!
     @IBOutlet weak var makeModelColor: UILabel!
@@ -196,7 +197,9 @@ class ViewController: UIViewController
     
     //MARK: Pre-Defined functions
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+    
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -229,6 +232,7 @@ class ViewController: UIViewController
                 print("got an error creating the request: \(error)")
             }
 
+            
             
         }
         if segue.identifier == "loadCustomerInfo"{
