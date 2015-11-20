@@ -45,6 +45,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <state key="normal" backgroundImage="img1"/>
+                                <connections>
+                                    <action selector="myLogoWebpageLink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wss-2Q-Dis"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8O-mX-PsH">
                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
@@ -917,6 +920,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ucj-7w-5JU"/>
-        <segue reference="g8R-MP-6NT"/>
+        <segue reference="Zok-Ro-m6E"/>
     </inferredMetricsTieBreakers>
 </document>

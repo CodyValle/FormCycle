@@ -11,6 +11,7 @@ import SwiftHTTP
 
 class ViewController: UIViewController
 {
+	
 //******************** SIGN IN PAGE *****************************************
   /* This is the Login Page which will be implemented at a later date. 
    * Due to this, the section referred to as MARK: Login Page text and Server Request
@@ -19,6 +20,16 @@ class ViewController: UIViewController
   //MARK: Login Page text and Server Request
   @IBOutlet weak var USRTextField: UITextField!
   @IBOutlet weak var PWDTextField: UITextField!
+	
+	/* Function to allow the user a secret link to This Bike Life's Webpage.
+  *  We just wanted to have some fun and see if anyone finds this easter egg. 
+	*/
+	@IBAction func myLogoWebpageLink(sender: AnyObject) {
+		if let url = NSURL(string: "http://www.thisbikelife.com") {
+			UIApplication.sharedApplication().openURL(url)
+		}
+	}
+	
   @IBAction func MyButton(sender: AnyObject)
   {/*
     let params = ["action": USRTextField.text!, "pwd": PWDTextField.text!]
