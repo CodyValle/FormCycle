@@ -199,7 +199,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Sfg-OH-txt" kind="presentation" id="ucj-7w-5JU"/>
+                                    <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" id="ucj-7w-5JU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -224,10 +224,10 @@
             </objects>
             <point key="canvasLocation" x="1053" y="300"/>
         </scene>
-        <!--View Controller-->
+        <!--newOrder-->
         <scene sceneID="oSN-g4-khG">
             <objects>
-                <viewController id="Sfg-OH-txt" customClass="ViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="newOrder" id="Sfg-OH-txt" customClass="ViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sz6-rN-D3h"/>
                         <viewControllerLayoutGuide type="bottom" id="zpl-jU-s03"/>
@@ -488,7 +488,7 @@
                                     <constraint firstAttribute="width" constant="272" id="wUu-vG-y8T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tix-kP-ASq">
                                 <rect key="frame" x="20" y="170" width="280" height="50"/>
@@ -498,16 +498,8 @@
                                     <constraint firstAttribute="width" constant="280" id="L9J-lJ-nVM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y4y-Sg-2fZ">
-                                <rect key="frame" x="20" y="261" width="560" height="319"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiW-Qa-spl">
                                 <rect key="frame" x="20" y="228" width="89" height="25"/>
                                 <animations/>
@@ -526,7 +518,7 @@
                                     <constraint firstAttribute="width" constant="272" id="dEE-Oo-0jx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ccn-nr-UQM">
                                 <rect key="frame" x="20" y="112" width="280" height="50"/>
@@ -536,8 +528,16 @@
                                     <constraint firstAttribute="width" constant="280" id="roJ-9V-Qx1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y4y-Sg-2fZ">
+                                <rect key="frame" x="20" y="261" width="560" height="319"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -863,7 +863,6 @@
                                             <constraint firstAttribute="trailing" secondItem="qLU-cy-DDo" secondAttribute="trailing" id="Lgh-h9-eWi"/>
                                             <constraint firstItem="qLU-cy-DDo" firstAttribute="top" secondItem="8Fm-cW-ERp" secondAttribute="top" id="Mor-5a-JV5"/>
                                             <constraint firstItem="qLU-cy-DDo" firstAttribute="centerY" secondItem="8Fm-cW-ERp" secondAttribute="centerY" id="SJs-yk-CPU"/>
-                                            <constraint firstAttribute="bottom" secondItem="qLU-cy-DDo" secondAttribute="bottom" constant="100" id="Snj-on-mT0"/>
                                             <constraint firstItem="qLU-cy-DDo" firstAttribute="leading" secondItem="8Fm-cW-ERp" secondAttribute="leading" id="V76-hB-wGd"/>
                                             <constraint firstAttribute="trailing" secondItem="qLU-cy-DDo" secondAttribute="trailing" id="Va6-Qy-TDZ"/>
                                             <constraint firstItem="qLU-cy-DDo" firstAttribute="centerX" secondItem="8Fm-cW-ERp" secondAttribute="centerX" id="bIV-Ky-Vfs"/>
@@ -941,7 +940,7 @@
         <image name="img1" width="87" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XuZ-s3-vGP"/>
         <segue reference="ucj-7w-5JU"/>
+        <segue reference="g8R-MP-6NT"/>
     </inferredMetricsTieBreakers>
 </document>
