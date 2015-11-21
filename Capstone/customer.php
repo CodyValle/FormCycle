@@ -5,7 +5,8 @@
 	Long: Contains functions to check whether the customer already exists in the
 	database and adds them to the database.
 	*/
-	
+class Customer
+{
 	/*
 	Function: custExists
 	Param clean: Reference to the array of URL variables that have been checked for
@@ -52,7 +53,7 @@
 	{
 		include 'loginCapstone.php';
 		
-		if (custExists($clean))
+		if ($this->custExists($clean))
 			return true;
 		
 		if (mysqli_query($con, "insert into CustData 
@@ -74,17 +75,18 @@
 			$guid = mysqli_query($con, "select custid from CustData where
 											rowid='" . $con->insert_id . "';");
 			
-			$clean['custid'] = getCustID($guid);
+			$clean['custid'] = $this->getCustID($guid);
 			
 			return true;
 		}
 
+		print(mysqli_error($con));
 		return false;
 	}
 	
 	/*
 	Function: getCustID
-	Param record:
+	Param record: 
 	Descrip:
 	*/
 	function getCustID($record)
@@ -94,4 +96,5 @@
 		foreach ($row as $cname => $cvalue)
 			return $cvalue;
 	}
+}
 ?>

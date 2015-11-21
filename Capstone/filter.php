@@ -7,9 +7,11 @@
 	expected values.
 	*/
 	
+	include_once 'debug.php';
+	
 	// Check that clean does not already exist.
 	if (!isset($clean))
-	{
+	{	
 		// Instantiate the clean array.
 		$clean = array();
 		
@@ -33,6 +35,11 @@
 		if (isset($_POST['address2']))
 			$clean[address2] = $_POST[address2];
 		else $clean['address2'] = "";
+		
+		// Check city
+		if (isset($_POST['city']))
+			$clean[city] = $_POST[city];
+		else $clean['city'] = "";
 		
 		// Check state
 		if (isset($_POST['state']))
@@ -70,6 +77,11 @@
 			$clean[color] = $_POST[color];
 		else $clean['color'] = "";
 		
+		// Check bike tag number
+		if (isset($_POST['tagNum']))
+			$clean[tagNum] = $_POST[tagNum];
+		else $clean['tagNum'] = "";
+		
 		// Check bike notes
 		if (isset($_POST['notes']))
 			$clean[notes] = $_POST[notes];
@@ -85,7 +97,16 @@
 		if (isset($_POST['post']))
 			$clean[post] = $_POST[post];
 		else $clean['post'] = "";
-		
+
+		if ($DEBUG)
+		{
+			print("***DEBUG SECTION***" . PHP_EOL);
+			
+			foreach ($clean as $key => $val)
+				print($key . ": " . $val . PHP_EOL);
+				
+			print("***END DEBUG SECTION***" . PHP_EOL);
+		}
 	
 	// Notes for reference
 		/*

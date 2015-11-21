@@ -24,7 +24,7 @@ address        varchar(255)    NOT NULL,
 address2       varchar(255), 
 city           varchar(255)    NOT NULL, 
 state          char(2)         NOT NULL, 
-country        char(2)         NOT NULL DEFAULT 'US', 
+country        char(3)         NOT NULL DEFAULT 'US', 
 zip            char(5)         NOT NULL, 
 phone          char(10)        NOT NULL, 
 email          varchar(255)    UNIQUE NOT NULL, 
@@ -79,13 +79,13 @@ KEY (workid)
 
 CREATE TABLE WorkOrderXTune ( 
 workid         binary(16)      NOT NULL, 
-tune           binary(16)      NOT NULL, 
+tune           int             NOT NULL, 
 KEY (workid), 
 KEY (tune) 
 ); 
  
 CREATE TABLE TuneData ( 
-tune           binary(16)      UNIQUE NOT NULL, 
+tune           int             UNIQUE NOT NULL, 
 name           varchar(255)    UNIQUE NOT NULL, 
 cost           float           NOT NULL DEFAULT '0.00', 
 time           float           NOT NULL DEFAULT '1.00', 

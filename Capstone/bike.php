@@ -1,4 +1,20 @@
 <?php
+	/*
+	File: bike.php
+	Short: Deals with all bike data interaction.
+	Long: Contains functions to check whether the bike already exists in the
+	database and adds it to the database.
+	*/
+	
+class Bike
+{
+	/*
+	Function: bikeExists
+	Param clean: Reference to the array of URL variables that have been checked for
+	valid values.
+	Descrip: Uses the variable values passed in to find an identical record. The
+	function returns true if a record is found.
+	*/
 	function bikeExists(&$clean)
 	{
 		include 'loginCapstone.php';
@@ -12,7 +28,7 @@
 		if ($num < 1)
 			return false;
 		
-		$clean['bikeid'] = getBikeID($guid);
+		$clean['bikeid'] = $this->getBikeID($guid);
 			
 		return true;
 	}
@@ -21,28 +37,30 @@
 	{
 		include 'loginCapstone.php';
 		
-		if (bikeExists($clean))
+		if ($this->bikeExists($clean))
 		{
 			// Insert notes data
-			return insertBikeNotes($clean);
+			return $this->insertBikeNotes($clean);
 		}
 		
-		if (mysqli_query($con, "insert into BikeData (brand, model, color, bikeid)
+		if (mysqli_query($con, "insert into BikeData (brand, model, color, custid, bikeid)
 								values
 								('" . $clean['brand'] . "',
 								 '" . $clean['model'] . "',
 								 '" . $clean['color'] . "',
+								 '" . $clean['custid'] . "',
 								 UNHEX(REPLACE(UUID(), '-', '')));"))
 		{
 			$guid = mysqli_query($con, "select bikeid from BikeData where
 										rowid='" . $con->insert_id . "';");
 			
-			$clean['bikeid'] = getBikeID($guid);
+			$clean['bikeid'] = $this->getBikeID($guid);
 			
 			// Insert notes data
-			return insertBikeNotes($clean);
+			return $this->insertBikeNotes($clean);
 		}
 
+		print(mysqli_error($con));
 		return false;
 	}
 	
@@ -52,7 +70,7 @@
 		return mysqli_query($con, "insert into BikeNoteData (bikeid, notes)
 									values
 									('" . $clean['bikeid'] . "',
-									 '" . $clean['notes'] . "');");
+									 '" . $clean['notes'] . "');") or die(mysqli_error($con));;
 	}
 	
 	function getBikeID($record)
@@ -62,4 +80,5 @@
 		foreach ($row as $cname => $cvalue)
 			return $cvalue;
 	}
+}
 ?>
