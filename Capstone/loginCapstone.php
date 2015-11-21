@@ -16,4 +16,5 @@
 		// Check conection success
 		if ($con->connect_error) { die("CON"); } // Database connection error
 	}
+	else die("OLDCON");
 ?>

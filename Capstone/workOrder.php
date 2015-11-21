@@ -4,7 +4,8 @@
 	Short: Performs all needed functions that deal with work orders.
 	Long: Able to add a work order to the database.
 	*/
-	
+class WorkOrder
+{
 	/*
 	Function: pushWorkOrder
 	Descrip: Utilizes the $clean array to add a work order to the database.
@@ -15,15 +16,20 @@
 		include 'customer.php';
 		include 'bike.php';
 		
+		$cust = new Customer;
+		$bike = new Bike;
+		
 		// Sends customer information. Most importantly, adds custid to $clean.
-		if (!sendCustInfo($clean))
+		if (!$cust->sendCustInfo($clean))
 			die("CST");
-		// Sends bike information. Most importanlty, add bikeid to $clean.
-		if (!sendBikeInfo($clean))
+		// Sends bike information. Most importantly, add bikeid to $clean.
+		if (!$bike->sendBikeInfo($clean))
 			die("BIK");
 		// Sends the work order information.
-		if (sendWorkOrderInfo($clean))
+		if (!$this->sendWorkOrderInfo($clean))
 			die("ORD");
+		
+		return true;
 	}
 	
 	/*
@@ -37,10 +43,9 @@
 		// Using the values in the clean array, send a MySQL statement to insert
 		// the work order into the WorkOrderData table.
 		if (mysqli_query($con, "insert into WorkOrderData
-								(open, tune, workid, custid, bikeid)
+								(open, workid, custid, bikeid)
 								values
 								('" . $clean['open'] . "',
-								 '" . $clean['tune'] . "',
 								 UNHEX(REPLACE(UUID(),'-','')),
 								 '" . $clean['custid'] . "',
 								 '" . $clean['bikeid'] . "');"))
@@ -50,7 +55,7 @@
 										rowid='" . $con->insert_id . "';");
 			
 			// Put the workid into the clean array.
-			// *****This code could use som ecleaning up*******
+			// *****This code could use some cleaning up*******
 			$row = mysqli_fetch_assoc($guid);
 			
 			foreach ($row as $cname => $cvalue)
@@ -60,14 +65,29 @@
 			if (!mysqli_query($con, "insert into WorkOrderNotes
 									(pre, post, workid)
 									values
-									('". $clean['pre'] . "',
+									('" . $clean['pre'] . "',
 									 '" . $clean['post'] . "',
 									 '" . $clean['workid'] . "');"))
-				die("WRK");
+				die("WRKNOTES");
 				
 			return true;
 		}
 
+		print(mysqli_error($con));
 		return false;
 	}
+	
+	function addTune(&$clean, $tune)
+	{
+		include 'loginCapstone.php';
+		
+		if (!mysqli_query($con, "insert into WorkOrderXTune
+								(workid, tune)
+								values
+								('" . $clean['workid'] . "',
+								 '" . $tune . "');"))
+			die("ADDTUNE");
+			
+	}
+}
 ?>

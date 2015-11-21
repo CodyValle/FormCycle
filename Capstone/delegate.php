@@ -7,26 +7,21 @@
 	*/
 	
 	include_once 'regexes.php';
-
 	// Checks to see if the request is POST.
-	if (!(_SERVER['REQUEST_METHOD'] === 'POST')) die("POST");
+	if (!($_SERVER['REQUEST_METHOD'] === 'POST')) die("POST");
 	
 	// Checks whether 'action' is set and is using allowed characters.
 	if (isset($_POST[action]) && isAlphaNumeric($_POST[action]))
 	{
+		$ret = false;
 		// Checks 'action' against multiple cases.
 		switch ($_POST[action])
 		{
-		/*
-		case "pushCustInfo":
-			include 'pushCustInfo.php';
-			pushCustInfo();
-			break;
-		*/	
 		case "workOrder":
 			// Pushes a work order to the database.
 			include 'workOrder.php';
-			pushWorkOrder();
+			$wo = new WorkOrder;
+			$ret = $wo->pushWorkOrder();
 			break;
 		
 		case "clean":
@@ -41,6 +36,8 @@
 		}
 		
 		if ($con) mysqli_close();
+		if ($ret) print("SUC");
+		else print("ERR");
 	}
 	else print "INV"; // 'action' variable DNE
 ?>
