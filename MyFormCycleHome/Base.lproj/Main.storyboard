@@ -125,7 +125,7 @@
         <!--View Controller-->
         <scene sceneID="SEe-e6-ugc">
             <objects>
-                <viewController id="Vah-XA-teY" sceneMemberID="viewController">
+                <viewController id="Vah-XA-teY" customClass="ViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i5f-tu-YnZ"/>
                         <viewControllerLayoutGuide type="bottom" id="ZFy-wW-KSF"/>
