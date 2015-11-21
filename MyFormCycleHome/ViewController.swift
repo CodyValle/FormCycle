@@ -6,11 +6,13 @@
 //  Copyright © 2015 Merrill Lines and FormCycle. All rights reserved.
 //
 
+
 import UIKit
 import SwiftHTTP
 
-class ViewController: UIViewController
+class ViewController: UIViewController, UITextFieldDelegate
 {
+	
 	
 //******************** SIGN IN PAGE *****************************************
   /* This is the Login Page which will be implemented at a later date. 
@@ -90,6 +92,9 @@ class ViewController: UIViewController
     static var myColor = ""
     static var myNotes = ""
     static var myTagNumber = ""
+		static var neworderpage = false
+		static var bikeInfoPage = false
+		
   }
   
     
@@ -134,13 +139,6 @@ class ViewController: UIViewController
   //Takes the user back to the Home Page
   @IBAction func OrderCompleteSubmitButtonTop(sender: UIBarButtonItem)
 	{
-      /*
-        newOrderTextFieldStruct.myBrand = brand.text! + " "
-        newOrderTextFieldStruct.myModel = model.text! + " "
-        newOrderTextFieldStruct.myColor = color.text!
-        newOrderTextFieldStruct.myNotes = notes.text!
-        newOrderTextFieldStruct.myTagNumber = tagNumber.text!
-        */
     let MyParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
       "tagNum":tagNumber.text!,
       "notes":notes.text!]
@@ -204,16 +202,105 @@ class ViewController: UIViewController
     
 //*************************************************************************
     
-    
+	
     
     //MARK: Pre-Defined functions
     override func viewDidLoad() {
-        
-        super.viewDidLoad()
+			super.viewDidLoad()
+			if newOrderTextFieldStruct.neworderpage == true
+			{
+				fname.delegate = self
+				lname.delegate = self
+				address.delegate = self
+				address2.delegate = self
+				city.delegate = self
+				state.delegate = self
+				zip.delegate = self
+				phone.delegate = self
+				email.delegate = self
+			}
+			else if newOrderTextFieldStruct.bikeInfoPage == true
+			{
+				brand.delegate = self
+				model.delegate = self
+				color.delegate = self
+				tagNumber.delegate = self
+				
+				
+			}
     
         // Do any additional setup after loading the view, typically from a nib.
     }
+	
+
+	
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		if (textField === fname)
+		{
+			lname.becomeFirstResponder()
+		}
+		else if (textField === lname)
+		{
+				address.becomeFirstResponder()
+		}
+		else if (textField === address)
+		{
+			address2.becomeFirstResponder()
+		}
+		else if (textField === address2)
+		{
+			city.becomeFirstResponder()
+		}
+		else if (textField === city)
+		{
+			state.becomeFirstResponder()
+		}
+		else if (textField === state)
+		{
+			zip.becomeFirstResponder()
+		}
+		else if (textField === zip)
+		{
+			phone.becomeFirstResponder()
+		}
+		else if (textField === phone)
+		{
+			email.becomeFirstResponder()
+		}
+		else if (textField === email)
+		{
+			email.resignFirstResponder()
+		}
+		
+		else if(textField == brand)
+		{
+			model.becomeFirstResponder()
+		}
+		else if(textField == model)
+		{
+			color.becomeFirstResponder()
+		}
+		else if(textField == color)
+		{
+			tagNumber.becomeFirstResponder()
+		}
+		else if(textField == tagNumber)
+		{
+			tagNumber.resignFirstResponder()
+		}
+	
+		return true
+	}
+	
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+			newOrderTextFieldStruct.neworderpage = false
+			newOrderTextFieldStruct.bikeInfoPage = false
+			if segue.identifier == "moveToCustInfo"
+			{
+				newOrderTextFieldStruct.neworderpage = true
+				
+			}
+			
         if segue.identifier == "moveToInvoice"{
             newOrderTextFieldStruct.myBrand = brand.text! + " "
             newOrderTextFieldStruct.myModel = model.text! + " "
@@ -244,9 +331,10 @@ class ViewController: UIViewController
             }
 
             
-            
+					
         }
         if segue.identifier == "loadCustomerInfo"{
+					newOrderTextFieldStruct.bikeInfoPage = true;
             newOrderTextFieldStruct.firstName = fname.text! + " "
             newOrderTextFieldStruct.lastName = lname.text! + " "
             newOrderTextFieldStruct.myAddress = address.text! + " "
