@@ -51,4 +51,19 @@
 			$randomString .= $characters[rand(0, $charactersLength - 1)];
 		return $randomString;
 	}
+	
+	/*
+	Function: RandomUpperAlphaString
+	Param length: The length of the desired string.
+	Descrip: Creates a 'length' long string consisting of capital letters.
+	*/
+	function RandomUpperAlphaString($length = 10)
+	{
+		$characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < $length; $i++)
+			$randomString .= $characters[rand(0, $charactersLength - 1)];
+		return $randomString;
+	}
 ?>
