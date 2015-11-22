@@ -1,3 +1,6 @@
+
+Updated the newest version of master. Merged in my nextTextField branch. Please do a pull request with you local versions as I have udated some features in the code. -Merrill 11/21
+
 ***INSTRUCTIONS FOR DOWNLOADING AND UPLOADING PHP FILES
 
 In order to pull from the server use the Server CoPy command: scp
