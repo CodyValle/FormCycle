@@ -296,9 +296,12 @@ class ViewController: UIViewController, UITextFieldDelegate
   }
 	
 	
-  //***************
-	// Dismiss the keyboard when the user taps the "Return" key or its equivalent
-	// while editing a text field.
+	/* Checks which text box is currently in the view of the user. Then
+	*  will either set the next appropiate text box that should be active
+	*  or dismisses the keyboard if at the last text box.
+	*  Dismiss the keyboard when the user taps the "Return" key or its equivalent
+	* while editing a text field.
+  */
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
 		print("Inside text return")
 		print(newOrderTextFieldStruct.neworderpage)
@@ -338,7 +341,6 @@ class ViewController: UIViewController, UITextFieldDelegate
 		{
 			email.resignFirstResponder()
 		}
-		
 		else if(textField == brand)
 		{
 			model.becomeFirstResponder()
@@ -359,6 +361,9 @@ class ViewController: UIViewController, UITextFieldDelegate
 		return true
 	}
 	
+	  /* Overrides the seque function which allows us to preload pages with
+    *  with text before loading the page.
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 			newOrderTextFieldStruct.neworderpage = false
 			newOrderTextFieldStruct.bikeInfoPage = false
