@@ -114,13 +114,6 @@ class ViewController: UIViewController, UITextFieldDelegate
     newOrderTextFieldStruct.myZip = zip.text!
     newOrderTextFieldStruct.myPhone = phone.text!
     newOrderTextFieldStruct.myEmail = email.text!
-		
-		
-		/*if(newOrderTextFieldStruct.submitOrder == true)
-		{
-			//dismissViewControllerAnimated(true, completion: nil)
-		
-		}*/
   }
 //***************************************************************************
     
