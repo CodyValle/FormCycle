@@ -1,5 +1,5 @@
 
-Updated the newest version of master. Merged in my nextTextField branch. Please do a pull request with you local versions as I have udated some features in the code. -Merrill 11/21
+Updated the newest version of master. Merged in my nextTextField branch. Please do a pull request with you local versions as I have updated some features in the code. -Merrill 11/21
 
 ***INSTRUCTIONS FOR DOWNLOADING AND UPLOADING PHP FILES
 
@@ -17,7 +17,7 @@ To upload, just reverse the order of the folders. Like this:
 
 scp -r ./Capstone codyv@107.170.219.218:/var/www/html/Capstone
 
-***END INSTRUCTIONS
+***END INSTRUCTIONS -Cody 11/21
 
 
 I created a bug fixes branch. I will be fixing issues #23, #22, #16, and #15. - John 11/21
