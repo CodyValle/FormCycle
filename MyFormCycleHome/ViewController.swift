@@ -154,7 +154,7 @@ class ViewController: UIViewController, UITextFieldDelegate
       print("got an error creating the request: \(error)")
     }
     /* takes the user back a page... NEED TO FIX THIS TO GO BACK TO HOME PAGE. */
-		self.presentingViewController; self.dismissViewControllerAnimated(true, completion:nil)
+		//self.presentingViewController; self.dismissViewControllerAnimated(true, completion:nil)
     //dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -165,6 +165,7 @@ class ViewController: UIViewController, UITextFieldDelegate
   @IBAction func backToCustInfo(sender: AnyObject) {
     
     dismissViewControllerAnimated(true, completion: nil)
+		newOrderTextFieldStruct.neworderpage = true
     
   }
  //************************************************************************

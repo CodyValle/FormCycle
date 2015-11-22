@@ -458,7 +458,6 @@
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="backToCustInfo:" destination="WuO-xh-qv8" id="rBV-2H-70B"/>
-                                                <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" id="X8y-wh-a8q"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="vrJ-S7-Yyd">
@@ -942,6 +941,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="g8R-MP-6NT"/>
-        <segue reference="X8y-wh-a8q"/>
+        <segue reference="ucj-7w-5JU"/>
     </inferredMetricsTieBreakers>
 </document>
