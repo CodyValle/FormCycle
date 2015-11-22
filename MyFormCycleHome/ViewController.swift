@@ -229,32 +229,7 @@ class ViewController: UIViewController, UITextFieldDelegate
         // Do any additional setup after loading the view, typically from a nib.
     }
 	
-//**************
-	
-	
-  // Designate this class as the text fields' delegate
-  // and set their keyboards while we're at it.
-//  func initializeTextFields() {
-//		vowelsOnlyTextField.delegate = self
-//		vowelsOnlyTextField.keyboardType = UIKeyboardType.ASCIICapable
-//		
-//		noVowelsTextField.delegate = self
-//		noVowelsTextField.keyboardType = UIKeyboardType.ASCIICapable
-//		
-//		digitsOnlyTextField.delegate = self
-//		digitsOnlyTextField.keyboardType = UIKeyboardType.NumberPad
-//		
-//		numericOnlyTextField.delegate = self
-//		numericOnlyTextField.keyboardType = UIKeyboardType.NumbersAndPunctuation
-//		
-//		positiveIntegersOnlyTextField.delegate = self
-//		positiveIntegersOnlyTextField.keyboardType = UIKeyboardType.DecimalPad
-//  }
-	
-//  override func didReceiveMemoryWarning() {
-//		super.didReceiveMemoryWarning()
-//  }
-	
+	//**************
   // Tap outside a text field to dismiss the keyboard
   // ------------------------------------------------
   // By changing the underlying class of the view from UIView to UIControl,
@@ -266,7 +241,6 @@ class ViewController: UIViewController, UITextFieldDelegate
   
   
   // MARK: UITextFieldDelegate events and related methods
-  
   func textField(textField: UITextField,
 		shouldChangeCharactersInRange range: NSRange,
 		replacementString string: String)
@@ -321,7 +295,7 @@ class ViewController: UIViewController, UITextFieldDelegate
   }
 	
 	
-//***************
+  //***************
 	// Dismiss the keyboard when the user taps the "Return" key or its equivalent
 	// while editing a text field.
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
