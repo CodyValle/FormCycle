@@ -247,8 +247,7 @@ class ViewController: UIViewController, UITextFieldDelegate
 		replacementString string: String)
 		-> Bool
 	{
-		print("Inside textField")
-		print(newOrderTextFieldStruct.neworderpage)
+		
 		// We ignore any change that doesn't add characters to the text field.
 		// These changes are things like character deletions and cuts, as well
 		// as moving the insertion point.
@@ -303,8 +302,6 @@ class ViewController: UIViewController, UITextFieldDelegate
 	* while editing a text field.
   */
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
-		print("Inside text return")
-		print(newOrderTextFieldStruct.neworderpage)
 		if (textField === fname)
 		{
 			lname.becomeFirstResponder()
@@ -371,8 +368,6 @@ class ViewController: UIViewController, UITextFieldDelegate
 			{
 				
 				newOrderTextFieldStruct.neworderpage = true
-				print("Inside seque")
-				print(newOrderTextFieldStruct.neworderpage)
 				
 			}
 			
