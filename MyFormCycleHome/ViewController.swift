@@ -202,14 +202,18 @@ class ViewController: UIViewController, UITextFieldDelegate
 			super.viewDidLoad()
 			if newOrderTextFieldStruct.neworderpage == true
 			{
+				
 				fname.delegate = self
 				lname.delegate = self
 				address.delegate = self
 				address2.delegate = self
 				city.delegate = self
 				state.delegate = self
+				state.keyboardType = UIKeyboardType.Alphabet
 				zip.delegate = self
+				zip.keyboardType = UIKeyboardType.NumberPad
 				phone.delegate = self
+				phone.keyboardType = UIKeyboardType.NumberPad
 				email.delegate = self
 			}
 			else if newOrderTextFieldStruct.bikeInfoPage == true
@@ -225,8 +229,96 @@ class ViewController: UIViewController, UITextFieldDelegate
         // Do any additional setup after loading the view, typically from a nib.
     }
 	
-
+//**************
 	
+	
+  // Designate this class as the text fields' delegate
+  // and set their keyboards while we're at it.
+//  func initializeTextFields() {
+//		vowelsOnlyTextField.delegate = self
+//		vowelsOnlyTextField.keyboardType = UIKeyboardType.ASCIICapable
+//		
+//		noVowelsTextField.delegate = self
+//		noVowelsTextField.keyboardType = UIKeyboardType.ASCIICapable
+//		
+//		digitsOnlyTextField.delegate = self
+//		digitsOnlyTextField.keyboardType = UIKeyboardType.NumberPad
+//		
+//		numericOnlyTextField.delegate = self
+//		numericOnlyTextField.keyboardType = UIKeyboardType.NumbersAndPunctuation
+//		
+//		positiveIntegersOnlyTextField.delegate = self
+//		positiveIntegersOnlyTextField.keyboardType = UIKeyboardType.DecimalPad
+//  }
+	
+//  override func didReceiveMemoryWarning() {
+//		super.didReceiveMemoryWarning()
+//  }
+	
+  // Tap outside a text field to dismiss the keyboard
+  // ------------------------------------------------
+  // By changing the underlying class of the view from UIView to UIControl,
+  // the view can respond to events, including Touch Down, which is
+  // wired to this method.
+  @IBAction func userTappedBackground(sender: AnyObject) {
+		view.endEditing(true)
+  }
+  
+  
+  // MARK: UITextFieldDelegate events and related methods
+  
+  func textField(textField: UITextField,
+		shouldChangeCharactersInRange range: NSRange,
+		replacementString string: String)
+		-> Bool
+	{
+		// We ignore any change that doesn't add characters to the text field.
+		// These changes are things like character deletions and cuts, as well
+		// as moving the insertion point.
+		//
+		// We still return true to allow the change to take place.
+		if string.characters.count == 0 {
+			return true
+		}
+		
+		// Check to see if the text field's contents still fit the constraints
+		// with the new content added to it.
+		// If the contents still fit the constraints, allow the change
+		// by returning true; otherwise disallow the change by returning false.
+		let currentText = textField.text ?? ""
+		let prospectiveText = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
+  
+		switch textField {
+			
+			// Allow only upper-case letters in this field,
+			// and must have only 2 characters.
+		case state:
+			return prospectiveText.containsOnlyCharactersIn("ABCDEFGHIJKLMNOPQRSTUVWXYZ") &&
+				prospectiveText.characters.count <= 2
+			
+			// Allow only digits in this field,
+			// and limit its contents to 7, 10, or 11 characters.
+		case phone:
+			return prospectiveText.containsOnlyCharactersIn("0123456789") &&
+				prospectiveText.characters.count <= 10
+			
+			// Allow only digits in this field,
+			// and must have only 5 characters.
+		case zip:
+			return prospectiveText.containsOnlyCharactersIn("0123456789") &&
+				prospectiveText.characters.count <= 5
+			
+			
+		default:
+			return true
+		}
+		
+  }
+	
+	
+//***************
+	// Dismiss the keyboard when the user taps the "Return" key or its equivalent
+	// while editing a text field.
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
 		if (textField === fname)
 		{
