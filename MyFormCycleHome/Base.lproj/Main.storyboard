@@ -141,7 +141,7 @@
                                     <barButtonItem title="New Order" id="6Sm-hO-JRe">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="Sfg-OH-txt" kind="presentation" id="KrI-mq-kBE"/>
+                                            <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" id="KrI-mq-kBE"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="|" id="AcH-aI-8ge">
@@ -458,6 +458,7 @@
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="backToCustInfo:" destination="WuO-xh-qv8" id="rBV-2H-70B"/>
+                                                <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" id="X8y-wh-a8q"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="vrJ-S7-Yyd">
@@ -940,7 +941,7 @@
         <image name="img1" width="87" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ucj-7w-5JU"/>
         <segue reference="g8R-MP-6NT"/>
+        <segue reference="X8y-wh-a8q"/>
     </inferredMetricsTieBreakers>
 </document>

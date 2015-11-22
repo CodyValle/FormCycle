@@ -272,6 +272,8 @@ class ViewController: UIViewController, UITextFieldDelegate
 		replacementString string: String)
 		-> Bool
 	{
+		print("Inside textField")
+		print(newOrderTextFieldStruct.neworderpage)
 		// We ignore any change that doesn't add characters to the text field.
 		// These changes are things like character deletions and cuts, as well
 		// as moving the insertion point.
@@ -280,7 +282,8 @@ class ViewController: UIViewController, UITextFieldDelegate
 		if string.characters.count == 0 {
 			return true
 		}
-		
+		if newOrderTextFieldStruct.neworderpage == true
+		{
 		// Check to see if the text field's contents still fit the constraints
 		// with the new content added to it.
 		// If the contents still fit the constraints, allow the change
@@ -312,7 +315,9 @@ class ViewController: UIViewController, UITextFieldDelegate
 		default:
 			return true
 		}
-		
+			
+		}
+		return true
   }
 	
 	
@@ -320,6 +325,8 @@ class ViewController: UIViewController, UITextFieldDelegate
 	// Dismiss the keyboard when the user taps the "Return" key or its equivalent
 	// while editing a text field.
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		print("Inside text return")
+		print(newOrderTextFieldStruct.neworderpage)
 		if (textField === fname)
 		{
 			lname.becomeFirstResponder()
@@ -382,7 +389,10 @@ class ViewController: UIViewController, UITextFieldDelegate
 			newOrderTextFieldStruct.bikeInfoPage = false
 			if segue.identifier == "moveToCustInfo"
 			{
+				
 				newOrderTextFieldStruct.neworderpage = true
+				print("Inside seque")
+				print(newOrderTextFieldStruct.neworderpage)
 				
 			}
 			
