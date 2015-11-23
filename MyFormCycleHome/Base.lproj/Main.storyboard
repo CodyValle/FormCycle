@@ -536,7 +536,7 @@
                                     <constraint firstAttribute="width" constant="272" id="dEE-Oo-0jx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <animations/>
