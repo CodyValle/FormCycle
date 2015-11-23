@@ -78,9 +78,9 @@ class ViewController: UIViewController, UITextFieldDelegate
   *  string. */
   struct newOrderTextFieldStruct
   {
-    static var firstName = ""
-    static var lastName = ""
-    static var myAddress = ""
+    static var firstName = " "
+    static var lastName = " "
+    static var myAddress = " "
     static var myAddress2 = ""
     static var myCity = ""
     static var myState = ""
@@ -115,8 +115,73 @@ class ViewController: UIViewController, UITextFieldDelegate
     newOrderTextFieldStruct.myPhone = phone.text!
     newOrderTextFieldStruct.myEmail = email.text!
   }
+	
+	
+	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
+	{
+		// Checks to make sure that all Customer Info is filled out before moving onto next page.
+		if newOrderTextFieldStruct.neworderpage == true
+		{
+		
+			if fname.text?.utf16.count == 0
+			{
+				let alertView = UIAlertView(title: "Did Not Enter First Name", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
+				alertView.show()
+				return false
+			}
+			else if lname.text?.utf16.count == 0 //Checks last name restrictions
+			{
+				let alertView = UIAlertView(title: "Did Not Enter Last Name", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
+				alertView.show()
+				return false
+			}
+			else if address.text?.utf16.count == 0 //Checks address restrictions
+			{
+				let alertView = UIAlertView(title: "Did Not Enter Address", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
+				alertView.show()
+				return false
+			}
+			else if city.text?.utf16.count == 0 //Checks city restrictions
+			{
+				let alertView = UIAlertView(title: "Did Not Enter City", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
+				alertView.show()
+				return false
+			}
+			else if state.text?.utf16.count < 2 //Checks state restrictions
+			{
+				let alertView = UIAlertView(title: "Did Not Enter State", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
+				alertView.show()
+				return false
+			}
+			else if zip.text?.utf16.count < 5 //Checks zip restrictions
+			{
+				let alertView = UIAlertView(title: "Did Not Enter Zip", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
+				alertView.show()
+				return false
+			}
+			else if phone.text?.utf16.count == 0 //Checks phone restrictions
+			{
+				let alertView = UIAlertView(title: "Did Not Enter Phone", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
+				alertView.show()
+				return false
+			}
+			else if email.text?.utf16.count == 0 //Checks email restrictions
+			{
+				let alertView = UIAlertView(title: "Did Not Enter Email", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
+				alertView.show()
+				return false
+			}
+			else
+			{
+				return true
+			}
+		}
+		return true
+	}
+	
+
 //***************************************************************************
-    
+	
 //********************** BIKE INFO PAGE *************************************
   /* New Order Page: Bike Information. This section denotes the variables
    * as well as the functions that pretain to the Bike Information Page.
@@ -254,7 +319,7 @@ class ViewController: UIViewController, UITextFieldDelegate
 		//
 		// We still return true to allow the change to take place.
 		if string.characters.count == 0 {
-			return true
+			return false
 		}
 		if newOrderTextFieldStruct.neworderpage == true
 		{
