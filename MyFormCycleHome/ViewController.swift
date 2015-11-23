@@ -10,7 +10,7 @@
 import UIKit
 import SwiftHTTP
 
-class ViewController: UIViewController, UITextFieldDelegate
+class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 {
 	
 	
@@ -169,10 +169,10 @@ class ViewController: UIViewController, UITextFieldDelegate
    * RepairInfo Page.
    */
   @IBAction func backToCustInfo(sender: AnyObject) {
-    
+    newOrderTextFieldStruct.bikeInfoPage = false
     dismissViewControllerAnimated(true, completion: nil)
 		newOrderTextFieldStruct.neworderpage = true
-    
+		
   }
  //************************************************************************
     
@@ -229,6 +229,7 @@ class ViewController: UIViewController, UITextFieldDelegate
 				model.delegate = self
 				color.delegate = self
 				tagNumber.delegate = self
+				notes.delegate = self
 				
 				
 			}
@@ -358,7 +359,11 @@ class ViewController: UIViewController, UITextFieldDelegate
 		}
 		else if(textField == tagNumber)
 		{
-			tagNumber.resignFirstResponder()
+			notes.becomeFirstResponder()
+		}
+		else if(textField == notes)
+		{
+			notes.resignFirstResponder()
 		}
 	
 		return true
@@ -515,6 +520,55 @@ class ViewController: UIViewController, UITextFieldDelegate
 			{
 				return true
 			}
+		}
+		else if newOrderTextFieldStruct.bikeInfoPage == true
+		{
+			if brand.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Brand", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if model.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Model", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if color.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Color", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if tagNumber.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Tag Number", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			/* Could also be optional value for notes.
+//			else if notes.text?.utf16.count == 0
+//			{
+//				let refreshAlert = UIAlertController(title: "Did Not Enter Notes", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+//				
+//				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+//				}))
+//				presentViewController(refreshAlert, animated: true, completion: nil)
+//				return false
+//			}*/
 		}
 		return true
 	}
