@@ -10,7 +10,7 @@
 import UIKit
 import SwiftHTTP
 
-class ViewController: UIViewController, UITextFieldDelegate
+class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 {
 	
 	
@@ -78,9 +78,9 @@ class ViewController: UIViewController, UITextFieldDelegate
   *  string. */
   struct newOrderTextFieldStruct
   {
-    static var firstName = ""
-    static var lastName = ""
-    static var myAddress = ""
+    static var firstName = " "
+    static var lastName = " "
+    static var myAddress = " "
     static var myAddress2 = ""
     static var myCity = ""
     static var myState = ""
@@ -97,7 +97,11 @@ class ViewController: UIViewController, UITextFieldDelegate
 		
   }
   
-    
+	/* Sends the user back to the Home Page if currently on the Customer Information page. */
+	@IBAction func backToHomePageBtn(sender: AnyObject) {
+		newOrderTextFieldStruct.neworderpage = false
+		dismissViewControllerAnimated(true, completion: nil)
+	}
   /* New Order Page: Customer Information. This section denotes the variables
    * as well as the functions that pretain to the Customer Information Page.
    */
@@ -114,16 +118,11 @@ class ViewController: UIViewController, UITextFieldDelegate
     newOrderTextFieldStruct.myZip = zip.text!
     newOrderTextFieldStruct.myPhone = phone.text!
     newOrderTextFieldStruct.myEmail = email.text!
-		
-		
-		/*if(newOrderTextFieldStruct.submitOrder == true)
-		{
-			//dismissViewControllerAnimated(true, completion: nil)
-		
-		}*/
   }
+	
+
 //***************************************************************************
-    
+	
 //********************** BIKE INFO PAGE *************************************
   /* New Order Page: Bike Information. This section denotes the variables
    * as well as the functions that pretain to the Bike Information Page.
@@ -139,7 +138,7 @@ class ViewController: UIViewController, UITextFieldDelegate
   //Takes the user back to the Home Page
   @IBAction func OrderCompleteSubmitButtonTop(sender: UIBarButtonItem)
 	{
-    let MyParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
+    let MyParams = ["DEBUG":"true","action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
       "tagNum":tagNumber.text!,
       "notes":notes.text!]
 		do
@@ -161,7 +160,7 @@ class ViewController: UIViewController, UITextFieldDelegate
       print("got an error creating the request: \(error)")
     }
     /* takes the user back a page... NEED TO FIX THIS TO GO BACK TO HOME PAGE. */
-		self.presentingViewController; self.dismissViewControllerAnimated(true, completion:nil)
+		//self.presentingViewController; self.dismissViewControllerAnimated(true, completion:nil)
     //dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -170,9 +169,10 @@ class ViewController: UIViewController, UITextFieldDelegate
    * RepairInfo Page.
    */
   @IBAction func backToCustInfo(sender: AnyObject) {
-    
+    newOrderTextFieldStruct.bikeInfoPage = false
     dismissViewControllerAnimated(true, completion: nil)
-    
+		newOrderTextFieldStruct.neworderpage = true
+		
   }
  //************************************************************************
     
@@ -209,14 +209,18 @@ class ViewController: UIViewController, UITextFieldDelegate
 			super.viewDidLoad()
 			if newOrderTextFieldStruct.neworderpage == true
 			{
+				
 				fname.delegate = self
 				lname.delegate = self
 				address.delegate = self
 				address2.delegate = self
 				city.delegate = self
 				state.delegate = self
+				state.keyboardType = UIKeyboardType.Alphabet
 				zip.delegate = self
+				zip.keyboardType = UIKeyboardType.NumberPad
 				phone.delegate = self
+				phone.keyboardType = UIKeyboardType.NumberPad
 				email.delegate = self
 			}
 			else if newOrderTextFieldStruct.bikeInfoPage == true
@@ -225,6 +229,7 @@ class ViewController: UIViewController, UITextFieldDelegate
 				model.delegate = self
 				color.delegate = self
 				tagNumber.delegate = self
+				notes.delegate = self
 				
 				
 			}
@@ -232,8 +237,92 @@ class ViewController: UIViewController, UITextFieldDelegate
         // Do any additional setup after loading the view, typically from a nib.
     }
 	
-
+	//**************
+  // Tap outside a text field to dismiss the keyboard
+  // ------------------------------------------------
+  // By changing the underlying class of the view from UIView to UIControl,
+  // the view can respond to events, including Touch Down, which is
+  // wired to this method.
+  @IBAction func userTappedBackground(sender: AnyObject) {
+		view.endEditing(true)
+  }
+  
+  
+  // MARK: UITextFieldDelegate events and related methods
+  func textField(textField: UITextField,
+		shouldChangeCharactersInRange range: NSRange,
+		replacementString string: String)
+		-> Bool
+	{
+		
+		// We ignore any change that doesn't add characters to the text field.
+		// These changes are things like character deletions and cuts, as well
+		// as moving the insertion point.
+		//
+		// We still return true to allow the change to take place.
+		if string.characters.count == 0 {
+			return true
+		}
+		if newOrderTextFieldStruct.neworderpage == true
+		{
+		// Check to see if the text field's contents still fit the constraints
+		// with the new content added to it.
+		// If the contents still fit the constraints, allow the change
+		// by returning true; otherwise disallow the change by returning false.
+		let currentText = textField.text ?? ""
+		let prospectiveText = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
+  
+		switch textField {
+			
+			// Allow only upper-case letters in this field,
+			// and must have only 2 characters.
+		case state:
+			return prospectiveText.containsOnlyCharactersIn("ABCDEFGHIJKLMNOPQRSTUVWXYZ") &&
+				prospectiveText.characters.count <= 2
+			
+			// Allow only digits in this field,
+			// and limit its contents to 7, 10, or 11 characters.
+		case phone:
+			return prospectiveText.containsOnlyCharactersIn("0123456789") &&
+				prospectiveText.characters.count <= 10
+			
+			// Allow only digits in this field,
+			// and must have only 5 characters.
+		case zip:
+			return prospectiveText.containsOnlyCharactersIn("0123456789") &&
+				prospectiveText.characters.count <= 5
+			
+			
+		default:
+			return true
+		}
+			
+		}
+		else if newOrderTextFieldStruct.bikeInfoPage == true
+		{
+			let currentText = textField.text ?? ""
+			let prospectiveText = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
+			
+			switch textField {
+				
+				// Allow only upper-case letters in this field,
+				// and must have only 2 characters.
+			case tagNumber:
+				return prospectiveText.containsOnlyCharactersIn("0123456789")
+			default:
+				return true
+		}
+		}
+		return true
+  }
 	
+	
+	/* Checks which text box is currently in the view of the user. Then
+	*  will either set the next appropiate text box that should be active
+	*  or dismisses the keyboard if at the last text box.
+	*  Dismiss the keyboard when the user taps the "Return" key or its equivalent
+	* while editing a text field.
+  */
 	func textFieldShouldReturn(textField: UITextField) -> Bool {
 		if (textField === fname)
 		{
@@ -271,7 +360,6 @@ class ViewController: UIViewController, UITextFieldDelegate
 		{
 			email.resignFirstResponder()
 		}
-		
 		else if(textField == brand)
 		{
 			model.becomeFirstResponder()
@@ -286,17 +374,25 @@ class ViewController: UIViewController, UITextFieldDelegate
 		}
 		else if(textField == tagNumber)
 		{
-			tagNumber.resignFirstResponder()
+			notes.becomeFirstResponder()
+		}
+		else if(textField == notes)
+		{
+			notes.resignFirstResponder()
 		}
 	
 		return true
 	}
 	
+	  /* Overrides the seque function which allows us to preload pages with
+    *  with text before loading the page.
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 			newOrderTextFieldStruct.neworderpage = false
 			newOrderTextFieldStruct.bikeInfoPage = false
 			if segue.identifier == "moveToCustInfo"
 			{
+				
 				newOrderTextFieldStruct.neworderpage = true
 				
 			}
@@ -308,7 +404,7 @@ class ViewController: UIViewController, UITextFieldDelegate
             newOrderTextFieldStruct.myNotes = notes.text!
             newOrderTextFieldStruct.myTagNumber = tagNumber.text!
            
-            let MyParams = ["action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":newOrderTextFieldStruct.myBrand, "model":newOrderTextFieldStruct.myModel, "color":newOrderTextFieldStruct.myColor,
+            let MyParams = ["DEBUG":"true","action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":newOrderTextFieldStruct.myBrand, "model":newOrderTextFieldStruct.myModel, "color":newOrderTextFieldStruct.myColor,
                 "tagNum":newOrderTextFieldStruct.myTagNumber,
                 "notes":newOrderTextFieldStruct.myNotes]
             do
@@ -351,7 +447,146 @@ class ViewController: UIViewController, UITextFieldDelegate
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	/***************************** Segue Identifier *****************************************/
+	/* This function controls the requirements for each page that must be met before moving to
+	*  the next view/page. 
+  */
+	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
+	{
+		// Checks to make sure that all Customer Info is filled out before moving onto next page.
+		if newOrderTextFieldStruct.neworderpage == true
+		{
+			
+			if fname.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter First Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if lname.text?.utf16.count == 0 //Checks last name restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Last Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if address.text?.utf16.count == 0 //Checks address restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Address", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if city.text?.utf16.count == 0 //Checks city restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter City", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if state.text?.utf16.count < 2 //Checks state restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter State", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if zip.text?.utf16.count < 5 //Checks zip restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Zip", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if phone.text?.utf16.count == 0 //Checks phone restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Phone Number", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+				/* Commented out for now. Email should be optional for now.
+				//			else if email.text?.utf16.count == 0 //Checks email restrictions
+				//			{
+				//				let refreshAlert = UIAlertController(title: "Did Not Enter Email", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				//
+				//				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				//				}))
+				//				presentViewController(refreshAlert, animated: true, completion: nil)
+				//				return false
+				//			} */
+			else
+			{
+				return true
+			}
+		}
+		else if newOrderTextFieldStruct.bikeInfoPage == true
+		{
+			if brand.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Brand", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if model.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Model", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if color.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Color", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if tagNumber.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Tag Number", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			/* Could also be optional value for notes.
+//			else if notes.text?.utf16.count == 0
+//			{
+//				let refreshAlert = UIAlertController(title: "Did Not Enter Notes", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+//				
+//				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+//				}))
+//				presentViewController(refreshAlert, animated: true, completion: nil)
+//				return false
+//			}*/
+		}
+		return true
+	}
 //********************* PRACTICE TEST FUNCTIONS *********************
     
     func somefuncReturnsTrue() -> Bool {
