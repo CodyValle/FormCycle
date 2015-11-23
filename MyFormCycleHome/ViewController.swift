@@ -298,6 +298,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		}
 			
 		}
+		else if newOrderTextFieldStruct.bikeInfoPage == true
+		{
+			let currentText = textField.text ?? ""
+			let prospectiveText = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
+			
+			switch textField {
+				
+				// Allow only upper-case letters in this field,
+				// and must have only 2 characters.
+			case tagNumber:
+				return prospectiveText.containsOnlyCharactersIn("0123456789")
+			default:
+				return true
+		}
+		}
 		return true
   }
 	
