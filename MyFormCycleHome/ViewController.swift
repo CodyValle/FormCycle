@@ -125,8 +125,11 @@ class ViewController: UIViewController, UITextFieldDelegate
 		
 			if fname.text?.utf16.count == 0
 			{
-				let alertView = UIAlertView(title: "Did Not Enter First Name", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
-				alertView.show()
+				let refreshAlert = UIAlertController(title: "Did Not Enter First Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
 			else if lname.text?.utf16.count == 0 //Checks last name restrictions
@@ -319,7 +322,7 @@ class ViewController: UIViewController, UITextFieldDelegate
 		//
 		// We still return true to allow the change to take place.
 		if string.characters.count == 0 {
-			return false
+			return true
 		}
 		if newOrderTextFieldStruct.neworderpage == true
 		{
