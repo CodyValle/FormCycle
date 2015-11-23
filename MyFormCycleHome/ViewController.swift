@@ -97,7 +97,11 @@ class ViewController: UIViewController, UITextFieldDelegate
 		
   }
   
-    
+	/* Sends the user back to the Home Page if currently on the Customer Information page. */
+	@IBAction func backToHomePageBtn(sender: AnyObject) {
+		newOrderTextFieldStruct.neworderpage = false
+		dismissViewControllerAnimated(true, completion: nil)
+	}
   /* New Order Page: Customer Information. This section denotes the variables
    * as well as the functions that pretain to the Customer Information Page.
    */
@@ -115,72 +119,6 @@ class ViewController: UIViewController, UITextFieldDelegate
     newOrderTextFieldStruct.myPhone = phone.text!
     newOrderTextFieldStruct.myEmail = email.text!
   }
-	
-	
-	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
-	{
-		// Checks to make sure that all Customer Info is filled out before moving onto next page.
-		if newOrderTextFieldStruct.neworderpage == true
-		{
-		
-			if fname.text?.utf16.count == 0
-			{
-				let refreshAlert = UIAlertController(title: "Did Not Enter First Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
-				
-				refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-				}))
-				presentViewController(refreshAlert, animated: true, completion: nil)
-				return false
-			}
-			else if lname.text?.utf16.count == 0 //Checks last name restrictions
-			{
-				let alertView = UIAlertView(title: "Did Not Enter Last Name", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
-				alertView.show()
-				return false
-			}
-			else if address.text?.utf16.count == 0 //Checks address restrictions
-			{
-				let alertView = UIAlertView(title: "Did Not Enter Address", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
-				alertView.show()
-				return false
-			}
-			else if city.text?.utf16.count == 0 //Checks city restrictions
-			{
-				let alertView = UIAlertView(title: "Did Not Enter City", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
-				alertView.show()
-				return false
-			}
-			else if state.text?.utf16.count < 2 //Checks state restrictions
-			{
-				let alertView = UIAlertView(title: "Did Not Enter State", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
-				alertView.show()
-				return false
-			}
-			else if zip.text?.utf16.count < 5 //Checks zip restrictions
-			{
-				let alertView = UIAlertView(title: "Did Not Enter Zip", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
-				alertView.show()
-				return false
-			}
-			else if phone.text?.utf16.count == 0 //Checks phone restrictions
-			{
-				let alertView = UIAlertView(title: "Did Not Enter Phone", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
-				alertView.show()
-				return false
-			}
-			else if email.text?.utf16.count == 0 //Checks email restrictions
-			{
-				let alertView = UIAlertView(title: "Did Not Enter Email", message: "Try Again", delegate: self, cancelButtonTitle: "Dismiss")
-				alertView.show()
-				return false
-			}
-			else
-			{
-				return true
-			}
-		}
-		return true
-	}
 	
 
 //***************************************************************************
@@ -489,7 +427,97 @@ class ViewController: UIViewController, UITextFieldDelegate
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	/***************************** Segue Identifier *****************************************/
+	/* This function controls the requirements for each page that must be met before moving to
+	*  the next view/page. 
+  */
+	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
+	{
+		// Checks to make sure that all Customer Info is filled out before moving onto next page.
+		if newOrderTextFieldStruct.neworderpage == true
+		{
+			
+			if fname.text?.utf16.count == 0
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter First Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if lname.text?.utf16.count == 0 //Checks last name restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Last Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if address.text?.utf16.count == 0 //Checks address restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Address", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if city.text?.utf16.count == 0 //Checks city restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter City", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if state.text?.utf16.count < 2 //Checks state restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter State", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if zip.text?.utf16.count < 5 //Checks zip restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Zip", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if phone.text?.utf16.count == 0 //Checks phone restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Did Not Enter Phone Number", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+				/* Commented out for now. Email should be optional for now.
+				//			else if email.text?.utf16.count == 0 //Checks email restrictions
+				//			{
+				//				let refreshAlert = UIAlertController(title: "Did Not Enter Email", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				//
+				//				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				//				}))
+				//				presentViewController(refreshAlert, animated: true, completion: nil)
+				//				return false
+				//			} */
+			else
+			{
+				return true
+			}
+		}
+		return true
+	}
 //********************* PRACTICE TEST FUNCTIONS *********************
     
     func somefuncReturnsTrue() -> Bool {

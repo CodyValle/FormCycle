@@ -327,15 +327,6 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="07s-Vb-98f">
-                                <rect key="frame" x="20" y="427" width="289" height="50"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="USx-Jr-bmJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RHi-EF-ivw">
                                 <rect key="frame" x="531" y="381" width="51" height="31"/>
                                 <animations/>
@@ -354,7 +345,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Main" id="JgF-fe-JuO">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="Vah-XA-teY" kind="presentation" id="XuZ-s3-vGP"/>
+                                                <action selector="backToHomePageBtn:" destination="Sfg-OH-txt" id="Ksn-7k-o6Q"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="q9C-zf-To7">
@@ -378,6 +369,15 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="07s-Vb-98f">
+                                <rect key="frame" x="20" y="427" width="289" height="50"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="USx-Jr-bmJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -940,7 +940,7 @@
         <image name="img1" width="87" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XuZ-s3-vGP"/>
         <segue reference="ucj-7w-5JU"/>
+        <segue reference="g8R-MP-6NT"/>
     </inferredMetricsTieBreakers>
 </document>
