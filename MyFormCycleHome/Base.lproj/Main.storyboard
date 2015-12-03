@@ -178,7 +178,7 @@
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2a-gh-Nv5">
                                 <rect key="frame" x="20" y="79" width="365" height="291"/>
                                 <animations/>
-                                <state key="normal" backgroundImage="Unknown">
+                                <state key="normal" backgroundImage="bar-graph">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -932,7 +932,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Unknown" width="789" height="510"/>
+        <image name="bar-graph" width="789" height="510"/>
         <image name="btn" width="400" height="150"/>
         <image name="img1" width="87" height="86"/>
         <image name="pie-chart" width="1293" height="1211"/>
