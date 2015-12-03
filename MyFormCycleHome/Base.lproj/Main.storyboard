@@ -134,47 +134,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Zu-Bx-xSX">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc8-Rx-qwx">
+                                <rect key="frame" x="-43" y="378" width="920" height="766"/>
                                 <animations/>
-                                <items>
-                                    <barButtonItem title="New Order" id="6Sm-hO-JRe">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" id="KrI-mq-kBE"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="|" id="AcH-aI-8ge">
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="View Schedule" id="FZr-97-PiF">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="|" id="1rI-4S-eAJ">
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="Search" id="au2-Ag-u8q">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="|" id="Wd7-LF-dQX">
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="Parts Order" id="Kge-Ba-kw8">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="|" id="FEJ-iB-vkl">
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="Work Orders" id="0cy-mu-1MI">
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sg3-bn-YSg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="v7g-3s-QeG"/>
+                                    <constraint firstAttribute="height" constant="60" id="49k-Oa-jxQ"/>
                                 </constraints>
                                 <items>
                                     <navigationItem title="Main" id="gqH-KT-zYa">
@@ -187,13 +159,45 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyr-IE-SOx">
-                                <rect key="frame" x="52" y="230" width="157" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6D-Fa-z2W">
+                                <rect key="frame" x="82" y="504" width="240" height="58"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="0Mr-UI-KhT"/>
-                                    <constraint firstAttribute="width" constant="157" id="28K-Yi-GqO"/>
-                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Search" backgroundImage="btn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY3-Ab-Kvk">
+                                <rect key="frame" x="461" y="404" width="240" height="59"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="View Orders" backgroundImage="btn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2a-gh-Nv5">
+                                <rect key="frame" x="20" y="79" width="365" height="291"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="Unknown">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4o2-ex-ukK">
+                                <rect key="frame" x="418" y="79" width="326" height="291"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="pie-chart"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8j-kV-rBu">
+                                <rect key="frame" x="461" y="504" width="240" height="58"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Order Parts" backgroundImage="btn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyr-IE-SOx">
+                                <rect key="frame" x="82" y="404" width="240" height="58"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="New Order" backgroundImage="btn">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,19 +208,11 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8Zu-Bx-xSX" firstAttribute="leading" secondItem="3l4-fq-KQQ" secondAttribute="leading" id="8YC-ZC-bmo"/>
-                            <constraint firstItem="8Zu-Bx-xSX" firstAttribute="bottom" secondItem="ZFy-wW-KSF" secondAttribute="top" id="JeM-hB-se0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Sg3-bn-YSg" secondAttribute="trailing" constant="-20" id="L2J-nI-jxd"/>
-                            <constraint firstItem="Sg3-bn-YSg" firstAttribute="top" secondItem="3l4-fq-KQQ" secondAttribute="topMargin" id="MmJ-Vy-Z8f"/>
-                            <constraint firstItem="Sg3-bn-YSg" firstAttribute="leading" secondItem="3l4-fq-KQQ" secondAttribute="leadingMargin" constant="-20" id="N06-wY-ARV"/>
-                            <constraint firstItem="8Zu-Bx-xSX" firstAttribute="trailing" secondItem="Sg3-bn-YSg" secondAttribute="trailing" id="TQl-DT-y7C"/>
-                            <constraint firstItem="fyr-IE-SOx" firstAttribute="top" secondItem="Sg3-bn-YSg" secondAttribute="bottom" constant="170" id="ams-ro-idn"/>
-                            <constraint firstItem="Sg3-bn-YSg" firstAttribute="top" secondItem="3l4-fq-KQQ" secondAttribute="topMargin" id="emN-B2-Yyr"/>
-                            <constraint firstItem="8Zu-Bx-xSX" firstAttribute="leading" secondItem="Sg3-bn-YSg" secondAttribute="leading" id="iiD-gb-TCG"/>
-                            <constraint firstItem="fyr-IE-SOx" firstAttribute="leading" secondItem="3l4-fq-KQQ" secondAttribute="leadingMargin" constant="32" id="iqT-dr-qkt"/>
-                            <constraint firstItem="Sg3-bn-YSg" firstAttribute="top" secondItem="3l4-fq-KQQ" secondAttribute="topMargin" id="tUT-YX-Cjx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sg3-bn-YSg" secondAttribute="trailing" constant="-20" id="2dE-mE-eer"/>
+                            <constraint firstItem="Sg3-bn-YSg" firstAttribute="top" secondItem="3l4-fq-KQQ" secondAttribute="topMargin" id="BqO-2n-rb8"/>
+                            <constraint firstItem="Sg3-bn-YSg" firstAttribute="leading" secondItem="3l4-fq-KQQ" secondAttribute="leadingMargin" constant="-20" id="Tfy-oe-IMR"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -936,11 +932,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Unknown" width="789" height="510"/>
         <image name="btn" width="400" height="150"/>
         <image name="img1" width="87" height="86"/>
+        <image name="pie-chart" width="1293" height="1211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ucj-7w-5JU"/>
-        <segue reference="g8R-MP-6NT"/>
+        <segue reference="Zok-Ro-m6E"/>
     </inferredMetricsTieBreakers>
 </document>
