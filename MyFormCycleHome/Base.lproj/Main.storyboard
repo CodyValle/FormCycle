@@ -62,6 +62,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="TgP-pa-qLd"/>
                                 </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <items>
                                     <navigationItem title="Sign In" id="HqE-he-9PS"/>
                                 </items>
@@ -148,6 +149,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="49k-Oa-jxQ"/>
                                 </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <items>
                                     <navigationItem title="Main" id="gqH-KT-zYa">
                                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="Tox-kY-Onn">
@@ -326,6 +328,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="gvl-50-WgZ"/>
                                 </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <items>
                                     <navigationItem title="New Order" id="jJV-aD-c4f">
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Main" id="JgF-fe-JuO">
@@ -448,6 +451,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ZJ8-TD-825"/>
                                 </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <items>
                                     <navigationItem title="Bike Information" id="aFm-Jf-4mv">
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="vDZ-xE-gkc">
@@ -613,6 +617,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="pIc-Uq-cXj"/>
                                 </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <items>
                                     <navigationItem title="Invoice" id="ZzB-Zw-9gx">
                                         <barButtonItem key="leftBarButtonItem" title="Main" id="5D8-T2-yzA">
@@ -938,6 +943,6 @@
         <image name="pie-chart" width="1293" height="1211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zok-Ro-m6E"/>
+        <segue reference="g8R-MP-6NT"/>
     </inferredMetricsTieBreakers>
 </document>
