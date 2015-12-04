@@ -124,6 +124,156 @@
             <point key="canvasLocation" x="380" y="305"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="Rv4-XQ-Oo3">
+            <objects>
+                <viewController id="7TE-WZ-ag5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9kt-c8-4lv"/>
+                        <viewControllerLayoutGuide type="bottom" id="IFX-Ci-X8O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wsn-Ye-pHd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05G-75-zBX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Mh3-c4-Vyn"/>
+                                </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <items>
+                                    <navigationItem title="Search" id="SqZ-rS-yIW">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Main" id="1wg-Hp-bBY">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="backToHomePageBtn:" destination="Sfg-OH-txt" id="3bt-WV-MiC"/>
+                                                <segue destination="Vah-XA-teY" kind="presentation" id="XKT-O9-J2t"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="RsX-KY-vaH">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="nextButton:" destination="Sfg-OH-txt" id="Tpo-dM-aVi"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="05G-75-zBX" secondAttribute="trailing" constant="-20" id="KAX-K2-IfS"/>
+                            <constraint firstItem="05G-75-zBX" firstAttribute="leading" secondItem="Wsn-Ye-pHd" secondAttribute="leadingMargin" constant="-20" id="fud-Ac-Em7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ind-gf-qnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="1082"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="g9X-7C-gnf">
+            <objects>
+                <viewController id="4VR-ag-5h4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SIg-9G-ode"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nin-lA-7oX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MtM-cC-CST">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="80k-pI-7K0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1Wy-dn-hEP"/>
+                                </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <items>
+                                    <navigationItem title="View Open Orders" id="x3P-Li-9tK">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Main" id="OnK-nU-pkS">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="backToHomePageBtn:" destination="Sfg-OH-txt" id="lpg-hH-98J"/>
+                                                <segue destination="Vah-XA-teY" kind="presentation" id="F9S-5d-P8E"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="bGd-qs-CBb">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="nextButton:" destination="Sfg-OH-txt" id="ojc-v8-45q"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="80k-pI-7K0" secondAttribute="trailing" constant="-20" id="Eve-Bo-f2z"/>
+                            <constraint firstItem="80k-pI-7K0" firstAttribute="leading" secondItem="MtM-cC-CST" secondAttribute="leadingMargin" constant="-20" id="vJD-e8-yeE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJu-MI-dMz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1131" y="1082"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0Lk-Di-T3G">
+            <objects>
+                <viewController id="HgD-iK-is9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wmg-pu-1yS"/>
+                        <viewControllerLayoutGuide type="bottom" id="dnh-fy-3NA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Fh-JX-ANL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-N5-GRE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="YDo-K3-BZt"/>
+                                </constraints>
+                                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <items>
+                                    <navigationItem title="Order Parts" id="b0S-7p-fIL">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Main" id="09R-sU-DQ4">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="backToHomePageBtn:" destination="Sfg-OH-txt" id="HIU-vf-fV6"/>
+                                                <segue destination="Vah-XA-teY" kind="presentation" id="DQJ-N2-cdd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="BaX-TH-36T">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="nextButton:" destination="Sfg-OH-txt" id="1aD-30-cTd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Gb-N5-GRE" secondAttribute="trailing" constant="-20" id="I83-ui-I1G"/>
+                            <constraint firstItem="3Gb-N5-GRE" firstAttribute="leading" secondItem="0Fh-JX-ANL" secondAttribute="leadingMargin" constant="-20" id="IG2-gG-YRv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iVd-n1-q6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="1082"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="SEe-e6-ugc">
             <objects>
                 <viewController id="Vah-XA-teY" customClass="ViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
@@ -168,6 +318,9 @@
                                 <state key="normal" title="Search" backgroundImage="btn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="7TE-WZ-ag5" kind="presentation" id="1vi-vY-klF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY3-Ab-Kvk">
                                 <rect key="frame" x="461" y="404" width="240" height="59"/>
@@ -176,6 +329,9 @@
                                 <state key="normal" title="View Orders" backgroundImage="btn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="4VR-ag-5h4" kind="presentation" id="3nu-Uq-2C1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2a-gh-Nv5">
                                 <rect key="frame" x="20" y="79" width="365" height="291"/>
@@ -196,6 +352,9 @@
                                 <state key="normal" title="Order Parts" backgroundImage="btn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="HgD-iK-is9" kind="presentation" id="MGD-AY-mce"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyr-IE-SOx">
                                 <rect key="frame" x="82" y="404" width="240" height="58"/>
@@ -943,6 +1102,6 @@
         <image name="pie-chart" width="1293" height="1211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g8R-MP-6NT"/>
+        <segue reference="DQJ-N2-cdd"/>
     </inferredMetricsTieBreakers>
 </document>
