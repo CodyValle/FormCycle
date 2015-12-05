@@ -135,7 +135,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05G-75-zBX">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05G-75-zBX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                 <animations/>
                                 <constraints>
@@ -151,20 +151,54 @@
                                                 <segue destination="Vah-XA-teY" kind="presentation" id="XKT-O9-J2t"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="RsX-KY-vaH">
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="nextButton:" destination="Sfg-OH-txt" id="Tpo-dM-aVi"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqU-xe-Xxw">
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="ol9-Nn-j8V">
+                                        <rect key="frame" x="8" y="-600" width="0.0" height="44"/>
+                                        <animations/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Iv-88-tkg">
+                                        <rect key="frame" x="0.0" y="8" width="600" height="44"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="770" id="eVH-cc-tF1"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlI-iR-h6R">
+                                        <rect key="frame" x="160" y="63" width="281" height="36"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="Z5j-IE-d1s"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Search" backgroundImage="btn">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="2Iv-88-tkg" firstAttribute="leading" secondItem="tqU-xe-Xxw" secondAttribute="leading" id="Em4-6j-nmk"/>
+                                    <constraint firstItem="vlI-iR-h6R" firstAttribute="leading" secondItem="tqU-xe-Xxw" secondAttribute="leading" constant="160" id="VBW-7T-npz"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Iv-88-tkg" secondAttribute="trailing" id="edA-a7-2lX"/>
+                                    <constraint firstItem="vlI-iR-h6R" firstAttribute="centerX" secondItem="tqU-xe-Xxw" secondAttribute="centerX" id="efG-8q-HIH"/>
+                                    <constraint firstAttribute="trailing" secondItem="vlI-iR-h6R" secondAttribute="trailing" constant="159" id="tGR-8i-5Yi"/>
+                                    <constraint firstItem="2Iv-88-tkg" firstAttribute="centerX" secondItem="tqU-xe-Xxw" secondAttribute="centerX" id="ygf-T2-549"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tqU-xe-Xxw" firstAttribute="top" secondItem="05G-75-zBX" secondAttribute="bottom" id="Ewg-9T-4rn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="05G-75-zBX" secondAttribute="trailing" constant="-20" id="KAX-K2-IfS"/>
+                            <constraint firstItem="IFX-Ci-X8O" firstAttribute="top" secondItem="tqU-xe-Xxw" secondAttribute="bottom" id="KIH-go-nJI"/>
                             <constraint firstItem="05G-75-zBX" firstAttribute="leading" secondItem="Wsn-Ye-pHd" secondAttribute="leadingMargin" constant="-20" id="fud-Ac-Em7"/>
                         </constraints>
                     </view>
@@ -201,21 +235,29 @@
                                                 <segue destination="Vah-XA-teY" kind="presentation" id="F9S-5d-P8E"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="bGd-qs-CBb">
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="nextButton:" destination="Sfg-OH-txt" id="ojc-v8-45q"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAN-Lq-VFN">
+                                <rect key="frame" x="20" y="116" width="560" height="168"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="Screen Shot 2015-12-05 at 10.13.10 AM"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyW-RG-9mE">
+                                <rect key="frame" x="20" y="320" width="560" height="168"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="Screen Shot 2015-12-05 at 10.13.10 AM"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xyW-RG-9mE" firstAttribute="trailing" secondItem="MtM-cC-CST" secondAttribute="trailingMargin" id="BcF-el-y7c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="80k-pI-7K0" secondAttribute="trailing" constant="-20" id="Eve-Bo-f2z"/>
+                            <constraint firstItem="HAN-Lq-VFN" firstAttribute="leading" secondItem="MtM-cC-CST" secondAttribute="leadingMargin" id="Vb1-Lw-WXJ"/>
+                            <constraint firstItem="xyW-RG-9mE" firstAttribute="leading" secondItem="MtM-cC-CST" secondAttribute="leadingMargin" id="or7-Ma-QhX"/>
                             <constraint firstItem="80k-pI-7K0" firstAttribute="leading" secondItem="MtM-cC-CST" secondAttribute="leadingMargin" constant="-20" id="vJD-e8-yeE"/>
+                            <constraint firstItem="HAN-Lq-VFN" firstAttribute="trailing" secondItem="MtM-cC-CST" secondAttribute="trailingMargin" id="zWx-c7-OcZ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -251,21 +293,26 @@
                                                 <segue destination="Vah-XA-teY" kind="presentation" id="DQJ-N2-cdd"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="BaX-TH-36T">
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="nextButton:" destination="Sfg-OH-txt" id="1aD-30-cTd"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHg-Vf-oAJ">
+                                <rect key="frame" x="20" y="144" width="560" height="278"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="qlg-AV-8C9"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Screen Shot 2015-12-05 at 10.32.10 AM"/>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="3Gb-N5-GRE" secondAttribute="trailing" constant="-20" id="I83-ui-I1G"/>
                             <constraint firstItem="3Gb-N5-GRE" firstAttribute="leading" secondItem="0Fh-JX-ANL" secondAttribute="leadingMargin" constant="-20" id="IG2-gG-YRv"/>
+                            <constraint firstItem="BHg-Vf-oAJ" firstAttribute="trailing" secondItem="0Fh-JX-ANL" secondAttribute="trailingMargin" id="LlC-Pb-KhL"/>
+                            <constraint firstItem="BHg-Vf-oAJ" firstAttribute="centerX" secondItem="0Fh-JX-ANL" secondAttribute="centerX" id="Spa-Fm-Qb6"/>
+                            <constraint firstItem="BHg-Vf-oAJ" firstAttribute="leading" secondItem="0Fh-JX-ANL" secondAttribute="leadingMargin" id="lhG-wk-lrQ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1096,12 +1143,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Screen Shot 2015-12-05 at 10.13.10 AM" width="1388" height="270"/>
+        <image name="Screen Shot 2015-12-05 at 10.32.10 AM" width="1314" height="576"/>
         <image name="bar-graph" width="789" height="510"/>
         <image name="btn" width="400" height="150"/>
         <image name="img1" width="87" height="86"/>
         <image name="pie-chart" width="1293" height="1211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DQJ-N2-cdd"/>
+        <segue reference="F9S-5d-P8E"/>
     </inferredMetricsTieBreakers>
 </document>
