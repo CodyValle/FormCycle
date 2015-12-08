@@ -15,17 +15,8 @@ class StuffGenerator
 	/** @type array The definition of the potential cities. */
     protected $_cities;
 	
-	/** @type array The definition of the potential state codes. */
+	/** @type array The definition of the potential statecodes. */
     protected $_statecodes;
-	
-	/** @type array The definition of the potential state codes. */
-    protected $_colors;
-	
-	/** @type array The definition of the potential bike brands. */
-    protected $_bikeBrands;
-	
-	/** @type array The definition of the potential interesting nonsense. */
-    protected $_interNons;
 
     /** @type Cinam\Randomizer\Randomizer The random number generator. */
     protected $_randomizer;
@@ -43,9 +34,6 @@ class StuffGenerator
         $this->_nouns = file(__DIR__ . '/nouns.txt', FILE_IGNORE_NEW_LINES);
         $this->_cities = file(__DIR__ . '/cities.txt', FILE_IGNORE_NEW_LINES);
         $this->_statecodes = file(__DIR__ . '/statecodes.txt', FILE_IGNORE_NEW_LINES);
-        $this->_colors = file(__DIR__ . '/colors.txt', FILE_IGNORE_NEW_LINES);
-        $this->_bikeBrands = file(__DIR__ . '/bikeBrands.txt', FILE_IGNORE_NEW_LINES);
-        $this->_interNons = file(__DIR__ . '/video_game_names.txt', FILE_IGNORE_NEW_LINES);
     }
 	
 	/**
@@ -112,36 +100,6 @@ class StuffGenerator
     public function getStateCode()
     {
         return $this->_getRandomWord($this->_statecodes);
-    }
-	
-	/**
-     * Gets a randomly generated color.
-     *
-     * @return string A random color.
-     */
-    public function getColor()
-    {
-        return $this->_getRandomWord($this->_colors);
-    }
-	
-	/**
-     * Gets a randomly generated bike brand.
-     *
-     * @return string A random bike brand.
-     */
-    public function getBikeBrand()
-    {
-        return $this->_getRandomWord($this->_bikeBrands);
-    }
-	
-	/**
-     * Gets randomly generated interesting nonsense.
-     *
-     * @return string Some random interesting nonsense.
-     */
-    public function getInterestingNonsense()
-    {
-        return $this->_getRandomWord($this->_interNons);
     }
 
     /**

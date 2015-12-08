@@ -6,35 +6,40 @@
 	work orders on those bikes.
 	*/
 	
+	
+	include_once 'error.php';
+	include_once 'debug.php';
+	
 	include_once 'randomStrings.php';
 	include 'NubsNameGen/Generator.php';
 	$generator = new StuffGenerator();
 	
-	include '../loginCapstone.php';
+	include_once 'loginCapstone.php';
 
-	include '../filter.php';
-	include '../customer.php';
-	include '../bike.php';
-	include '../workOrder.php';
+	include_once 'filter.php';
+	include 'customer.php';
+	include 'bike.php';
+	include 'workOrder.php';
 	
 	$cust = new Customer;
 	$bike = new Bike;
 	$work = new WorkOrder;
 	
-	$entries = 10;
+	$entries = isset($_POST['entries']) ? $_POST['entries'] : 3;
 	for ($i = 0; $i < $entries; $i++)
 	{	
 		// Create a random customer
 		$clean['fname'] = $generator->getAdjective();
 		$clean['lname'] = $generator->getNoun();
 		$clean['address'] = RandomNumericString(rand(1, 4)) . " " . $generator->getNoun() . " St.";
-		$clean['address2'] = rand(0, 10) > 2 ? "" : "Apt. #" . RandomNumericString(rand(1, 3));
+		$clean['address2'] = rand(0, 100) > 18 ? NULL : "Apt. #" . RandomNumericString(rand(1, 3));
 		$clean['city'] = $generator->getCity();
 		$clean['state'] = $generator->getStateCode();
-		$clean['country'] = RandomUpperAlphaString(3);
+		$clean['country'] = rand(0, 100) > 5 ? NULL : RandomUpperAlphaString(3);
 		$clean['zip'] = RandomNumericString(5);
 		$clean['phone'] = RandomNumericString(10);
-		$clean['email'] = $generator->getAdjective() . RandomNumericString(rand(1, 4)) . "@" . $generator->getNoun() . ".com";
+		// Less than a 0.00000000000000034% chance of being a duplicate.
+		$clean['email'] = rand(0, 100) < 15 ? NULL : $generator->getAdjective() . RandomNumericString(rand(1, 4)) . $generator->getAdjective() ."@" . $generator->getNoun() . RandomNumericString(rand(1, 4)) . ".com";
 		
 		// Add him/her/it to the database
 		if (!$cust->sendCustInfo($clean))
@@ -44,38 +49,56 @@
 			if (!isset($fails)) $fails = 0;
 			$fails++;
 			if ($fails >= $entries * 0.05) // 5% maximum allowed failures
-				die("JNKCST");
+			{
+				$GLOBALS['ERROR']->reportErrorCode("JNKCST");
+				break;
+			}
 			continue;
 		}
 		if (isset($fails)) $fails = 0;
-		
-		//print($i . ":CUSTID=" . $clean['custid'] . PHP_EOL);
-		
-		$clean['brand'] = $generator->getBikeBrand();
-		$clean['color'] = $generator->getColor();
-		$clean['model'] = $generator->getAdjective();
-		$clean['notes'] = RandomAlphaString(rand(10, 30));
-		
-		// Add him/her/it to the database
-		if (!$bike->sendBikeInfo($clean))
-		{	
-			// The query failed for some reason
-			$i--;
-			if (!isset($fails)) $fails = 0;
-			$fails++;
-			if ($fails >= $entries * 0.05) // 5% maximum allowed failures
-				die("JNKBIK");
-			continue;
+
+		// Sometimes a customer has more than one bike.
+		$bikes = rand(1, 100) > 3 ? 1 : 2;
+		for ($b = 0; $b < $bikes; $b++)
+		{
+			$clean['brand'] = $generator->getBikeBrand();
+			$clean['color'] = $generator->getColor() . "-ish " . $generator->getColor();
+			$clean['tagNum'] = RandomNumericString(4);
+			$clean['model'] = $generator->getAdjective() . $generator->getInterestingNonsense();
+			$clean['notes'] = "";
+			for ($c = 0; $c < rand(5, 10); $c++)
+				$clean['notes'] .= $generator->getInterestingNonsense() . " ";
+			
+			// Add him/her/it to the database
+			if (!$bike->sendBikeInfo($clean))
+			{	
+				// The query failed for some reason
+				$i--;
+				if (!isset($fails)) $fails = 0;
+				$fails++;
+				if ($fails >= $entries * 0.05) // 5% maximum allowed failures
+				{
+					$GLOBALS['ERROR']->reportErrorCode("JNKBIK");
+					break;
+				}
+				continue;
+			}
+			if (isset($fails)) $fails = 0;
 		}
-		if (isset($fails)) $fails = 0;
-		
 		
 		$orders = rand(0, 10);
 		for ($o = 0; $o < $orders; $o++)
 		{
-			$clean['open'] = (rand(0, 100) < 10 ? 'Y' : 'N');
-			$clean['pre'] = RandomAlphaString(rand(10, 30));
-			$clean['post'] = RandomAlphaString(rand(10, 30));
+			$clean['open'] = (rand(0, 100) < 3 ? 'Y' : 'N');
+			$clean['tagid'] = RandomNumericString(2);
+			
+			$clean['pre'] = "";
+			for ($c = 0; $c < rand(5, 10); $c++)
+				$clean['pre'] .= $generator->getInterestingNonsense() . " ";
+			
+			$clean['post'] = "";
+			for ($c = 0; $c < rand(5, 10); $c++)
+				$clean['post'] .= $generator->getInterestingNonsense() . " ";
 		
 			if (!$work->sendWorkOrderInfo($clean))
 			{
@@ -84,19 +107,26 @@
 				if (!isset($fails)) $fails = 0;
 				$fails++;
 				if ($fails >= $orders * 0.05) // 5% maximum allowed failures
-					die("JNKWRK");
+				{
+					$GLOBALS['ERROR']->reportErrorCode("JNKWRK");
+					break;
+				}
 				continue;
 			}
 			
-			$tunes = rand(1, 5);
-			for ($u = 0; $u < $tunes; $u++)
+			// Create a list of unique integers (Tune IDs)
+			$n = 0;
+			$tunes = array();
+			$numTunes = rand(1, 6);
+			while (count($tunes) < $numTunes)
 			{
-				$work->addTune($clean, rand(0, 10));
+				if (rand(0, 100) > 50)
+					$tunes[] = $n;
+				$n++;
 			}
-			
-			//print("  CUSTID=" . $clean['custid'] . " WORKID=" . $clean['workid'] . PHP_EOL);
+			// Attach those integers (Tune IDs) to the work order
+			foreach ($tunes as $u)
+				$work->addTune($clean['workid'], $u);
 		}
 	}
-	
-	if ($con) mysqli_close($con);
 ?>

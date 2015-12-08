@@ -8,9 +8,6 @@
 	
 	// For debugging, I think.
 	if (isset($_POST['DEBUG']) && $_POST['DEBUG'] === "true")
-	{
-		$GLOBALS['DEBUG'] = true;
-		print("&&&&& DEBUG MODE IS ON &&&&&" . PHP_EOL);
-	}
-	else $GLOBALS['DEBUG'] = false;
+		$DEBUG = true;
+	else $DEBUG = false;
 ?>

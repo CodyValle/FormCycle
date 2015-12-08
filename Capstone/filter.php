@@ -7,7 +7,7 @@
 	expected values.
 	*/
 	
-	include_once 'debug.php';
+	if ($GLOBALS['DEBUG']) print("Running filter." . PHP_EOL);
 	
 	// Check that clean does not already exist.
 	if (!isset($clean))
@@ -15,98 +15,134 @@
 		// Instantiate the clean array.
 		$clean = array();
 		
-		/** Customer information **/
+	/** Customer information **/
 		// Check first name
-		if (isset($_POST['fname']))
-			$clean[fname] = $_POST[fname];
-		else $clean['fname'] = "";
+		if (isset($_POST['fname']) && trim($_POST['fname']) !== "")
+		{
+			$clean['fname'] = $_POST['fname'];
+		}
+		else $clean['fname'] = NULL;
 		
 		// Check last name
-		if (isset($_POST['lname']))
-			$clean[lname] = $_POST[lname];
-		else $clean['lname'] = "";
+		if (isset($_POST['lname']) && trim($_POST['lname']) !== "")
+		{
+			$clean['lname'] = $_POST['lname'];
+		}
+		else $clean['lname'] = NULL;
 		
 		// Check address line 1
-		if (isset($_POST['address']))
-			$clean[address] = $_POST[address];
-		else $clean['address'] = "";
+		if (isset($_POST['address']) && trim($_POST['address']) !== "")
+		{
+			$clean['address'] = $_POST['address'];
+		}
+		else $clean['address'] = NULL;
 		
 		// Check address line 2
-		if (isset($_POST['address2']))
-			$clean[address2] = $_POST[address2];
-		else $clean['address2'] = "";
+		if (isset($_POST['address2']) && trim($_POST['address2']) !== "")
+		{
+			$clean['address2'] = $_POST['address2'];
+		}
+		else $clean['address2'] = NULL;
 		
 		// Check city
-		if (isset($_POST['city']))
-			$clean[city] = $_POST[city];
-		else $clean['city'] = "";
+		if (isset($_POST['city']) && trim($_POST['city']) !== "")
+		{
+			$clean['city'] = $_POST['city'];
+		}
+		else $clean['city'] = NULL;
 		
 		// Check state
-		if (isset($_POST['state']))
-			$clean[state] = $_POST[state];
-		else $clean['state'] = "";
+		if (isset($_POST['state']) && trim($_POST['state']) !== "")
+		{
+			$clean['state'] = $_POST['state'];
+		}
+		else $clean['state'] = NULL;
 		
 		// Check zip code
-		if (isset($_POST['zip']))
-			$clean[zip] = $_POST[zip];
-		else $clean['zip'] = "";
+		if (isset($_POST['zip']) && trim($_POST['zip']) !== "")
+		{
+			$clean['zip'] = $_POST['zip'];
+		}
+		else $clean['zip'] = NULL;
+		
+		// Check country code
+		if (isset($_POST['country']) && trim($_POST['country']) !== "")
+		{
+			$clean['country'] = $_POST['country'];
+		}
+		else $clean['country'] = NULL;
 		
 		// Check phone number
-		if (isset($_POST['phone']))
-			$clean[phone] = $_POST[phone];
-		else $clean['phone'] = "";
+		if (isset($_POST['phone']) && trim($_POST['phone']) !== "")
+		{
+			$clean['phone'] = $_POST['phone'];
+		}
+		else $clean['phone'] = NULL;
 		
 		// Check email
-		if (isset($_POST['email']))
-			$clean[email] = $_POST[email];
-		else $clean['email'] = "";
-		
-		/** Bike Information **/
+		if (isset($_POST['email']) && trim($_POST['email']) !== "")
+		{
+			$clean['email'] = $_POST['email'];
+		}
+		else $clean['email'] = NULL;
+
+	/** Bike Information **/
 		// Check bike brand
-		if (isset($_POST['brand']))
-			$clean[brand] = $_POST[brand];
-		else $clean['brand'] = "";
+		if (isset($_POST['brand']) && trim($_POST['brand']) !== "")
+		{
+			$clean['brand'] = $_POST['brand'];
+		}
+		else $clean['brand'] = NULL;
 		
 		// Check bike model
-		if (isset($_POST['model']))
-			$clean[model] = $_POST[model];
-		else $clean['model'] = "";
+		if (isset($_POST['model']) && trim($_POST['model']) !== "")
+		{
+			$clean['model'] = $_POST['model'];
+		}
+		else $clean['model'] = NULL;
 		
 		// Check bike color
-		if (isset($_POST['color']))
-			$clean[color] = $_POST[color];
-		else $clean['color'] = "";
+		if (isset($_POST['color']) && trim($_POST['color']) !== "")
+		{
+			$clean['color'] = $_POST['color'];
+		}
+		else $clean['color'] = NULL;
 		
 		// Check bike tag number
-		if (isset($_POST['tagNum']))
-			$clean[tagNum] = $_POST[tagNum];
-		else $clean['tagNum'] = "";
+		if (isset($_POST['tagNum']) && trim($_POST['tagNum']) !== "")
+		{
+			$clean['tagNum'] = $_POST['tagNum'];
+		}
+		else $clean['tagNum'] = NULL;
 		
 		// Check bike notes
-		if (isset($_POST['notes']))
-			$clean[notes] = $_POST[notes];
-		else $clean['notes'] = "";
+		if (isset($_POST['notes']) && trim($_POST['notes']) !== "")
+		{
+			$clean['notes'] = $_POST['notes'];
+		}
+		else $clean['notes'] = NULL;
 		
-		/** Work Order Information **/
+	/** Work Order Information **/
+		// Check whether this work order is open
+		if (isset($_POST['open']) && trim($_POST['open']) !== "")
+		{
+			$clean['open'] = $_POST['open'];
+		}
+		else $clean['open'] = NULL;
+		
 		// Check pre work order notes
-		if (isset($_POST['pre']))
-			$clean[pre] = $_POST[pre];
-		else $clean['pre'] = "";
+		if (isset($_POST['pre']) && trim($_POST['pre']) !== "")
+		{
+			$clean['pre'] = $_POST['pre'];
+		}
+		else $clean['pre'] = NULL;
 
 		// Check post work order notes
-		if (isset($_POST['post']))
-			$clean[post] = $_POST[post];
-		else $clean['post'] = "";
-
-		if ($DEBUG)
+		if (isset($_POST['post']) && trim($_POST['post']) !== "")
 		{
-			print("***DEBUG SECTION***" . PHP_EOL);
-			
-			foreach ($clean as $key => $val)
-				print($key . ": " . $val . PHP_EOL);
-				
-			print("***END DEBUG SECTION***" . PHP_EOL);
+			$clean['post'] = $_POST['post'];
 		}
+		else $clean['post'] = NULL;
 	
 	// Notes for reference
 		/*

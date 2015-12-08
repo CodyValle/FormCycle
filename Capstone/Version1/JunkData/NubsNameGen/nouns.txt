@@ -146,7 +146,7 @@ gibbon
 giraffe
 goat
 goats
-gold
+gold,
 golden
 goose
 gorillas
@@ -155,7 +155,7 @@ great
 greater
 grebe
 green
-grevys
+grevy’s
 grey
 grivet
 grizzly
@@ -438,7 +438,7 @@ tarantula
 tawny
 teira
 tern
-thomsons
+thomson’s
 thrush
 tiger
 tigers

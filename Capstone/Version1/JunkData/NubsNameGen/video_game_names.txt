@@ -2,20 +2,16 @@
 8-Bit
 A Boy and His
 Action
-Advanced Advance
-Adventures of the Adventure
+Advanced^Advance
+Adventures of the^Adventure
 Aero
-African in Africa
+African^in Africa
 Alcoholic
 Alien
 Allied
 All-American
 All-Night
-All-Star
-Star
-Starring Mickey Mouse
-Stars
-Superstar
+All-Star^Star|Starring Mickey Mouse|Stars|Superstar
 Almighty
 Amateur
 Amazing
@@ -24,7 +20,7 @@ American
 Amish
 Amphibious
 Ancient
-Android Cyborg
+Android^Cyborg
 Angry
 Apathetic
 Aquatic
@@ -33,23 +29,19 @@ Armored
 Art of
 Asian
 Astral
-Attack of the Attack
-Atomic Nuclear
+Attack of the^Attack
+Atomic^Nuclear
 Australian
 Awesome
-Barbies
-Battle Battleship
-Battalion
-Battlefield
-Battle
-Battleship
-Battalion
-Beautiful Beautician
+Barbie's
+Battle^Battleship|Battalion
+Battlefield:^Battle|Battleship|Battalion
+Beautiful^Beautician
 Bewildering
 Biblical
-Big Big Game Hunter
-Big Birds Big Game Hunter
-Big-Time Big Game Hunter
+Big^Big Game Hunter
+Big Bird's^Big Game Hunter
+Big-Time^Big Game Hunter
 Bionic
 Bizarre
 Bizarro
@@ -59,26 +51,24 @@ Blazing
 Bling Bling
 Blissful
 Blocky
-Bloody Blood
-Bloodbath
-of the Blood God
-Bonks
+Bloody^Blood|Bloodbath|of the Blood God
+Bonk's
 Boring
-Bouncin
+Bouncin'
 Brain-Damaged
 British
-Britney Spears
+Britney Spears'
 BudgetSoft Presents:
-Caesars
+Caesar's
 Canadian
 Cantankerous
 Caribbean
 Catholic
 Celebrity
 Celtic
-Charlie Browns
+Charlie Brown's
 Children of the
-Chillin
+Chillin'
 Chinese
 Chocolate
 Christian
@@ -92,57 +82,41 @@ Cool
 Corporate
 Cosmic
 Crazy
-Create Your Own Creator
+Create Your Own^Creator
 Creepy
-Cthulhus
+Cthulhu's
 Curse of the
 Custom
 Cyber
 Cybernetic
-Cyborg Android
-Dance Dance Breakdancing
-Dance
-Dance Mix
-Dance Party
-Dancers
-Square Dancing
+Cyborg^Android
+Dance Dance^Breakdancing|Dance|Dance Mix|Dance Party|Dancers|Square Dancing
 Dangerous
 Darkest
 Day of the
-Dead or Alive Death
-Deathmatch
-of Death
-of the Dead
-Deadly Death
-Deathmatch
-of Death
-of the Dead
-Death-Defying Death
-Deathmatch
-of Death
-of the Dead
-Deep Space of the Deep
+Dead or Alive^Death|Deathmatch|of Death|of the Dead
+Deadly^Death|Deathmatch|of Death|of the Dead
+Death-Defying^Death|Deathmatch|of Death|of the Dead
+Deep Space^of the Deep
 Def Jam
 Demonic
 Depressing
 Deranged
-Derek Smarts
+Derek Smart's
 Dirty
-Disneys
+Disney's
 Distinguished
 Disturbing
 Divine
-Donkey Kongs
+Donkey Kong's
 Double
 Downtown
 Dr.
-Draculas
+Dracula's
 Drug-Induced
 Drunken
 Duke Nukem:
-Dwarven Dwarf
-Gnome
-Midget
+Dwarven^Dwarf|Gnome|Midget
 Dynamite
 Ebony
 Eco-Friendly
@@ -151,7 +125,7 @@ Elderly
 Electric
 Elegant
 Elite
-Elmos
+Elmo's
 Emo
 Endless
 Enormous
@@ -165,9 +139,9 @@ Everybody Hates the
 Everybody Loves the
 Exciting
 Excruciating
-Explosive Explosion
+Explosive^Explosion
 Exquisite
-Extreme X-Treme
+Extreme^X-Treme
 Fabulous
 Fancy
 Fantastic
@@ -176,7 +150,7 @@ Fatal
 Feverish
 Fiery
 Final
-Final Fantasy Fantasy
+Final Fantasy^Fantasy
 First-Person
 Fisher Price
 Flamboyant
@@ -184,12 +158,12 @@ Fluffy
 Flying
 Forbidden
 Forgotten
-Frankensteins
+Frankenstein's
 French
 Frisky
 Fruity
 Full Metal
-Funky Funk
+Funky^Funk
 Furry
 Future
 Galactic
@@ -202,7 +176,7 @@ Glowing
 Go Go
 God of
 Golden
-Gothic Goth
+Gothic^Goth
 Grand
 Great
 Grimy
@@ -212,19 +186,18 @@ Hardcore
 Haunted
 Hazardous
 Heavy
-Heavy Metal Metal
+Heavy Metal^Metal
 Heinous
 Helicopter
-Heroic Hero
-Heroes
+Heroic^Hero|Heroes
 Hidden
 Hideous
-High-Speed Speed
+High-Speed^Speed
 Hillbilly
 Hindu
-Hip-Hop Hippo
+Hip-Hop^Hippo
 History of the
-Hitlers Nazi
+Hitler's^Nazi
 Ho-Hum
 Holy
 Horrifying
@@ -259,103 +232,90 @@ Irresistible
 Irritating
 Islamic
 Italian
-Its a Mad, Mad Madness
-Jackie Chans
+It's a Mad, Mad^Madness
+Jackie Chan's
 Jamaican
 Japanese
 Jedi
 Jewish
-Johnny Turbos
-John Romeros
+Johnny Turbo's
+John Romero's
 Kabuki
 Kamikaze
-Kermits
+Kermit's
 Killer
 Kinect
-King of King
-Kingdom
+King of^King|Kingdom
 Kinky
-Kirbys
+Kirby's
 Kosher
 Kung-fu
-Jack Thompsons
+Jack Thompson's
 Lair of the
 Latino
 Lazy
 Legacy of
-Legend of Legend
-Legends
-Legend of the Legend
-Legends
-Legendary Legend
-Legends
+Legend of^Legend|Legends
+Legend of the^Legend|Legends
+Legendary^Legend|Legends
 Leisure Suit
 Lethal
 Little
 Looney Tunes
-Lord of the Lord
+Lord of the^Lord
 Lost
-Lovely Love
-of Love
-Romance
+Lovely^Love|of Love|Romance
 Low G
 Lucky
-Luigis
-M.C. Eschers
+Luigi's
+M.C. Escher's
 Madden
-Magic of Magic
-of Might and Magic
-Magical Magic
-of Magic
-of Might and Magic
+Magic^of Magic|of Might and Magic
+Magical^Magic|of Magic|of Might and Magic
 Magnetic
 Major
-Manic Mania
-Maniac
-Maniac Mania
-Marios
-Mary Kate and Ashleys
-Master Chiefs Master
-Masters of Master
-Masters of the Master
+Manic^Mania|Maniac
+Maniac^Mania
+Mario's
+Mary Kate and Ashley's
+Master Chief's^Master
+Masters of^Master
+Masters of the^Master
 Maximum
 Mechanized
 Medieval
 Mega
-Mega Mans
+Mega Man's
 Merciless
 Metal
 Mexican
-Michael Jacksons
-Mickeys
+Michael Jackson's
+Mickey's
 Micro
-Middle-Eastern in the Middle East
+Middle-Eastern^in the Middle East
 Mighty
 Mind-Bending
-Miniature Dwarf
-Gnome
-Midget
+Miniature^Dwarf|Gnome|Midget
 Miracle
-Monster Monster Truck
-Monty Pythons
+Monster^Monster Truck
+Monty Python's
 Morbid
 Morbidly Obese
 Mr.
-MTVs
+MTV's
 Muppet
-Musical DJ
-Music
+Musical^DJ|Music
 My First
 My Little
 My Very Own
-Mysterious of Mystery
-Mystery of Mystery
-Mystic of Mystery
-Mystical of Mystery
+Mysterious^of Mystery
+Mystery^of Mystery
+Mystic^of Mystery
+Mystical^of Mystery
 Mythical
 Narcoleptic
 Nasty
-National Lampoons
+National Lampoon's
 Naughty
 NBA
 NCAA
@@ -364,17 +324,13 @@ Neo
 Neon
 Neurotic
 New
-Night of the Knights
-Night
-Nightmare
-Nighttime Knights
-Night
-Nightmare
+Night of the^Knights|Night|Nightmare
+Nighttime^Knights|Night|Nightmare
 Nihilistic
 Ninja
 No One Can Stop the
 Nostalgic
-Nuclear Atomic
+Nuclear^Atomic
 Nudist
 Obsessive-Compulsive
 Occult
@@ -391,7 +347,7 @@ Perfect
 Perverted
 Phoenix Wright:
 Pixellated
-Planet of the Planet
+Planet of the^Planet
 Political
 Post-Apocalyptic
 Prehistoric
@@ -400,15 +356,15 @@ Presidential
 Primal
 Pro
 Profane
-Professional Pro
+Professional^Pro
 Psychedelic
 Psycho
-Queen of the Princess
+Queen of the^Princess
 Quiet
 Rad
 Radical
 Radioactive
-Raging Rage
+Raging^Rage
 Real
 Red Hot
 Regal
@@ -418,31 +374,25 @@ Remote
 Renegade
 Retarded
 Retro
-Return of Returns
-Strikes Again
-Strikes Back
-Return of the Returns
-Strikes Again
-Strikes Back
-Revenge of Revenge
-- The Revenge
-Revenge of the Revenge
-- The Revenge
+Return of^Returns|Strikes Again|Strikes Back
+Return of the^Returns|Strikes Again|Strikes Back
+Revenge of^Revenge|- The Revenge
+Revenge of the^Revenge|- The Revenge
 Rise of the
 Robot
-Robotic Robot
-Rock n Roll
+Robotic^Robot
+Rock 'n' Roll
 Rocket-Powered
-Rockin
+Rockin'
 Rogue
 Romantic
 Royal
 Rural
-Rushing Rush
+Rushing^Rush
 Russian
 Samba de
 Samurai
-Satans
+Satan's
 Savage
 Save Yourself from the
 Scandinavian
@@ -451,43 +401,32 @@ Scottish
 Screaming
 Search for the
 Secret of the
-Sensual Sex
-Sexy Sex
-Shadow of the Shadow
+Sensual^Sex
+Sexy^Sex
+Shadow of the^Shadow
 Shady
 Shameful
-Shrunken Midget
-Sid Meiers
+Shrunken^Midget
+Sid Meier's
 Silent
 Silly
-Sim Simulator
+Sim^Simulator
 Sinister
 Sleazy
 Sleepy
 Small-Time
-Sonics
+Sonic's
 Soviet
 Space
-Special Special Edition
+Special^Special Edition
 Spectacular
-Spectral Ghost
+Spectral^Ghost
 Spirit of the
 Spooky
 Spunky
-Star All-Stars
-Starring Mickey Mouse
-Stars
-Superstar
-Star Trek All-Stars
-Star
-Starring Mickey Mouse
-Stars
-Superstar
-Star Wars All-Stars
-Star
-Starring Mickey Mouse
-Stars
-Superstar
+Star^All-Stars|Starring Mickey Mouse|Stars|Superstar
+Star Trek^All-Stars|Star|Starring Mickey Mouse|Stars|Superstar
+Star Wars^All-Stars|Star|Starring Mickey Mouse|Stars|Superstar
 Stealth
 Stoic
 Strategic
@@ -495,22 +434,20 @@ Street
 Stupendous
 Stylish
 Subatomic
-Subterranean Underground
-Underworld
+Subterranean^Underground|Underworld
 Summer
 Super
-Super Sexy Sex
-Superstar
+Super Sexy^Sex|Superstar
 Supreme
 Surprise
-Tactical Tactics
+Tactical^Tactics
 Tasteless
 Team
 Teenage
 Telekinetic
 Terrible
 The
-The Care Bears
+The Care Bears'
 The Castle of
 The Castle of the
 The Glory of
@@ -520,18 +457,18 @@ The Hunt For the
 The Incredible
 The Infernal
 The Last
-The Muppets Muppets
-The Quest for the Quest
+The Muppets^Muppets
+The Quest for the^Quest
 The Secret Weapon of the
-The Simpsons
+The Simpsons'
 The Sims:
 The Six Million Dollar
 Third-World
 Throbbing
-Tiger Woods
-Tiny Midget
-Tom Clancys
-Tony Hawks
+Tiger Woods'
+Tiny^Midget
+Tom Clancy's
+Tony Hawk's
 Topsy-Turvy
 Toxic
 Transvestite
@@ -544,21 +481,12 @@ Twin
 Twisted
 Ultimate
 Ultra
-Ultraviolent Ultra
+Ultraviolent^Ultra
 Unbelievable
 Undead
-Undercover Under Fire
-Underwear
-Underground
-Underworld
-Underground Under Fire
-Underwear
-Underground
-Underworld
-Underwater Under Fire
-Underwear
-Underground
-Underworld
+Undercover^Under Fire|Underwear|Underground|Underworld
+Underground^Under Fire|Underwear|Underground|Underworld
+Underwater^Under Fire|Underwear|Underground|Underworld
 Unforgettable
 Unholy
 Unpleasant
@@ -574,32 +502,20 @@ Virtua
 Virtual
 Wacky
 Wandering
-War of the Warfare
-Warrior
-Wars
-- Total War
+War of the^Warfare|Warrior|Wars|- Total War
 We Love
 Weary
-Wild Gone Wild
+Wild^Gone Wild
 Wonderous
 Wooden
-World World Cup
-World Tour
-World of World
-World Cup
-World Tour
+World^World Cup|World Tour
+World of^World|World Cup|World Tour
 Wrath of the
-WWII Warfare
-Warrior
-Wars
-World
-World Cup
-World Tour
-- Total War
+WWII^Warfare|Warrior|Wars|World|World Cup|World Tour|- Total War
 Ye Olde
-Yoshis
+Yoshi's
 Zany
-Zombie Zombies
+Zombie^Zombies
 ----
 3D
 Acid
@@ -615,13 +531,7 @@ Architecture
 Army
 Assault
 Axe
-Badminton Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Badminton^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Baking
 Ballet
 Balloon
@@ -630,26 +540,12 @@ Bandicoot
 Banjo
 Barbarian
 Barcode
-Baseball Base
-Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
-Basketball Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Baseball^Base|Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
+Basketball^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Bass
 Batman
-Battle Battalion
-Battleship Battle
-Battalion
+Battle^Battalion
+Battleship^Battle|Battalion
 Bazooka
 Beach
 Beast
@@ -657,15 +553,13 @@ Beat
 Beautician
 Bedtime
 Bible
-Big Game Hunter Hunt
-Hunter
+Big Game Hunter^Hunt|Hunter
 Bimbo
 Bingo
 Biplane
 Blade
 Blimp
-Blood Bloodbath
-of the Blood God
+Blood^Bloodbath|of the Blood God
 BMX
 Bobsled
 Bomb
@@ -673,25 +567,10 @@ Bomberman
 Bong
 Bongo
 Booty
-Bow Hunter Hunt
-Hunter
-Bowling Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
-Boxing Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
-Breakdancing Dance Mix
-Dance Party
-Dancers
+Bow Hunter^Hunt|Hunter
+Bowling^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
+Boxing^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
+Breakdancing^Dance Mix|Dance Party|Dancers
 Bubble
 Bubblegum
 Buddhist
@@ -705,7 +584,7 @@ Carnival
 Casino
 Castlevania
 Catapult
-Caveman Man
+Caveman^Man
 Chainsaw
 Chase
 Cheese
@@ -723,44 +602,22 @@ Conga
 Cookie
 Cooking
 Cowboy
-Cricket Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
-Croquet Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Cricket^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
+Croquet^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Crowbar
 Crystal
 Cyborg
-Dance Dance Mix
-Dance Party
-Dancers
+Dance^Dance Mix|Dance Party|Dancers
 Dating
-Death Deathmatch
-of Death
-of the Dead
+Death^Deathmatch|of Death|of the Dead
 Deer Hunter
 Demon
 Dentist
-Desert in the Desert
+Desert^in the Desert
 Devil
 Dinosaur
 Disco
-Dodgeball Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Dodgeball^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Dog
 Donkey
 Dragon
@@ -773,27 +630,14 @@ Elevator
 Equestrian
 Fashion
 Fantasy
-Farm Farmer
+Farm^Farmer
 Fencing
-Fighter Fight
-Fight Club
+Fighter^Fight|Fight Club
 Fire
-Fishing Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Fishing^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Flatulence
 Florist
-Football Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Football^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Forklift
 Frisbee
 Frog
@@ -825,21 +669,12 @@ Harvest
 Helicopter
 Hillbilly
 Hippo
-Hitman Man
+Hitman^Man
 Hobo
 Hockey
-Hoedown Beatdown
-Showdown
-Smackdown
-Takedown
+Hoedown^Beatdown|Showdown|Smackdown|Takedown
 Hovercraft
-Horse Racing Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Horse Racing^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Ice
 Ice Cream
 Indian
@@ -860,13 +695,7 @@ Kart
 Katana
 Kitchen
 Kung-fu
-Lacrosse Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Lacrosse^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Landmine
 Laser
 Lawnmower
@@ -876,12 +705,10 @@ Lightning
 Limbo
 Lizard
 Llama
-Love of Love
-Romance
+Love^of Love|Romance
 Lowrider
 Mafia
-Magic of Magic
-of Might and Magic
+Magic^of Magic|of Might and Magic
 Mahjong
 Makeout
 Makeover
@@ -905,12 +732,11 @@ Motocross
 Mountain Climber
 Mummy
 Mushroom
-Music DJ
+Music^DJ
 Mutant
 NASCAR
 Nazi
-Night Knights
-Nightmare
+Night^Knights|Nightmare
 Ninja
 Nuclear
 Nudist
@@ -919,29 +745,11 @@ Office
 Ostrich
 Outlaw
 Pachinko
-Paintball Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Paintball^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Penguin
 Piano
-Pinball Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
-Ping Pong Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Pinball^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
+Ping Pong^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Pirate
 Platypus
 Plumber
@@ -962,27 +770,15 @@ Quantum
 Quiz
 Rabbit
 Raccoon
-Racing Racer
+Racing^Racer
 Railroad
 Rainbow
 River
 Robot
 Rocket
 Rodeo
-Rollerball Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
-Rugby Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Rollerball^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
+Rugby^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Sailboat
 Sailor
 Samurai
@@ -1010,9 +806,7 @@ Spelling
 Spelunking
 Spider
 Spork
-Square Dancing Dance Mix
-Dance Party
-Dancers
+Square Dancing^Dance Mix|Dance Party|Dancers
 Squirrel
 Stapler
 STD
@@ -1031,11 +825,11 @@ Techno
 Tennis
 Terrorist
 Tetris
-Theme Park Park
+Theme Park^Park
 Thief
 Thunder
 Toon
-Trailer Park Park
+Trailer Park^Park
 Train
 Trampoline
 Transvestite
@@ -1043,9 +837,7 @@ Tricycle
 Turtle
 Typing
 UFO
-Underwear Under Fire
-Underground
-Underworld
+Underwear^Under Fire|Underground|Underworld
 Unicorn
 Unicycle
 Valkyrie
@@ -1054,13 +846,7 @@ Vegetarian
 Vigilante
 Viking
 Vocabulary
-Volleyball Baseball
-Basketball
-Boxing
-Football
-Paintbrawl
-Pinball
-Polo
+Volleyball^Baseball|Basketball|Boxing|Football|Paintbrawl|Pinball|Polo
 Wagon
 Walrus
 Wedding
@@ -1074,18 +860,12 @@ Worm
 Wrestling
 Writing
 WWE
-WWII Warfare
-Warrior
-Wars
-World
-World Cup
-World Tour
-- Total War
+WWII^Warfare|Warrior|Wars|World|World Cup|World Tour|- Total War
 Yak
 Yeti
 Yoga
 Zamboni
-Zombie Zombies
+Zombie^Zombies
 ----
 - 2nd Impact
 - 3rd Strike
@@ -1145,7 +925,7 @@ Chronicles
 City
 Co-Op
 Collection
-- Collectors Edition
+- Collector's Edition
 College
 Colosseum
 Combat

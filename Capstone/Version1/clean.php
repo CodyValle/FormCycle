@@ -5,11 +5,8 @@
 	Long: Drops the existing database and rebuilds it.
 	*/
 	
-	include_once 'debug.php';
-	include_once 'error.php';
-	
 	// Gain access to the database
-	include_once 'loginCapstone.php';
+	include 'loginCapstone.php';
 	
 	// Drop the database
 	$statement = "DROP DATABASE IF EXISTS Capstone;";
@@ -18,8 +15,7 @@
 	// Enter the new database
 	$statement .= "USE Capstone;";
 	// Create all the tables
-	$statement .= "
-CREATE TABLE CustData ( 
+	$statement .= "CREATE TABLE CustData ( 
 rowid          int             NOT NULL AUTO_INCREMENT, 
 custid         binary(16)      UNIQUE NOT NULL, 
 fname          varchar(255)    NOT NULL, 
@@ -28,10 +24,10 @@ address        varchar(255)    NOT NULL,
 address2       varchar(255), 
 city           varchar(255)    NOT NULL, 
 state          char(2)         NOT NULL, 
-country        char(3)         NOT NULL DEFAULT 'USA', 
+country        char(3)         NOT NULL DEFAULT 'US', 
 zip            char(5)         NOT NULL, 
 phone          char(10)        NOT NULL, 
-email          varchar(255)    UNIQUE, 
+email          varchar(255)    UNIQUE NOT NULL, 
 KEY (rowid), 
 PRIMARY KEY (custid) 
 ); 
@@ -96,26 +92,13 @@ time           float           NOT NULL DEFAULT '1.00',
 descrip        text            DEFAULT '', 
 sku            varchar(3), 
 PRIMARY KEY (tune) 
-);
-";
+);";
 	
 	// Send the queries and test for success
-	$result = mysqli_multi_query($GLOBALS['con'], $statement);
-	if ($GLOBALS['DEBUG'])
-	{
-		if ($result)
-			print("Successfully dropped and recreated the database." . PHP_EOL);
-		else
-		{
-			print("Error dropping and recreating the database." . PHP_EOL);
-			$GLOBALS['ERROR']->reportErrorCode("CLEAN");
-		}
-	}
+	if (mysqli_multi_query($con, $statement))
+		print("SUC" . PHP_EOL);
+	else print("ERR" . PHP_EOL);
 	
-	if ($GLOBALS['con']) 
-	{
-		if ($GLOBALS['DEBUG']) print("Closing mysql connection." . PHP_EOL);
-		$GLOBALS['con']->close();
-		$GLOBALS['con'] = false;
-	}
+	// Close the connection to the database
+	mysqli_close($con);
 ?>

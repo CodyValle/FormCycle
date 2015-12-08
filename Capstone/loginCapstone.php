@@ -9,12 +9,14 @@
 	include '/home/ubuntu/pwd/MYSQLpwd.php';
 	
 	// Check to see if a connection has been made yet.
-	if (!isset($con))
+	if (!isset($GLOBALS['con']))
 	{
 		// Create singleton connection
-		$con = new mysqli('localhost', $username, $password, $database);
+		$GLOBALS['con'] = new mysqli('localhost', 'root', $password, 'Capstone');
 		// Check conection success
-		if ($con->connect_error) { die("CON"); } // Database connection error
+		if ($GLOBALS['con']->connect_error) $GLOBALS['ERROR']->reportErrorCode("CON"); // Database connection error
+		else if ($GLOBALS['DEBUG'])
+			print("Successfully created connection to database." . PHP_EOL);
 	}
-	else die("OLDCON");
+	else $GLOBALS['ERROR']->reportErrorCode("OLDCON");
 ?>
