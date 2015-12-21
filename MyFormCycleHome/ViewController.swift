@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  FormCycle
 //
-//  Created by Merrill Lines on 11/5/15.
-//  Copyright © 2015 Merrill Lines and FormCycle. All rights reserved.
+//  Created by FormCycle on 11/5/15.
+//  Copyright © 2015 FormCycle. All rights reserved.
 //
 
 
@@ -12,14 +12,12 @@ import SwiftHTTP
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 {
-	
-	
-//******************** SIGN IN PAGE *****************************************
-  /* This is the Login Page which will be implemented at a later date. 
-   * Due to this, the section referred to as MARK: Login Page text and Server Request
-   * will remain commented out until finally becoming implemented.
-   */
-  //MARK: Login Page text and Server Request
+/*+------------------------------------ SIGN IN PAGE ------------------------------------+
+  | This is the Login Page which will be implemented at a later date.                    |
+  | Due to this, the section referred to as MARK: Login Page text and Server Request     |
+  | will remain commented out until finally becoming implemented.                        |
+	| MARK: Login Page text and Server Request                                             |
+  +--------------------------------------------------------------------------------------+*/
   @IBOutlet weak var USRTextField: UITextField!
   @IBOutlet weak var PWDTextField: UITextField!
 	
@@ -32,6 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		}
 	}
 	
+	/* Will remain commented becuase it is not implemented yet */
   @IBAction func MyButton(sender: AnyObject)
   {/*
     let params = ["action": USRTextField.text!, "pwd": PWDTextField.text!]
@@ -55,12 +54,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
     }*/
   }
   
-//**************************************************************************
-    
-//******************** NEW ORDER PAGE **************************************
-  
-  //MARK: New Order Page Text and Server Request
-  
+/*+------------------------------------ NEW ORDER PAGE ------------------------------------+
+  | New Order Page is the hub for a new order. This will collect all the customer info     |
+  | and save those values to a global struct. This struct allows us to access the saved    |
+  | values from this page on any other page in the app.                                    |
+  | MARK: New Order Page Text and Server Request                                           |
+  +----------------------------------------------------------------------------------------+*/
   /* List all Text Fields imported from New Order Page */
   @IBOutlet weak var fname: UITextField!
   @IBOutlet weak var lname: UITextField!
@@ -78,9 +77,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
   *  string. */
   struct newOrderTextFieldStruct
   {
-    static var firstName = " "
-    static var lastName = " "
-    static var myAddress = " "
+    static var firstName = ""
+    static var lastName = ""
+    static var myAddress = ""
     static var myAddress2 = ""
     static var myCity = ""
     static var myState = ""
@@ -94,13 +93,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
     static var myTagNumber = ""
 		static var neworderpage = false
 		static var bikeInfoPage = false
-		
   }
   
 	/* Sends the user back to the Home Page if currently on the Customer Information page. */
-	@IBAction func backToHomePageBtn(sender: AnyObject) {
-		newOrderTextFieldStruct.neworderpage = false
-		dismissViewControllerAnimated(true, completion: nil)
+	@IBAction func backToHomePageBtn(sender: AnyObject)
+	{
+		newOrderTextFieldStruct.neworderpage = false /* sets current view to false */
+		dismissViewControllerAnimated(true, completion: nil) /* dismisses the view controller */
 	}
   /* New Order Page: Customer Information. This section denotes the variables
    * as well as the functions that pretain to the Customer Information Page.
@@ -108,26 +107,26 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
   //MARK: Variables and functions for Customer Information Page.
   @IBAction func submitCustInfo(sender: AnyObject)
   {
-    
-    newOrderTextFieldStruct.firstName = fname.text! + " "
-    newOrderTextFieldStruct.lastName = lname.text! + " "
-    newOrderTextFieldStruct.myAddress = address.text! + " "
-    newOrderTextFieldStruct.myAddress2 = address2.text! + " "
-    newOrderTextFieldStruct.myCity = city.text! + " "
-    newOrderTextFieldStruct.myState = state.text! + " "
+    newOrderTextFieldStruct.firstName = fname.text!
+    newOrderTextFieldStruct.lastName = lname.text!
+    newOrderTextFieldStruct.myAddress = address.text!
+    newOrderTextFieldStruct.myAddress2 = address2.text!
+    newOrderTextFieldStruct.myCity = city.text!
+    newOrderTextFieldStruct.myState = state.text!
     newOrderTextFieldStruct.myZip = zip.text!
     newOrderTextFieldStruct.myPhone = phone.text!
     newOrderTextFieldStruct.myEmail = email.text!
   }
 	
 
-//***************************************************************************
-	
-//********************** BIKE INFO PAGE *************************************
+/*+------------------------------------ BIKE INFO PAGE ------------------------------------+
+  | Bike info page collects all revelant info pertaining to the bike itself. Here we       |
+  | collect the Model, Brand, Color, Tag Number, and Notes about the bike.                 |
+  | MARK: Variables and functions for Bike Information Page.                               |
+  +----------------------------------------------------------------------------------------+*/
   /* New Order Page: Bike Information. This section denotes the variables
    * as well as the functions that pretain to the Bike Information Page.
    */
-  //MARK: Variables and functions for Bike Information Page.
   @IBOutlet weak var brand: UITextField!
   @IBOutlet weak var model: UITextField!
   @IBOutlet weak var color: UITextField!
@@ -138,169 +137,180 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
    * boxes when the user pressed back on the
    * RepairInfo Page.
    */
-  @IBAction func backToCustInfo(sender: AnyObject) {
-    newOrderTextFieldStruct.bikeInfoPage = false
-    dismissViewControllerAnimated(true, completion: nil)
-		newOrderTextFieldStruct.neworderpage = true
-		
-  }
- //************************************************************************
-    
-//*********************** LOAD INVOICE PAGE *******************************
-    
-    
-    @IBOutlet weak var invNotes: UILabel!
-    @IBOutlet weak var invTagNum: UILabel!
-    @IBOutlet weak var makeModelColor: UILabel!
-    @IBOutlet weak var invEmail: UILabel!
-    @IBOutlet weak var invPhone: UILabel!
-    @IBOutlet weak var CityStateZip: UILabel!
-    @IBOutlet weak var address3: UILabel!
-    @IBOutlet weak var address1: UILabel!
-    @IBOutlet weak var Name: UILabel!
-    @IBAction func loadInvoice(sender: AnyObject) {
-        Name.text = newOrderTextFieldStruct.firstName +  newOrderTextFieldStruct.lastName
-        address1.text = newOrderTextFieldStruct.myAddress
-        address3.text = newOrderTextFieldStruct.myAddress2
-        CityStateZip.text = newOrderTextFieldStruct.myCity + newOrderTextFieldStruct.myState + newOrderTextFieldStruct.myZip
-        invPhone.text = newOrderTextFieldStruct.myPhone
-        invEmail.text = newOrderTextFieldStruct.myEmail
-       makeModelColor.text = newOrderTextFieldStruct.myBrand + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
-        invTagNum.text = newOrderTextFieldStruct.myTagNumber
-        invNotes.text = newOrderTextFieldStruct.myNotes
-    }
-    
-//*************************************************************************
-    
-	
-    
-    //MARK: Pre-Defined functions
-    override func viewDidLoad() {
-			super.viewDidLoad()
-			if newOrderTextFieldStruct.neworderpage == true
-			{
-				
-				fname.delegate = self
-				lname.delegate = self
-				address.delegate = self
-				address2.delegate = self
-				city.delegate = self
-				state.delegate = self
-				state.keyboardType = UIKeyboardType.Alphabet
-				zip.delegate = self
-				zip.keyboardType = UIKeyboardType.NumberPad
-				phone.delegate = self
-				phone.keyboardType = UIKeyboardType.NumberPad
-				email.delegate = self
-			}
-			else if newOrderTextFieldStruct.bikeInfoPage == true
-			{
-				brand.delegate = self
-				model.delegate = self
-				color.delegate = self
-				tagNumber.delegate = self
-				notes.delegate = self
-				
-				
-			}
-    
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-	
-	//**************
-  // Tap outside a text field to dismiss the keyboard
-  // ------------------------------------------------
-  // By changing the underlying class of the view from UIView to UIControl,
-  // the view can respond to events, including Touch Down, which is
-  // wired to this method.
-  @IBAction func userTappedBackground(sender: AnyObject) {
-		view.endEditing(true)
-  }
-  
-  
-  // MARK: UITextFieldDelegate events and related methods
-  func textField(textField: UITextField,
-		shouldChangeCharactersInRange range: NSRange,
-		replacementString string: String)
-		-> Bool
+  @IBAction func backToCustInfo(sender: AnyObject)
 	{
-		
-		// We ignore any change that doesn't add characters to the text field.
-		// These changes are things like character deletions and cuts, as well
-		// as moving the insertion point.
-		//
-		// We still return true to allow the change to take place.
-		if string.characters.count == 0 {
-			return true
-		}
+    newOrderTextFieldStruct.bikeInfoPage = false /* sets current view to false */
+    dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+		newOrderTextFieldStruct.neworderpage = true /* sets the new order page view to true since
+																									 user just pressed the "back" button */
+  }
+
+/*+-------------------------------- LOAD INVOICE PAGE ------------------------------------+
+  | Load invoice page displays all recorded information collected through the customer    |
+  | information page, and bike information page. This allows the tech to see if all info  |
+  | was correctly collected.                                                              |
+  | MARK: Variables and functions for Load Invoice Page.                                  |
+  +---------------------------------------------------------------------------------------+*/
+	/* Load Invoice Page. This section denotes the variables as well as the functions that
+   * pertain to the Load Invoice Page. The goal for this page is to have the information
+   * automatically load when the view is loaded to the page. 
+   * !!! STILL IN PROGRESS !!!
+   */
+	@IBOutlet weak var invNotes: UILabel!
+	@IBOutlet weak var invTagNum: UILabel!
+	@IBOutlet weak var makeModelColor: UILabel!
+	@IBOutlet weak var invEmail: UILabel!
+	@IBOutlet weak var invPhone: UILabel!
+	@IBOutlet weak var CityStateZip: UILabel!
+	@IBOutlet weak var address3: UILabel!
+	@IBOutlet weak var address1: UILabel!
+	@IBOutlet weak var Name: UILabel!
+	/* Loads all values from struct into text fields on this page */
+	@IBAction func loadInvoice(sender: AnyObject)
+	{
+			Name.text = newOrderTextFieldStruct.firstName +  newOrderTextFieldStruct.lastName
+			address1.text = newOrderTextFieldStruct.myAddress
+			address3.text = newOrderTextFieldStruct.myAddress2
+			CityStateZip.text = newOrderTextFieldStruct.myCity + newOrderTextFieldStruct.myState + newOrderTextFieldStruct.myZip
+			invPhone.text = newOrderTextFieldStruct.myPhone
+			invEmail.text = newOrderTextFieldStruct.myEmail
+			makeModelColor.text = newOrderTextFieldStruct.myBrand + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
+			invTagNum.text = newOrderTextFieldStruct.myTagNumber
+			invNotes.text = newOrderTextFieldStruct.myNotes
+	}
+    
+/*+------------------------------- viewDidLoad() --------------------------------------+
+	| viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
+  | display information on a current page. Because we have only implemented a single   |
+  | view controller for this app we have to set flags for each page. This will allows  |
+  | us to access the correct values from a current view.                               |
+  | MARK: viewDidLoad () Function																											 |
+  +------------------------------------------------------------------------------------+*/
+	/* viewDidLoad. This function allows the view to be flagged based on the current
+   * page that is loaded. 
+   */
+	override func viewDidLoad()
+	{
+		super.viewDidLoad()
+		/* if user is on the new order page set flag to true */
 		if newOrderTextFieldStruct.neworderpage == true
 		{
-		// Check to see if the text field's contents still fit the constraints
-		// with the new content added to it.
-		// If the contents still fit the constraints, allow the change
-		// by returning true; otherwise disallow the change by returning false.
-		let currentText = textField.text ?? ""
-		let prospectiveText = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
-  
-		switch textField {
-			
-			// Allow only upper-case letters in this field,
-			// and must have only 2 characters.
-		case state:
-			return prospectiveText.containsOnlyCharactersIn("ABCDEFGHIJKLMNOPQRSTUVWXYZ") &&
-				prospectiveText.characters.count <= 2
-			
-			// Allow only digits in this field,
-			// and limit its contents to 7, 10, or 11 characters.
-		case phone:
-			return prospectiveText.containsOnlyCharactersIn("0123456789") &&
-				prospectiveText.characters.count <= 10
-			
-			// Allow only digits in this field,
-			// and must have only 5 characters.
-		case zip:
-			return prospectiveText.containsOnlyCharactersIn("0123456789") &&
-				prospectiveText.characters.count <= 5
-			
-			
-		default:
+				
+			fname.delegate = self
+			lname.delegate = self
+			address.delegate = self
+			address2.delegate = self
+			city.delegate = self
+			state.delegate = self
+			state.keyboardType = UIKeyboardType.Alphabet
+			zip.delegate = self
+			zip.keyboardType = UIKeyboardType.NumberPad
+			phone.delegate = self
+			phone.keyboardType = UIKeyboardType.NumberPad
+			email.delegate = self
+		}
+		/* else if user is on the bike info page, set this flag to true */
+		else if newOrderTextFieldStruct.bikeInfoPage == true
+		{
+			brand.delegate = self
+			model.delegate = self
+			color.delegate = self
+			tagNumber.delegate = self
+			notes.delegate = self
+		}
+	}
+	
+/*+--------------------------------- textField() ---------------------------------------+
+  | textField() is a function that checks the constraints on the current text. First it |
+  | checks to see which page is loaded in the current view. Then it begins to allow the |
+  | user to enter text. If the text being entered conflicts with a constraint it will   |
+  | end the app from collecting that information. This checks for more global           |
+  | constraints such as length not the specific characters being entered.               |
+  | MARK: UITextFieldDelegate events and related methods                                |
+  +-------------------------------------------------------------------------------------+*/
+	/* textField(): Takes in the current text field as well as a string and returns a
+   * boolean value.
+	 */
+  func textField(textField: UITextField,shouldChangeCharactersInRange range: NSRange,
+		replacementString string: String)-> Bool
+	{
+		/* We ignore any change that doesn't add characters to the text field.
+		 * These changes are things like character deletions and cuts, as well
+		 * as moving the insertion point.
+		 *
+		 * We still return true to allow the change to take place.
+     */
+		if string.characters.count == 0
+		{
 			return true
 		}
+		/* if current view is on new order page do this: */
+		if newOrderTextFieldStruct.neworderpage == true
+		{
+			/* Check to see if the text field's contents still fit the constraints
+			* with the new content added to it.
+			* If the contents still fit the constraints, allow the change
+			* by returning true; otherwise disallow the change by returning false.
+			*/
+			let currentText = textField.text ?? ""
+			let prospectiveText = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
+  
+			switch textField
+			{
+				/* Allow only upper-case letters in this field, and must have only 2 characters. */
+				case state:
+					return prospectiveText.containsOnlyCharactersIn("ABCDEFGHIJKLMNOPQRSTUVWXYZ") &&
+						prospectiveText.characters.count <= 2
 			
+				/* Allow only digits in this field,and limit its contents to 7, 10, or 11 characters. */
+				case phone:
+					return prospectiveText.containsOnlyCharactersIn("0123456789") &&
+						prospectiveText.characters.count <= 10
+			
+				/* Allow only digits in this field, and must have only 5 characters. */
+				case zip:
+					return prospectiveText.containsOnlyCharactersIn("0123456789") &&
+						prospectiveText.characters.count <= 5
+				default:
+					return true
+			}
 		}
+		/* else if current view is on the bike info page do this: */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
 			let currentText = textField.text ?? ""
 			let prospectiveText = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
 			
-			switch textField {
-				
-				// Allow only upper-case letters in this field,
-				// and must have only 2 characters.
-			case tagNumber:
-				return prospectiveText.containsOnlyCharactersIn("0123456789")
-			default:
-				return true
-		}
+			switch textField
+			{
+				/* Allow only upper-case letters in this field, and must have only 2 characters. */
+				case tagNumber:
+					return prospectiveText.containsOnlyCharactersIn("0123456789")
+				default:
+					return true
+			}
 		}
 		return true
   }
 	
-	
-	/* Checks which text box is currently in the view of the user. Then
-	*  will either set the next appropiate text box that should be active
-	*  or dismisses the keyboard if at the last text box.
-	*  Dismiss the keyboard when the user taps the "Return" key or its equivalent
-	* while editing a text field.
-  */
-	func textFieldShouldReturn(textField: UITextField) -> Bool {
+/*+------------------------------ textFieldShouldReturn --------------------------------+
+	| Checks which text box is currently in the view of the user. Then                    |
+	| will either set the next appropiate text box that should be active                  |
+	| or dismisses the keyboard if at the last text box.                                  |
+	| Dismisses the keyboard when the user taps the "Return" key or its equivalent        |
+	| while editing a text field.                                                         |
+	| MARK: textFieldShouldReturn() Function                                              |
+  +-------------------------------------------------------------------------------------+*/
+	/* textFieldShouldReturn: controls the movement between text boxes. */
+	func textFieldShouldReturn(textField: UITextField) -> Bool
+	{
 		if (textField === fname)
 		{
 			lname.becomeFirstResponder()
 		}
 		else if (textField === lname)
 		{
-				address.becomeFirstResponder()
+			address.becomeFirstResponder()
 		}
 		else if (textField === address)
 		{
@@ -350,88 +360,102 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		{
 			notes.resignFirstResponder()
 		}
-	
 		return true
 	}
 	
-	  /* Overrides the seque function which allows us to preload pages with
-    *  with text before loading the page.
-    */
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-			newOrderTextFieldStruct.neworderpage = false
-			newOrderTextFieldStruct.bikeInfoPage = false
-			if segue.identifier == "moveToCustInfo"
-			{
-				
-				newOrderTextFieldStruct.neworderpage = true
-				
-			}
+/*+-------------------------------- prepareForSegue() ----------------------------------+
+	| Overrides the seque function which allows us to preload pages with                  |
+	| with text before loading the page. This is the major action that allows this        |
+	| program app to load the correct information based on the current page. If on the    |
+	| correct page and values are entered correctly this will also submit the form        |
+	| to the database.                                                                    |
+	| MARK: prepareForSegue() Function                                                    |
+  +-------------------------------------------------------------------------------------+*/
+	/* prepareForSegue: if on correct page and info collected correctly, submits
+	 * the information from the app to the server via an http request.
+	 */
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
+	{
+		newOrderTextFieldStruct.neworderpage = false /* set current page to nothing */
+		newOrderTextFieldStruct.bikeInfoPage = false /* sets current page to nothing */
+		/* checks if the user pressed the "new order" button, if so then move to
+		 * new order: customer information page.
+		 */
+		if segue.identifier == "moveToCustInfo"
+		{
+			newOrderTextFieldStruct.neworderpage = true /* on new order page, set flag to true. */
+		}
+		
+		/* checks if the user pressed the submit button on the bike info page */
+		else if segue.identifier == "moveToInvoice"
+		{
+			newOrderTextFieldStruct.myBrand = brand.text!
+			newOrderTextFieldStruct.myModel = model.text!
+			newOrderTextFieldStruct.myColor = color.text!
+			newOrderTextFieldStruct.myNotes = notes.text!
+			newOrderTextFieldStruct.myTagNumber = tagNumber.text!
 			
-        if segue.identifier == "moveToInvoice"{
-            newOrderTextFieldStruct.myBrand = brand.text! + " "
-            newOrderTextFieldStruct.myModel = model.text! + " "
-            newOrderTextFieldStruct.myColor = color.text!
-            newOrderTextFieldStruct.myNotes = notes.text!
-            newOrderTextFieldStruct.myTagNumber = tagNumber.text!
-           
-            let MyParams = ["DEBUG":"true","action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":newOrderTextFieldStruct.myBrand, "model":newOrderTextFieldStruct.myModel, "color":newOrderTextFieldStruct.myColor,
+			/* Submits the server request */
+			let MyParams = ["DEBUG":"true","action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":newOrderTextFieldStruct.myBrand, "model":newOrderTextFieldStruct.myModel, "color":newOrderTextFieldStruct.myColor,
                 "tagNum":newOrderTextFieldStruct.myTagNumber,
                 "notes":newOrderTextFieldStruct.myNotes]
-            do
-            {
-                let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
-                opt.start
-                    {
-                        response in
-                        if let error = response.error
-                        {
-                            print("got an error: \(error)")
-                            return
-                        }
-												if (response.text != nil)
-												{
-													print(response.text!)
-												}
-                }
-            }
-            catch let error
-            {
-                print("got an error creating the request: \(error)")
-            }
+			do
+			{
+				/* tries to submit to server */
+				let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+				opt.start
+				{
+					response in
+					if let error = response.error
+					{
+						print("got an error: \(error)") /* if error, prints the error code saved on server */
+						return
+						}
+					if (response.text != nil)
+					{
+						print(response.text!)
+					}
+				}
+			}
+			catch let error
+			{
+				print("got an error creating the request: \(error)")
+			}
+		}
+		
+		/* check if the user pressed the load info button on the load invoice page. */
+		else if segue.identifier == "loadCustomerInfo"
+		{
+			newOrderTextFieldStruct.bikeInfoPage = true;
+			newOrderTextFieldStruct.firstName = fname.text! + " "
+			newOrderTextFieldStruct.lastName = lname.text! + " "
+			newOrderTextFieldStruct.myAddress = address.text! + " "
+			newOrderTextFieldStruct.myAddress2 = address2.text! + " "
+			newOrderTextFieldStruct.myCity = city.text! + " "
+			newOrderTextFieldStruct.myState = state.text! + " "
+			newOrderTextFieldStruct.myZip = zip.text!
+			newOrderTextFieldStruct.myPhone = phone.text!
+			newOrderTextFieldStruct.myEmail = email.text!
+		}
+	}
 
-            
-					
-        }
-        if segue.identifier == "loadCustomerInfo"{
-					newOrderTextFieldStruct.bikeInfoPage = true;
-            newOrderTextFieldStruct.firstName = fname.text! + " "
-            newOrderTextFieldStruct.lastName = lname.text! + " "
-            newOrderTextFieldStruct.myAddress = address.text! + " "
-            newOrderTextFieldStruct.myAddress2 = address2.text! + " "
-            newOrderTextFieldStruct.myCity = city.text! + " "
-            newOrderTextFieldStruct.myState = state.text! + " "
-            newOrderTextFieldStruct.myZip = zip.text!
-            newOrderTextFieldStruct.myPhone = phone.text!
-            newOrderTextFieldStruct.myEmail = email.text!
-            
-        }
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-	
-	/***************************** Segue Identifier *****************************************/
-	/* This function controls the requirements for each page that must be met before moving to
-	*  the next view/page. 
-  */
+/*+------------------------- shouldPerformSegueWithIdentifier ---------------------------+
+  | This function controls the bulk requirements for each page that must be met before   |
+  | moving to the next view/page. This allows us to set specific constraints for each    |
+  | page. This is a continuation of prepareForSegue(). If the user tries to enter        |
+  | incorrect info or does not fill out the required box they will be prompted with      |
+  | an error message as well as not allowed to proceed until no errors remain.           |
+  | MARK: shouldPerformSegueWithIdentifier																							 |
+  +--------------------------------------------------------------------------------------+*/
+	/* shouldPerformSegueWithIdentifier: This function controls the requirements for each 
+	 * page that must be met before moving to the next view/page.
+   */
 	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
 	{
-		// Checks to make sure that all Customer Info is filled out before moving onto next page.
+		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
 		if newOrderTextFieldStruct.neworderpage == true
 		{
-			
-			if fname.text?.utf16.count == 0
+			if fname.text?.utf16.count == 0 /* constraint for first name, if empty then prompt user. */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter First Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -440,7 +464,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if lname.text?.utf16.count == 0 //Checks last name restrictions
+			else if lname.text?.utf16.count == 0 /* Checks last name restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter Last Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -449,7 +473,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if address.text?.utf16.count == 0 //Checks address restrictions
+			else if address.text?.utf16.count == 0 /* Checks address restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter Address", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -458,7 +482,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if city.text?.utf16.count == 0 //Checks city restrictions
+			else if city.text?.utf16.count == 0 /* Checks city restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter City", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -467,7 +491,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if state.text?.utf16.count < 2 //Checks state restrictions
+			else if state.text?.utf16.count < 2 /* Checks state restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter State", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -476,7 +500,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if zip.text?.utf16.count < 5 //Checks zip restrictions
+			else if zip.text?.utf16.count < 5 /* Checks zip restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Incorrect Number of Digits for ZIP", message: "ZIP requires 5 digits (e.g. XXXXX), Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -485,7 +509,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if phone.text?.utf16.count < 10 //Checks phone number restrictions
+			else if phone.text?.utf16.count < 10 /* Checks phone number restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Incorrect Number of Digits for Phone Number", message: "Requires 10 digits (e.g. XXX-XXX-XXXX), Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -494,7 +518,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if phone.text?.utf16.count == 0 //Checks phone restrictions
+			else if phone.text?.utf16.count == 0 /* Checks phone restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter Phone Number", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -503,7 +527,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-				/* Commented out for now. Email should be optional for now.
+			/* Commented out for now. Email should be optional for now.
 				//			else if email.text?.utf16.count == 0 //Checks email restrictions
 				//			{
 				//				let refreshAlert = UIAlertController(title: "Did Not Enter Email", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
@@ -512,15 +536,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				//				}))
 				//				presentViewController(refreshAlert, animated: true, completion: nil)
 				//				return false
-				//			} */
+				//			} 
+			*/
 			else
 			{
 				return true
 			}
 		}
+		/* Check if currently on bike info page */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
-			if brand.text?.utf16.count == 0
+			if brand.text?.utf16.count == 0 /* Checks brand restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter Brand", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -529,7 +555,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if model.text?.utf16.count == 0
+			else if model.text?.utf16.count == 0 /* Checks model restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter Model", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -538,7 +564,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if color.text?.utf16.count == 0
+			else if color.text?.utf16.count == 0 /* Checks color restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter Color", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -547,7 +573,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				presentViewController(refreshAlert, animated: true, completion: nil)
 				return false
 			}
-			else if tagNumber.text?.utf16.count == 0
+			else if tagNumber.text?.utf16.count == 0 /* Checks tag number restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter Tag Number", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
@@ -557,18 +583,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 				return false
 			}
 			/* Could also be optional value for notes.
-//			else if notes.text?.utf16.count == 0
-//			{
-//				let refreshAlert = UIAlertController(title: "Did Not Enter Notes", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
-//				
-//				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
-//				}))
-//				presentViewController(refreshAlert, animated: true, completion: nil)
-//				return false
-//			}*/
+				//			else if notes.text?.utf16.count == 0
+				//			{
+				//				let refreshAlert = UIAlertController(title: "Did Not Enter Notes", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				//
+				//				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				//				}))
+				//				presentViewController(refreshAlert, animated: true, completion: nil)
+				//				return false
+				//			}
+			*/
 		}
 		return true
 	}
+	
 //********************* PRACTICE TEST FUNCTIONS *********************
     
     func somefuncReturnsTrue() -> Bool {
