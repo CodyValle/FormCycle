@@ -133,37 +133,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
   @IBOutlet weak var color: UITextField!
   @IBOutlet weak var notes: UITextView!
   @IBOutlet weak var tagNumber: UITextField!
-  
-  
-  //Takes the user back to the Home Page
-  @IBAction func OrderCompleteSubmitButtonTop(sender: UIBarButtonItem)
-	{
-    let MyParams = ["DEBUG":"true","action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":brand.text!, "model":model.text!, "color":color.text!,
-      "tagNum":tagNumber.text!,
-      "notes":notes.text!]
-		do
-		{
-			let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
-			opt.start
-			{
-				response in
-			  if let error = response.error
-				{
-          print("got an error: \(error)")
-          return
-				}
-				print(response.text!)
-      }
-    }
-		catch let error
-		{
-      print("got an error creating the request: \(error)")
-    }
-    /* takes the user back a page... NEED TO FIX THIS TO GO BACK TO HOME PAGE. */
-		//self.presentingViewController; self.dismissViewControllerAnimated(true, completion:nil)
-    //dismissViewControllerAnimated(true, completion: nil)
-  }
-  
+	
   /* Made to set the text pre-populated in the text
    * boxes when the user pressed back on the
    * RepairInfo Page.
