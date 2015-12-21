@@ -478,7 +478,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 			}
 			else if zip.text?.utf16.count < 5 //Checks zip restrictions
 			{
-				let refreshAlert = UIAlertController(title: "Did Not Enter Zip", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				let refreshAlert = UIAlertController(title: "Incorrect Number of Digits for ZIP", message: "ZIP requires 5 digits (e.g. XXXXX), Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+				
+				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
+				}))
+				presentViewController(refreshAlert, animated: true, completion: nil)
+				return false
+			}
+			else if phone.text?.utf16.count < 10 //Checks phone number restrictions
+			{
+				let refreshAlert = UIAlertController(title: "Incorrect Number of Digits for Phone Number", message: "Requires 10 digits (e.g. XXX-XXX-XXXX), Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
 				refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action: UIAlertAction!) in
 				}))
