@@ -388,7 +388,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
                             print("got an error: \(error)")
                             return
                         }
-                        print(response.text!)
+												if (response.text != nil)
+												{
+													print(response.text!)
+												}
                 }
             }
             catch let error
