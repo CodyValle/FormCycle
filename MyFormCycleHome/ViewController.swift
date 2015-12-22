@@ -93,6 +93,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
     static var myTagNumber = ""
 		static var neworderpage = false
 		static var bikeInfoPage = false
+		static var invoicePage = false
   }
   
 	/* Sends the user back to the Home Page if currently on the Customer Information page. */
@@ -153,9 +154,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
   +---------------------------------------------------------------------------------------+*/
 	/* Load Invoice Page. This section denotes the variables as well as the functions that
    * pertain to the Load Invoice Page. The goal for this page is to have the information
-   * automatically load when the view is loaded to the page. 
+   * automatically load when the view is loaded to the page.
    * !!! STILL IN PROGRESS !!!
    */
+	
+	
 	@IBOutlet weak var invNotes: UILabel!
 	@IBOutlet weak var invTagNum: UILabel!
 	@IBOutlet weak var makeModelColor: UILabel!
@@ -166,19 +169,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 	@IBOutlet weak var address1: UILabel!
 	@IBOutlet weak var Name: UILabel!
 	/* Loads all values from struct into text fields on this page */
-	@IBAction func loadInvoice(sender: AnyObject)
-	{
-			Name.text = newOrderTextFieldStruct.firstName +  newOrderTextFieldStruct.lastName
-			address1.text = newOrderTextFieldStruct.myAddress
-			address3.text = newOrderTextFieldStruct.myAddress2
-			CityStateZip.text = newOrderTextFieldStruct.myCity + newOrderTextFieldStruct.myState + newOrderTextFieldStruct.myZip
-			invPhone.text = newOrderTextFieldStruct.myPhone
-			invEmail.text = newOrderTextFieldStruct.myEmail
-			makeModelColor.text = newOrderTextFieldStruct.myBrand + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
-			invTagNum.text = newOrderTextFieldStruct.myTagNumber
-			invNotes.text = newOrderTextFieldStruct.myNotes
-	}
-    
+//	@IBAction func loadInvoice(sender: AnyObject)
+//	{
+//		Name.text = newOrderTextFieldStruct.firstName +  newOrderTextFieldStruct.lastName
+//		address1.text = newOrderTextFieldStruct.myAddress
+//		address3.text = newOrderTextFieldStruct.myAddress2
+//		CityStateZip.text = newOrderTextFieldStruct.myCity + newOrderTextFieldStruct.myState + newOrderTextFieldStruct.myZip
+//		invPhone.text = newOrderTextFieldStruct.myPhone
+//		invEmail.text = newOrderTextFieldStruct.myEmail
+//		makeModelColor.text = newOrderTextFieldStruct.myBrand + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
+//		invTagNum.text = newOrderTextFieldStruct.myTagNumber
+//		invNotes.text = newOrderTextFieldStruct.myNotes
+//	}
+	
 /*+------------------------------- viewDidLoad() --------------------------------------+
 	| viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
   | display information on a current page. Because we have only implemented a single   |
@@ -217,6 +220,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 			color.delegate = self
 			tagNumber.delegate = self
 			notes.delegate = self
+		}
+		else if newOrderTextFieldStruct.invoicePage == true
+		{
+			
+				Name.text = newOrderTextFieldStruct.firstName + " " + newOrderTextFieldStruct.lastName
+				address1.text = newOrderTextFieldStruct.myAddress
+				address3.text = newOrderTextFieldStruct.myAddress2
+			CityStateZip.text = newOrderTextFieldStruct.myCity + " " + newOrderTextFieldStruct.myState + " "+newOrderTextFieldStruct.myZip
+				invPhone.text = newOrderTextFieldStruct.myPhone
+				invEmail.text = newOrderTextFieldStruct.myEmail
+				makeModelColor.text = newOrderTextFieldStruct.myBrand + " " + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
+				invTagNum.text = newOrderTextFieldStruct.myTagNumber
+				invNotes.text = newOrderTextFieldStruct.myNotes
+			
 		}
 	}
 	
@@ -290,6 +307,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 					return true
 			}
 		}
+		else if newOrderTextFieldStruct.invoicePage != true
+		{
+			print("dang of cool thing!\n")
+			myFirstNameDisplay.text = newOrderTextFieldStruct.firstName
+		}
 		return true
   }
 	
@@ -304,39 +326,39 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 	/* textFieldShouldReturn: controls the movement between text boxes. */
 	func textFieldShouldReturn(textField: UITextField) -> Bool
 	{
-		if (textField === fname)
+		if (textField == fname)
 		{
 			lname.becomeFirstResponder()
 		}
-		else if (textField === lname)
+		else if (textField == lname)
 		{
 			address.becomeFirstResponder()
 		}
-		else if (textField === address)
+		else if (textField == address)
 		{
 			address2.becomeFirstResponder()
 		}
-		else if (textField === address2)
+		else if (textField == address2)
 		{
 			city.becomeFirstResponder()
 		}
-		else if (textField === city)
+		else if (textField == city)
 		{
 			state.becomeFirstResponder()
 		}
-		else if (textField === state)
+		else if (textField == state)
 		{
 			zip.becomeFirstResponder()
 		}
-		else if (textField === zip)
+		else if (textField == zip)
 		{
 			phone.becomeFirstResponder()
 		}
-		else if (textField === phone)
+		else if (textField == phone)
 		{
 			email.becomeFirstResponder()
 		}
-		else if (textField === email)
+		else if (textField == email)
 		{
 			email.resignFirstResponder()
 		}
@@ -374,10 +396,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 	/* prepareForSegue: if on correct page and info collected correctly, submits
 	 * the information from the app to the server via an http request.
 	 */
+	/* text field for displaying first name */
+	
+	@IBOutlet weak var myFirstNameDisplay: UILabel!
+	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
 	{
 		newOrderTextFieldStruct.neworderpage = false /* set current page to nothing */
 		newOrderTextFieldStruct.bikeInfoPage = false /* sets current page to nothing */
+		newOrderTextFieldStruct.invoicePage = false /* sets current page to nothing */
 		/* checks if the user pressed the "new order" button, if so then move to
 		 * new order: customer information page.
 		 */
@@ -389,6 +416,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		/* checks if the user pressed the submit button on the bike info page */
 		else if segue.identifier == "moveToInvoice"
 		{
+			newOrderTextFieldStruct.invoicePage = true
+			print("inside of segue identifier!\n")
+			/* on invoice page, set flag to true. */
 			newOrderTextFieldStruct.myBrand = brand.text!
 			newOrderTextFieldStruct.myModel = model.text!
 			newOrderTextFieldStruct.myColor = color.text!
@@ -423,16 +453,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 			}
 		}
 		
-		/* check if the user pressed the load info button on the load invoice page. */
+		/* check if the user pressed the next button
+			on the cust info page. */
 		else if segue.identifier == "loadCustomerInfo"
 		{
 			newOrderTextFieldStruct.bikeInfoPage = true;
-			newOrderTextFieldStruct.firstName = fname.text! + " "
-			newOrderTextFieldStruct.lastName = lname.text! + " "
-			newOrderTextFieldStruct.myAddress = address.text! + " "
-			newOrderTextFieldStruct.myAddress2 = address2.text! + " "
-			newOrderTextFieldStruct.myCity = city.text! + " "
-			newOrderTextFieldStruct.myState = state.text! + " "
+			newOrderTextFieldStruct.firstName = fname.text!
+			newOrderTextFieldStruct.lastName = lname.text!
+			newOrderTextFieldStruct.myAddress = address.text!
+			newOrderTextFieldStruct.myAddress2 = address2.text!
+			newOrderTextFieldStruct.myCity = city.text!
+			newOrderTextFieldStruct.myState = state.text!
 			newOrderTextFieldStruct.myZip = zip.text!
 			newOrderTextFieldStruct.myPhone = phone.text!
 			newOrderTextFieldStruct.myEmail = email.text!
