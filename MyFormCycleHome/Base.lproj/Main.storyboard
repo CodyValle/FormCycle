@@ -336,15 +336,15 @@
                                     <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" id="ucj-7w-5JU"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lpn-qT-azr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lpn-qT-azr">
                                 <rect key="frame" x="0.0" y="60" width="664" height="310"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pls-az-bEa">
-                                        <rect key="frame" x="0.0" y="28" width="664" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="664" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pls-az-bEa" id="vtC-3S-ezj">
-                                            <rect key="frame" x="0.0" y="0.0" width="664" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="664" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

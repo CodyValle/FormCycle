@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */; };
 		141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B96111C014F7300D2AFA4 /* stringUtils.swift */; };
 		14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; };
 		14A0F8731BF2D5680077CFAD /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -78,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeOrderTableViewCell.swift; sourceTree = "<group>"; };
 		141B96111C014F7300D2AFA4 /* stringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stringUtils.swift; sourceTree = "<group>"; };
 		14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		14ADDC001BEC5510005ECABA /* FormCycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormCycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
 				14ADDC071BEC5510005ECABA /* Main.storyboard */,
+				01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,
 				14ADDC0F1BEC5510005ECABA /* Info.plist */,
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
+				01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */,
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
 			);
