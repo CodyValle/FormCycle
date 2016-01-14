@@ -9,6 +9,7 @@
 
 import UIKit
 import SwiftHTTP
+import SwiftyJSON
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 {
@@ -119,6 +120,104 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
     newOrderTextFieldStruct.myEmail = email.text!
   }
 	
+    @IBAction func RetrieveCustomerInfo(sender: AnyObject)
+    {
+        /* Submits the server request */
+        var MyParams = ["action":"custSearch"]
+        
+        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+        /*if (DEBUG) {
+            MyParams["DEBUG"] = "true"
+        }*/
+        if (fname.text != nil) {
+            MyParams["fname"] = fname.text!
+        }
+        if (lname.text != nil) {
+            MyParams["lname"] = lname.text!
+        }
+        if (address.text != nil) {
+            MyParams["address"] = address.text!
+        }
+        if (address2.text != nil) {
+            MyParams["address2"] = address2.text!
+        }
+        if (city.text != nil) {
+            MyParams["city"] = city.text!
+        }
+        if (state.text != nil) {
+            MyParams["state"] = state.text!
+        }
+        if (zip.text != nil) {
+            MyParams["zip"] = zip.text!
+        }
+        if (phone.text != nil) {
+            MyParams["phone"] = phone.text!
+        }
+        if (email.text != nil) {
+            MyParams["email"] = email.text!
+        }
+
+        do
+        {
+            /* tries to submit to server */
+            let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+            opt.start
+            {
+                response in
+                if let error = response.error
+                {
+                    print("got an error: \(error)") /* if error, prints the error code saved on server */
+                    return
+                }
+                if (response.text != nil)
+                {
+                    if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                    {
+                        let json = JSON(data: datafromstring)
+                        
+                        // Some helpful debug data for use when needing to place in table.
+                        print("There are \(json.count) rows matching the supplied data.")
+                        if (json.count > 0)
+                        {
+                            // Write all the data to the text fields. We first check to make sure the textfield does not already contain data and that the wanted value exists in the JSON string.
+                            // The [0] is the index of the row that we want to auto fill with.
+                            if (self.fname.text == "" && json[0]["fname"].isExists()) {
+                                self.fname.text = json[0]["fname"].string
+                            }
+                            if (self.lname.text == "" && json[0]["lname"].isExists()) {
+                                self.lname.text = json[0]["lname"].string
+                            }
+                            if (self.address.text == "" && json[0]["address"].isExists()) {
+                                self.address.text = json[0]["address"].string
+                            }
+                            if (self.address2.text == "" && json[0]["address2"].isExists()) {
+                                self.address2.text = json[0]["address2"].string
+                            }
+                            if (self.city.text == "" && json[0]["city"].isExists()) {
+                                self.city.text = json[0]["city"].string
+                            }
+                            if (self.state.text == "" && json[0]["state"].isExists()) {
+                                self.state.text = json[0]["state"].string
+                            }
+                            if (self.zip.text == "" && json[0]["zip"].isExists()) {
+                                self.zip.text = json[0]["zip"].string
+                            }
+                            if (self.phone.text == "" && json[0]["phone"].isExists()) {
+                                self.phone.text = json[0]["phone"].string
+                            }
+                            if (self.email.text == "" && json[0]["email"].isExists()) {
+                                self.email.text = json[0]["email"].string
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        catch let error
+        {
+            print("got an error creating the request: \(error)")
+        }
+    }
 
 /*+------------------------------------ BIKE INFO PAGE ------------------------------------+
   | Bike info page collects all revelant info pertaining to the bike itself. Here we       |
