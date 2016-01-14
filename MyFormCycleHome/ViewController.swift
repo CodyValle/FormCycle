@@ -309,7 +309,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		}
 		else if newOrderTextFieldStruct.invoicePage != true
 		{
-			print("dang of cool thing!\n")
 			myFirstNameDisplay.text = newOrderTextFieldStruct.firstName
 		}
 		return true
