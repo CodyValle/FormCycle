@@ -129,7 +129,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEH-6N-ngz">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEH-6N-ngz">
                                 <rect key="frame" x="80" y="346" width="40" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="0h4-B0-5WT"/>
@@ -137,7 +137,7 @@
                                 </constraints>
                                 <state key="normal" image="538474-user_512x512"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvO-gL-Xun">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvO-gL-Xun">
                                 <rect key="frame" x="75" y="401" width="51" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="51" id="Kst-nu-oPS"/>
