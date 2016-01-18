@@ -9,6 +9,13 @@
 import UIKit
 
 class BikeOrderTableViewCell: UITableViewCell {
+    
+    // MARK: Properties
+    
+    @IBOutlet weak var referenceNumber: UILabel!
+    @IBOutlet weak var tuneType: UILabel!
+    @IBOutlet weak var bikeInfo: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
