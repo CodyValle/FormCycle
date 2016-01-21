@@ -12,14 +12,14 @@ class WorkOrder {
 
     //MARK: Properties
     
-    let orderNumber: Int
+    let orderNumber: String
     let bikeType: String
-    let referenceNum: Int
+    let orderID: String
     let tune: String
     
     //MARK: Initialize properties
     
-    init(orderNumber: Int, referenceNum: Int, tune: String, bikeType: String)
+    init(orderNumber: String, referenceNum: String, tune: String, bikeType: String)
     {
         self.orderNumber = orderNumber
         self.bikeType = bikeType
