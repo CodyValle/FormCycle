@@ -184,31 +184,31 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
                             {
                                 // Write all the data to the text fields. We first check to make sure the textfield does not already contain data and that the wanted value exists in the JSON string.
                                 // The [0] is the index of the row that we want to auto fill with.
-                                if (self.fname.text == "" && json[0]["fname"].isExists()) {
+                                if (json[0]["fname"].isExists()) {
                                     self.fname.text = json[0]["fname"].string
                                 }
-                                if (self.lname.text == "" && json[0]["lname"].isExists()) {
+                                if (json[0]["lname"].isExists()) {
                                     self.lname.text = json[0]["lname"].string
                                 }
-                                if (self.address.text == "" && json[0]["address"].isExists()) {
+                                if (json[0]["address"].isExists()) {
                                     self.address.text = json[0]["address"].string
                                 }
-                                if (self.address2.text == "" && json[0]["address2"].isExists()) {
+                                if (json[0]["address2"].isExists()) {
                                     self.address2.text = json[0]["address2"].string
                                 }
-                                if (self.city.text == "" && json[0]["city"].isExists()) {
+                                if (json[0]["city"].isExists()) {
                                     self.city.text = json[0]["city"].string
                                 }
-                                if (self.state.text == "" && json[0]["state"].isExists()) {
+                                if (json[0]["state"].isExists()) {
                                     self.state.text = json[0]["state"].string
                                 }
-                                if (self.zip.text == "" && json[0]["zip"].isExists()) {
+                                if (json[0]["zip"].isExists()) {
                                     self.zip.text = json[0]["zip"].string
                                 }
-                                if (self.phone.text == "" && json[0]["phone"].isExists()) {
+                                if (json[0]["phone"].isExists()) {
                                     self.phone.text = json[0]["phone"].string
                                 }
-                                if (self.email.text == "" && json[0]["email"].isExists()) {
+                                if (json[0]["email"].isExists()) {
                                     self.email.text = json[0]["email"].string
                                 }
                             }
