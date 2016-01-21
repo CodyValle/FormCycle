@@ -18,6 +18,10 @@
 		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
 		9D05CF231C485D4800998F15 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; };
 		9D05CF241C485D4E00998F15 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96641C516DE2002AD84C /* NewOrder.swift */; };
+		9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96701C516FF7002AD84C /* BikeInfo.swift */; };
+		9D9E96731C517077002AD84C /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96721C517077002AD84C /* SignInPage.swift */; };
+		9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96751C517132002AD84C /* LoadInvoice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +147,10 @@
 		8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormCycleHomeTests.swift; sourceTree = "<group>"; };
 		8FAA46EE1BFE5ABD00E39874 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D05CF081C485D4000998F15 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
+		9D9E96641C516DE2002AD84C /* NewOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewOrder.swift; sourceTree = "<group>"; };
+		9D9E96701C516FF7002AD84C /* BikeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeInfo.swift; sourceTree = "<group>"; };
+		9D9E96721C517077002AD84C /* SignInPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
+		9D9E96751C517132002AD84C /* LoadInvoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadInvoice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +207,7 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				9D9E96741C5170FE002AD84C /* Pages */,
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
 				14ADDC071BEC5510005ECABA /* Main.storyboard */,
@@ -231,6 +240,17 @@
 				9D05CF221C485D4000998F15 /* SwiftyJSON tvOS Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9D9E96741C5170FE002AD84C /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E96701C516FF7002AD84C /* BikeInfo.swift */,
+				9D9E96721C517077002AD84C /* SignInPage.swift */,
+				9D9E96641C516DE2002AD84C /* NewOrder.swift */,
+				9D9E96751C517132002AD84C /* LoadInvoice.swift */,
+			);
+			name = Pages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,8 +449,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
+				9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */,
+				9D9E96731C517077002AD84C /* SignInPage.swift in Sources */,
+				9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */,
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
+				9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
