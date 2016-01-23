@@ -19,16 +19,13 @@ class WorkOrder {
     
     //MARK: Initialize properties
     
-    init(orderNumber: String, referenceNum: String, tune: String, bikeType: String)
+    init(orderNumber: String, orderID: String, tune: String, bikeType: String)
     {
         self.orderNumber = orderNumber
         self.bikeType = bikeType
         self.tune = tune
-        self.referencenNum = referenceNum
+        self.orderID = orderID
         
-        if orderNumber.isEmpty || bikeType.isEmpty || tune.isEmpty || referenceNum.isEmpty
-        {
-            return nil
-        }
+        
     }
 }
