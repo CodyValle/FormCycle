@@ -17,7 +17,15 @@ class WorkOrderTableViewController: UITableViewController {
     func loadSampleData()
     {
         let order1 = WorkOrder(orderNumber: "12", orderID: "1", tune: "A Thing.", bikeType:"Schwin")
-        workOrders += [order1]
+        let order2 = WorkOrder(orderNumber: "13", orderID: "2", tune: "A Thing.", bikeType:"Schwin")
+        let order3 = WorkOrder(orderNumber: "14", orderID: "3", tune: "A Thing.", bikeType:"Schwin")
+        let order4 = WorkOrder(orderNumber: "15", orderID: "4", tune: "A Thing.", bikeType:"Schwin")
+        let order5 = WorkOrder(orderNumber: "16", orderID: "5", tune: "A Thing.", bikeType:"Schwin")
+        let order6 = WorkOrder(orderNumber: "17", orderID: "6", tune: "A Thing.", bikeType:"Schwin")
+        let order7 = WorkOrder(orderNumber: "18", orderID: "7", tune: "A Thing.", bikeType:"Schwin")
+        let order8 = WorkOrder(orderNumber: "19", orderID: "8", tune: "A Thing.", bikeType:"Schwin")
+        
+        workOrders += [order1,order2,order3,order4,order5,order6,order7,order8]
     }
     
     
