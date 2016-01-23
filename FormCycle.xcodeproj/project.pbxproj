@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
+		0147B5941C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
+		01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */; };
+		01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */; };
 		141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B96111C014F7300D2AFA4 /* stringUtils.swift */; };
 		14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; };
 		14A0F8731BF2D5680077CFAD /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -134,6 +138,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0147B5921C4EBF1900218606 /* WorkOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkOrder.swift; path = ../WorkOrder.swift; sourceTree = "<group>"; };
+		01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeOrderTableViewCell.swift; sourceTree = "<group>"; };
+		01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOrderTableViewController.swift; sourceTree = "<group>"; };
 		141B96111C014F7300D2AFA4 /* stringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stringUtils.swift; sourceTree = "<group>"; };
 		14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		14ADDC001BEC5510005ECABA /* FormCycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormCycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,7 +217,10 @@
 				9D9E96741C5170FE002AD84C /* Pages */,
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
+				0147B5921C4EBF1900218606 /* WorkOrder.swift */,
+				01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */,
 				14ADDC071BEC5510005ECABA /* Main.storyboard */,
+				01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,
 				14ADDC0F1BEC5510005ECABA /* Info.plist */,
@@ -448,6 +458,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */,
+				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
 				9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */,
 				9D9E96731C517077002AD84C /* SignInPage.swift in Sources */,
@@ -463,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */,
+				0147B5941C4EBF1900218606 /* WorkOrder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
