@@ -190,6 +190,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 	/* textFieldShouldReturn: controls the movement between text boxes. */
 	func textFieldShouldReturn(textField: UITextField) -> Bool
 	{
+        if newOrderTextFieldStruct.neworderpage == true
+        {
 		if (textField == fname)
 		{
 			lname.becomeFirstResponder()
@@ -226,7 +228,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		{
 			email.resignFirstResponder()
 		}
-		else if(textField == brand)
+        }
+        else if (newOrderTextFieldStruct.bikeInfoPage == true)
+        {
+		if(textField == brand)
 		{
 			model.becomeFirstResponder()
 		}
@@ -246,6 +251,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		{
 			notes.resignFirstResponder()
 		}
+        }
 		return true
 	}
 	
