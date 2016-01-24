@@ -508,22 +508,34 @@
                                     <action selector="RetrieveCustomerInfo:" destination="Sfg-OH-txt" eventType="touchDown" id="VLp-vg-7Rg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nES-VS-pcS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="City" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="nES-VS-pcS">
                                 <rect key="frame" x="20" y="311" width="289" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="F0E-nR-eut"/>
                                     <constraint firstAttribute="width" constant="289" id="zuq-VL-lNY"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="07s-Vb-98f">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email (Optional)" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="07s-Vb-98f">
                                 <rect key="frame" x="20" y="427" width="289" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="USx-Jr-bmJ"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAw-Sd-xT6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -549,85 +561,134 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RHi-EF-ivw">
-                                <rect key="frame" x="531" y="381" width="51" height="31"/>
-                                <rect key="contentStretch" x="0.20000000000000001" y="0.0" width="1" height="1"/>
-                                <color key="onTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-ee-0EK">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbp-xC-Llj">
+                                <rect key="frame" x="523" y="377" width="64" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="W3B-Ku-9LC"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="transparent-dark-gray"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Phone" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-ee-0EK">
                                 <rect key="frame" x="20" y="369" width="289" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="289" id="1bJ-R3-dyP"/>
                                     <constraint firstAttribute="height" constant="50" id="38g-Oj-R7m"/>
                                     <constraint firstAttribute="height" constant="30" id="Ze4-sQ-pBF"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Ze4-sQ-pBF"/>
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ygg-fH-EYi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Zip" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ygg-fH-EYi">
                                 <rect key="frame" x="413" y="311" width="167" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="167" id="FkD-uF-sd7"/>
                                     <constraint firstAttribute="height" constant="50" id="cNJ-WD-AN7"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-ox-QRy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="State" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-ox-QRy">
                                 <rect key="frame" x="317" y="311" width="88" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Na0-Qe-13A"/>
                                     <constraint firstAttribute="width" constant="88" id="gDJ-o6-CVe"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address 2 (Optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z1f-GT-08i">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Address 2 (Optional)" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z1f-GT-08i">
                                 <rect key="frame" x="20" y="253" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tpB-AK-aio"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99s-It-F5M">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RHi-EF-ivw">
+                                <rect key="frame" x="531" y="381" width="51" height="31"/>
+                                <rect key="contentStretch" x="0.20000000000000001" y="0.0" width="1" height="1"/>
+                                <color key="onTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Address 1" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="99s-It-F5M">
                                 <rect key="frame" x="20" y="195" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9Tz-v2-wDa"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyT-nh-IbO">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="fyT-nh-IbO">
                                 <rect key="frame" x="317" y="137" width="263" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6bn-w8-3lM"/>
                                     <constraint firstAttribute="width" constant="263" id="SYv-1c-dCn"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-01-jP1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-01-jP1">
                                 <rect key="frame" x="20" y="137" width="289" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="289" id="VQU-XU-eJV"/>
                                     <constraint firstAttribute="height" constant="50" id="wC9-mm-c8v"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7c-lM-aBj">
-                                <rect key="frame" x="189" y="85" width="223" height="28"/>
+                                <rect key="frame" x="189" y="85" width="244" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="223" id="0I9-oL-qe7"/>
+                                    <constraint firstAttribute="width" constant="244" id="0I9-oL-qe7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -657,12 +718,14 @@
                             <constraint firstItem="z1f-GT-08i" firstAttribute="trailing" secondItem="e5S-5f-ly1" secondAttribute="trailingMargin" id="AtN-tp-PLR"/>
                             <constraint firstItem="ZMd-01-jP1" firstAttribute="top" secondItem="a7c-lM-aBj" secondAttribute="bottom" constant="24" id="BYm-5E-vqY"/>
                             <constraint firstItem="0wy-q3-lUd" firstAttribute="top" secondItem="RHi-EF-ivw" secondAttribute="bottom" constant="18" id="CSz-HC-dKJ"/>
+                            <constraint firstItem="0wy-q3-lUd" firstAttribute="top" secondItem="Qbp-xC-Llj" secondAttribute="bottom" constant="14" id="CY9-fm-Nfh"/>
                             <constraint firstItem="SAw-Sd-xT6" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" constant="-20" id="Ddd-aa-lzY"/>
                             <constraint firstItem="b5Y-Aj-KRv" firstAttribute="trailing" secondItem="fyT-nh-IbO" secondAttribute="trailing" constant="20" id="H0J-Vf-8Lh"/>
                             <constraint firstItem="aOd-sq-ey9" firstAttribute="leading" secondItem="SAw-Sd-xT6" secondAttribute="leading" id="HT9-1q-Khe"/>
                             <constraint firstItem="0wy-q3-lUd" firstAttribute="top" secondItem="RLe-1l-VBz" secondAttribute="bottom" constant="20" id="I33-fh-zZo"/>
                             <constraint firstItem="b5Y-Aj-KRv" firstAttribute="top" secondItem="SAw-Sd-xT6" secondAttribute="bottom" constant="17" id="Piu-fH-DrZ"/>
                             <constraint firstItem="fyT-nh-IbO" firstAttribute="leading" secondItem="ZMd-01-jP1" secondAttribute="trailing" constant="8" id="PnL-NO-C5b"/>
+                            <constraint firstItem="Qbp-xC-Llj" firstAttribute="centerX" secondItem="RHi-EF-ivw" secondAttribute="centerX" id="RK8-sd-KfL"/>
                             <constraint firstItem="99s-It-F5M" firstAttribute="trailing" secondItem="e5S-5f-ly1" secondAttribute="trailingMargin" id="U2t-mw-XSE"/>
                             <constraint firstItem="RLe-1l-VBz" firstAttribute="leading" secondItem="0wy-q3-lUd" secondAttribute="leading" id="Wyx-lp-h6n"/>
                             <constraint firstItem="07s-Vb-98f" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="X8I-fL-ttE"/>
@@ -670,9 +733,10 @@
                             <constraint firstItem="a7c-lM-aBj" firstAttribute="centerY" secondItem="b5Y-Aj-KRv" secondAttribute="centerY" id="ZpC-OT-nUa"/>
                             <constraint firstItem="99s-It-F5M" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="b2d-VW-BAm"/>
                             <constraint firstItem="Ygg-fH-EYi" firstAttribute="trailing" secondItem="e5S-5f-ly1" secondAttribute="trailingMargin" id="eaB-OI-mQe"/>
-                            <constraint firstItem="a7c-lM-aBj" firstAttribute="centerX" secondItem="b5Y-Aj-KRv" secondAttribute="centerX" id="edQ-Dv-cHH"/>
+                            <constraint firstItem="a7c-lM-aBj" firstAttribute="centerX" secondItem="b5Y-Aj-KRv" secondAttribute="centerX" constant="11" id="edQ-Dv-cHH"/>
                             <constraint firstItem="z1f-GT-08i" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="fO3-Tv-7Vm"/>
                             <constraint firstItem="99s-It-F5M" firstAttribute="top" secondItem="ZMd-01-jP1" secondAttribute="bottom" constant="8" id="fkz-uE-8to"/>
+                            <constraint firstItem="Qbp-xC-Llj" firstAttribute="centerY" secondItem="RLe-1l-VBz" secondAttribute="centerY" id="g8K-IL-DdD"/>
                             <constraint firstItem="nES-VS-pcS" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="gPF-gl-Oje"/>
                             <constraint firstItem="RHi-EF-ivw" firstAttribute="top" secondItem="Ygg-fH-EYi" secondAttribute="bottom" constant="20" id="gcn-tH-L0b"/>
                             <constraint firstItem="Ygg-fH-EYi" firstAttribute="leading" secondItem="7kc-ox-QRy" secondAttribute="trailing" constant="8" id="iVr-PH-3ov"/>
@@ -723,14 +787,20 @@
                                 <rect key="frame" x="0.0" y="7" width="600" height="593"/>
                                 <state key="normal" image="tireEdit3"/>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tag #" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-UV-CQ8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tag #" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="Urb-UV-CQ8">
                                 <rect key="frame" x="378" y="194" width="202" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3wI-oN-Ned"/>
                                     <constraint firstAttribute="width" constant="272" id="dEE-Oo-0jx"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="dEE-Oo-0jx"/>
@@ -739,19 +809,26 @@
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y4y-Sg-2fZ">
                                 <rect key="frame" x="20" y="304" width="560" height="276"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ccn-nr-UQM">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Brand" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="ccn-nr-UQM">
                                 <rect key="frame" x="20" y="136" width="350" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="f9j-dv-9qu"/>
                                     <constraint firstAttribute="width" constant="350" id="iAl-D5-LBt"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes: (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiW-Qa-spl">
                                 <rect key="frame" x="20" y="271" width="201" height="25"/>
@@ -762,13 +839,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tix-kP-ASq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Color" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="Tix-kP-ASq">
                                 <rect key="frame" x="20" y="194" width="350" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="rvu-Bh-9fc"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5e-YP-ja9">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -806,14 +889,20 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-rb-RCD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Model" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-rb-RCD">
                                 <rect key="frame" x="378" y="136" width="202" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KU3-zH-uv6"/>
                                     <constraint firstAttribute="width" constant="272" id="wUu-vG-y8T"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="wUu-vG-y8T"/>
