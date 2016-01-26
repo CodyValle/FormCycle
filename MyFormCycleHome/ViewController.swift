@@ -185,6 +185,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 			
 			switch textField
 			{
+      case model: fallthrough
+      case brand: fallthrough
+      case color:
+        if string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).characters.count == 0
+        {
+          if currentText.characters.count == 0
+          {
+            return false
+          }
+          else
+          {
+            return currentText.characters.last != " "
+          }
+        }
 				/* Allow only upper-case letters in this field, and must have only 2 characters. */
 				case tagNumber:
 					return prospectiveText.containsOnlyCharactersIn("0123456789")
