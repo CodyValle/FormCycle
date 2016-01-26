@@ -8,6 +8,8 @@
 //
 
 import UIKit
+import SwiftHTTP
+import SwiftyJSON
 
 class WorkOrderTableViewController: UITableViewController {
     
@@ -15,14 +17,14 @@ class WorkOrderTableViewController: UITableViewController {
     
     var workOrders = [WorkOrder]()
     
-    func loadSampleData()
+    func loadData()
     {
         /* Submits the server request */
         var MyParams = ["action":"workSearch"]
+        var isDoneLoading = false
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         MyParams["open"] = "Y"
-        MyParams["lname"] = "Bowers"
         do
         {
             /* tries to submit to server */
@@ -53,8 +55,9 @@ class WorkOrderTableViewController: UITableViewController {
                                 {
                                     for var i = 0; i < orders.count; i++
                                     {
-                                        
-                                        self.workOrders += [WorkOrder(orderNumber: orders[i]["workid"].string!, orderID:orders[i]["workid"].string!, tune: "Bronze", bikeType:orders[i]["brand"].string!)]
+                                        var order = WorkOrder(orderNumber: orders[i]["workid"].string!, orderID:orders[i]["workid"].string!, tune: "Bronze", bikeType:orders[i]["brand"].string!)
+                                        print(order.orderNumber)
+                                        self.workOrders.append(order)
                                     }
                                 }
                                 //else you are done- TO DO LATER
@@ -63,6 +66,7 @@ class WorkOrderTableViewController: UITableViewController {
                             // Some helpful debug data for use when needing to place in table.
                             print("There are \(json.count) rows matching the supplied data.")
                             print(json);
+                            isDoneLoading = true
                         }
                     }
             }
@@ -71,19 +75,7 @@ class WorkOrderTableViewController: UITableViewController {
         {
             print("got an error creating the request: \(error)")
         }
-        
-        print(self.workOrders)
-        
-        /*let order1 = WorkOrder(orderNumber: "12", orderID: "1", tune: "A Thing.", bikeType:"Schwin")
-        let order2 = WorkOrder(orderNumber: "13", orderID: "2", tune: "A Thing.", bikeType:"Schwin")
-        let order3 = WorkOrder(orderNumber: "14", orderID: "3", tune: "A Thing.", bikeType:"Schwin")
-        let order4 = WorkOrder(orderNumber: "15", orderID: "4", tune: "A Thing.", bikeType:"Schwin")
-        let order5 = WorkOrder(orderNumber: "16", orderID: "5", tune: "A Thing.", bikeType:"Schwin")
-        let order6 = WorkOrder(orderNumber: "17", orderID: "6", tune: "A Thing.", bikeType:"Schwin")
-        let order7 = WorkOrder(orderNumber: "18", orderID: "7", tune: "A Thing.", bikeType:"Schwin")
-        let order8 = WorkOrder(orderNumber: "19", orderID: "8", tune: "A Thing.", bikeType:"Schwin")
-        
-        workOrders += [order1,order2,order3,order4,order5,order6,order7,order8]*/
+        while(!isDoneLoading){} //Pretty stinky
       
     }
     
@@ -98,7 +90,7 @@ class WorkOrderTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //Load Sample data
-        loadSampleData()
+        loadData()
         
     }
 
