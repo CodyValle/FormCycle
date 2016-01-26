@@ -36,7 +36,7 @@
                                 </state>
                                 <connections>
                                     <action selector="MyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xom-OP-k7C"/>
-                                    <segue destination="Vah-XA-teY" kind="presentation" id="Zok-Ro-m6E"/>
+                                    <segue destination="Vah-XA-teY" kind="presentation" animates="NO" id="Zok-Ro-m6E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Bk-30-TaB">
@@ -277,7 +277,7 @@
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="backToHomePageBtn:" destination="Sfg-OH-txt" id="lpg-hH-98J"/>
-                                                <segue destination="Vah-XA-teY" kind="presentation" id="F9S-5d-P8E"/>
+                                                <segue destination="Vah-XA-teY" kind="presentation" animates="NO" id="F9S-5d-P8E"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -323,7 +323,7 @@
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="backToHomePageBtn:" destination="Sfg-OH-txt" id="HIU-vf-fV6"/>
-                                                <segue destination="Vah-XA-teY" kind="presentation" id="DQJ-N2-cdd"/>
+                                                <segue destination="Vah-XA-teY" kind="presentation" animates="NO" id="DQJ-N2-cdd"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -378,7 +378,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="Tox-kY-Onn">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLoginPage" id="sbd-R7-FES"/>
+                                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLoginPage" animates="NO" id="sbd-R7-FES"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -394,7 +394,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7TE-WZ-ag5" kind="presentation" id="1vi-vY-klF"/>
+                                    <segue destination="7TE-WZ-ag5" kind="presentation" animates="NO" id="1vi-vY-klF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY3-Ab-Kvk">
@@ -407,7 +407,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4VR-ag-5h4" kind="presentation" id="3nu-Uq-2C1"/>
+                                    <segue destination="4VR-ag-5h4" kind="presentation" animates="NO" id="3nu-Uq-2C1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8j-kV-rBu">
@@ -420,7 +420,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HgD-iK-is9" kind="presentation" id="MGD-AY-mce"/>
+                                    <segue destination="HgD-iK-is9" kind="presentation" animates="NO" id="MGD-AY-mce"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyr-IE-SOx">
@@ -434,7 +434,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" id="ucj-7w-5JU"/>
+                                    <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" animates="NO" id="ucj-7w-5JU"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WNJ-vj-rW1">
@@ -555,7 +555,7 @@
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="nextButton:" destination="Sfg-OH-txt" id="NaU-Xl-BHC"/>
-                                                <segue destination="WuO-xh-qv8" kind="presentation" identifier="loadCustomerInfo" id="Pdn-MU-CvM"/>
+                                                <segue destination="WuO-xh-qv8" kind="presentation" identifier="loadCustomerInfo" animates="NO" id="Pdn-MU-CvM"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -870,7 +870,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="vrJ-S7-Yyd">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="kXH-sa-wxh" kind="presentation" identifier="moveToInvoice" id="gJj-xU-hZX"/>
+                                                <segue destination="kXH-sa-wxh" kind="presentation" identifier="moveToInvoice" animates="NO" id="gJj-xU-hZX"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -991,7 +991,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Main" id="5D8-T2-yzA">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="Vah-XA-teY" kind="presentation" id="g8R-MP-6NT"/>
+                                                <segue destination="Vah-XA-teY" kind="presentation" animates="NO" id="g8R-MP-6NT"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
