@@ -60,31 +60,52 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-		/* if user is on the new order page set flag to true */
-		if newOrderTextFieldStruct.neworderpage == true
+		/* if user is on the Login page set flag to true */
+        if newOrderTextFieldStruct.loginPage == true
+        {
+            USRTextField.delegate = self
+            USRTextField.clearButtonMode = .WhileEditing
+            PWDTextField.delegate = self
+            PWDTextField.clearButtonMode = .WhileEditing
+        }
+        /* if user is on the new order page set flag to true */
+		else if newOrderTextFieldStruct.neworderpage == true
 		{
 				
-			fname.delegate = self
-			lname.delegate = self
-			address.delegate = self
-			address2.delegate = self
-			city.delegate = self
-			state.delegate = self
-			state.keyboardType = UIKeyboardType.Alphabet
-			zip.delegate = self
-			zip.keyboardType = UIKeyboardType.NumberPad
-			phone.delegate = self
-			phone.keyboardType = UIKeyboardType.NumberPad
-			email.delegate = self
+            fname.delegate = self
+            fname.clearButtonMode = .WhileEditing
+            lname.delegate = self
+            lname.clearButtonMode = .WhileEditing
+            address.delegate = self
+            address.clearButtonMode = .WhileEditing
+            address2.delegate = self
+            address2.clearButtonMode = .WhileEditing
+            city.delegate = self
+            city.clearButtonMode = .WhileEditing
+            state.delegate = self
+            state.keyboardType = UIKeyboardType.Alphabet
+            state.clearButtonMode = .WhileEditing
+            zip.delegate = self
+            zip.keyboardType = UIKeyboardType.NumberPad
+            zip.clearButtonMode = .WhileEditing
+            phone.delegate = self
+            phone.keyboardType = UIKeyboardType.NumberPad
+            phone.clearButtonMode = .WhileEditing
+            email.delegate = self
+            email.clearButtonMode = .WhileEditing
 		}
 		/* else if user is on the bike info page, set this flag to true */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
-			brand.delegate = self
-			model.delegate = self
-			color.delegate = self
-			tagNumber.delegate = self
-			notes.delegate = self
+            brand.delegate = self
+            brand.clearButtonMode = .WhileEditing
+            model.delegate = self
+            model.clearButtonMode = .WhileEditing
+            color.delegate = self
+            color.clearButtonMode = .WhileEditing
+            tagNumber.delegate = self
+            tagNumber.clearButtonMode = .WhileEditing
+            notes.delegate = self
 		}
 		else if newOrderTextFieldStruct.invoicePage == true
 		{
@@ -206,7 +227,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 					return true
 			}
 		}
-		else if newOrderTextFieldStruct.invoicePage != true
+		else if newOrderTextFieldStruct.invoicePage == true
 		{
 			myFirstNameDisplay.text = newOrderTextFieldStruct.firstName
 		}
@@ -224,67 +245,78 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 	/* textFieldShouldReturn: controls the movement between text boxes. */
 	func textFieldShouldReturn(textField: UITextField) -> Bool
 	{
-        if newOrderTextFieldStruct.neworderpage == true
+        if newOrderTextFieldStruct.loginPage == true
         {
-		if (textField == fname)
-		{
-			lname.becomeFirstResponder()
-		}
-		else if (textField == lname)
-		{
-			address.becomeFirstResponder()
-		}
-		else if (textField == address)
-		{
-			address2.becomeFirstResponder()
-		}
-		else if (textField == address2)
-		{
-			city.becomeFirstResponder()
-		}
-		else if (textField == city)
-		{
-			state.becomeFirstResponder()
-		}
-		else if (textField == state)
-		{
-			zip.becomeFirstResponder()
-		}
-		else if (textField == zip)
-		{
-			phone.becomeFirstResponder()
-		}
-		else if (textField == phone)
-		{
-			email.becomeFirstResponder()
-		}
-		else if (textField == email)
-		{
-			email.resignFirstResponder()
-		}
+            if (textField == USRTextField)
+            {
+                PWDTextField.becomeFirstResponder()
+            }
+            if (textField == PWDTextField)
+            {
+                PWDTextField.resignFirstResponder()
+            }
+        }
+        else if newOrderTextFieldStruct.neworderpage == true
+        {
+            if (textField == fname)
+            {
+                lname.becomeFirstResponder()
+            }
+            else if (textField == lname)
+            {
+                address.becomeFirstResponder()
+            }
+            else if (textField == address)
+            {
+                address2.becomeFirstResponder()
+            }
+            else if (textField == address2)
+            {
+                city.becomeFirstResponder()
+            }
+            else if (textField == city)
+            {
+                state.becomeFirstResponder()
+            }
+            else if (textField == state)
+            {
+                zip.becomeFirstResponder()
+            }
+            else if (textField == zip)
+            {
+                phone.becomeFirstResponder()
+            }
+            else if (textField == phone)
+            {
+                email.becomeFirstResponder()
+            }
+            else if (textField == email)
+            {
+                email.resignFirstResponder()
+            }
         }
         else if (newOrderTextFieldStruct.bikeInfoPage == true)
         {
-		if(textField == brand)
-		{
-			model.becomeFirstResponder()
-		}
-		else if(textField == model)
-		{
-			color.becomeFirstResponder()
-		}
-		else if(textField == color)
-		{
-			tagNumber.becomeFirstResponder()
-		}
-		else if(textField == tagNumber)
-		{
-			notes.becomeFirstResponder()
-		}
-		else if(textField == notes)
-		{
-			notes.resignFirstResponder()
-		}
+            if(textField == brand)
+            {
+                model.becomeFirstResponder()
+            }
+            else if(textField == model)
+            {
+                color.becomeFirstResponder()
+            }
+            else if(textField == color)
+            {
+                tagNumber.becomeFirstResponder()
+            }
+            else if(textField == tagNumber)
+            {
+                notes.becomeFirstResponder()
+            }
+            else if(textField == notes)
+            {
+                notes.resignFirstResponder()
+            }
         }
 		return true
 	}
@@ -316,7 +348,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		{
 			newOrderTextFieldStruct.neworderpage = true /* on new order page, set flag to true. */
 		}
-		
+		else if segue.identifier == "backToLoginPage"
+        {
+            newOrderTextFieldStruct.loginPage = true
+        }
 		/* checks if the user pressed the submit button on the bike info page */
 		else if segue.identifier == "moveToInvoice"
 		{

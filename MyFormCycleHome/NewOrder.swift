@@ -25,6 +25,8 @@ extension ViewController
     *  string. */
     struct newOrderTextFieldStruct
     {
+        static var USRname = ""
+        static var PWDtext = ""
         static var firstName = ""
         static var lastName = ""
         static var myAddress = ""
@@ -42,6 +44,7 @@ extension ViewController
         static var neworderpage = false
         static var bikeInfoPage = false
         static var invoicePage = false
+        static var loginPage = true
     }
     
     /* Sends the user back to the Home Page if currently on the Customer Information page. */

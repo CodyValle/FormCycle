@@ -31,7 +31,9 @@ extension ViewController
     
     /* Will remain commented becuase it is not implemented yet */
     @IBAction func MyButton(sender: AnyObject)
-    {/*
+    {
+        newOrderTextFieldStruct.loginPage = false
+        /*
         let params = ["action": USRTextField.text!, "pwd": PWDTextField.text!]
         do
         {
