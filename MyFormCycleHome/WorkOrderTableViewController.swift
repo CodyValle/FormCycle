@@ -55,7 +55,7 @@ class WorkOrderTableViewController: UITableViewController {
                                 {
                                     for var i = 0; i < orders.count; i++
                                     {
-                                        var order = WorkOrder(orderNumber: orders[i]["workid"].string!, orderID:orders[i]["workid"].string!, tune: "Bronze", bikeType:orders[i]["brand"].string!)
+                                        var order = WorkOrder(orderNumber: orders[i]["workid"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!)
                                         print(order.orderNumber)
                                         self.workOrders.append(order)
                                     }
