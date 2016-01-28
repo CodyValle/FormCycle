@@ -39,7 +39,6 @@ class WorkOrderTableViewController: UITableViewController {
                     }
                     if (response.text != nil)
                     {
-                        print(response.text!)
                         if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
                         {
                             
@@ -50,13 +49,11 @@ class WorkOrderTableViewController: UITableViewController {
                                 // Probably needs more error checks.
                                 let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
                                 let orders = JSON(data: retString!)
-                                print(orders.count)
                                 if (orders.count > 0) // Fill the form
                                 {
                                     for var i = 0; i < orders.count; i++
                                     {
                                         var order = WorkOrder(orderNumber: orders[i]["workid"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!)
-                                        print(order.orderNumber)
                                         self.workOrders.append(order)
                                     }
                                 }
@@ -65,7 +62,6 @@ class WorkOrderTableViewController: UITableViewController {
                             
                             // Some helpful debug data for use when needing to place in table.
                             print("There are \(json.count) rows matching the supplied data.")
-                            print(json);
                             isDoneLoading = true
                         }
                     }

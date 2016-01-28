@@ -48,8 +48,9 @@ extension ViewController
     }
     
     /* Sends the user back to the Home Page if currently on the Customer Information page. */
-    @IBAction func backToHomePageBtn(sender: AnyObject)
+    @IBAction func backToMainPageBtn(sender: AnyObject)
     {
+
         newOrderTextFieldStruct.neworderpage = false /* sets current view to false */
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the view controller */
     }
