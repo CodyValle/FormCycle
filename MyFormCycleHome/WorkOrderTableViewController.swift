@@ -53,7 +53,7 @@ class WorkOrderTableViewController: UITableViewController {
                                 {
                                     for var i = 0; i < orders.count; i++
                                     {
-                                        let order = WorkOrder(orderNumber: orders[i]["workid"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!)
+                                        let order = WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!)
                                         self.workOrders.append(order)
                                     }
                                 }
@@ -115,7 +115,9 @@ class WorkOrderTableViewController: UITableViewController {
         
         cell.bikeInfo.text = order.bikeType
         cell.tuneType.text = order.tune
-        cell.referenceNumber.text = order.orderNumber
+        cell.referenceNumber.text = order.tagNumber
+        cell.lname.text = order.lname
+        cell.model.text = order.model
         return cell
     }
     
