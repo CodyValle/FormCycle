@@ -395,7 +395,7 @@
                                     <constraint firstAttribute="height" constant="48" id="FtG-nn-0Ds"/>
                                     <constraint firstAttribute="width" constant="61" id="xBB-QP-dN2"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="arrow-18"/>
+                                <state key="normal" title="Button" image="arrow"/>
                                 <connections>
                                     <action selector="backToMainPageBtn:" destination="Vah-XA-teY" eventType="touchUpInside" id="07d-Hz-1oq"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLoginPage" id="TRK-9w-ZdM"/>
@@ -1334,7 +1334,7 @@
     <resources>
         <image name="538474-user_512x512" width="512" height="512"/>
         <image name="Screen Shot 2015-12-05 at 10.32.10 AM" width="1314" height="576"/>
-        <image name="arrow-18" width="512" height="512"/>
+        <image name="arrow" width="512" height="512"/>
         <image name="btn" width="400" height="150"/>
         <image name="img1" width="87" height="86"/>
         <image name="lock-icon" width="128" height="128"/>
