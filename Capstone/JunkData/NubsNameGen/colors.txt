@@ -1,0 +1,54 @@
+red
+orange
+yellow
+green
+blue
+purple
+indigo
+white
+black
+teal
+chrome
+rainbow
+brown
+grey
+maroon
+scarlet
+maize
+goldenrod
+canary
+granny smith apple
+sea green
+shamrock
+pine green
+light blue
+green camo
+blue camo
+brown camo
+outer space
+onyx
+cerulean
+denim
+periwinkle
+cobalt blue
+ash
+gunmetal
+violet
+fuchsia
+plu
+thistle
+mulberry
+eggplant
+magenta
+blush
+wild strawberry
+sepia
+peach
+tan
+apricot
+timberwolf
+gold
+silver
+copper
+brass
+bronze
