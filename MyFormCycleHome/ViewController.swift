@@ -66,6 +66,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		/* if user is on the Login page set flag to true */
         if newOrderTextFieldStruct.loginPage == true
         {
+            newOrderTextFieldStruct.neworderpage = false
+            newOrderTextFieldStruct.bikeInfoPage = false
+            newOrderTextFieldStruct.invoicePage = false
             USRTextField.delegate = self
             USRTextField.clearButtonMode = .WhileEditing
             PWDTextField.delegate = self
@@ -74,7 +77,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
         /* if user is on the new order page set flag to true */
 		else if newOrderTextFieldStruct.neworderpage == true
 		{
-				
+            newOrderTextFieldStruct.loginPage = false
+            newOrderTextFieldStruct.bikeInfoPage = false
+            newOrderTextFieldStruct.invoicePage = false
             fname.delegate = self
             fname.clearButtonMode = .WhileEditing
             lname.delegate = self
@@ -100,6 +105,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		/* else if user is on the bike info page, set this flag to true */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
+            newOrderTextFieldStruct.neworderpage = false
+            newOrderTextFieldStruct.loginPage = false
+            newOrderTextFieldStruct.invoicePage = false
             brand.delegate = self
             brand.clearButtonMode = .WhileEditing
             model.delegate = self
@@ -112,16 +120,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		}
 		else if newOrderTextFieldStruct.invoicePage == true
 		{
-			
-				Name.text = newOrderTextFieldStruct.firstName + " " + newOrderTextFieldStruct.lastName
-				address1.text = newOrderTextFieldStruct.myAddress
-				address3.text = newOrderTextFieldStruct.myAddress2
-			CityStateZip.text = newOrderTextFieldStruct.myCity + " " + newOrderTextFieldStruct.myState + " "+newOrderTextFieldStruct.myZip
-				invPhone.text = newOrderTextFieldStruct.myPhone
-				invEmail.text = newOrderTextFieldStruct.myEmail
-				makeModelColor.text = newOrderTextFieldStruct.myBrand + " " + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
-				invTagNum.text = newOrderTextFieldStruct.myTagNumber
-				invNotes.text = newOrderTextFieldStruct.myNotes
+            newOrderTextFieldStruct.neworderpage = false
+            newOrderTextFieldStruct.bikeInfoPage = false
+            newOrderTextFieldStruct.loginPage = false
+            Name.text = newOrderTextFieldStruct.firstName + " " + newOrderTextFieldStruct.lastName
+            address1.text = newOrderTextFieldStruct.myAddress
+            address3.text = newOrderTextFieldStruct.myAddress2
+        CityStateZip.text = newOrderTextFieldStruct.myCity + " " + newOrderTextFieldStruct.myState + " "+newOrderTextFieldStruct.myZip
+            invPhone.text = newOrderTextFieldStruct.myPhone
+            invEmail.text = newOrderTextFieldStruct.myEmail
+            makeModelColor.text = newOrderTextFieldStruct.myBrand + " " + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
+            invTagNum.text = newOrderTextFieldStruct.myTagNumber
+            invNotes.text = newOrderTextFieldStruct.myNotes
 			
 		}
 	}
@@ -344,6 +354,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		newOrderTextFieldStruct.neworderpage = false /* set current page to nothing */
 		newOrderTextFieldStruct.bikeInfoPage = false /* sets current page to nothing */
 		newOrderTextFieldStruct.invoicePage = false /* sets current page to nothing */
+        newOrderTextFieldStruct.loginPage = false
 		/* checks if the user pressed the "new order" button, if so then move to
 		 * new order: customer information page.
 		 */

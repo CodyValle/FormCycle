@@ -52,7 +52,7 @@ extension ViewController
     {
 
         newOrderTextFieldStruct.neworderpage = false /* sets current view to false */
-        dismissViewControllerAnimated(true, completion: nil) /* dismisses the view controller */
+        //dismissViewControllerAnimated(true, completion: nil) /* dismisses the view controller */
     }
     /* New Order Page: Customer Information. This section denotes the variables
     * as well as the functions that pretain to the Customer Information Page.
