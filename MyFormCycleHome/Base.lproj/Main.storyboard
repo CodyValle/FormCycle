@@ -383,7 +383,7 @@
                                 <rect key="frame" x="20" y="167" width="420" height="195"/>
                                 <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="195" id="C9s-Dx-mlb"/>
+                                    <constraint firstAttribute="height" constant="270" id="C9s-Dx-mlb"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="5h6-Zb-xm7" kind="embed" id="MmE-3v-nwf"/>
