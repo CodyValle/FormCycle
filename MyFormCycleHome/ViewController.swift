@@ -6,7 +6,7 @@
 //  Copyright © 2015 FormCycle. All rights reserved.
 //
 
-
+import Foundation
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
@@ -581,6 +581,37 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		return true
 	}
 	
+    //*********************** Generate PDF ******//
+    
+    @IBAction func generatePDF(sender: AnyObject) {
+        //let pageSize:CGSize = CGSizeMake (850, 1100)
+        let fileName: NSString = "xp.pdf"
+        let path:NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentDirectory: AnyObject = path.objectAtIndex(0)
+        let pdfPathWithFileName = documentDirectory.stringByAppendingPathComponent(fileName as String)
+        
+        generatePDFs(pdfPathWithFileName)
+        print("PDF File Created Successfully", fileName, path)
+    }
+    
+    func generatePDFs(filePath: String) {
+        UIGraphicsBeginPDFContextToFile(filePath, CGRectZero, nil)
+        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 850, 1100), nil)
+        drawBackground()
+        UIGraphicsEndPDFContext()
+    }
+    
+    func drawBackground () {
+        
+        let context:CGContextRef = UIGraphicsGetCurrentContext()!
+        let rect:CGRect = CGRectMake(0, 0, 600, 850)
+        CGContextSetFillColorWithColor(context, UIColor.greenColor().CGColor)
+        CGContextFillRect(context, rect)
+    }
+    
+    
+    
+    
 //********************* PRACTICE TEST FUNCTIONS *********************
     
     func somefuncReturnsTrue() -> Bool {
