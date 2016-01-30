@@ -28,42 +28,40 @@ class WorkOrderTableViewController: UITableViewController {
         do
         {
             /* tries to submit to server */
-            let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+            let opt = try HTTP.POST("http://107.170.219.218/CapstoneTest/delegate.php", parameters: MyParams)
             opt.start
-                {
-                    response in
-                    if let error = response.error
-                    {
-                        print("got an error: \(error)") /* if error, prints the error code saved on server */
-                        return
-                    }
-                    if (response.text != nil)
-                    {
-                        if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-                        {
-                            
-                            let json = JSON(data: datafromstring)
-                            if (json["success"])
-                            {
-                                
-                                // Probably needs more error checks.
-                                let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-                                let orders = JSON(data: retString!)
-                                if (orders.count > 0) // Fill the form
-                                {
-                                    for var i = 0; i < orders.count; i++
-                                    {
-                                        self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
-                                    }
-                                }
-                                //else you are done- TO DO LATER
-                            }
-                            
-                            // Some helpful debug data for use when needing to place in table.
-                            print("There are \(json.count) rows matching the supplied data.")
-                            isDoneLoading = true
-                        }
-                    }
+            {
+              response in
+              if let error = response.error
+              {
+                  print("got an error: \(error)") /* if error, prints the error code saved on server */
+                  return
+              }
+              if (response.text != nil)
+              {
+                  if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                  {
+                      
+                      let json = JSON(data: datafromstring)
+                      if (json["success"])
+                      {
+                          
+                          // Probably needs more error checks.
+                          let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                          let orders = JSON(data: retString!)
+                          if (orders.count > 0) // Fill the form
+                          {
+                              for var i = 0; i < orders.count; i++
+                              {
+                                  self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
+                              }
+                          }
+                          //else you are done- TO DO LATER
+                      }
+                  }
+              }
+              // Some helpful debug data for use when needing to place in table.
+              isDoneLoading = true
             }
         }
         catch let error

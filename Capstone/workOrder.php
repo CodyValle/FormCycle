@@ -63,10 +63,9 @@ class WorkOrder
 			$cmd->addParameter('custid', "UNHEX('" . $clean['custid'] . "')", false);
 		if ($clean['bikeid'] !== NULL)
 			$cmd->addParameter('bikeid', "UNHEX('" . $clean['bikeid'] . "')", false);
-		if ($clean['tagid'] !== NULL)
-			$cmd->addParameter('tagid', $clean['tagid']);
-		
-		
+		if ($clean['tagNum'] !== NULL)
+			$cmd->addParameter('tagid', $clean['tagNum']);
+
 		if ($GLOBALS['con']->query($cmd->getSQL()))
 		{
 			// Get the workid
@@ -162,6 +161,7 @@ class WorkOrder
 		*/
 		$cmd->addColumn('b.brand as brand');
 		$cmd->addColumn('b.model as model');
+		$cmd->addColumn('w.tagid as tagnum');
 		if ($clean['open'] !== NULL)
 			$cmd->addParameter('w.open', $clean['open'], true);
 		if ($clean['fname'] !== NULL)
@@ -172,6 +172,8 @@ class WorkOrder
 			$cmd->addParameter('c.phone', $clean['phone'], true);
 		if ($clean['email'] !== NULL)
 			$cmd->addParameter('c.email', $clean['email'], true);
+		if ($clean['date'] !== NULL)
+			$cmd->addParameter('date(createtime)', $clean['date']);
 		
 		// Sends the query and stores the result.
 		$results = $GLOBALS['con']->query($cmd->getSQL());

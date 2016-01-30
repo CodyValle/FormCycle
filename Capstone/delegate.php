@@ -55,6 +55,12 @@
 				print("No work orders found with that information.");
 			break;
 		
+		case "login":
+			// Returns true if a user has entered the correct pin
+			include 'login.php';
+			$ret = Login::run($clean);
+			break;
+		
 		case "junkData":
 			// Drops the database, then recreates it.
 			include 'JunkData/JunkData.php';

@@ -97,10 +97,23 @@ descrip        text            DEFAULT '',
 sku            varchar(3), 
 PRIMARY KEY (tune) 
 );
+
+CREATE TABLE LogInData ( 
+rowid          int           NOT NULL AUTO_INCREMENT, 
+username       varchar(6)    UNIQUE NOT NULL, 
+pin            varchar(6)    NOT NULL, 
+KEY (rowid), 
+PRIMARY KEY (username) 
+); 
 ";
 
 	// Insert some default rows
 	$statement .= "USE Capstone;
+INSERT INTO LogInData (username, pin) VALUES ('50972', '03118');
+INSERT INTO LogInData (username, pin) VALUES ('11111', '42');
+INSERT INTO LogInData (username, pin) VALUES ('161616', '616161');
+INSERT INTO LogInData (username, pin) VALUES ('3', '2');
+	
 INSERT INTO CustData (custid, fname, lname, address, city, state, zip, phone, email)
 VALUES (UNHEX(REPLACE(UUID(),'-','')),'Jill','White','4321 S Main St.','Spokane','WA','54321','5091179888','whitej@gmail.com');
 
@@ -132,10 +145,10 @@ INSERT INTO CustData (custid, fname, lname, address, city, state, zip, phone, em
 VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Cody','Valle','5212 N Wall St.','Spokane','WA','99204','5097203118','codyvalle90@gmail.com');
 
 INSERT INTO CustData (custid, fname, lname, address, city, state, zip, phone, email)
-VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Adam','Cross','Gonzaga Campus Somewhere','Spokane','WA','99523','306456123','across2@zagmail.gonzaga.edu');
+VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Adam','Cross','Gonzaga Campus Somewhere','Spokane','WA','99523','3064561234','across2@zagmail.gonzaga.edu');
 
 INSERT INTO CustData (custid, fname, lname, address, city, state, zip, phone, email)
-VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Merrill','Lines','Somewhere in Spokane','Spokane','WA','99215','509789654','lines@zagmail');
+VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Merrill','Lines','Somewhere in Spokane','Spokane','WA','99215','5097892654','lines@zagmail');
 ";
 	
 	// Send the queries and test for success

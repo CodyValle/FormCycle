@@ -130,6 +130,13 @@
 		}
 		else $clean['open'] = NULL;
 		
+		// Check when this work order is made (used for searching)
+		if (isset($_POST['date']) && trim($_POST['date']) !== "")
+		{
+			$clean['date'] = trim($_POST['date']);
+		}
+		else $clean['date'] = NULL;
+		
 		// Check pre work order notes
 		if (isset($_POST['pre']) && trim($_POST['pre']) !== "")
 		{
@@ -143,6 +150,21 @@
 			$clean['post'] = trim($_POST['post']);
 		}
 		else $clean['post'] = NULL;
+		
+	/** Log In Information **/
+		// Check for id number
+		if (isset($_POST['logid']) && trim($_POST['logid']) !== "")
+		{
+			$clean['logid'] = trim($_POST['logid']);
+		}
+		else $clean['logid'] = NULL;
+
+		// Check for pin
+		if (isset($_POST['pwd']) && trim($_POST['pwd']) !== "")
+		{
+			$clean['pwd'] = trim($_POST['pwd']);
+		}
+		else $clean['pwd'] = NULL;
 	
 	// Notes for reference
 		/*

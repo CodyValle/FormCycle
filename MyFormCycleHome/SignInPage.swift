@@ -51,31 +51,31 @@ extension ViewController
         /* tries to submit to server */
         let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
         opt.start
+        {
+          response in
+          if let error = response.error
           {
-            response in
-            if let error = response.error
-            {
-              print("got an error: \(error)") /* if error, prints the error code saved on server */
-            }
+            print("\ngot an error: \(error)\n") /* if error, prints the error code saved on server */
+          }
 
-            // No errors
-            if (response.text != nil)
+          // No errors
+          if (response.text != nil)
+          {
+            if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
             {
-              if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+              let json = JSON(data: datafromstring)
+
+              if (json["success"])
               {
-                let json = JSON(data: datafromstring)
-
-                if (json["success"])
-                {
-                  next = true
-                }
-                else
-                {
-                  next = false
-                }
+                next = true
+              }
+              else
+              {
+                next = false
               }
             }
-            wait = false;
+          }
+          wait = false;
         }
       }
       catch let error
