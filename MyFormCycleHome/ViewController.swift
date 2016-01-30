@@ -1,4 +1,4 @@
-//   
+//
 //  ViewController.swift
 //  FormCycle
 //
@@ -50,6 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     @IBOutlet weak var address3: UILabel!
     @IBOutlet weak var address1: UILabel!
     @IBOutlet weak var Name: UILabel!
+    @IBOutlet weak var invTuneType: UILabel!
 
 	
 /*+------------------------------- viewDidLoad() --------------------------------------+
@@ -133,10 +134,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         CityStateZip.text = newOrderTextFieldStruct.myCity + " " + newOrderTextFieldStruct.myState + " "+newOrderTextFieldStruct.myZip
             invPhone.text = newOrderTextFieldStruct.myPhone
             invEmail.text = newOrderTextFieldStruct.myEmail
-            makeModelColor.text = newOrderTextFieldStruct.myBrand + " " + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
+            makeModelColor.text = newOrderTextFieldStruct.myBrand + " " + newOrderTextFieldStruct.myModel + "  (" + newOrderTextFieldStruct.myColor + ")"
             invTagNum.text = newOrderTextFieldStruct.myTagNumber
             invNotes.text = newOrderTextFieldStruct.myNotes
-			
+			invTuneType.text = newOrderTextFieldStruct.tunePicker
 		}
 	}
 	
@@ -592,26 +593,30 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 	//*************************** Tune Selection Picker *************************//
     var tuneType = ["Basic Tune: $70","ATD: $120","Complete Overhaul: $199","Race & Event Prep: $50","Find the Creak Service: $50-$95","Front Suspension Service: $80","Rear Air Shock Service: $45","Rear Suspension Linkage Services: $125","Dropper Post Service: $60-$95"]
 
-    /* Enter description here: */
+    /* creates picker for tune type and sets the number of selections to the length of the tuneType array */
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         
         return tuneType.count
         
     }
-    /* Enter description here: */
+    /* sets the number of columns in the picker to one */
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
     {
         
         return 1
     }
-    /* Enter description here: */
+    /* populates the rows in the  */
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         
         return tuneType[row]
     }
     
+   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        newOrderTextFieldStruct.tunePicker = tuneType[row]
+    }
+   // }
     //*********************** Generate PDF ******//
     
     @IBAction func generatePDF(sender: AnyObject)
