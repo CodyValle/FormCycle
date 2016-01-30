@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014283CE1C5D65940097C61F /* PickupTableViewCell.swift */; };
+		014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */; };
 		0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
 		0147B5941C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
 		01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */; };
@@ -138,6 +140,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		014283CE1C5D65940097C61F /* PickupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
+		014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingPickupTableViewController.swift; sourceTree = "<group>"; };
 		0147B5921C4EBF1900218606 /* WorkOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkOrder.swift; path = ../WorkOrder.swift; sourceTree = "<group>"; };
 		01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeOrderTableViewCell.swift; sourceTree = "<group>"; };
 		01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOrderTableViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014283C21C5D5FCB0097C61F /* OpenOrdersTable */ = {
+			isa = PBXGroup;
+			children = (
+				01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */,
+				01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */,
+			);
+			name = OpenOrdersTable;
+			sourceTree = "<group>";
+		};
+		014283CD1C5D63580097C61F /* WaitingPickupTable */ = {
+			isa = PBXGroup;
+			children = (
+				014283CE1C5D65940097C61F /* PickupTableViewCell.swift */,
+				014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */,
+			);
+			name = WaitingPickupTable;
+			sourceTree = "<group>";
+		};
 		14A0F8611BF2D3E60077CFAD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,13 +236,13 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				014283C21C5D5FCB0097C61F /* OpenOrdersTable */,
+				014283CD1C5D63580097C61F /* WaitingPickupTable */,
 				9D9E96741C5170FE002AD84C /* Pages */,
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
 				0147B5921C4EBF1900218606 /* WorkOrder.swift */,
-				01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */,
 				14ADDC071BEC5510005ECABA /* Main.storyboard */,
-				01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,
 				14ADDC0F1BEC5510005ECABA /* Info.plist */,
@@ -461,6 +483,7 @@
 				0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
+				014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */,
 				9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */,
 				9D9E96731C517077002AD84C /* SignInPage.swift in Sources */,
 				9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */,
@@ -468,6 +491,7 @@
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
 				9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */,
+				014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
