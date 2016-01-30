@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     @IBOutlet weak var notes: UITextView!
     @IBOutlet weak var tagNumber: UITextField!
     @IBOutlet weak var pickerTuneSelection: UIPickerView!
-    @IBOutlet weak var invoiceTuneType: UILabel!
+  
     
     /* List all Text Fields imported from Load Invoice Page */
     @IBOutlet weak var invNotes: UILabel!
@@ -602,6 +602,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         
         return tuneType[row]
     }
+    
 //********************* PRACTICE TEST FUNCTIONS *********************
     
     func somefuncReturnsTrue() -> Bool {
