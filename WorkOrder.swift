@@ -18,6 +18,7 @@ class WorkOrder {
     let tune: String
     let lname: String
     
+    
     //MARK: Initialize properties
     
     init(tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
