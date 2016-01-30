@@ -63,8 +63,12 @@ extension ViewController
 
               if (json["success"])
               {
-                print("here")
-              } // if (json["success"])
+                print("Successfully registered new user")
+              }
+              else
+              {
+                print("Failed to register new user")
+              }
             } //if let datastring = ...
           } // if (response.text != null)
       } // opt.start
