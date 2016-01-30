@@ -4,7 +4,7 @@ include_once 'MySQLCommand.php';
 
 class Login
 {
-	public static function run(&$clean)
+	public static function run(&$clean) //comment test
 	{
 		// Create the command
 		$sel = new MySQLSelectCommand('LogInData');
