@@ -591,7 +591,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
         let pdfPathWithFileName = documentDirectory.stringByAppendingPathComponent(fileName as String)
         
         generatePDFs(pdfPathWithFileName)
-        print("PDF File Created Successfully", fileName, path)
+        print("PDF NOTES: PDF File Created Successfully", fileName)
     }
     
     func generatePDFs(filePath: String) {
