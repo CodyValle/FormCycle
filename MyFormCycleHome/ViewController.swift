@@ -141,7 +141,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
               return
             }
 
-            // No errors
+            // No errors 
             if (response.text != nil)
             {
               //print("Response string: \(response.text!)\n\n\n")
