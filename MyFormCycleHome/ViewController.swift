@@ -181,7 +181,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         catch let error
         {
           print("got an error creating the request: \(error)")
-        }
+        } // catch
       }
 		}
 		else if newOrderTextFieldStruct.invoicePage == true
