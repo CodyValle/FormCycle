@@ -171,9 +171,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                       if (bikes[0]["color"].isExists()) {
                         self.color.text = bikes[0]["color"].string!
                       }
+                      newOrderTextFieldStruct.bikeid = bikes[0]["bikeid"].string!
                     } // dispatch_async
                   } // if (bikes.count > 0)
-                } // if json["success"]
+                } // if (json["success"])
               } //if let datastring = ...
             } // if (response.text != null)
           } // opt.start
