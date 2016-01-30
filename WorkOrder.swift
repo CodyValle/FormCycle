@@ -16,7 +16,6 @@ class WorkOrder {
     let bikeType: String
     let orderID: String
     let tune: String
-    let model: String
     let lname: String
     
     //MARK: Initialize properties
@@ -24,10 +23,9 @@ class WorkOrder {
     init(tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
     {
         self.tagNumber = tagNumber
-        self.bikeType = bikeType
+        self.bikeType = bikeType + " " + model
         self.tune = tune
         self.orderID = orderID
-        self.model = model
         self.lname = lname
     }
 }
