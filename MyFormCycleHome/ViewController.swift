@@ -11,7 +11,7 @@ import UIKit
 import SwiftHTTP
 import SwiftyJSON
 
-class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
+class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate
 {
     
     
@@ -37,6 +37,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
     @IBOutlet weak var color: UITextField!
     @IBOutlet weak var notes: UITextView!
     @IBOutlet weak var tagNumber: UITextField!
+    @IBOutlet weak var pickerTuneSelection: UIPickerView!
+    @IBOutlet weak var invoiceTuneType: UILabel!
     
     /* List all Text Fields imported from Load Invoice Page */
     @IBOutlet weak var invNotes: UILabel!
@@ -117,6 +119,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
             tagNumber.delegate = self
             tagNumber.clearButtonMode = .WhileEditing
             notes.delegate = self
+          
+            
 		}
 		else if newOrderTextFieldStruct.invoicePage == true
 		{
@@ -581,6 +585,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		return true
 	}
 	
+    var tuneType = ["Basic Tune: $70","ATD: $120","Complete Overhaul: $199","Race & Event Prep: $50","Find the Creak Service: $50-$95","Front Suspension Service: $80","Rear Air Shock Service: $45","Rear Suspension Linkage Services: $125","Dropper Post Service: $60-$95"]
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+       
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        
+        return tuneType.count
+        
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+        
+        return tuneType[row]
+    }
 //********************* PRACTICE TEST FUNCTIONS *********************
     
     func somefuncReturnsTrue() -> Bool {
