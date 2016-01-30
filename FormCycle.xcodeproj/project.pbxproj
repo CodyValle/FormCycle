@@ -26,6 +26,7 @@
 		9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96701C516FF7002AD84C /* BikeInfo.swift */; };
 		9D9E96731C517077002AD84C /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96721C517077002AD84C /* SignInPage.swift */; };
 		9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96751C517132002AD84C /* LoadInvoice.swift */; };
+		9DFBA13C1C5D75DD008D13CB /* Capstone in Resources */ = {isa = PBXBuildFile; fileRef = 9DFBA13B1C5D75DD008D13CB /* Capstone */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		9D9E96701C516FF7002AD84C /* BikeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeInfo.swift; sourceTree = "<group>"; };
 		9D9E96721C517077002AD84C /* SignInPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
 		9D9E96751C517132002AD84C /* LoadInvoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadInvoice.swift; sourceTree = "<group>"; };
+		9DFBA13B1C5D75DD008D13CB /* Capstone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Capstone; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 		14ADDBF71BEC5510005ECABA = {
 			isa = PBXGroup;
 			children = (
+				9DFBA13B1C5D75DD008D13CB /* Capstone */,
 				9D05CF081C485D4000998F15 /* SwiftyJSON.xcodeproj */,
 				14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */,
 				14ADDC021BEC5510005ECABA /* MyFormCycleHome */,
@@ -439,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14ADDC0E1BEC5510005ECABA /* LaunchScreen.storyboard in Resources */,
+				9DFBA13C1C5D75DD008D13CB /* Capstone in Resources */,
 				14ADDC0B1BEC5510005ECABA /* Assets.xcassets in Resources */,
 				14ADDC091BEC5510005ECABA /* Main.storyboard in Resources */,
 			);

@@ -173,10 +173,10 @@ class WorkOrder
 		if ($clean['email'] !== NULL)
 			$cmd->addParameter('c.email', $clean['email'], true);
 		if ($clean['date'] !== NULL)
-			$cmd->addParameter('date(createtime)', $clean['date']);
+			$cmd->addParameter('date(w.createtime)', $clean['date']);
 		
 		// Sends the query and stores the result.
-		$results = $GLOBALS['con']->query($cmd->getSQL());
+		$results = $GLOBALS['con']->query($cmd->getSQL(' ORDER BY w.rowid DESC'));
 		if (!is_object($results))
 			return false;
 

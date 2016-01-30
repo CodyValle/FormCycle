@@ -51,14 +51,29 @@
 			include 'workOrder.php';
 			$wo = new WorkOrder;
 			$ret = $wo->searchForWorkOrder($clean);
-			if (!$ret && $GLOBALS['DEBUG'])
-				print("No work orders found with that information.");
+			//if (!$ret && $GLOBALS['DEBUG'])
+				//print("No work orders found with that information.");
+			break;
+			
+		case "bikeSearch":
+			// Searches through work orders and returns a JSON of the results.
+			include 'bike.php';
+			$bike = new Bike;
+			$ret = $bike->searchForBike($clean);
+			//if (!$ret && $GLOBALS['DEBUG'])
+				//print("No work orders found with that information.");
 			break;
 		
 		case "login":
 			// Returns true if a user has entered the correct pin
 			include 'login.php';
-			$ret = Login::run($clean);
+			$ret = Login::get($clean);
+			break;
+		
+		case "register":
+			// Returns true if a user has entered the correct pin
+			include 'login.php';
+			$ret = Login::push($clean);
 			break;
 		
 		case "junkData":

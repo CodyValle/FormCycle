@@ -16,6 +16,13 @@
 		$clean = array();
 		
 	/** Customer information **/
+		// Check customer ID
+		if (isset($_POST['custid']) && trim($_POST['custid']) !== "")
+		{
+			$clean['custid'] = trim($_POST['custid']);
+		}
+		else $clean['custid'] = NULL;
+		
 		// Check first name
 		if (isset($_POST['fname']) && trim($_POST['fname']) !== "")
 		{

@@ -121,5 +121,42 @@ class Bike
 		
 		return true;
 	}
+	
+	function searchForBike(&$clean)
+	{
+		// Creates a new MYSQLSelectCommand to select data from the 'CustData' table.
+		$cmd = new MYSQLSelectCommand('BikeData');
+		$cmd->addColumn("HEX(bikeid) as bikeid");
+		$cmd->addColumn('model');
+		$cmd->addColumn('brand');
+		$cmd->addColumn('color');
+		if ($clean['custid'] !== NULL)
+			$cmd->addParameter('HEX(custid)', $clean['custid']);
+		if ($clean['model'] !== NULL)
+			$cmd->addParameter('model', $clean['model']);
+		if ($clean['brand'] !== NULL)
+			$cmd->addParameter('brand', $clean['brand']);
+		if ($clean['color'] !== NULL)
+			$cmd->addParameter('color', $clean['color']);
+		
+		// Sends the query and stores the result.
+		$results = $GLOBALS['con']->query($cmd->getSQL(' ORDER BY rowid DESC'));
+		if (!is_object($results))
+			return false;
+
+		// Prepare an array to hold the results and become a JSON string
+		$jsonArray = array();
+		while($row = $results->fetch_array(MYSQL_ASSOC))
+			$jsonArray[] = $row;
+		
+		// Encode and store the JSON string
+		$GLOBALS['RETURN']->addData('return', json_encode($jsonArray));
+		
+		// Close the query results
+		$results->close();
+		
+		// Successful operation
+		return true;
+	}
 }
 ?>
