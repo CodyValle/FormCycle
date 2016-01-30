@@ -440,6 +440,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
    */
 	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
 	{
+    if (newOrderTextFieldStruct.loginPage == true)
+    {
+      return false
+    }
+    
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
 		if newOrderTextFieldStruct.neworderpage == true
 		{

@@ -32,26 +32,59 @@ extension ViewController
     /* Will remain commented becuase it is not implemented yet */
     @IBAction func MyButton(sender: AnyObject)
     {
-        newOrderTextFieldStruct.loginPage = false
-        /*
-        let params = ["action": USRTextField.text!, "pwd": PWDTextField.text!]
-        do
-        {
-        let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: params)
+      var wait = true
+      var next = false
+
+      /* Submits the server request */
+      var MyParams = ["action":"login"]
+
+      // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+      if (USRTextField.text != nil) {
+        MyParams["logid"] = USRTextField.text!
+      }
+      if (PWDTextField.text != nil) {
+        MyParams["pwd"] = PWDTextField.text!
+      }
+
+      do
+      {
+        /* tries to submit to server */
+        let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
         opt.start
-        {
-        response in
-        if let error = response.error
-        {
-        print("got an error: \(error)")
-        return
+          {
+            response in
+            if let error = response.error
+            {
+              print("got an error: \(error)") /* if error, prints the error code saved on server */
+            }
+
+            // No errors
+            if (response.text != nil)
+            {
+              if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+              {
+                let json = JSON(data: datafromstring)
+
+                if (json["success"])
+                {
+                  next = true
+                }
+                else
+                {
+                  next = false
+                }
+              }
+            }
+            wait = false;
         }
-        print(response.text!)
-        }
-        }
-        catch let error
-        {
+      }
+      catch let error
+      {
         print("got an error creating the request: \(error)")
-        }*/
+      }
+      while (wait) {}
+      
+      // Leaving the login page
+      newOrderTextFieldStruct.loginPage = !next
     }
 }
