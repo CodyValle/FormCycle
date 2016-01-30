@@ -24,11 +24,57 @@ extension ViewController
     *  We just wanted to have some fun and see if anyone finds this easter egg.
     */
     @IBAction func myLogoWebpageLink(sender: AnyObject) {
-        if let url = NSURL(string: "http://www.thisbikelife.com") {
+       if let url = NSURL(string: "http://www.thisbikelife.com") {
             UIApplication.sharedApplication().openURL(url)
-        }
+       }
     }
-    
+
+  @IBAction func ForgotPWD(sender: AnyObject) {
+    /* Submits the server request */
+    var MyParams = ["action":"register"]
+
+    // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+    if (USRTextField.text != nil) {
+      MyParams["logid"] = USRTextField.text!
+    }
+    if (PWDTextField.text != nil) {
+      MyParams["pwd"] = PWDTextField.text!
+    }
+
+    do
+    {
+      /* tries to submit to server */
+      let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+      opt.start
+        {
+          response in
+          if let error = response.error
+          {
+            print("got an error: \(error)") /* if error, prints the error code saved on server */
+            return
+          }
+
+          // No errors
+          if (response.text != nil)
+          {
+            if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+            {
+              let json = JSON(data: datafromstring)
+
+              if (json["success"])
+              {
+                print("here")
+              } // if (json["success"])
+            } //if let datastring = ...
+          } // if (response.text != null)
+      } // opt.start
+    } // do
+    catch let error
+    {
+      print("got an error creating the request: \(error)")
+    } // catch
+  }
+
     /* Will remain commented becuase it is not implemented yet */
     @IBAction func MyButton(sender: AnyObject)
     {
