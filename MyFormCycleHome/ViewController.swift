@@ -37,6 +37,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     @IBOutlet weak var color: UITextField!
     @IBOutlet weak var notes: UITextView!
     @IBOutlet weak var tagNumber: UITextField!
+    @IBOutlet weak var pickerTuneSelection: UIPickerView!
+    @IBOutlet weak var invoiceTuneType: UILabel!
     
     /* List all Text Fields imported from Load Invoice Page */
     @IBOutlet weak var invNotes: UILabel!
@@ -117,6 +119,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             tagNumber.delegate = self
             tagNumber.clearButtonMode = .WhileEditing
             notes.delegate = self
+          
+            
 		}
 		else if newOrderTextFieldStruct.invoicePage == true
 		{
