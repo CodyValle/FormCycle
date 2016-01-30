@@ -21,7 +21,7 @@ class WorkOrderTableViewController: UITableViewController {
     {
         /* Submits the server request */
         var MyParams = ["action":"workSearch"]
-        var isDoneLoading = false
+        var isDoneLoading = false //using for concurrency
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         MyParams["open"] = "Y"
@@ -53,8 +53,7 @@ class WorkOrderTableViewController: UITableViewController {
                                 {
                                     for var i = 0; i < orders.count; i++
                                     {
-                                        let order = WorkOrder(orderNumber: orders[i]["workid"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!)
-                                        self.workOrders.append(order)
+                                        self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
                                     }
                                 }
                                 //else you are done- TO DO LATER
@@ -71,7 +70,7 @@ class WorkOrderTableViewController: UITableViewController {
         {
             print("got an error creating the request: \(error)")
         }
-        while(!isDoneLoading){} //Pretty stinky
+        while(!isDoneLoading){} //Pretty stinky, forcing our app to wait for the data to come back from the server before loading the table
       
     }
     
@@ -110,12 +109,15 @@ class WorkOrderTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "BikeOrderTableViewCell"
         
+        //Set the cell as the BikeOrderTableViewCell class, using the WorkOrder data model
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BikeOrderTableViewCell
         let order = workOrders[indexPath.row]
         
+        //Setting cell attributes to those in our array
         cell.bikeInfo.text = order.bikeType
         cell.tuneType.text = order.tune
-        cell.referenceNumber.text = order.orderNumber
+        cell.referenceNumber.text = order.tagNumber
+        cell.lname.text = order.lname
         return cell
     }
     

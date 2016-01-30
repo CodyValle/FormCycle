@@ -12,20 +12,20 @@ class WorkOrder {
 
     //MARK: Properties
     
-    let orderNumber: String
+    let tagNumber: String
     let bikeType: String
     let orderID: String
     let tune: String
+    let lname: String
     
     //MARK: Initialize properties
     
-    init(orderNumber: String, orderID: String, tune: String, bikeType: String)
+    init(tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
     {
-        self.orderNumber = orderNumber
-        self.bikeType = bikeType
+        self.tagNumber = tagNumber
+        self.bikeType = bikeType + " " + model
         self.tune = tune
         self.orderID = orderID
-        
-        
+        self.lname = lname
     }
 }
