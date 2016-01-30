@@ -6,7 +6,7 @@
 //  Copyright © 2015 FormCycle. All rights reserved.
 //
 
-
+import Foundation
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
@@ -651,24 +651,59 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		}
 		return true
 	}
-	
+	//*************************** Tune Selection Picker *************************//
     var tuneType = ["Basic Tune: $70","ATD: $120","Complete Overhaul: $199","Race & Event Prep: $50","Find the Creak Service: $50-$95","Front Suspension Service: $80","Rear Air Shock Service: $45","Rear Suspension Linkage Services: $125","Dropper Post Service: $60-$95"]
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
-       
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+
+    /* Enter description here: */
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
         
         return tuneType.count
         
     }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+    /* Enter description here: */
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
+    {
+        
+        return 1
+    }
+    /* Enter description here: */
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
         
         return tuneType[row]
     }
+    
+    //*********************** Generate PDF ******//
+    
+    @IBAction func generatePDF(sender: AnyObject)
+    {
+        //let pageSize:CGSize = CGSizeMake (850, 1100)
+        let fileName: NSString = "xp.pdf"
+        let path:NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentDirectory: AnyObject = path.objectAtIndex(0)
+        let pdfPathWithFileName = documentDirectory.stringByAppendingPathComponent(fileName as String)
+        
+        generatePDFs(pdfPathWithFileName)
+        print("PDF NOTES: PDF File Created Successfully", fileName)
+    }
+    
+    func generatePDFs(filePath: String)
+    {
+        UIGraphicsBeginPDFContextToFile(filePath, CGRectZero, nil)
+        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 850, 1100), nil)
+        drawBackground()
+        UIGraphicsEndPDFContext()
+    }
+    
+    func drawBackground ()
+    {
+        let context:CGContextRef = UIGraphicsGetCurrentContext()!
+        let rect:CGRect = CGRectMake(0, 0, 600, 850)
+        CGContextSetFillColorWithColor(context, UIColor.greenColor().CGColor)
+        CGContextFillRect(context, rect)
+    }
+    
     
 //********************* PRACTICE TEST FUNCTIONS *********************
     
