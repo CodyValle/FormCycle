@@ -674,8 +674,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         let attributedString = NSAttributedString(string: tuneType[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
         return attributedString
     }
-    
-   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+    /*
+    takes the selection from the picker and sends it to the newOrderTectFieldStrunct so it can be displayed on the
+    invoice page.
+    */
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         newOrderTextFieldStruct.tunePicker = tuneType[row]
     }
    // }
