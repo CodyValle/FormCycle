@@ -61,7 +61,7 @@ extension ViewController
             // No errors
             if (response.text != nil)
             {
-                print(response.text!2)
+                print(response.text!)
               if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
               {
                 let json = JSON(data: datafromstring)
