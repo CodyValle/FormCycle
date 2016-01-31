@@ -667,11 +667,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         
         return 1
     }
-    /* Enter description here: */
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        
-        return tuneType[row]
+    /* pikcerView sets the text for each tune type in the selection picker and then sets the
+       text color to white so it can be more easily displayed on the interface. */
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let attributedString = NSAttributedString(string: tuneType[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+        return attributedString
     }
     
     //*********************** Generate PDF ******//
