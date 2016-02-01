@@ -13,11 +13,16 @@ class Login
     //creates a SQL statment of the user info to see if credentials exist in database
 	public static function push(&$clean)
 	{
+		// Check to see that it is a valid username/password pair.
+		/* Temporarily turned off for debugging */
+		//if ($clean['logid'] === NULL || $clean['pwd'] === NULL) return false;
+
 		// Create the command
 		$sel = new MySQLInsertCommand('LogInData');
 		$sel->addParameter('username', $clean['logid']);
 		$sel->addParameter('pin', $clean['pwd']);
 		
+		// Return whether the insert was successful
 		return $GLOBALS['con']->query($sel->getSQL());
 	}
 	
@@ -25,13 +30,14 @@ class Login
 	public static function get(&$clean)
 	{
 		/*Creates a SQL statment of the user info to see if credentials exist in database.
-        Returns the number of users with matching info in the database.
+        Returns true if there is a user with matching info in the database, false otherwise.
          */
 		$sel = new MySQLSelectCommand('LogInData');
 		$sel->addColumn('username');
 		$sel->addParameter('username', $clean['logid']);
 		$sel->addParameter('pin', $clean['pwd']);
 		
+		// Run the query
 		$out = $GLOBALS['con']->query($sel->getSQL());
 		
 		// Get return value

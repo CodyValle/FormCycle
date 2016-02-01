@@ -1,14 +1,14 @@
 <?php
 /* 
  File:MySQLCommand.php
- Short: Create SQL statements with data sent from Formcycle
+ Short: Create SQL statements with data sent from the FormCycle App
  Long: When a POST request is received, this code takes in the information and converts the 
  data into SQL statements so it can be run on the database to make changes. The SQL statements 
  that can be created in this code are: insert information (used for adding info to the database
  and select information(used for requesting information from the database.
  */
     
-    //creates insert statement to run on against the database
+    // Creates insert statement to run against the database
 class MySQLInsertCommand
 {
 	protected $tb;
@@ -53,7 +53,7 @@ class MySQLInsertCommand
 	}
 }
 
-    //creates SELECT statement to retreive information from the database. 
+    // Creates SELECT statement to retreive information from the database. 
 class MySQLSelectCommand
 {
 	protected $tb;

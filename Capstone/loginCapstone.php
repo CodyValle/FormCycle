@@ -13,10 +13,10 @@
 	{
 		// Create singleton connection
 		$GLOBALS['con'] = new mysqli('localhost', 'root', $password, 'Capstone');
-		// Check conection success
+		// Check connection success
 		if ($GLOBALS['con']->connect_error) $GLOBALS['ERROR']->reportErrorCode("CON"); // Database connection error
 		else if ($GLOBALS['DEBUG'])
-			print("Successfully created connection to database." . PHP_EOL);
+			$GLOBALS['DBGMSG']->addMessage("Successfully created connection to database.");
 	}
 	else $GLOBALS['ERROR']->reportErrorCode("OLDCON");
 ?>

@@ -116,7 +116,7 @@ class Error
 		self::$errors[$id] = $str;
 	}
 	
-	static function printErrors()
+	static function getErrorString()
 	{
 		$str = "";
 		$str .= "###ERROR SECTION###" . PHP_EOL;
@@ -131,7 +131,12 @@ class Error
 		
 		$str .= "###END ERROR SECTION###" . PHP_EOL;
 		
-		$GLOBALS['RETURN']->addData('errors', $str);
+		return $str;
+	}
+	
+	static function printErrors()
+	{
+		$GLOBALS['RETURN']->addData('errors', self::getErrorString());
 		
 		return true;
 	}

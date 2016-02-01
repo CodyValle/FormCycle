@@ -7,7 +7,7 @@
 	expected values.
 	*/
 	
-	if ($GLOBALS['DEBUG']) print("Running filter." . PHP_EOL);
+	if ($GLOBALS['DEBUG']) $GLOBALS['DBGMSG']->addMessage("Running filter.");
 	
 	// Check that clean does not already exist.
 	if (!isset($clean))

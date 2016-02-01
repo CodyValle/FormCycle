@@ -13,6 +13,7 @@
 		$_SERVER['REQUEST_METHOD'] = "POST";
 	}
 	
+	include_once 'DebugMessage.php';
 	include_once 'ReturnString.php';
 	include_once 'debug.php';
 	include_once 'error.php';
@@ -23,10 +24,12 @@
 	// Checks to see if the request is POST.
 	if (!($_SERVER['REQUEST_METHOD'] === 'POST')) $GLOBALS['ERROR']->reportErrorCode("POST", true);
 	
+	// Successful run?
+	$ret = false;
+	
 	// Checks whether 'action' is set and is using allowed characters.
 	if (isset($_POST['action']) && isAlphaNumeric($_POST['action']))
 	{
-		$ret = false;
 		// Checks 'action' against multiple cases.
 		switch ($_POST['action'])
 		{
@@ -98,6 +101,7 @@
 	}
 	else $GLOBALS['ERROR']->reportErrorCode("INV");
 
+	// Close the database connection
 	if ($GLOBALS['con']) 
 	{
 		//if ($GLOBALS['DEBUG']) print("Closing mysql connection." . PHP_EOL);
@@ -105,10 +109,13 @@
 		$GLOBALS['con'] = false;
 	}
 	
-	// Print the clean array and all associated values if debugging is turned on.
+	// Print the clean array and all debugging messages.
 	if ($GLOBALS['DEBUG'])
 	{
-		$str = "";
+		// Get debug messages
+		$str = $GLOBALS['DBGMSG']->getMessage();
+		
+		// Get parameter values
 		$str .= "***DEBUG PARAMETER SECTION***" . PHP_EOL;
 		
 		foreach ($clean as $key => $val)
@@ -116,17 +123,23 @@
 			
 		$str .= "***END DEBUG PARAMETER SECTION***" . PHP_EOL;
 		
-		$GLOBALS['RETURN']->addData('debug', $str);
+		// Get reported errors
+		$str .= $GLOBALS['ERROR']->getErrorString();
 		
-		$GLOBALS['ERROR']->printErrors();
+		// Put all to debug part of return string
+		$GLOBALS['RETURN']->addData('debug', $str);
 	}
 
+	// Add run success value
 	$GLOBALS['RETURN']->addData('success', $ret);
 	
+	// Prepare return string
 	$toReturn = $GLOBALS['RETURN']->getReturn();
 	
+	// Write return string to log file
 	$date = new DateTime();
 	file_put_contents('/log/Capstone/' . $date->format('Y-m-d_H:i:s') . '.txt', $toReturn);
 	
+	// Print return string and exit
 	print($GLOBALS['RETURN']->getReturn());
 ?>

@@ -156,17 +156,17 @@ VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Merrill','Lines','Somewhere in Spokane',
 	if ($GLOBALS['DEBUG'])
 	{
 		if ($result)
-			print("Successfully dropped and recreated the database." . PHP_EOL);
+			$GLOBALS['DBGMSG']->addMessage("Successfully dropped and recreated the database.");
 		else
 		{
-			print("Error dropping and recreating the database." . PHP_EOL);
+			$GLOBALS['DBGMSG']->addMessage("Error dropping and recreating the database.");
 			$GLOBALS['ERROR']->reportErrorCode("CLEAN");
 		}
 	}
 	
 	if ($GLOBALS['con']) 
 	{
-		if ($GLOBALS['DEBUG']) print("Closing mysql connection." . PHP_EOL);
+		if ($GLOBALS['DEBUG']) $GLOBALS['DBGMSG']->addMessage("Closing mysql connection.");
 		$GLOBALS['con']->close();
 		$GLOBALS['con'] = false;
 	}
