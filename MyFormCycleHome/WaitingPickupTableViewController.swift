@@ -23,7 +23,7 @@ class WaitingPickupTableViewController: UITableViewController {
         var isDoneLoading = false //using for concurrency
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
-        MyParams["open"] = "N"
+        MyParams["open"] = "Y"
         do
         {
             /* tries to submit to server */
