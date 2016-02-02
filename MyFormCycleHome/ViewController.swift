@@ -358,7 +358,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             }
             else if (textField == city)
             {
-                state.becomeFirstResponder() 
+                state.becomeFirstResponder()  
             }
             else if (textField == state)
             {
