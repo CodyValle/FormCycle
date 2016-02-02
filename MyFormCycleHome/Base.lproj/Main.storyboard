@@ -940,8 +940,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zl-dg-6Wt">
-                                <rect key="frame" x="13" y="26" width="66" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zl-dg-6Wt">
+                                <rect key="frame" x="13" y="24" width="66" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="Sx4-Kn-O3M"/>
                                 </constraints>
@@ -978,7 +978,7 @@
                             <constraint firstItem="iUp-ob-jxI" firstAttribute="centerX" secondItem="dHj-6i-Mdc" secondAttribute="centerX" id="Rz5-Ha-RNJ"/>
                             <constraint firstItem="dHj-6i-Mdc" firstAttribute="trailing" secondItem="Urb-UV-CQ8" secondAttribute="trailing" constant="-138" id="UOt-qE-2Ix"/>
                             <constraint firstItem="Tix-kP-ASq" firstAttribute="top" secondItem="ccn-nr-UQM" secondAttribute="bottom" constant="8" symbolic="YES" id="WKI-Yk-GmI"/>
-                            <constraint firstItem="5zl-dg-6Wt" firstAttribute="bottom" secondItem="iUp-ob-jxI" secondAttribute="bottom" id="Wka-Uv-oAo"/>
+                            <constraint firstItem="5zl-dg-6Wt" firstAttribute="bottom" secondItem="iUp-ob-jxI" secondAttribute="bottom" constant="3" id="Wka-Uv-oAo"/>
                             <constraint firstItem="y4y-Sg-2fZ" firstAttribute="trailing" secondItem="I40-et-3L7" secondAttribute="trailingMargin" id="Wrv-6f-xyB"/>
                             <constraint firstItem="Urb-UV-CQ8" firstAttribute="leading" secondItem="Tix-kP-ASq" secondAttribute="trailing" constant="8" symbolic="YES" id="XbV-t8-chA"/>
                             <constraint firstItem="y4y-Sg-2fZ" firstAttribute="leading" secondItem="I40-et-3L7" secondAttribute="leadingMargin" id="Xru-ye-JYZ"/>
