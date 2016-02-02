@@ -361,7 +361,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             }
             else if (textField == state)
             {
-                zip.becomeFirstResponder()
+                zip.becomeFirstResponder() 
             }
             else if (textField == zip)
             {
