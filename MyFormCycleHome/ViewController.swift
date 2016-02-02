@@ -684,7 +684,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
    // }
     //*********************** Generate PDF ******//
     
-    @IBAction func generatePDF(sender: AnyObject)
+    @IBAction func generatePDF(sender: AnyObject) 
     {
         //let pageSize:CGSize = CGSizeMake (850, 1100)
         let fileName: NSString = "xp.pdf"
