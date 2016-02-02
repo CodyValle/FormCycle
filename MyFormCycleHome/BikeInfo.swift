@@ -26,8 +26,8 @@ extension ViewController
     * boxes when the user pressed back on the
     * RepairInfo Page.
     */
-    @IBAction func backToCustInfo(sender: AnyObject)
-    {
+    @IBAction func backToCustInfo(sender: AnyObject) {
+    
         newOrderTextFieldStruct.bikeInfoPage = false /* sets current view to false */
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
         newOrderTextFieldStruct.neworderpage = true /* sets the new order page view to true since
