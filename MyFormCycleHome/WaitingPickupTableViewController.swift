@@ -23,7 +23,7 @@ class WaitingPickupTableViewController: UITableViewController {
         var isDoneLoading = false //using for concurrency
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
-        MyParams["open"] = "Y"
+        MyParams["open"] = "N"
         do
         {
             /* tries to submit to server */
@@ -83,7 +83,8 @@ class WaitingPickupTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        //Load Sample data
+        //Load data
+
         loadData()
         
     }
@@ -115,7 +116,7 @@ class WaitingPickupTableViewController: UITableViewController {
         //Setting cell attributes to those in our array
         cell.bikeInfo.text = order.bikeType
         cell.tuneType.text = order.tune
-        cell.referenceNumber.text = order.tagNumber
+        cell.tagNum.text = order.tagNumber
         cell.lname.text = order.lname
         return cell
     }

@@ -196,8 +196,8 @@
 		014283CD1C5D63580097C61F /* WaitingPickupTable */ = {
 			isa = PBXGroup;
 			children = (
-				014283CE1C5D65940097C61F /* PickupTableViewCell.swift */,
 				014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */,
+				014283CE1C5D65940097C61F /* PickupTableViewCell.swift */,
 			);
 			name = WaitingPickupTable;
 			sourceTree = "<group>";
