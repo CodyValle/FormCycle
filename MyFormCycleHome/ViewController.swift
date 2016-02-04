@@ -6,13 +6,14 @@
 //  Copyright © 2015 FormCycle. All rights reserved.
 //
 
-import Foundation
+import Foundation 
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate
 {
+    
     
     
     
@@ -357,7 +358,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             }
             else if (textField == city)
             {
-                state.becomeFirstResponder() 
+                state.becomeFirstResponder()  
             }
             else if (textField == state)
             {
