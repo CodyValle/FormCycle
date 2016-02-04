@@ -352,7 +352,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc8-Rx-qwx">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc8-Rx-qwx">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="tireEdit3">
@@ -374,7 +374,7 @@
                                     <segue destination="5h6-Zb-xm7" kind="embed" id="iQs-xb-6hr"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CoC-0d-NGW">
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CoC-0d-NGW">
                                 <rect key="frame" x="402" y="596" width="346" height="395"/>
                                 <connections>
                                     <segue destination="wMV-fT-EcY" kind="embed" id="AeD-UW-5jY"/>
@@ -382,18 +382,6 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ZFy-wW-KSF" firstAttribute="top" secondItem="WNJ-vj-rW1" secondAttribute="bottom" constant="33" id="3Cd-CJ-BLO"/>
-                            <constraint firstItem="Wc8-Rx-qwx" firstAttribute="top" secondItem="3l4-fq-KQQ" secondAttribute="top" id="9yP-Vg-bat"/>
-                            <constraint firstItem="CoC-0d-NGW" firstAttribute="bottom" secondItem="WNJ-vj-rW1" secondAttribute="bottom" id="Ayb-G9-5of"/>
-                            <constraint firstItem="CoC-0d-NGW" firstAttribute="leading" secondItem="WNJ-vj-rW1" secondAttribute="trailing" constant="20" id="B63-8h-52s"/>
-                            <constraint firstItem="Wc8-Rx-qwx" firstAttribute="bottom" secondItem="ZFy-wW-KSF" secondAttribute="top" id="Kil-tl-ld0"/>
-                            <constraint firstItem="WNJ-vj-rW1" firstAttribute="leading" secondItem="3l4-fq-KQQ" secondAttribute="leadingMargin" id="RB0-jr-Tpl"/>
-                            <constraint firstAttribute="trailing" secondItem="Wc8-Rx-qwx" secondAttribute="trailing" id="f3d-5l-BtU"/>
-                            <constraint firstAttribute="trailing" secondItem="WNJ-vj-rW1" secondAttribute="trailing" constant="386" id="mnB-Dx-MYK"/>
-                            <constraint firstItem="CoC-0d-NGW" firstAttribute="trailing" secondItem="3l4-fq-KQQ" secondAttribute="trailingMargin" id="ngV-oM-D3X"/>
-                            <constraint firstItem="Wc8-Rx-qwx" firstAttribute="leading" secondItem="3l4-fq-KQQ" secondAttribute="leading" id="pQA-t3-dW5"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </viewController>
