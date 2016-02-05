@@ -14,9 +14,6 @@ import SwiftyJSON
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate
 {
     
-    
-    
-    
     /* List all Text Fields imported from Sign In Page */
     @IBOutlet weak var USRTextField: UITextField!
     @IBOutlet weak var PWDTextField: UITextField!
@@ -432,9 +429,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 			newOrderTextFieldStruct.neworderpage = true /* on new order page, set flag to true. */
 		}
 		else if segue.identifier == "backToLoginPage"
-    {
-        newOrderTextFieldStruct.loginPage = true
-    }
+        {
+            newOrderTextFieldStruct.loginPage = true
+        }
 		/* checks if the user pressed the submit button on the bike info page */
 		else if segue.identifier == "moveToInvoice"
 		{
@@ -505,10 +502,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
    */
 	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
 	{
-    if (newOrderTextFieldStruct.loginPage == true)
-    {
-      return false
-    }
+        if (newOrderTextFieldStruct.loginPage == true)
+        {
+          return false
+        }
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
 		if newOrderTextFieldStruct.neworderpage == true
 		{
