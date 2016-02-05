@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -220,6 +220,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqU-xe-Xxw">
                                 <rect key="frame" x="0.0" y="60" width="768" height="964"/>
                                 <subviews>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPA-zQ-cpW">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1024" id="L6a-Y8-aNI"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="tireEdit3"/>
+                                    </button>
                                     <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="ol9-Nn-j8V">
                                         <rect key="frame" x="8" y="-600" width="0.0" height="44"/>
                                         <constraints>
@@ -246,7 +253,10 @@
                                 <constraints>
                                     <constraint firstItem="ol9-Nn-j8V" firstAttribute="leading" secondItem="tqU-xe-Xxw" secondAttribute="leadingMargin" id="0uE-5i-nJy"/>
                                     <constraint firstItem="2Iv-88-tkg" firstAttribute="centerX" secondItem="tqU-xe-Xxw" secondAttribute="centerX" id="8Bu-ez-txF"/>
+                                    <constraint firstItem="lPA-zQ-cpW" firstAttribute="leading" secondItem="2Iv-88-tkg" secondAttribute="leading" id="AnP-Zc-hEg"/>
                                     <constraint firstItem="2Iv-88-tkg" firstAttribute="leading" secondItem="tqU-xe-Xxw" secondAttribute="leading" id="Kxl-ko-udM"/>
+                                    <constraint firstItem="lPA-zQ-cpW" firstAttribute="top" secondItem="tqU-xe-Xxw" secondAttribute="top" id="MsN-n7-7jb"/>
+                                    <constraint firstItem="lPA-zQ-cpW" firstAttribute="trailing" secondItem="2Iv-88-tkg" secondAttribute="trailing" id="QIc-4G-Ivl"/>
                                     <constraint firstAttribute="trailing" secondItem="2Iv-88-tkg" secondAttribute="trailing" id="Tal-1S-r1h"/>
                                     <constraint firstItem="vlI-iR-h6R" firstAttribute="top" secondItem="2Iv-88-tkg" secondAttribute="bottom" constant="18" id="VHq-mY-M4r"/>
                                     <constraint firstItem="2Iv-88-tkg" firstAttribute="top" secondItem="tqU-xe-Xxw" secondAttribute="topMargin" constant="11" id="agy-xc-fR3"/>
@@ -301,9 +311,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxQ-Uv-f8K">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxQ-Uv-f8K">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <state key="normal" title="Button" backgroundImage="IMG_2477"/>
+                                <state key="normal" backgroundImage="tireEdit3"/>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-68-KqT">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="60"/>
@@ -333,12 +343,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="SxQ-Uv-f8K" firstAttribute="leading" secondItem="2ft-68-KqT" secondAttribute="leading" id="1ES-T4-eIe"/>
                             <constraint firstItem="2ft-68-KqT" firstAttribute="centerX" secondItem="BHg-Vf-oAJ" secondAttribute="centerX" id="A7e-4e-thn"/>
+                            <constraint firstItem="SxQ-Uv-f8K" firstAttribute="trailing" secondItem="2ft-68-KqT" secondAttribute="trailing" id="Czn-vm-SHj"/>
                             <constraint firstItem="BHg-Vf-oAJ" firstAttribute="leading" secondItem="0Fh-JX-ANL" secondAttribute="leadingMargin" id="Tqg-aF-tee"/>
                             <constraint firstAttribute="trailing" secondItem="2ft-68-KqT" secondAttribute="trailing" id="Ucp-2s-pBD"/>
+                            <constraint firstItem="SxQ-Uv-f8K" firstAttribute="bottom" secondItem="dnh-fy-3NA" secondAttribute="top" id="ajH-WR-WRX"/>
                             <constraint firstItem="2ft-68-KqT" firstAttribute="top" secondItem="0Fh-JX-ANL" secondAttribute="top" id="flg-jJ-eHh"/>
                             <constraint firstItem="2ft-68-KqT" firstAttribute="leading" secondItem="0Fh-JX-ANL" secondAttribute="leading" id="jx8-De-ezV"/>
                             <constraint firstItem="BHg-Vf-oAJ" firstAttribute="top" secondItem="2ft-68-KqT" secondAttribute="bottom" constant="7" id="qqG-Yx-3zz"/>
+                            <constraint firstItem="SxQ-Uv-f8K" firstAttribute="top" secondItem="2ft-68-KqT" secondAttribute="top" id="uV1-6e-CTo"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
@@ -1402,7 +1416,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QGx-eU-6rA" id="YXw-Q0-Yn9">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1410,7 +1424,7 @@
                                 <rect key="frame" x="0.0" y="88" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZHE-bq-4cl" id="poU-Sq-gav">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsZ-Be-VFh">
@@ -1460,7 +1474,6 @@
     </scenes>
     <resources>
         <image name="538474-user_512x512" width="512" height="512"/>
-        <image name="IMG_2477" width="1240" height="1715"/>
         <image name="Screen Shot 2015-12-05 at 10.32.10 AM" width="1314" height="576"/>
         <image name="btn" width="400" height="150"/>
         <image name="img1" width="87" height="86"/>
@@ -1470,6 +1483,6 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Z3-Za-71m"/>
+        <segue reference="YNS-yu-xms"/>
     </inferredMetricsTieBreakers>
 </document>
