@@ -86,11 +86,11 @@
 			if (isset($fails)) $fails = 0;
 		}
 		
-		$orders = rand(0, 10);
+		$orders = rand(0, 3);
 		for ($o = 0; $o < $orders; $o++)
 		{
-			$clean['open'] = (rand(0, 100) < 3 ? 'Y' : 'N');
-			$clean['tagid'] = RandomNumericString(2);
+			$clean['open'] = (rand(0, 100) < 30 ? 'Y' : 'N');
+			$clean['tagNum'] = RandomNumericString(2);
 			
 			$clean['pre'] = "";
 			for ($c = 0; $c < rand(5, 10); $c++)

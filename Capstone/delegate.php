@@ -12,13 +12,14 @@
 		parse_str($argv[1], $_POST);
 		$_SERVER['REQUEST_METHOD'] = "POST";
 	}
-	
+
+  include_once 'regexes.php';
 	include_once 'DebugMessage.php';
 	include_once 'ReturnString.php';
+  
 	include_once 'debug.php';
 	include_once 'error.php';
 	include_once 'loginCapstone.php';
-	include_once 'regexes.php';
 	include_once 'filter.php';
 	
 	// Checks to see if the request is POST.

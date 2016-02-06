@@ -10,7 +10,7 @@
 	if (isset($_POST['DEBUG']) && $_POST['DEBUG'] === "true")
 	{
 		$GLOBALS['DEBUG'] = true;
-		$GLOBALS['DBGMSG']->addMessage("&&&&& DEBUG MODE IS ON &&&&&");
+		$GLOBALS['DBGMSG']->addMessage("DEBUG MODE IS ON");
 	}
 	else $GLOBALS['DEBUG'] = false;
 ?>
