@@ -16,6 +16,7 @@ class BikeOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var tuneType: UILabel!
     @IBOutlet weak var bikeInfo: UILabel!
     @IBOutlet weak var lname: UILabel!
+    var workid = ""
     
 
     override func awakeFromNib() {

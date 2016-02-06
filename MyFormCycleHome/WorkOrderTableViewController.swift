@@ -116,6 +116,7 @@ class WorkOrderTableViewController: UITableViewController {
         cell.tuneType.text = order.tune
         cell.referenceNumber.text = order.tagNumber
         cell.lname.text = order.lname
+        cell.workid = order.orderID
         return cell
     }
     
