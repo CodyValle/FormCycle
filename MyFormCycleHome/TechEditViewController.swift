@@ -48,7 +48,6 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
                     }
                     if (response.text != nil)
                     {
-                        
                         if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
                         {
                             let json = JSON(data: datafromstring)
