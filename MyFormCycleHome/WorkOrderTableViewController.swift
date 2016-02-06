@@ -28,7 +28,7 @@ class WorkOrderTableViewController: UITableViewController {
         do
         {
             /* tries to submit to server */
-            let opt = try HTTP.POST("http://107.170.219.218/CapstoneTest/delegate.php", parameters: MyParams)
+            let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
             opt.start
             {
               response in
