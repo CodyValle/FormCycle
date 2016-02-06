@@ -12,6 +12,7 @@
 		0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
 		0147B5941C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
 		01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */; };
+		01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D6ECC11C66A28A00945391 /* TechEditViewController.swift */; };
 		01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */; };
 		141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B96111C014F7300D2AFA4 /* stringUtils.swift */; };
 		14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; };
@@ -145,6 +146,7 @@
 		014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingPickupTableViewController.swift; sourceTree = "<group>"; };
 		0147B5921C4EBF1900218606 /* WorkOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkOrder.swift; path = ../WorkOrder.swift; sourceTree = "<group>"; };
 		01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeOrderTableViewCell.swift; sourceTree = "<group>"; };
+		01D6ECC11C66A28A00945391 /* TechEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechEditViewController.swift; sourceTree = "<group>"; };
 		01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOrderTableViewController.swift; sourceTree = "<group>"; };
 		141B96111C014F7300D2AFA4 /* stringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stringUtils.swift; sourceTree = "<group>"; };
 		14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				9D9E96721C517077002AD84C /* SignInPage.swift */,
 				9D9E96641C516DE2002AD84C /* NewOrder.swift */,
 				9D9E96751C517132002AD84C /* LoadInvoice.swift */,
+				01D6ECC11C66A28A00945391 /* TechEditViewController.swift */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
 				9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */,
+				01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */,
 				014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,13 +6,17 @@
 //  Copyright © 2015 FormCycle. All rights reserved.
 //
 
-import Foundation   
+import Foundation
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate
 {
+    
+    
+
+    
     
     /* List all Text Fields imported from Sign In Page */
     @IBOutlet weak var USRTextField: UITextField!
