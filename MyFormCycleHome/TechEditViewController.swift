@@ -20,7 +20,8 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var bikeInfo: UILabel!
     @IBOutlet weak var tune: UILabel!
     @IBOutlet weak var tagNum: UILabel!
-    @IBOutlet weak var notes: UITextField!
+    @IBOutlet weak var notes: UITextView!
+
     
     var workidPassed = ""
     var workid = ""
@@ -68,7 +69,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
                                     self.bikeInfo.text = order[0]["brand"].string! + " " + order[0]["model"].string! + ", " + order[0]["color"].string!
                                     self.tune.text = "Bronze"
                                     self.tagNum.text = order[0]["tagnum"].string!
-                                    self.notes.text = order[0]["notes"].string!
+                                    //self.notes.text = order[0]["notes"].string!
                                     
                                 }
                                 //else you are done- TO DO LATER
@@ -86,6 +87,52 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
         while(!isDoneLoading){} //Pretty stinky, forcing our app to wait for the data to come back from the server before loading the table
         
     }
+    
+    
+    @IBAction func closeOrder(sender: AnyObject) {
+        /* Submits the server request */
+        var MyParams = ["action":"workUpdate"]
+        MyParams["workid"] = workid
+        MyParams["open"] = "N"
+        do
+        {
+            /* tries to submit to server */
+            let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+            opt.start
+                {
+                    response in
+                    if let error = response.error
+                    {
+                        print("got an error: \(error)") /* if error, prints the error code saved on server */
+                        return
+                    }
+                    
+                    // No errors
+                    if (response.text != nil)
+                    {
+                        if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                        {
+                            let json = JSON(data: datafromstring)
+                            
+                            if (json["success"])
+                            {
+                                print("Successfully closed order")
+                            }
+                            else
+                            {
+                                print("Failed to close order")
+                            }
+                        } //if let datastring = ...
+                    } // if (response.text != null)
+            } // opt.start
+        } // do
+        catch let error
+        {
+            print("got an error creating the request: \(error)")
+        } // catch
+
+    }
+    
     
     
     
