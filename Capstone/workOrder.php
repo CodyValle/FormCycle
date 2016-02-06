@@ -142,26 +142,41 @@ class WorkOrder
 	function searchForWorkOrder(&$clean)
 	{
 		// Creates a new MYSQLSelectCommand to select data from the 'WorkOrderData' table.
-		$cmd = new MYSQLSelectCommand('CustData as c');
-		$cmd->addJoin("WorkOrderData as w", "(c.custid = w.custid)");
+		$cmd = new MYSQLSelectCommand('WorkOrderData as w');
+		$cmd->addJoin("CustData as c", "(c.custid = w.custid)");
+		$cmd->addJoin("WorkOrderNotes as o", "(o.workid = w.workid)");
 		$cmd->addJoin("BikeData as b", "(b.bikeid = w.bikeid)");
+		$cmd->addJoin("BikeNoteData as n", "(b.bikeid = n.bikeid)");
 		
 		$cmd->addColumn("HEX(w.workid) as workid");
+		$cmd->addColumn("HEX(c.custid) as custid");
+		$cmd->addColumn("HEX(b.bikeid) as bikeid");
+		
 		$cmd->addColumn('c.fname as fname');
 		$cmd->addColumn('c.lname as lname');
-		/*
-		$cmd->addColumn('c.address');
-		$cmd->addColumn('c.address2');
-		$cmd->addColumn('c.city');
-		$cmd->addColumn('c.state');
-		$cmd->addColumn('c.country');
-		$cmd->addColumn('c.zip');
-		$cmd->addColumn('c.phone');
-		$cmd->addColumn('c.email');
-		*/
+		$cmd->addColumn('c.address as address');
+		$cmd->addColumn('c.address2 as address2');
+		$cmd->addColumn('c.city as city');
+		$cmd->addColumn('c.state as state');
+		$cmd->addColumn('c.country as country');
+		$cmd->addColumn('c.zip as zip');
+		$cmd->addColumn('c.phone as phone');
+		$cmd->addColumn('c.email as email');
+
 		$cmd->addColumn('b.brand as brand');
 		$cmd->addColumn('b.model as model');
+		$cmd->addColumn('b.color as color');
+		
+		$cmd->addColumn('n.notes as notes');
+		
 		$cmd->addColumn('w.tagid as tagnum');
+		$cmd->addColumn('w.createtime as createtime');
+		
+		$cmd->addColumn('o.pre as pre');
+		$cmd->addColumn('o.post as post');
+		
+		if ($clean['workid'] !== NULL)
+			$cmd->addParameter('w.workid', "UNHEX(" . $clean['workid'] . ")", false);
 		if ($clean['open'] !== NULL)
 			$cmd->addParameter('w.open', $clean['open'], true);
 		if ($clean['fname'] !== NULL)

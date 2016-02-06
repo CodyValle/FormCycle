@@ -4,7 +4,9 @@
 	Short: Rebuilds the database.
 	Long: Drops the existing database and rebuilds it.
 	*/
-	
+
+  include_once 'DebugMessage.php';
+
 	include_once 'debug.php';
 	include_once 'error.php';
 	
@@ -109,6 +111,19 @@ PRIMARY KEY (username)
 
 	// Insert some default rows
 	$statement .= "USE Capstone;
+
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('1','Basic Tune','70.00','1.00','General Checkup.');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('2','ATD','120.00','1.50','Basic Tune++');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('3','Complete Overhaul','199.00','3.00','ATD++');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('4','Race & Event Prep','75.00','2.00','Event Prep');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('5','Find the Creak Service','75.00','2.00','Where is that creak??');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('6','Front Suspension Service','80.00','1.75','Nice and Soft');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('7','Rear Air Shock Service','45.00','1.50','Smooth Ride');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('8','Rear Suspension Linkage Service','125.00','2.50','Like New, using the Old!');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('9','Dropper Post Service','85.00','2.00','Put that seat where you want it!');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('10','Box a Bike','80','1.00','Get ready for the move');
+INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('11','Boxed Bike Build','105.00','1.25','Doen with the move');
+
 INSERT INTO LogInData (username, pin) VALUES ('50972', '03118');
 INSERT INTO LogInData (username, pin) VALUES ('11111', '42');
 INSERT INTO LogInData (username, pin) VALUES ('161616', '616161');
