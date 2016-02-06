@@ -1493,6 +1493,7 @@
                                     <outlet property="bikeInfo" destination="DsZ-Be-VFh" id="eiz-Ek-yag"/>
                                     <outlet property="lname" destination="Mjc-Q9-R4f" id="hT0-6Z-wgu"/>
                                     <outlet property="tuneType" destination="dZ6-EU-KD8" id="pHZ-z8-KEX"/>
+                                    <segue destination="d5K-jO-m63" kind="showDetail" id="w82-2O-uLI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1505,6 +1506,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fzg-6d-Ggt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36" y="-680"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="o81-Tq-UG9">
+            <objects>
+                <viewController id="d5K-jO-m63" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1VB-nR-mmC"/>
+                        <viewControllerLayoutGuide type="bottom" id="exA-Xm-Mj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dpW-IM-4Nc">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WN9-9V-IL6">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1031"/>
+                                <state key="normal" backgroundImage="tireEdit3"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCA-X3-ish">
+                                <rect key="frame" x="400" y="625" width="348" height="81"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="Close Order" backgroundImage="transparent-dark-gray">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89k-hY-jgQ">
+                                <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ic0-zr-diU"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="transparent-dark-gray"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8T-Ys-SFa">
+                                <rect key="frame" x="310" y="28" width="149" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149" id="yDt-Rt-rdA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNT-fi-bM5">
+                                <rect key="frame" x="14" y="27" width="53" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53" id="B4h-Z9-1ns"/>
+                                </constraints>
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Vah-XA-teY" kind="presentation" id="Gya-s1-jvi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2r-X6-dDA">
+                                <rect key="frame" x="20" y="625" width="346" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="33y-76-6JG"/>
+                                    <constraint firstAttribute="width" constant="346" id="tCt-G7-bbQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="Edit Order" backgroundImage="transparent-dark-gray">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F8T-Ys-SFa" firstAttribute="centerY" secondItem="zNT-fi-bM5" secondAttribute="centerY" id="4pZ-yx-CbI"/>
+                            <constraint firstItem="a2r-X6-dDA" firstAttribute="top" secondItem="xCA-X3-ish" secondAttribute="top" id="6DI-MG-9m6"/>
+                            <constraint firstItem="89k-hY-jgQ" firstAttribute="centerX" secondItem="F8T-Ys-SFa" secondAttribute="centerX" id="ESt-IU-X5v"/>
+                            <constraint firstItem="WN9-9V-IL6" firstAttribute="top" secondItem="dpW-IM-4Nc" secondAttribute="top" id="GYL-QI-yYw"/>
+                            <constraint firstItem="zNT-fi-bM5" firstAttribute="leading" secondItem="dpW-IM-4Nc" secondAttribute="leadingMargin" constant="-6" id="HD8-xt-sma"/>
+                            <constraint firstItem="xCA-X3-ish" firstAttribute="baseline" secondItem="a2r-X6-dDA" secondAttribute="firstBaseline" id="PE8-zZ-Vpe"/>
+                            <constraint firstItem="a2r-X6-dDA" firstAttribute="leading" secondItem="dpW-IM-4Nc" secondAttribute="leadingMargin" id="Pch-ad-pS4"/>
+                            <constraint firstItem="WN9-9V-IL6" firstAttribute="trailing" secondItem="89k-hY-jgQ" secondAttribute="trailing" id="RdW-Tw-R0k"/>
+                            <constraint firstAttribute="trailing" secondItem="89k-hY-jgQ" secondAttribute="trailing" id="Sgu-GU-0Hp"/>
+                            <constraint firstItem="xCA-X3-ish" firstAttribute="trailing" secondItem="dpW-IM-4Nc" secondAttribute="trailingMargin" id="UrU-a9-n8h"/>
+                            <constraint firstItem="xCA-X3-ish" firstAttribute="leading" secondItem="a2r-X6-dDA" secondAttribute="trailing" constant="34" id="Zyl-CT-kve"/>
+                            <constraint firstItem="F8T-Ys-SFa" firstAttribute="top" secondItem="1VB-nR-mmC" secondAttribute="bottom" constant="8" symbolic="YES" id="ahQ-eQ-ssO"/>
+                            <constraint firstItem="89k-hY-jgQ" firstAttribute="leading" secondItem="WN9-9V-IL6" secondAttribute="leading" id="k7m-O2-UNJ"/>
+                            <constraint firstItem="exA-Xm-Mj7" firstAttribute="top" secondItem="a2r-X6-dDA" secondAttribute="bottom" constant="318" id="kF5-Tv-Qsi"/>
+                            <constraint firstItem="89k-hY-jgQ" firstAttribute="top" secondItem="1VB-nR-mmC" secondAttribute="bottom" id="mcG-2P-8lO"/>
+                            <constraint firstItem="a2r-X6-dDA" firstAttribute="baseline" secondItem="xCA-X3-ish" secondAttribute="firstBaseline" id="qkq-N8-cSA"/>
+                            <constraint firstItem="89k-hY-jgQ" firstAttribute="centerY" secondItem="F8T-Ys-SFa" secondAttribute="centerY" id="s1R-p1-V9N"/>
+                            <constraint firstItem="89k-hY-jgQ" firstAttribute="leading" secondItem="dpW-IM-4Nc" secondAttribute="leading" id="uc2-xB-oIq"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="WN9-9V-IL6" secondAttribute="bottom" constant="-7" id="zD7-eY-IIU"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yDB-Vn-5w6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="-1666"/>
         </scene>
         <!--Waiting Pickup Table View Controller-->
         <scene sceneID="OQd-46-fFw">
@@ -1580,6 +1673,6 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YNS-yu-xms"/>
+        <segue reference="Gya-s1-jvi"/>
     </inferredMetricsTieBreakers>
 </document>
