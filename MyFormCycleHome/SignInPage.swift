@@ -64,10 +64,27 @@ extension ViewController
               if (json["success"])
               {
                 print("Successfully registered new user")
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                   
+                let refreshAlert = UIAlertController(title: "Success", message: "registered new user", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                }))
+                self.presentViewController(refreshAlert, animated: true, completion: nil)
+              }
               }
               else
               {
                 print("Failed to register new user")
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    
+                    let refreshAlert = UIAlertController(title: "Failed to registered new user", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                    }))
+                    self.presentViewController(refreshAlert, animated: true, completion: nil)
+                
+                }
               }
             } //if let datastring = ...
           } // if (response.text != null)

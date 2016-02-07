@@ -13,29 +13,37 @@ import SwiftyJSON
 extension ViewController
 {
     /*+-------------------------------- LOAD INVOICE PAGE ------------------------------------+
-    | Load invoice page displays all recorded information collected through the customer    |
-    | information page, and bike information page. This allows the tech to see if all info  |
-    | was correctly collected.                                                              |
-    | MARK: Variables and functions for Load Invoice Page.                                  |
-    +---------------------------------------------------------------------------------------+*/
-    /* Load Invoice Page. This section denotes the variables as well as the functions that
-    * pertain to the Load Invoice Page. The goal for this page is to have the information
-    * automatically load when the view is loaded to the page.
-    * !!! STILL IN PROGRESS !!!
-    */
-        
+    | Load invoice page displays all recorded information collected through the customer      |
+    | information page, and bike information page. This allows the tech to see if all info    |
+    | was correctly collected and presents the tech with the option to generate a PDF. This   |                                                   
+    | PDF is saved to the local photos app inside the iPad and can there be accessed to print |
+    | or be emailed.                                                                          |
+    | MARK: Variables and functions for Load Invoice Page.                                    |
+    +-----------------------------------------------------------------------------------------+*/
     
-    /* Loads all values from struct into text fields on this page */
-    //	@IBAction func loadInvoice(sender: AnyObject)
-    //	{
-    //		Name.text = newOrderTextFieldStruct.firstName +  newOrderTextFieldStruct.lastName
-    //		address1.text = newOrderTextFieldStruct.myAddress
-    //		address3.text = newOrderTextFieldStruct.myAddress2
-    //		CityStateZip.text = newOrderTextFieldStruct.myCity + newOrderTextFieldStruct.myState + newOrderTextFieldStruct.myZip
-    //		invPhone.text = newOrderTextFieldStruct.myPhone
-    //		invEmail.text = newOrderTextFieldStruct.myEmail
-    //		makeModelColor.text = newOrderTextFieldStruct.myBrand + newOrderTextFieldStruct.myModel + "(" + newOrderTextFieldStruct.myColor + ")"
-    //		invTagNum.text = newOrderTextFieldStruct.myTagNumber
-    //		invNotes.text = newOrderTextFieldStruct.myNotes
-    //	}
+    /* generatePDF() This function runs when the user presses the "PDF" button on the invoice
+    *  page. This code creates a virtual "screenshot" of this page and then saves it to the
+    *  local photos saved on the phone. This will ask for permission before allowing it to
+    *  save a photo. Once permission is granted, the user will no be prompted again to save
+    *  additional photos/PDFs.
+    */
+    @IBAction func generatePDF(sender: AnyObject)
+    {
+        let layer = UIApplication.sharedApplication().keyWindow!.layer
+        let scale = UIScreen.mainScreen().scale
+        
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil)
+        
+        let refreshAlert = UIAlertController(title: "PDF Created Successfully", message: "Saved to Photo Album", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+        }))
+        self.presentViewController(refreshAlert, animated: true, completion: nil)
+    }
 }
