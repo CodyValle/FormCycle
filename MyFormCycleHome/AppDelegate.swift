@@ -3,7 +3,7 @@
 //  MyFormCycleHome
 //
 //  Created by Merrill Lines on 11/5/15.
-//  Copyright © 2015 Merrill Lines. All rights reserved.
+//  Copyright © 2015 FormCycle Developers. All rights reserved.
 //
 
 import UIKit

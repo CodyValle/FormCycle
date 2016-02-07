@@ -3,7 +3,7 @@
 //  FormCycle
 //
 //  Created by FormCycle on 11/5/15.
-//  Copyright © 2015 FormCycle. All rights reserved.
+//  Copyright © 2015 FormCycle Developers. All rights reserved.
 //
 
 import Foundation
@@ -13,11 +13,6 @@ import SwiftyJSON
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate
 {
-    
-    
-
-    
-    
     /* List all Text Fields imported from Sign In Page */
     @IBOutlet weak var USRTextField: UITextField!
     @IBOutlet weak var PWDTextField: UITextField!

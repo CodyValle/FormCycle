@@ -3,7 +3,7 @@
 //  FormCycle
 //
 //  Created by Cross, Adam B on 1/30/16.
-//  Copyright © 2016 Merrill Lines. All rights reserved.
+//  Copyright © 2016 FormCycle Developers. All rights reserved.
 //
 
 import UIKit
