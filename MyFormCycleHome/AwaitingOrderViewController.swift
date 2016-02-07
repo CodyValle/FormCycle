@@ -24,6 +24,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     @IBOutlet weak var tagNum: UILabel!
     @IBOutlet weak var tune: UILabel!
     @IBOutlet weak var currentDate: UILabel!
+    @IBOutlet weak var userNotes: UILabel!
     /* local variables for passing the workID between view controllers */
     var workidPassedWait = ""
     var workidWait = ""
@@ -82,7 +83,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
                                     self.tagNum.text = order[0]["tagnum"].string!
                                     self.phone.text = order[0]["phone"].string!
                                     self.email.text = order[0]["email"].string!
-                                    //self.notes.text = order[0]["notes"].string!
+                                    self.userNotes.text = order[0]["notes"].string!
                                     
                                 }
                                 //else you are done- TO DO LATER

@@ -3347,6 +3347,12 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userNotes" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzL-eo-ZL8">
+                                        <rect key="frame" x="10" y="733" width="452" height="53"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -3563,6 +3569,7 @@
                         <outlet property="phone" destination="Tt4-18-uYr" id="vXQ-Xq-9Ww"/>
                         <outlet property="tagNum" destination="Z3O-6m-Yby" id="1Fe-U8-Xgo"/>
                         <outlet property="tune" destination="Iwl-k3-Ko8" id="Gpo-s5-WWn"/>
+                        <outlet property="userNotes" destination="hzL-eo-ZL8" id="NFj-Vb-tMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wri-bc-GxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
