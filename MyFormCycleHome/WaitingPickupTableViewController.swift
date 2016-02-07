@@ -157,14 +157,23 @@ class WaitingPickupTableViewController: UITableViewController {
     }
     */
     
-    /*
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    let awaitingPickupSegueIdentifier = "awaitingPickupSegue"
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == awaitingPickupSegueIdentifier
+        {
+            if let destination = segue.destinationViewController as? AwaitingOrderViewController
+            {
+                if let orderIndex = tableView.indexPathForSelectedRow?.row
+                {
+                    destination.workidPassedWait = workOrders[orderIndex].orderID
+                }
+            }
+        }
     }
-    */
     
 }

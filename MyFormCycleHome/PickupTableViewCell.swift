@@ -14,7 +14,7 @@ class PickupTableViewCell: UITableViewCell {
     @IBOutlet weak var tuneType: UILabel!
     @IBOutlet weak var tagNum: UILabel!
     @IBOutlet weak var bikeInfo: UILabel!
-
+    var workidWait = ""
     
     
     override func awakeFromNib() {
