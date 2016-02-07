@@ -66,7 +66,7 @@ extension ViewController
                 print("Successfully registered new user")
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                    
-                let refreshAlert = UIAlertController(title: "Success", message: "registered new user", preferredStyle: UIAlertControllerStyle.Alert)
+                let refreshAlert = UIAlertController(title: "Success", message: "Registered New User", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                 }))
@@ -78,7 +78,7 @@ extension ViewController
                 print("Failed to register new user")
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     
-                    let refreshAlert = UIAlertController(title: "Failed to registered new user", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+                    let refreshAlert = UIAlertController(title: "Failed to Registered New User", message: "Username Taken", preferredStyle: UIAlertControllerStyle.Alert)
                     
                     refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                     }))
@@ -95,8 +95,15 @@ extension ViewController
       print("got an error creating the request: \(error)")
     } // catch
   }
-
-    /* Will remain commented becuase it is not implemented yet */
+    
+    struct generateIncorrectLoginAttempts
+    {
+        static var loginAttempts = 0
+    }
+    
+    /* Sign in button. Will check with the database if the matching username and password
+    *  are found. If they are then proceed to open the app. If not, then halt.
+    */
     @IBAction func MyButton(sender: AnyObject)
     {
       var wait = true
@@ -139,6 +146,31 @@ extension ViewController
               else
               {
                 next = false
+                generateIncorrectLoginAttempts.loginAttempts += 1
+                if(generateIncorrectLoginAttempts.loginAttempts >= 5)
+                {
+                    NSOperationQueue.mainQueue().addOperationWithBlock {
+                        
+                        let refreshAlert = UIAlertController(title: "Incorrect Username or Password, No remaining attempts left", message: "Try: \"Forgot Password\"", preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                        }))
+                        self.presentViewController(refreshAlert, animated: true, completion: nil)
+                        
+                    }
+                }
+                else
+                {
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    
+                    let refreshAlert = UIAlertController(title: "Incorrect Username or Password", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                    }))
+                    self.presentViewController(refreshAlert, animated: true, completion: nil)
+                    
+                }
+                }
               }
             }
           }
