@@ -142,6 +142,7 @@ extension ViewController
               if (json["success"])
               {
                 next = true
+                generateIncorrectLoginAttempts.loginAttempts = 0
               }
               else
               {
@@ -151,13 +152,13 @@ extension ViewController
                 {
                     NSOperationQueue.mainQueue().addOperationWithBlock {
                         
-                        let refreshAlert = UIAlertController(title: "Incorrect Username or Password, No remaining attempts left", message: "Try: \"Forgot Password\"", preferredStyle: UIAlertControllerStyle.Alert)
+                        let refreshAlert = UIAlertController(title: "Incorrect Username or Password, No remaining attempts left!", message: "Try Clicking \"Forgot Password\" Below", preferredStyle: UIAlertControllerStyle.Alert)
                         
                         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
                         }))
                         self.presentViewController(refreshAlert, animated: true, completion: nil)
-                        
                     }
+                    
                 }
                 else
                 {
