@@ -37,10 +37,6 @@ extension ViewController
             self.showSendMailErrorAlert()
         }
     }
-    
-       
-        
-        
         
         func configuredMailComposeViewController() -> MFMailComposeViewController {
             let layer = UIApplication.sharedApplication().keyWindow!.layer
