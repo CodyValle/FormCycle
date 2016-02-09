@@ -51,7 +51,7 @@ extension ViewController
             let mailComposerVC = MFMailComposeViewController()
             mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
             
-            mailComposerVC.setToRecipients(["someone@somewhere.com"])
+            mailComposerVC.setToRecipients([newOrderTextFieldStruct.myEmail])
             mailComposerVC.setSubject("This Bike Life: Email Confirmation of Bicycle Order")
             mailComposerVC.setMessageBody("Please find the attached invoice for your records. Should you have any questions, feel free to call our office. Thank you!", isHTML: false)
             mailComposerVC.addAttachmentData(imageData!, mimeType: "image/jpeg", fileName: "My Invoice.jpeg")
