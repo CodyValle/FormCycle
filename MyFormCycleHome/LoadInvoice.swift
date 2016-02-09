@@ -9,6 +9,7 @@
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
+import MessageUI
 
 extension ViewController
 {
@@ -29,21 +30,69 @@ extension ViewController
     */
     @IBAction func generatePDF(sender: AnyObject)
     {
-        let layer = UIApplication.sharedApplication().keyWindow!.layer
-        let scale = UIScreen.mainScreen().scale
-        
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
-        layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil)
-        
-        let refreshAlert = UIAlertController(title: "PDF Created Successfully", message: "Saved to Photo Album", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-        }))
-        self.presentViewController(refreshAlert, animated: true, completion: nil)
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
+    
+       
+        
+        
+        
+        func configuredMailComposeViewController() -> MFMailComposeViewController {
+            let layer = UIApplication.sharedApplication().keyWindow!.layer
+            let scale = UIScreen.mainScreen().scale
+            UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale)
+            layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            //view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            let imageData = UIImageJPEGRepresentation(image, 1.0)
+            
+            let mailComposerVC = MFMailComposeViewController()
+            mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+            
+            mailComposerVC.setToRecipients(["someone@somewhere.com"])
+            mailComposerVC.setSubject("Sending you an in-app e-mail...")
+            mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+            mailComposerVC.addAttachmentData(imageData!, mimeType: "image/jpeg", fileName: "My Invoice.jpeg")
+            
+            return mailComposerVC
+        }
+        
+        func showSendMailErrorAlert() {
+            let refreshAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            self.presentViewController(refreshAlert, animated: true, completion: nil)
+        }
+        
+        // MARK: MFMailComposeViewControllerDelegate Method
+        func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+            controller.dismissViewControllerAnimated(true, completion: nil)
+        }
+  
+    
+    
+        
+        
+        
+//        let layer = UIApplication.sharedApplication().keyWindow!.layer
+//        let scale = UIScreen.mainScreen().scale
+//        
+//        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+//        layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        
+//        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+//        
+//        UIGraphicsEndImageContext()
+//        UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil)
+        
+    
+    
+
 }

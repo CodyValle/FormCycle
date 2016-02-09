@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
+import MessageUI
 
-class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate
+class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, MFMailComposeViewControllerDelegate
 {
     /* List all Text Fields imported from Sign In Page */
     @IBOutlet weak var USRTextField: UITextField!

@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
+import MessageUI
 
-class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate
+class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, MFMailComposeViewControllerDelegate
 {
     
     @IBOutlet weak var name: UILabel!
@@ -121,23 +122,68 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     */
     @IBAction func generateOrderPDF(sender: AnyObject)
     {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
         let layer = UIApplication.sharedApplication().keyWindow!.layer
         let scale = UIScreen.mainScreen().scale
-        
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale)
         layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        
+        //view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil)
+        let imageData = UIImageJPEGRepresentation(image, 1.0)
         
-        let refreshAlert = UIAlertController(title: "PDF Created Successfully", message: "Saved to Photo Album", preferredStyle: UIAlertControllerStyle.Alert)
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in self.dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+        mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setSubject("Sending you an in-app e-mail...")
+        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        mailComposerVC.addAttachmentData(imageData!, mimeType: "image/jpeg", fileName: "My Invoice.jpeg")
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let refreshAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in 
         }))
         self.presentViewController(refreshAlert, animated: true, completion: nil)
-        
     }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    
+    
+    
+//        let layer = UIApplication.sharedApplication().keyWindow!.layer
+//        let scale = UIScreen.mainScreen().scale
+//        
+//        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+//        layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        
+//        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+//        
+//        UIGraphicsEndImageContext()
+//        UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil)
+//        
+//        let refreshAlert = UIAlertController(title: "PDF Created Successfully", message: "Saved to Photo Album", preferredStyle: UIAlertControllerStyle.Alert)
+//        
+//        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in self.dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+//        }))
+//        self.presentViewController(refreshAlert, animated: true, completion: nil)
+        
+    
 
 }
