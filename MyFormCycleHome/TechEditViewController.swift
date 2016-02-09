@@ -22,6 +22,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var tagNum: UILabel!
     @IBOutlet weak var notes: UITextView!
 
+    var storedNote = ""
     
     var workidPassed = ""
     var workid = ""
@@ -69,7 +70,11 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
                                     self.bikeInfo.text = order[0]["brand"].string! + " " + order[0]["model"].string! + ", " + order[0]["color"].string!
                                     self.tune.text = "Bronze"
                                     self.tagNum.text = order[0]["tagnum"].string!
-                                    //self.notes.text = order[0]["notes"].string!
+                                    if(order[0]["notes"] != nil)
+                                    {
+                                        self.storedNote = order[0]["notes"].string!
+                                    }
+                                    //self.notes.text = "Hello"
                                     
                                 }
                                 //else you are done- TO DO LATER
@@ -143,6 +148,10 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
         //Load data
         loadData()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.notes.text = storedNote
     }
 
     
