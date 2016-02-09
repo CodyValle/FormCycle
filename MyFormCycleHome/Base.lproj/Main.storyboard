@@ -1560,6 +1560,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="348" id="OXn-G0-hEH"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -3561,7 +3562,7 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iRt-VC-gcE"/>
+        <segue reference="zZH-Gv-cOs"/>
         <segue reference="w82-2O-uLI"/>
     </inferredMetricsTieBreakers>
 </document>

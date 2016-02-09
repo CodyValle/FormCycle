@@ -29,7 +29,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     /* local variables for passing the workID between view controllers */
     var workidPassedWait = ""
     var workidWait = ""
-    
+    var emailUsr = ""
     
     func printTimestamp()->String {
         let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
@@ -84,6 +84,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
                                     self.tagNum.text = order[0]["tagnum"].string!
                                     self.phone.text = order[0]["phone"].string!
                                     self.email.text = order[0]["email"].string!
+                                    self.emailUsr = order[0]["email"].string!
                                     //self.userNotes.text = order[0]["notes"].string!
                                     
                                 }
@@ -143,7 +144,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setToRecipients([emailUsr])
         mailComposerVC.setSubject("This Bike Life: Email Confirmation of Bicycle Order")
         mailComposerVC.setMessageBody("Please find the attached invoice for your records. Should you have any questions, feel free to call our office. Thank you for your business!", isHTML: false)
         mailComposerVC.addAttachmentData(imageData!, mimeType: "image/jpeg", fileName: "My Invoice.jpeg")
