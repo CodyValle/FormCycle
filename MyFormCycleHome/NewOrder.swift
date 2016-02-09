@@ -23,7 +23,7 @@ extension ViewController
     *  use when submitting the order on the Bike Info Page.
     *  Initially sets all values in struct to the empty
     *  string. */
-    struct newOrderTextFieldStruct
+    struct newOrderTextFieldStruct 
     {
       	static var custid = ""
       	static var workid = ""
