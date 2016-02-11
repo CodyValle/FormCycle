@@ -52,7 +52,7 @@ class WaitingPickupTableViewController: UITableViewController {
                             {
                                 for var i = 0; i < orders.count; i++
                                 {
-                                  self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
+                                  self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: orders[i]["tune"].string!, bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
                                   dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     self.tableView.reloadData()
                                   })

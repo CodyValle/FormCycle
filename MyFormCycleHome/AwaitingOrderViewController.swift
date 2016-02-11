@@ -80,7 +80,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
                                     }
                                     self.cityStateZip.text = order[0]["city"].string! + ", " + order[0]["state"].string! + ", " + order[0]["zip"].string!
                                     self.makeModelColor.text = order[0]["brand"].string! + " " + order[0]["model"].string! + ", " + order[0]["color"].string!
-                                    self.tune.text = "Bronze"
+                                    self.tune.text = order[0]["tune"].string!
                                     self.tagNum.text = order[0]["tagnum"].string!
                                     self.phone.text = order[0]["phone"].string!
                                     if(order[0]["email"] != nil)

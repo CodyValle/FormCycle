@@ -14,8 +14,8 @@ class Login
 	public static function push(&$clean)
 	{
 		// Check to see that it is a valid username/password pair.
-		/* Temporarily turned off for debugging */
-		//if ($clean['logid'] === NULL || $clean['pwd'] === NULL) return false;
+		// Comment this line to allow empty strings as user/pwd pair
+		if ($clean['logid'] === NULL || $clean['pwd'] === NULL) return false;
 
 		// Create the command
 		$sel = new MySQLInsertCommand('LogInData');

@@ -151,6 +151,13 @@
 		}
 		else $clean['open'] = NULL;
 		
+		// Check what type of tune this is
+		if (isset($_POST['tune']) && trim($_POST['tune']) !== "")
+		{
+			$clean['tune'] = $GLOBALS['con']->real_escape_string(trim($_POST['tune']));
+		}
+		else $clean['tune'] = NULL;
+		
 		// Check when this work order is made (used for searching)
 		if (isset($_POST['date']) && trim($_POST['date']) !== "")
 		{

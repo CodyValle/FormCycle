@@ -61,6 +61,8 @@ class WorkOrder
 			$cmd->addParameter('username', $clean['userID']);
 		if ($clean['open'] !== NULL)
 			$cmd->addParameter('open', $clean['open']);
+		if ($clean['tune'] !== NULL)
+			$cmd->addParameter('tune', $clean['tune']);
 		if ($clean['custid'] !== NULL)
 			$cmd->addParameter('custid', "UNHEX('" . $clean['custid'] . "')", false);
 		if ($clean['bikeid'] !== NULL)
@@ -170,6 +172,7 @@ class WorkOrder
 		$cmd->addColumn('HEX(w.bikeid) as bikeid');
 		$cmd->addColumn('w.username as userID');
 		$cmd->addColumn('w.open as open');
+		$cmd->addColumn('w.tune as tune');
 		$cmd->addColumn('w.tagid as tagnum');
 		$cmd->addColumn('w.createtime');
 		$cmd->addColumn('o.pre as pre');

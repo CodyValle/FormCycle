@@ -70,7 +70,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
                                     }
                                     self.cityNState.text = order[0]["city"].string! + ", " + order[0]["state"].string! + ", " + order[0]["zip"].string!
                                     self.bikeInfo.text = order[0]["brand"].string! + " " + order[0]["model"].string! + ", " + order[0]["color"].string!
-                                    self.tune.text = "Bronze"
+                                    self.tune.text = order[0]["tune"].string!
                                     self.tagNum.text = order[0]["tagnum"].string!
                                     if(order[0]["notes"] != nil)
                                     {
