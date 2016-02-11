@@ -83,7 +83,10 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
                                     self.tune.text = "Bronze"
                                     self.tagNum.text = order[0]["tagnum"].string!
                                     self.phone.text = order[0]["phone"].string!
-                                    self.email.text = order[0]["email"].string!
+                                    if(order[0]["email"] != nil)
+                                    {
+                                        self.email.text = order[0]["email"].string!
+                                    }
                                     self.emailUsr = order[0]["email"].string!
                                     //self.userNotes.text = order[0]["notes"].string!
                                     
