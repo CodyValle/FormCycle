@@ -57,6 +57,8 @@ class WorkOrder
 		// the work order into the WorkOrderData table.
 		$cmd = new MySQLInsertCommand("WorkOrderData");
 		$cmd->addID('workid');
+		if ($clean['userID'] !== NULL)
+			$cmd->addParameter('username', $clean['userID']);
 		if ($clean['open'] !== NULL)
 			$cmd->addParameter('open', $clean['open']);
 		if ($clean['custid'] !== NULL)
@@ -166,6 +168,7 @@ class WorkOrder
 		$cmd->addColumn('HEX(w.workid) as workid');
 		$cmd->addColumn('HEX(w.custid) as custid');
 		$cmd->addColumn('HEX(w.bikeid) as bikeid');
+		$cmd->addColumn('w.username as userID');
 		$cmd->addColumn('w.open as open');
 		$cmd->addColumn('w.tagid as tagnum');
 		$cmd->addColumn('w.createtime');

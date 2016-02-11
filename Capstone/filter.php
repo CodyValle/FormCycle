@@ -137,6 +137,13 @@
 		}
 		else $clean['workid'] = NULL;
 		
+		// Check the username
+		if (isset($_POST['userID']) && trim($_POST['userID']) !== "")
+		{
+			$clean['userID'] = $GLOBALS['con']->real_escape_string(trim($_POST['userID']));
+		}
+		else $clean['userID'] = NULL;
+		
 		// Check whether this work order is open
 		if (isset($_POST['open']) && trim($_POST['open']) !== "")
 		{

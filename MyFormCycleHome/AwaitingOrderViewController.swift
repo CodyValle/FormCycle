@@ -86,8 +86,8 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
                                     if(order[0]["email"] != nil)
                                     {
                                         self.email.text = order[0]["email"].string!
+                                      	self.emailUsr = order[0]["email"].string!
                                     }
-                                    self.emailUsr = order[0]["email"].string!
                                     //self.userNotes.text = order[0]["notes"].string!
                                     
                                 }

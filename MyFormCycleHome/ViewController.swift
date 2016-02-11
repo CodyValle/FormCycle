@@ -447,7 +447,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 			let MyParams = ["DEBUG":"true","action":"workOrder","fname":newOrderTextFieldStruct.firstName, "lname":newOrderTextFieldStruct.lastName, "address":newOrderTextFieldStruct.myAddress, "address2":newOrderTextFieldStruct.myAddress2, "city":newOrderTextFieldStruct.myCity, "state":newOrderTextFieldStruct.myState, "zip":newOrderTextFieldStruct.myZip, "phone":newOrderTextFieldStruct.myPhone, "email":newOrderTextFieldStruct.myEmail, "brand":newOrderTextFieldStruct.myBrand, "model":newOrderTextFieldStruct.myModel, "color":newOrderTextFieldStruct.myColor,
                 "tagNum":newOrderTextFieldStruct.myTagNumber,
                 "notes":newOrderTextFieldStruct.myNotes,
-                "tune":newOrderTextFieldStruct.tunePicker]
+                "tune":newOrderTextFieldStruct.tunePicker,
+                "userID":newOrderTextFieldStruct.USRname]
 			do
 			{
 				/* tries to submit to server */

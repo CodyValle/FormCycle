@@ -143,6 +143,7 @@ extension ViewController
               {
                 next = true
                 generateIncorrectLoginAttempts.loginAttempts = 0
+                newOrderTextFieldStruct.USRname = self.USRTextField.text!
               }
               else
               {

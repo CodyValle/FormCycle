@@ -21,6 +21,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var tune: UILabel!
     @IBOutlet weak var tagNum: UILabel!
     @IBOutlet weak var notes: UITextView!
+    @IBOutlet weak var userID: UILabel!
 
     var storedNote = ""
     
@@ -60,6 +61,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
                                 let order = JSON(data: retString!)
                                 if (order.count > 0) // Fill the form
                                 {
+	                                  self.userID.text = order[0]["userID"].string!
                                     self.fullName.text = order[0]["fname"].string! + " " + order[0]["lname"].string!
                                     self.address.text = order[0]["address"].string!
                                     if(order[0]["address2"] != nil)
@@ -72,9 +74,9 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
                                     self.tagNum.text = order[0]["tagnum"].string!
                                     if(order[0]["notes"] != nil)
                                     {
-                                        self.storedNote = order[0]["notes"].string!
+                                      self.storedNote = order[0]["notes"].string!
                                     }
-                                    //self.notes.text = "Hello"
+                                  //self.notes.text = "Hello"
                                     
                                 }
                                 //else you are done- TO DO LATER
