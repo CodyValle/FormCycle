@@ -74,11 +74,11 @@ class MySQLSelectCommand
 		$this->columns .= $column;
 	}
 	
-	function addParameter($key, $value, $quoted = true)
+	function addParameter($key, $value, $quoted = true, $like = NULL)
 	{
 		if ($this->parameters !== NULL)
 			$this->parameters .= " AND ";
-		$this->parameters .= $key . "=" . ($quoted ? "'" : "") . $value . ($quoted ? "'" : "");
+		$this->parameters .= $key . ($like === NULL ? "=" : ' LIKE ') . ($quoted ? "'" : "") . $value . ($quoted ? "'" : "");
 	}
 	
 	function addJoin($table, $on)
@@ -90,7 +90,40 @@ class MySQLSelectCommand
 	
 	function getSQL($append = '')
 	{		
-		return ("SELECT " . ($this->columns === NULL ? "*" : $this->columns) . " FROM " . $this->tb . ($this->joins === NULL ? "" : $this->joins) . ($this->parameters !== NULL ? " WHERE " : "") . $this->parameters . ' ' . $append . ";");
+		return ("SELECT " . ($this->columns === NULL ? "*" : $this->columns) . " FROM " . $this->tb . ($this->joins === NULL ? "" : $this->joins) . ($this->parameters !== NULL ? " WHERE " : "") . $this->parameters . ' ' . $append . ($this->parameters === NULL ? ' LIMIT 10' : '') . ";");
+	}
+}
+
+    // Creates UPDATE statement to update information in the database. 
+class MySQLUpdateCommand
+{
+	protected $tb;
+	
+	protected $sets;
+	protected $parameters;
+	
+	function __construct($table)
+	{
+		$this->tb = $table;
+	}
+	
+	function addSet($column, $value)
+	{
+		if ($this->sets !== NULL)
+			$this->sets .= ", ";
+		$this->sets .= $column . "='" . $value . "'";
+	}
+	
+	function addParameter($key, $value, $quoted = true)
+	{
+		if ($this->parameters !== NULL)
+			$this->parameters .= " AND ";
+		$this->parameters .= $key . "=" . ($quoted ? "'" : "") . $value . ($quoted ? "'" : "");
+	}
+	
+	function getSQL($append = '')
+	{		
+		return ("UPDATE " . $this->tb . " SET " . $this->sets . " WHERE " . $this->parameters . ";");
 	}
 }
 ?>

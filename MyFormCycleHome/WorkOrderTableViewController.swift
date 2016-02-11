@@ -21,7 +21,6 @@ class WorkOrderTableViewController: UITableViewController {
     {
         /* Submits the server request */
         var MyParams = ["action":"workSearch"]
-        var isDoneLoading = false //using for concurrency
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         MyParams["open"] = "Y"
@@ -53,22 +52,22 @@ class WorkOrderTableViewController: UITableViewController {
                           {
                               for var i = 0; i < orders.count; i++
                               {
-                                  self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
-                              }
+                                self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                  self.tableView.reloadData()
+                                })
+                            	}
                           }
                           //else you are done- TO DO LATER
                       }
                   }
               }
-              // Some helpful debug data for use when needing to place in table.
-              isDoneLoading = true
             }
         }
         catch let error
         {
             print("got an error creating the request: \(error)")
         }
-        while(!isDoneLoading){} //Pretty stinky, forcing our app to wait for the data to come back from the server before loading the table
       
     }
     
@@ -83,6 +82,8 @@ class WorkOrderTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //Load Sample data
+
+      	workOrders.removeAll()	
         loadData()
         
     }

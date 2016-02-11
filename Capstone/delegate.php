@@ -50,6 +50,13 @@
 				//print("No customer found with that information.");
 			break;
 			
+		case "workUpdate":
+			// Update a work order
+			include 'workOrder.php';
+			$wo = new WorkOrder;
+			$ret = $wo->updateOrder($clean['workid'], $clean['open']);
+			break;
+			
 		case "workSearch":
 			// Searches through work orders and returns a JSON of the results.
 			include 'workOrder.php';

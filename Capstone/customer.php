@@ -175,15 +175,15 @@ class Customer
 		$cmd->addColumn('phone');
 		$cmd->addColumn('email');
 		if ($clean['fname'] !== NULL)
-			$cmd->addParameter('fname', $clean['fname']);
+			$cmd->addParameter('fname', $clean['fname'] . '%', true, 'LIKE');
 		if ($clean['lname'] !== NULL)
-			$cmd->addParameter('lname', $clean['lname']);
+			$cmd->addParameter('lname', $clean['lname'] . '%', true, 'LIKE');
 		if ($clean['address'] !== NULL)
-			$cmd->addParameter('address', $clean['address']);
+			$cmd->addParameter('address', $clean['address'], true, 'LIKE');
 		if ($clean['address2'] !== NULL)
-			$cmd->addParameter('address2', $clean['address2']);
+			$cmd->addParameter('address2', $clean['address2'], true, 'LIKE');
 		if ($clean['city'] !== NULL)
-			$cmd->addParameter('city', $clean['city']);
+			$cmd->addParameter('city', $clean['city'], true, 'LIKE');
 		if ($clean['state'] !== NULL)
 			$cmd->addParameter('state', $clean['state']);
 		if ($clean['country'] !== NULL)
@@ -191,7 +191,7 @@ class Customer
 		if ($clean['zip'] !== NULL)
 			$cmd->addParameter('zip', $clean['zip']);
 		if ($clean['phone'] !== NULL)
-			$cmd->addParameter('phone', $clean['phone']);
+			$cmd->addParameter('phone', '%' . $clean['phone'] . '%', true, 'LIKE');
 		if ($clean['email'] !== NULL)
 			$cmd->addParameter('email', $clean['email']);
 		

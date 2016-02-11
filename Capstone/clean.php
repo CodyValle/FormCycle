@@ -5,7 +5,7 @@
 	Long: Drops the existing database and rebuilds it.
 	*/
 
-  include_once 'DebugMessage.php';
+	include_once 'DebugMessage.php';
 
 	include_once 'debug.php';
 	include_once 'error.php';
@@ -67,7 +67,7 @@ rowid          int             NOT NULL AUTO_INCREMENT,
 workid         binary(16)      UNIQUE NOT NULL, 
 custid         binary(16)      NOT NULL, 
 bikeid         binary(16)      NOT NULL, 
-open           enum('Y','N')   DEFAULT 'Y', 
+open         enum('Y','N','P') DEFAULT 'Y', 
 tagid          tinyint         DEFAULT '0', 
 createtime     timestamp       NOT NULL DEFAULT CURRENT_TIMESTAMP, 
 KEY (rowid), 
@@ -106,9 +106,9 @@ username       varchar(6)    UNIQUE NOT NULL,
 pin            varchar(6)    NOT NULL, 
 KEY (rowid), 
 PRIMARY KEY (username) 
-); 
-";
+);
 
+";
 	// Insert some default rows
 	$statement .= "USE Capstone;
 
@@ -128,7 +128,9 @@ INSERT INTO LogInData (username, pin) VALUES ('50972', '03118');
 INSERT INTO LogInData (username, pin) VALUES ('11111', '42');
 INSERT INTO LogInData (username, pin) VALUES ('161616', '616161');
 INSERT INTO LogInData (username, pin) VALUES ('3', '2');
+";	
 	
+	$statement .="
 INSERT INTO CustData (custid, fname, lname, address, city, state, zip, phone, email)
 VALUES (UNHEX(REPLACE(UUID(),'-','')),'Jill','White','4321 S Main St.','Spokane','WA','54321','5091179888','whitej@gmail.com');
 
@@ -171,11 +173,11 @@ VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Merrill','Lines','Somewhere in Spokane',
 	if ($GLOBALS['DEBUG'])
 	{
 		if ($result)
-			$GLOBALS['DBGMSG']->addMessage("Successfully dropped and recreated the database.");
+			$GLOBALS['DBGMSG']->addMessage("Successfully added default rows.");
 		else
 		{
-			$GLOBALS['DBGMSG']->addMessage("Error dropping and recreating the database.");
-			$GLOBALS['ERROR']->reportErrorCode("CLEAN");
+			$GLOBALS['DBGMSG']->addMessage("Error adding default rows.");
+			$GLOBALS['ERROR']->reportErrorCode("CLEANADD");
 		}
 	}
 	

@@ -15,8 +15,8 @@ class WorkOrder
 	*/
 	function pushWorkOrder(&$clean)
 	{
-		include 'customer.php';
-		include 'bike.php';
+		include_once 'customer.php';
+		include_once 'bike.php';
 		
 		$cust = new Customer;
 		$bike = new Bike;
@@ -139,66 +139,106 @@ class WorkOrder
 		return true;
 	}
 	
+	function updateOrder($workid, $open)
+	{
+		// Create an update command
+		$cmd = new MySQLUpdateCommand('WorkOrderData');
+		$cmd->addParameter('workid', "UNHEX('" . $workid . "')", false);
+		$cmd->addSet('open', $open);
+		
+		$GLOBALS['RETURN']->addData('theSQL', $cmd->getSQL());
+		
+		if (!$GLOBALS['con']->query($cmd->getSQL()))
+		{
+			$GLOBALS[ERROR]->reportErrorCode("ADDTUNE");
+			return false;
+		}
+		
+		return true;
+	}
+	
 	function searchForWorkOrder(&$clean)
 	{
 		// Creates a new MYSQLSelectCommand to select data from the 'WorkOrderData' table.
 		$cmd = new MYSQLSelectCommand('WorkOrderData as w');
-		$cmd->addJoin("CustData as c", "(c.custid = w.custid)");
 		$cmd->addJoin("WorkOrderNotes as o", "(o.workid = w.workid)");
-		$cmd->addJoin("BikeData as b", "(b.bikeid = w.bikeid)");
-		$cmd->addJoin("BikeNoteData as n", "(b.bikeid = n.bikeid)");
 		
-		$cmd->addColumn("HEX(w.workid) as workid");
-		$cmd->addColumn("HEX(c.custid) as custid");
-		$cmd->addColumn("HEX(b.bikeid) as bikeid");
-		
-		$cmd->addColumn('c.fname as fname');
-		$cmd->addColumn('c.lname as lname');
-		$cmd->addColumn('c.address as address');
-		$cmd->addColumn('c.address2 as address2');
-		$cmd->addColumn('c.city as city');
-		$cmd->addColumn('c.state as state');
-		$cmd->addColumn('c.country as country');
-		$cmd->addColumn('c.zip as zip');
-		$cmd->addColumn('c.phone as phone');
-		$cmd->addColumn('c.email as email');
-
-		$cmd->addColumn('b.brand as brand');
-		$cmd->addColumn('b.model as model');
-		$cmd->addColumn('b.color as color');
-		
-		$cmd->addColumn('n.notes as notes');
-		
+		$cmd->addColumn('HEX(w.workid) as workid');
+		$cmd->addColumn('HEX(w.custid) as custid');
+		$cmd->addColumn('HEX(w.bikeid) as bikeid');
+		$cmd->addColumn('w.open as open');
 		$cmd->addColumn('w.tagid as tagnum');
-		$cmd->addColumn('w.createtime as createtime');
-		
+		$cmd->addColumn('w.createtime');
 		$cmd->addColumn('o.pre as pre');
 		$cmd->addColumn('o.post as post');
 		
 		if ($clean['workid'] !== NULL)
-			$cmd->addParameter('w.workid', "UNHEX(" . $clean['workid'] . ")", false);
+			$cmd->addParameter('w.workid', "UNHEX('" . $clean['workid'] . "')", false);
 		if ($clean['open'] !== NULL)
 			$cmd->addParameter('w.open', $clean['open'], true);
-		if ($clean['fname'] !== NULL)
-			$cmd->addParameter('c.fname', $clean['fname'], true);
-		if ($clean['lname'] !== NULL)
-			$cmd->addParameter('c.lname', $clean['lname'], true);
-		if ($clean['phone'] !== NULL)
-			$cmd->addParameter('c.phone', $clean['phone'], true);
-		if ($clean['email'] !== NULL)
-			$cmd->addParameter('c.email', $clean['email'], true);
-		if ($clean['date'] !== NULL)
-			$cmd->addParameter('date(w.createtime)', $clean['date']);
+		
+		//$GLOBALS['RETURN']->addData('theSQL', $cmd->getSQL('ORDER BY rowid DESC'));
 		
 		// Sends the query and stores the result.
-		$results = $GLOBALS['con']->query($cmd->getSQL(' ORDER BY w.rowid DESC'));
+		$results = $GLOBALS['con']->query($cmd->getSQL('ORDER BY w.rowid DESC'));
 		if (!is_object($results))
 			return false;
 
 		// Prepare an array to hold the results and become a JSON string
-		$jsonArray = array();
+		$tempArr = array();
 		while($row = $results->fetch_array(MYSQL_ASSOC))
-			$jsonArray[] = $row;
+			$tempArr[] = $row;
+		
+		$jsonArray = array();
+		foreach ($tempArr as $key => $val)
+		{
+			// Get Customer data for this work order
+			$cstCmd = new MySQLSelectCommand('CustData');
+			$cstCmd->addColumn('fname');
+			$cstCmd->addColumn('lname');
+			$cstCmd->addColumn('address');
+			$cstCmd->addColumn('address2');
+			$cstCmd->addColumn('city');
+			$cstCmd->addColumn('state');
+			$cstCmd->addColumn('country');
+			$cstCmd->addColumn('zip');
+			$cstCmd->addColumn('phone');
+			$cstCmd->addColumn('email');
+			$cstCmd->addParameter('custid', "UNHEX('" . $val['custid'] . "')", false);
+			$cstRst = $GLOBALS['con']->query($cstCmd->getSQL());
+			if (!is_object($cstRst))
+				return false;
+			
+			$cstArr = array();
+			while($cstRow = $cstRst->fetch_array(MYSQL_ASSOC))
+				$cstArr[] = $cstRow;
+			
+			foreach ($cstArr as $cstkey => $cstval)
+				foreach ($cstval as $column => $data)
+					$val[$column] = $data;
+			
+			// Get Bike Data for this work order
+			$bikCmd = new MySQLSelectCommand('BikeData as b');
+			$bikCmd->addJoin('BikeNoteData as n', '(b.bikeid = n.bikeid)');
+			$bikCmd->addColumn('b.brand as brand');
+			$bikCmd->addColumn('b.model as model');
+			$bikCmd->addColumn('b.color as color');
+			$bikCmd->addColumn('n.notes as notes');
+			$bikCmd->addParameter('b.bikeid', "UNHEX('" . $val['bikeid'] . "')", false);
+			$bikRst = $GLOBALS['con']->query($bikCmd->getSQL());
+			if (!is_object($bikRst))
+				return false;
+			
+			$bikArr = array();
+			while($bikRow = $bikRst->fetch_array(MYSQL_ASSOC))
+				$bikArr[] = $bikRow;
+			
+			foreach ($bikArr as $bikkey => $bikval)
+				foreach ($bikval as $bikcol => $bikdata)
+					$val[$bikcol] = $bikdata;
+
+			$jsonArray[$key] = $val;
+		}
 
 		// Encode and print the JSON string
 		$GLOBALS['RETURN']->addData('return', json_encode($jsonArray));

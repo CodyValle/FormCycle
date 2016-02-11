@@ -20,7 +20,6 @@ class WaitingPickupTableViewController: UITableViewController {
     {
         /* Submits the server request */
         var MyParams = ["action":"workSearch"]
-        var isDoneLoading = false //using for concurrency
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         MyParams["open"] = "N"
@@ -29,49 +28,46 @@ class WaitingPickupTableViewController: UITableViewController {
             /* tries to submit to server */
             let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
             opt.start
+            {
+                response in
+                if let error = response.error
                 {
-                    response in
-                    if let error = response.error
+                    print("got an error: \(error)") /* if error, prints the error code saved on server */
+                    return
+                }
+                if (response.text != nil)
+                {
+                    if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
                     {
-                        print("got an error: \(error)") /* if error, prints the error code saved on server */
-                        return
-                    }
-                    if (response.text != nil)
-                    {
-                        if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                        
+                        let json = JSON(data: datafromstring)
+                        if (json["success"])
                         {
                             
-                            let json = JSON(data: datafromstring)
-                            if (json["success"])
+                            // Probably needs more error checks.
+                            let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                            let orders = JSON(data: retString!)
+                            //print(orders[0]["tune"].string!)
+                            if (orders.count > 0) // Fill the form
                             {
-                                
-                                // Probably needs more error checks.
-                                let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-                                let orders = JSON(data: retString!)
-                                //print(orders[0]["tune"].string!)
-                                if (orders.count > 0) // Fill the form
+                                for var i = 0; i < orders.count; i++
                                 {
-                                    for var i = 0; i < orders.count; i++
-                                    {
-                                        self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
-                                    }
+                                  self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: "Tune: Bronze", bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
+                                  dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    self.tableView.reloadData()
+                                  })
                                 }
-                                //else you are done- TO DO LATER
                             }
-                            
-                            // Some helpful debug data for use when needing to place in table.
-                            print("There are \(json.count) rows matching the supplied data.")
-                            isDoneLoading = true
+                            //else you are done- TO DO LATER
                         }
                     }
+                }
             }
         }
         catch let error
         {
             print("got an error creating the request: \(error)")
         }
-        while(!isDoneLoading){} //Pretty stinky, forcing our app to wait for the data to come back from the server before loading the table
-        
     }
     
     
@@ -85,6 +81,8 @@ class WaitingPickupTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //Load data
+
+      	workOrders.removeAll()
 
         loadData()
         
