@@ -6,7 +6,7 @@
 //  Copyright © 2016 FormCycle Developers. All rights reserved.
 //
 
-import Foundation
+import Foundation 
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
