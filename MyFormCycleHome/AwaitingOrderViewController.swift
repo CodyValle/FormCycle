@@ -184,7 +184,48 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     */
     @IBAction func pickedUp(sender: AnyObject)
     {
-        
+        /* Submits the server request */
+        var MyParams = ["action":"workUpdate"]
+        MyParams["workid"] = workidWait
+        MyParams["open"] = "P"
+        do
+        {
+            /* tries to submit to server */
+            let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+            opt.start
+                {
+                    response in
+                    if let error = response.error
+                    {
+                        print("got an error: \(error)") /* if error, prints the error code saved on server */
+                        return
+                    }
+                    
+                    // No errors
+                    if (response.text != nil)
+                    {
+                        if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                        {
+//                            let json = JSON(data: datafromstring)
+//                            
+//                            if (json["success"])
+//                            {
+//                                
+//                                //print("Successfully closed order")
+//                            }
+//                            else
+//                            {
+//                                // print("Failed to close order")
+//                            }
+                        } //if let datastring = ...
+                    } // if (response.text != null)
+            } // opt.start
+        } // do
+        catch let error
+        {
+            print("got an error creating the request: \(error)")
+        } // catch
+
     }
     
 } //END OF: AwaitingOrderViewController.swift

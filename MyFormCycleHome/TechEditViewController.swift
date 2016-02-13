@@ -96,7 +96,8 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     
-    @IBAction func closeOrder(sender: AnyObject) {
+    @IBAction func closeOrder(sender: AnyObject)
+    {
         /* Submits the server request */
         var MyParams = ["action":"workUpdate"]
         MyParams["workid"] = workid

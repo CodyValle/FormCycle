@@ -3610,6 +3610,7 @@
                                         </state>
                                         <connections>
                                             <action selector="pickedUp:" destination="8t0-B2-z6u" eventType="touchDown" id="pPz-Jq-Vg3"/>
+                                            <segue destination="Vah-XA-teY" kind="presentation" id="Jye-sP-2FP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLp-Al-AAX">
@@ -3850,7 +3851,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wri-bc-GxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078" y="-872"/>
+            <point key="canvasLocation" x="1842" y="-850"/>
         </scene>
     </scenes>
     <resources>
