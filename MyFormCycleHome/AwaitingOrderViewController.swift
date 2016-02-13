@@ -200,25 +200,6 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
                         print("got an error: \(error)") /* if error, prints the error code saved on server */
                         return
                     }
-                    
-                    // No errors
-                    if (response.text != nil)
-                    {
-                        if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-                        {
-//                            let json = JSON(data: datafromstring)
-//                            
-//                            if (json["success"])
-//                            {
-//                                
-//                                //print("Successfully closed order")
-//                            }
-//                            else
-//                            {
-//                                // print("Failed to close order")
-//                            }
-                        } //if let datastring = ...
-                    } // if (response.text != null)
             } // opt.start
         } // do
         catch let error
