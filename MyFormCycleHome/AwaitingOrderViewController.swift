@@ -73,10 +73,16 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
                                 if (order.count > 0) // Fill the form
                                 {
                                     self.name.text = order[0]["fname"].string! + " " + order[0]["lname"].string!
-                                    self.address1.text = order[0]["address"].string!
+                                    
                                     if(order[0]["address2"] != nil)
                                     {
+                                        self.address1.text = order[0]["address"].string!
                                         self.address2.text =  order[0]["address2"].string!
+                                    }
+                                    else if(order[0]["address2"] == nil)
+                                    {
+                                        self.address1.text = ""
+                                        self.address2.text = order[0]["address"].string!
                                     }
                                     self.cityStateZip.text = order[0]["city"].string! + ", " + order[0]["state"].string! + ", " + order[0]["zip"].string!
                                     self.makeModelColor.text = order[0]["brand"].string! + " " + order[0]["model"].string! + ", " + order[0]["color"].string!
