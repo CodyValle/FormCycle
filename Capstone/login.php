@@ -50,10 +50,13 @@ class Login
 		// Encode and print the JSON string
 		$GLOBALS['RETURN']->addData('return', json_encode($jsonArray));
 		
+		// Return database
+		$ret = $results->num_rows > 0;
+		
 		// Close SELECT results
 		$results->close();
 		
-		return true;
+		return $ret;
 	}
 }
 ?>
