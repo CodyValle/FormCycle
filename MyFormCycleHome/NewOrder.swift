@@ -30,6 +30,7 @@ extension ViewController
       	static var bikeid = ""
         static var USRname = ""
         static var PWDtext = ""
+      	static var admin = false
         static var firstName = ""
         static var lastName = ""
         static var myAddress = ""
@@ -143,61 +144,51 @@ extension ViewController
                               {
                                   // UI updates should not occur on a non-main thread. So call it on the main thread.
                                   dispatch_async(dispatch_get_main_queue())
-                                      {
-                                          // Write all the data to the text fields. We first check to make sure the textfield does not already contain data and that the wanted value exists in the JSON string.
-                                          // The [0] is the index of the row that we want to auto fill with.
-                                          if (customers[0]["custid"].isExists()) {
-                                            newOrderTextFieldStruct.custid = customers[0]["custid"].string!
-                                          }
-                                          if (customers[0]["fname"].isExists()) {
-                                              self.fname.text = customers[0]["fname"].string
-                                          }
-                                          if (customers[0]["lname"].isExists()) {
-                                              self.lname.text = customers[0]["lname"].string
-                                          }
-                                          if (customers[0]["address"].isExists()) {
-                                              self.address.text = customers[0]["address"].string
-                                          }
-                                          if (customers[0]["address2"].isExists()) {
-                                              self.address2.text = customers[0]["address2"].string
-                                          }
-                                          if (customers[0]["city"].isExists()) {
-                                              self.city.text = customers[0]["city"].string
-                                          }
-                                          if (customers[0]["state"].isExists()) {
-                                              self.state.text = customers[0]["state"].string
-                                          }
-                                          if (customers[0]["zip"].isExists()) {
-                                              self.zip.text = customers[0]["zip"].string
-                                          }
-                                          if (customers[0]["phone"].isExists()) {
-                                              self.phone.text = customers[0]["phone"].string
-                                          }
-                                          if (customers[0]["email"].isExists()) {
-                                              self.email.text = customers[0]["email"].string
-                                          }
+                                  {
+                                      // Write all the data to the text fields. We first check to make sure the textfield does not already contain data and that the wanted value exists in the JSON string.
+                                      // The [0] is the index of the row that we want to auto fill with.
+                                      if (customers[0]["custid"].isExists()) {
+                                        newOrderTextFieldStruct.custid = customers[0]["custid"].string!
+                                      }
+                                      if (customers[0]["fname"].isExists()) {
+                                        //if newOrderTextFieldStruct.admin
+                                        //{
+                                        //  self.fname.text = "Admin Account"
+                                        //}
+                                        //else
+                                        //{
+                                          self.fname.text = customers[0]["fname"].string
+                                        //}
+                                      }
+                                      if (customers[0]["lname"].isExists()) {
+                                          self.lname.text = customers[0]["lname"].string
+                                      }
+                                      if (customers[0]["address"].isExists()) {
+                                          self.address.text = customers[0]["address"].string
+                                      }
+                                      if (customers[0]["address2"].isExists()) {
+                                          self.address2.text = customers[0]["address2"].string
+                                      }
+                                      if (customers[0]["city"].isExists()) {
+                                          self.city.text = customers[0]["city"].string
+                                      }
+                                      if (customers[0]["state"].isExists()) {
+                                          self.state.text = customers[0]["state"].string
+                                      }
+                                      if (customers[0]["zip"].isExists()) {
+                                          self.zip.text = customers[0]["zip"].string
+                                      }
+                                      if (customers[0]["phone"].isExists()) {
+                                          self.phone.text = customers[0]["phone"].string
+                                      }
+                                      if (customers[0]["email"].isExists()) {
+                                          self.email.text = customers[0]["email"].string
+                                      }
                                   }
                               }
                               else
                               {
-                                  /*let alertController = UIAlertController(title: "Message", message:nil, preferredStyle: .Alert)
-                                  let action = UIAlertAction(title: "Ok", style: .Default) { (_) -> Void in }
-                                  alertController.addAction(action)
-                                  
-                                  self.presentViewController(alertController, animated: true, completion: nil)
-                                  */
-                                  
-                                  /*let alertController = UIAlertController(title: "iOScreator", message:
-                                  "Hello, world!", preferredStyle: UIAlertControllerStyle.Alert)
-                                  alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                                  self.presentViewController(alertController, animated: true, completion: nil)
-                                  */
-                                  /*let refreshAlert = UIAlertController(title: "No Results", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
-                                  refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Default,
-                                  handler: {(action: UIAlertAction!) in}
-                                  )
-                                  )
-                                  self.presentViewController(refreshAlert, animated: true, completion: nil)*/
+                                // No customer found.
                               }
                           }
                       }

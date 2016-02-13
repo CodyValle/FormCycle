@@ -33,20 +33,27 @@ class Login
         Returns true if there is a user with matching info in the database, false otherwise.
          */
 		$sel = new MySQLSelectCommand('LogInData');
-		$sel->addColumn('username');
+		$sel->addColumn('admin');
 		$sel->addParameter('username', $clean['logid']);
 		$sel->addParameter('pin', $clean['pwd']);
 		
-		// Run the query
-		$out = $GLOBALS['con']->query($sel->getSQL());
+		// Sends the query and stores the result.
+		$results = $GLOBALS['con']->query($sel->getSQL());
+		if (!is_object($results))
+			return false;
+
+		// Prepare an array to hold the results and become a JSON string
+		$jsonArray = array();
+		while($row = $results->fetch_array(MYSQL_ASSOC))
+			$jsonArray[] = $row;
 		
-		// Get return value
-		$ret = $out->num_rows > 0;
+		// Encode and print the JSON string
+		$GLOBALS['RETURN']->addData('return', json_encode($jsonArray));
 		
 		// Close SELECT results
-		$out->close();
+		$results->close();
 		
-		return $ret;
+		return true;
 	}
 }
 ?>

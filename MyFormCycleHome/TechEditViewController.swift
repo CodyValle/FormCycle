@@ -123,11 +123,11 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
                             
                             if (json["success"])
                             {
-                                print("Successfully closed order")
+                              //print("Successfully closed order")
                             }
                             else
                             {
-                                print("Failed to close order")
+                              // print("Failed to close order")
                             }
                         } //if let datastring = ...
                     } // if (response.text != null)

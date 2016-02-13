@@ -186,7 +186,7 @@ class WorkOrder
 		//$GLOBALS['RETURN']->addData('theSQL', $cmd->getSQL('ORDER BY rowid DESC'));
 		
 		// Sends the query and stores the result.
-		$results = $GLOBALS['con']->query($cmd->getSQL('ORDER BY w.rowid DESC'));
+		$results = $GLOBALS['con']->query($cmd->getSQL('ORDER BY w.rowid ASC'));
 		if (!is_object($results))
 			return false;
 

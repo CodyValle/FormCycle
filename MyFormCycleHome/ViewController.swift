@@ -67,6 +67,24 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* if user is on the Login page set flag to true */
         if newOrderTextFieldStruct.loginPage == true
         {
+          // Open the connection to the database.
+          do
+          {
+            /* tries to submit to server */
+            let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php")
+            opt.start
+            {
+              response in
+              if let error = response.error
+              {
+                print("\ngot an error: \(error)\n") /* if error, prints the error code saved on server */
+              }
+            }
+          }
+          catch let error
+          {
+            print("got an error creating the request: \(error)")
+          }
             newOrderTextFieldStruct.neworderpage = false
             newOrderTextFieldStruct.bikeInfoPage = false
             newOrderTextFieldStruct.invoicePage = false
@@ -182,6 +200,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         {
           print("got an error creating the request: \(error)")
         } // catch
+      } // custid != ""
+      else
+      {
+        brand.text = ""
+      	model.text = ""
+      	color.text = ""
       }
 		}
 		else if newOrderTextFieldStruct.invoicePage == true
@@ -460,10 +484,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 					{
 						print("got an error: \(error)") /* if error, prints the error code saved on server */
 						return
-						}
+          }
 					if (response.text != nil)
 					{
-						print(response.text!)
+            //print(response.text!)
 					}
 				}
 			}
@@ -471,6 +495,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 			{
 				print("got an error creating the request: \(error)")
 			}
+      newOrderTextFieldStruct.custid = ""
 		}
 		
 		/* check if the user pressed the next button

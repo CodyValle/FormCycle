@@ -135,12 +135,17 @@ extension ViewController
           // No errors
           if (response.text != nil)
           {
+            //print(response.text!)
             if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
             {
               let json = JSON(data: datafromstring)
 
               if (json["success"])
               {
+                let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                let adminJSON = JSON(data: retString!)
+								newOrderTextFieldStruct.admin = adminJSON[0]["admin"].string! == "Y"
+
                 next = true
                 generateIncorrectLoginAttempts.loginAttempts = 0
                 newOrderTextFieldStruct.USRname = self.USRTextField.text!
