@@ -3609,7 +3609,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="generateOrderPDF:" destination="8t0-B2-z6u" eventType="touchDown" id="toe-vQ-gn9"/>
                                             <action selector="pickedUp:" destination="8t0-B2-z6u" eventType="touchDown" id="pPz-Jq-Vg3"/>
                                         </connections>
                                     </button>
