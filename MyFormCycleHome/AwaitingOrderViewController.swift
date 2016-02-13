@@ -31,13 +31,14 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     var workidWait = ""
     var emailUsr = ""
     
-    func printTimestamp()->String {
+    /* printTimestamp() creates a variable to store the current time and date. This can then
+    *  be used anywhere in this class to display the current time stamp.
+    */
+    func printTimestamp()->String
+    {
         let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
         return timestamp
     }
-    
-    
-    
     
     func loadData()
     {
@@ -140,7 +141,8 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
         }
     }
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
+    func configuredMailComposeViewController() -> MFMailComposeViewController
+    {
         let layer = UIApplication.sharedApplication().keyWindow!.layer
         let scale = UIScreen.mainScreen().scale
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale)
@@ -161,7 +163,8 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
         return mailComposerVC
     }
     
-    func showSendMailErrorAlert() {
+    func showSendMailErrorAlert()
+    {
         let refreshAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in 
@@ -170,30 +173,18 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     }
     
     // MARK: MFMailComposeViewControllerDelegate Method
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
+    {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    
-    
-    
-//        let layer = UIApplication.sharedApplication().keyWindow!.layer
-//        let scale = UIScreen.mainScreen().scale
-//        
-//        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
-//        layer.renderInContext(UIGraphicsGetCurrentContext()!)
-//        
-//        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-//        
-//        UIGraphicsEndImageContext()
-//        UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil)
-//        
-//        let refreshAlert = UIAlertController(title: "PDF Created Successfully", message: "Saved to Photo Album", preferredStyle: UIAlertControllerStyle.Alert)
-//        
-//        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in self.dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
-//        }))
-//        self.presentViewController(refreshAlert, animated: true, completion: nil)
+    /* This function: pickedUp, will run when the user presses the "Picked Up" button on the Awaiting
+    *  Order Page. This sends a request to the server to set the 'open' variable for this order
+    *  to now be closed.
+    */
+    @IBAction func pickedUp(sender: AnyObject)
+    {
         
+    }
     
-
-}
+} //END OF: AwaitingOrderViewController.swift
