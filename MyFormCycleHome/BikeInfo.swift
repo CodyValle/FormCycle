@@ -35,4 +35,9 @@ extension ViewController
     }
   
 
+  @IBAction func ClearBikeForm(sender: AnyObject) {
+    brand.text = ""
+    model.text = ""
+    color.text = ""
+  }
 }

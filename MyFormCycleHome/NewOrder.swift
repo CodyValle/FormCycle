@@ -75,7 +75,19 @@ extension ViewController
         newOrderTextFieldStruct.myPhone = phone.text!
         newOrderTextFieldStruct.myEmail = email.text!
     }
-    
+
+  @IBAction func ClearForm(sender: AnyObject) {
+    fname.text = ""
+    lname.text = ""
+    address.text = ""
+    address2.text = ""
+    city.text = ""
+    state.text = ""
+    zip.text = ""
+    phone.text = ""
+    email.text = ""
+  }
+
     @IBAction func RetrieveCustomerInfo(sender: AnyObject)
     {
         /* Submits the server request */

@@ -103,7 +103,6 @@ class WorkOrderTableViewController: UITableViewController {
 
         return workOrders.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "BikeOrderTableViewCell"
@@ -118,6 +117,8 @@ class WorkOrderTableViewController: UITableViewController {
         cell.referenceNumber.text = order.tagNumber
         cell.lname.text = order.lname
         cell.workid = order.orderID
+
+      cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
         return cell
     }
     
