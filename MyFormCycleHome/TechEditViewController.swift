@@ -142,11 +142,11 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     
     @IBAction func closeOrder(sender: AnyObject)
     {
-        let refreshAlert = UIAlertController(title: "Confirmation", message: "Order will be closed and no longer can be edited.", preferredStyle: UIAlertControllerStyle.Alert)
+        let refreshAlert = UIAlertController(title: "Confirmation", message: "Order will be closed and can no longer be edited.", preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
             self.submitServerRequest()
-            
+            self.performSegueWithIdentifier("closedOrderSegue", sender: self)
             
         }))
         
