@@ -3676,7 +3676,7 @@
                                         </state>
                                         <connections>
                                             <action selector="pickedUp:" destination="8t0-B2-z6u" eventType="touchDown" id="pPz-Jq-Vg3"/>
-                                            <segue destination="Vah-XA-teY" kind="presentation" id="Jye-sP-2FP"/>
+                                            <segue destination="Vah-XA-teY" kind="presentation" identifier="pickedUpSegue" id="Jye-sP-2FP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLp-Al-AAX">
@@ -3931,7 +3931,7 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="seo-sA-4cV"/>
+        <segue reference="Jye-sP-2FP"/>
         <segue reference="w82-2O-uLI"/>
     </inferredMetricsTieBreakers>
 </document>

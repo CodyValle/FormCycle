@@ -178,11 +178,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    /* This function: pickedUp, will run when the user presses the "Picked Up" button on the Awaiting
-    *  Order Page. This sends a request to the server to set the 'open' variable for this order
-    *  to now be closed.
-    */
-    @IBAction func pickedUp(sender: AnyObject)
+    func submitServerRequest()
     {
         /* Submits the server request */
         var MyParams = ["action":"workUpdate"]
@@ -207,6 +203,27 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
             print("got an error creating the request: \(error)")
         } // catch
 
+    }
+    
+    /* This function: pickedUp, will run when the user presses the "Picked Up" button on the Awaiting
+    *  Order Page. This sends a request to the server to set the 'open' variable for this order
+    *  to now be closed.
+    */
+    @IBAction func pickedUp(sender: AnyObject)
+    {
+        let refreshAlert = UIAlertController(title: "Confirmation", message: "Order will be submitted as picked up.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            self.submitServerRequest()
+            self.performSegueWithIdentifier("pickedUpSegue", sender: self)
+            
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
 } //END OF: AwaitingOrderViewController.swift
