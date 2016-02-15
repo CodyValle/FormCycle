@@ -95,8 +95,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
         
     }
     
-    
-    @IBAction func closeOrder(sender: AnyObject)
+    func submitServerRequest()
     {
         /* Submits the server request */
         var MyParams = ["action":"workUpdate"]
@@ -124,21 +123,38 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
                             
                             if (json["success"])
                             {
-                              //print("Successfully closed order")
+                                //print("Successfully closed order")
                             }
                             else
                             {
-                              // print("Failed to close order")
+                                // print("Failed to close order")
                             }
                         } //if let datastring = ...
                     } // if (response.text != null)
             } // opt.start
         } // do
-        catch let error
+        catch let error 
         {
             print("got an error creating the request: \(error)")
         } // catch
+    }
 
+    
+    @IBAction func closeOrder(sender: AnyObject)
+    {
+        let refreshAlert = UIAlertController(title: "Confirmation", message: "Order will be closed and no longer can be edited.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            self.submitServerRequest()
+            
+            
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
     }
     
     
