@@ -181,7 +181,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     func submitServerRequest()
     {
         /* Submits the server request */
-        var MyParams = ["action":"workUpdate"]
+        var MyParams = ["action":"workUpdate"] 
         MyParams["workid"] = workidWait
         MyParams["open"] = "P"
         do
