@@ -50,6 +50,7 @@ extension ViewController
         static var bikeInfoPage = false
         static var invoicePage = false
         static var loginPage = true
+        static var addServicesPage = false
     }
     
     /* Sends the user back to the Home Page if currently on the Customer Information page. */

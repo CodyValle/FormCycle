@@ -51,6 +51,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     @IBOutlet weak var invTuneType: UILabel!
 
 	
+    @IBAction func backToEditOrder(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+        
+    }
+    
+    @IBAction func submitAddServices(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+    }
+    
 /*+------------------------------- viewDidLoad() --------------------------------------+
 	| viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
   | display information on a current page. Because we have only implemented a single   |
@@ -61,10 +70,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 	/* viewDidLoad. This function allows the view to be flagged based on the current
    * page that is loaded. 
    */
+    
+    
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
 		/* if user is on the Login page set flag to true */
+        if newOrderTextFieldStruct.addServicesPage == true
+        {
+            
+        }
         if newOrderTextFieldStruct.loginPage == true
         {
           // Open the connection to the database.
@@ -448,7 +463,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* checks if the user pressed the "new order" button, if so then move to
 		 * new order: customer information page.
 		 */
-		if segue.identifier == "moveToCustInfo"
+        if segue.identifier == "moveToAddServices"
+        {
+           newOrderTextFieldStruct.addServicesPage = true
+        }
+		else if segue.identifier == "moveToCustInfo"
 		{
 			newOrderTextFieldStruct.neworderpage = true /* on new order page, set flag to true. */
 		}
