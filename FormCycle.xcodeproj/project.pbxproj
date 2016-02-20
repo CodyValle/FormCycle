@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104AD841C7900000056B10F /* CustSearchTableViewCell.swift */; };
+		0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104AD901C79072D0056B10F /* AutoFillTableViewController.swift */; };
 		014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014283CE1C5D65940097C61F /* PickupTableViewCell.swift */; };
 		014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */; };
 		0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
@@ -143,6 +145,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0104AD841C7900000056B10F /* CustSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustSearchTableViewCell.swift; sourceTree = "<group>"; };
+		0104AD901C79072D0056B10F /* AutoFillTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoFillTableViewController.swift; sourceTree = "<group>"; };
 		014283CE1C5D65940097C61F /* PickupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
 		014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingPickupTableViewController.swift; sourceTree = "<group>"; };
 		0147B5921C4EBF1900218606 /* WorkOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkOrder.swift; path = ../WorkOrder.swift; sourceTree = "<group>"; };
@@ -190,6 +194,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0104AD921C79073B0056B10F /* AutoFillTable */ = {
+			isa = PBXGroup;
+			children = (
+				0104AD841C7900000056B10F /* CustSearchTableViewCell.swift */,
+				0104AD901C79072D0056B10F /* AutoFillTableViewController.swift */,
+			);
+			name = AutoFillTable;
+			sourceTree = "<group>";
+		};
 		014283C21C5D5FCB0097C61F /* OpenOrdersTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +256,7 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				0104AD921C79073B0056B10F /* AutoFillTable */,
 				014283C21C5D5FCB0097C61F /* OpenOrdersTable */,
 				014283CD1C5D63580097C61F /* WaitingPickupTable */,
 				9D9E96741C5170FE002AD84C /* Pages */,
@@ -499,10 +513,12 @@
 				9D9E96731C517077002AD84C /* SignInPage.swift in Sources */,
 				9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */,
 				01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */,
+				0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */,
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
 				9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */,
 				01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */,
+				0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */,
 				014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
