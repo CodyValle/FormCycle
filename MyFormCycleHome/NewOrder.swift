@@ -51,6 +51,7 @@ extension ViewController
         static var invoicePage = false
         static var loginPage = true
         static var addServicesPage = false
+        static var mainPage = false
     }
     
     /* Sends the user back to the Home Page if currently on the Customer Information page. */

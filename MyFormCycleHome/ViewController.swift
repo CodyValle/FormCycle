@@ -532,6 +532,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 			newOrderTextFieldStruct.myPhone = phone.text!
 			newOrderTextFieldStruct.myEmail = email.text!
 		}
+        else if segue.identifier == "moveToMainPageSegue"
+        {
+            newOrderTextFieldStruct.mainPage = true;
+        }
 	}
 
 /*+------------------------- shouldPerformSegueWithIdentifier ---------------------------+
@@ -545,14 +549,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 	/* shouldPerformSegueWithIdentifier: This function controls the requirements for each 
 	 * page that must be met before moving to the next view/page.
    */
+    
 	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
 	{
         if (newOrderTextFieldStruct.loginPage == true)
         {
           return false
         }
+        else if (newOrderTextFieldStruct.mainPage  == true)
+        {
+            
+        }
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
-		if newOrderTextFieldStruct.neworderpage == true
+		else if newOrderTextFieldStruct.neworderpage == true
 		{
 			if fname.text?.utf16.count == 0 /* constraint for first name, if empty then prompt user. */
 			{
@@ -695,6 +704,143 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		}
 		return true  
 	}
+    
+    var tField: UITextField!
+    var pField: UITextField!
+    
+    func configurationTextField(textField: UITextField!)
+    {
+        print("generating the TextField")
+        textField.placeholder = "Username"
+        tField = textField
+    }
+    
+    func passwordTextField(textField: UITextField!)
+    {
+        //print("generating the TextField")
+        textField.placeholder = "Password"
+        pField = textField
+    }
+    
+    
+    func handleCancel(alertView: UIAlertAction!)
+    {
+        print("Cancelled !!")
+    }
+    
+    /* Admin login button to transition to admin page */
+    @IBAction func adminButton(sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addTextFieldWithConfigurationHandler(passwordTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:handleCancel))
+        alert.addAction(UIAlertAction(title: "Submit", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            
+                var wait = true
+                var next = false
+                
+                /* Submits the server request */
+                var MyParams = ["action":"login"]
+                
+                // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+                if (USRTextField.text != nil) {
+                    MyParams["logid"] = USRTextField.text!
+                }
+                if (PWDTextField.text != nil) {
+                    MyParams["pwd"] = PWDTextField.text!
+                }
+                
+                do
+                {
+                    /* tries to submit to server */
+                    let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: MyParams)
+                    opt.start
+                        {
+                            response in
+                            if let error = response.error
+                            {
+                                print("\ngot an error: \(error)\n") /* if error, prints the error code saved on server */
+                            }
+                            
+                            // No errors
+                            if (response.text != nil)
+                            {
+                                print(response.text!)
+                                if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                                {
+                                    let json = JSON(data: datafromstring)
+                                    
+                                    if (json["success"])
+                                    {
+                                        let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                                        let retJSON = JSON(data: retString!)
+                                        //if adminJSON.isExists()
+                                        //{
+                                        if let adminRet = retJSON[0]["admin"].string {
+                                            newOrderTextFieldStruct.admin = adminRet == "Y"
+                                        }
+                                        //}
+                                        
+                                        next = true
+                                        generateIncorrectLoginAttempts.loginAttempts = 0
+                                        newOrderTextFieldStruct.USRname = self.USRTextField.text!
+                                    }
+                                    else
+                                    {
+                                        next = false
+                                        generateIncorrectLoginAttempts.loginAttempts += 1
+                                        if(generateIncorrectLoginAttempts.loginAttempts >= 5)
+                                        {
+                                            NSOperationQueue.mainQueue().addOperationWithBlock {
+                                                
+                                                let refreshAlert = UIAlertController(title: "Incorrect Username or Password, No remaining attempts left!", message: "Try Clicking \"Forgot Password\" Below", preferredStyle: UIAlertControllerStyle.Alert)
+                                                
+                                                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                                                }))
+                                                self.presentViewController(refreshAlert, animated: true, completion: nil)
+                                            }
+                                            
+                                        }
+                                        else
+                                        {
+                                            NSOperationQueue.mainQueue().addOperationWithBlock {
+                                                
+                                                let refreshAlert = UIAlertController(title: "Incorrect Username or Password", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+                                                
+                                                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                                                }))
+                                                self.presentViewController(refreshAlert, animated: true, completion: nil)
+                                                
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            wait = false;
+                    }
+                }
+                catch let error
+                {
+                    print("got an error creating the request: \(error)")
+                }
+                while (wait) {}
+                
+                // Leaving the login page
+                newOrderTextFieldStruct.loginPage = !next
+            }
+            print("Item1 : \(self.tField.text)")
+            print("Item2 : \(self.pField.text)")
+    
+        }))
+        self.presentViewController(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
+    
+    
 	//*************************** Tune Selection Picker *************************//
     var tuneType = ["Basic Tune: $70","ATD: $120","Complete Overhaul: $199","Race and Event Prep: $50","Find the Creak Service: $50-$95","Front Suspension Service: $80","Rear Air Shock Service: $45","Rear Suspension Linkage Services: $125","Dropper Post Service: $60-$95"]
 
