@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
-import MessageUI  
+import MessageUI
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, MFMailComposeViewControllerDelegate
 {
@@ -75,6 +75,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
+        if newOrderTextFieldStruct.mainPage == true
+        {
+            print("ON MAIN PAGE")
+            let myrefreshAlert = UIAlertController(title: "Welcome!", message:newOrderTextFieldStruct.USRname, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            myrefreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action: UIAlertAction!) in
+            }))
+            presentViewController(myrefreshAlert, animated: true, completion: nil)
+        }
 		/* if user is on the Login page set flag to true */
         if newOrderTextFieldStruct.addServicesPage == true
         {
