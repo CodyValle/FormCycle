@@ -60,37 +60,47 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     }
     
-/*+------------------------------- viewDidLoad() --------------------------------------+
-	| viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
-  | display information on a current page. Because we have only implemented a single   |
-  | view controller for this app we have to set flags for each page. This will allows  |
-  | us to access the correct values from a current view.                               |
-  | MARK: viewDidLoad () Function																											 |
-  +------------------------------------------------------------------------------------+*/
-	/* viewDidLoad. This function allows the view to be flagged based on the current
-   * page that is loaded. 
-   */
+    /* ViewDidAppear() is a function that is overwritten here. This allows us to display
+    *   an alert view while still on the same view controller. This is also confronting
+    *   a problem that occured when trying to load more items in a single view controller
+    */
+    override func viewDidAppear(animated: Bool) {
+        if newOrderTextFieldStruct.mainPage == true
+        {
+            let myrefreshAlert = UIAlertController(title: "Welcome!", message:newOrderTextFieldStruct.USRname, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            myrefreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action: UIAlertAction!) in
+            }))
+            presentViewController   (myrefreshAlert, animated: false, completion: nil)
+        }
+    }
     
     
+    /*+------------------------------- viewDidLoad() --------------------------------------+
+    | viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
+    | display information on a current page. Because we have only implemented a single   |
+    | view controller for this app we have to set flags for each page. This will allows  |
+    | us to access the correct values from a current view.                               |
+    | MARK: viewDidLoad () Function																											 |
+    +------------------------------------------------------------------------------------+*/
+    /* viewDidLoad. This function allows the view to be flagged based on the current
+    * page that is loaded.
+    */
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
         if newOrderTextFieldStruct.mainPage == true
         {
-            print("ON MAIN PAGE")
-            let myrefreshAlert = UIAlertController(title: "Welcome!", message:newOrderTextFieldStruct.USRname, preferredStyle: UIAlertControllerStyle.Alert)
-            
-            myrefreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action: UIAlertAction!) in
-            }))
-            presentViewController(myrefreshAlert, animated: true, completion: nil)
+          newOrderTextFieldStruct.loginPage = false
         }
 		/* if user is on the Login page set flag to true */
-        if newOrderTextFieldStruct.addServicesPage == true
+        else if newOrderTextFieldStruct.addServicesPage == true
         {
             
         }
         if newOrderTextFieldStruct.loginPage == true
         {
+            newOrderTextFieldStruct.mainPage = false
           // Open the connection to the database.
           do
           {
@@ -120,6 +130,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         /* if user is on the new order page set flag to true */
 		else if newOrderTextFieldStruct.neworderpage == true
 		{
+            newOrderTextFieldStruct.mainPage = false
             newOrderTextFieldStruct.loginPage = false
             newOrderTextFieldStruct.bikeInfoPage = false
             newOrderTextFieldStruct.invoicePage = false
@@ -565,9 +576,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         {
           return false
         }
+       
         else if (newOrderTextFieldStruct.mainPage  == true)
         {
-            
+    
         }
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
 		else if newOrderTextFieldStruct.neworderpage == true
