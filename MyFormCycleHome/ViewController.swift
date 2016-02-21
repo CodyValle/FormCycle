@@ -708,24 +708,24 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     var tField: UITextField!
     var pField: UITextField!
     
+    /* Storing the username from the alertview text field */
     func configurationTextField(textField: UITextField!)
     {
-        print("generating the TextField")
         textField.placeholder = "Username"
         tField = textField
     }
     
+    /* Storing the password from the alertview text field */
     func passwordTextField(textField: UITextField!)
     {
-        //print("generating the TextField")
         textField.placeholder = "Password"
         pField = textField
     }
     
-    
+    /* Runs this function when the alertview  handles the cancel button */
     func handleCancel(alertView: UIAlertAction!)
     {
-        print("Cancelled !!")
+        /* Do nothing but cancel the alert view */
     }
     
     /* Admin login button to transition to admin page */
@@ -739,17 +739,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         alert.addAction(UIAlertAction(title: "Submit", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
             
                 var wait = true
-                var next = false
                 
                 /* Submits the server request */
                 var MyParams = ["action":"login"]
                 
                 // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
-                if (USRTextField.text != nil) {
-                    MyParams["logid"] = USRTextField.text!
+                if (self.tField.text != nil) {
+                    MyParams["logid"] = self.tField.text
                 }
-                if (PWDTextField.text != nil) {
-                    MyParams["pwd"] = PWDTextField.text!
+                if (self.pField.text != nil) {
+                    MyParams["pwd"] = self.pField.text
                 }
                 
                 do
@@ -783,23 +782,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                                         }
                                         //}
                                         
-                                        next = true
+                                        
                                         generateIncorrectLoginAttempts.loginAttempts = 0
-                                        newOrderTextFieldStruct.USRname = self.USRTextField.text!
+                                        newOrderTextFieldStruct.USRname = self.tField.text!
+                                        self.performSegueWithIdentifier("segueToAdminPage", sender: self)
                                     }
                                     else
                                     {
-                                        next = false
+                                        
                                         generateIncorrectLoginAttempts.loginAttempts += 1
                                         if(generateIncorrectLoginAttempts.loginAttempts >= 5)
                                         {
                                             NSOperationQueue.mainQueue().addOperationWithBlock {
                                                 
-                                                let refreshAlert = UIAlertController(title: "Incorrect Username or Password, No remaining attempts left!", message: "Try Clicking \"Forgot Password\" Below", preferredStyle: UIAlertControllerStyle.Alert)
-                                                
-                                                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                                                }))
-                                                self.presentViewController(refreshAlert, animated: true, completion: nil)
                                             }
                                             
                                         }
@@ -807,11 +802,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                                         {
                                             NSOperationQueue.mainQueue().addOperationWithBlock {
                                                 
-                                                let refreshAlert = UIAlertController(title: "Incorrect Username or Password", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+                                                alert.title = "Incorrect Username or Password"
+                                                alert.message = "Try Again"
                                                 
-                                                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                                                }))
-                                                self.presentViewController(refreshAlert, animated: true, completion: nil)
+                                                self.presentViewController(alert, animated: true, completion: {
+                                                    
+                                                })
+                                                
+                                                
                                                 
                                             }
                                         }
@@ -826,16 +824,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                     print("got an error creating the request: \(error)")
                 }
                 while (wait) {}
-                
-                // Leaving the login page
-                newOrderTextFieldStruct.loginPage = !next
-            }
-            print("Item1 : \(self.tField.text)")
-            print("Item2 : \(self.pField.text)")
+            
     
         }))
         self.presentViewController(alert, animated: true, completion: {
-            print("completion block")
+            
         })
     }
     
