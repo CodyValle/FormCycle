@@ -724,8 +724,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         newOrderTextFieldStruct.tunePicker = tuneType[row]
     }
-    
-//********************* PRACTICE TEST FUNCTIONS *********************
+   //********************* PRACTICE TEST FUNCTIONS *********************
     
     func somefuncReturnsTrue() -> Bool {
     return true
