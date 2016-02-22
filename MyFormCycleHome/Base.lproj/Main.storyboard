@@ -1040,19 +1040,6 @@
                                     <segue destination="Vah-XA-teY" kind="presentation" id="6Z3-Za-71m"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wy-q3-lUd">
-                                <rect key="frame" x="20" y="367" width="350" height="95"/>
-                                <color key="backgroundColor" red="0.11601205376307155" green="0.31030345190826025" blue="0.72109374999999998" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="3Fn-Np-I4d"/>
-                                    <constraint firstAttribute="width" constant="350" id="MX7-T3-ura"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <state key="normal" title="Search Customer"/>
-                                <connections>
-                                    <action selector="RetrieveCustomerInfo:" destination="Sfg-OH-txt" eventType="touchDown" id="VLp-vg-7Rg"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Y1g-mt-IGT">
                                 <rect key="frame" x="655" y="256" width="89" height="39"/>
                                 <constraints>
@@ -1088,17 +1075,26 @@
                                     <action selector="backToMainPageBtn:" destination="Sfg-OH-txt" eventType="touchUpInside" id="kAf-wm-Lof"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuC-La-SHN">
-                                <rect key="frame" x="20" y="470" width="728" height="213"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wy-q3-lUd">
+                                <rect key="frame" x="20" y="367" width="350" height="95"/>
+                                <color key="backgroundColor" red="0.11601205376307155" green="0.31030345190826025" blue="0.72109374999999998" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="3Fn-Np-I4d"/>
+                                    <constraint firstAttribute="width" constant="350" id="MX7-T3-ura"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <state key="normal" title="Search Customer"/>
                                 <connections>
-                                    <segue destination="DsO-Ab-6pZ" kind="embed" id="8gx-Dv-gz4"/>
+                                    <action selector="RetrieveCustomerInfo:" destination="Sfg-OH-txt" eventType="touchDown" id="VLp-vg-7Rg"/>
+                                    <segue destination="DsO-Ab-6pZ" kind="popoverPresentation" popoverAnchorView="0wy-q3-lUd" id="a1e-5J-MCE">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
-                            </containerView>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aOd-sq-ey9" firstAttribute="top" secondItem="e5S-5f-ly1" secondAttribute="topMargin" id="16F-oK-4Xq"/>
-                            <constraint firstItem="cuC-La-SHN" firstAttribute="top" secondItem="0wy-q3-lUd" secondAttribute="bottom" constant="8" symbolic="YES" id="3Al-NA-RhW"/>
                             <constraint firstItem="IhX-SG-2W6" firstAttribute="trailing" secondItem="fyT-nh-IbO" secondAttribute="trailing" id="4IA-Va-KHo"/>
                             <constraint firstItem="ZMd-01-jP1" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="5JR-nQ-T0q"/>
                             <constraint firstItem="0XU-ee-0EK" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="5vc-aP-MB8"/>
@@ -1111,9 +1107,7 @@
                             <constraint firstItem="0wy-q3-lUd" firstAttribute="top" secondItem="Qbp-xC-Llj" secondAttribute="bottom" constant="66" id="CY9-fm-Nfh"/>
                             <constraint firstItem="zYw-lM-uKt" firstAttribute="top" secondItem="0wy-q3-lUd" secondAttribute="bottom" constant="-95" id="DwK-s8-ysl"/>
                             <constraint firstItem="6hr-zm-7dK" firstAttribute="firstBaseline" secondItem="zYw-lM-uKt" secondAttribute="baseline" constant="-378.5" id="Ebd-sl-YeC"/>
-                            <constraint firstItem="cuC-La-SHN" firstAttribute="leading" secondItem="0wy-q3-lUd" secondAttribute="leading" id="Gqu-fr-sZY"/>
                             <constraint firstItem="0wy-q3-lUd" firstAttribute="top" secondItem="RLe-1l-VBz" secondAttribute="bottom" constant="78" id="I33-fh-zZo"/>
-                            <constraint firstItem="zpl-jU-s03" firstAttribute="top" secondItem="cuC-La-SHN" secondAttribute="bottom" constant="341" id="L8H-Md-JEF"/>
                             <constraint firstItem="Y1g-mt-IGT" firstAttribute="centerX" secondItem="Qbp-xC-Llj" secondAttribute="centerX" constant="31.5" id="LXu-NU-Jwh"/>
                             <constraint firstItem="Qbp-xC-Llj" firstAttribute="trailing" secondItem="z1f-GT-08i" secondAttribute="trailing" id="MpQ-oL-MG2"/>
                             <constraint firstItem="IhX-SG-2W6" firstAttribute="bottom" secondItem="b5Y-Aj-KRv" secondAttribute="bottom" id="OXC-ap-mu4"/>
@@ -1128,7 +1122,6 @@
                             <constraint firstItem="07s-Vb-98f" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" constant="297" id="X8I-fL-ttE"/>
                             <constraint firstItem="Y1g-mt-IGT" firstAttribute="leading" secondItem="RLe-1l-VBz" secondAttribute="trailing" constant="2" id="YIC-Lj-CQW"/>
                             <constraint firstItem="0XU-ee-0EK" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="YsF-7y-SSJ"/>
-                            <constraint firstItem="cuC-La-SHN" firstAttribute="trailing" secondItem="zYw-lM-uKt" secondAttribute="trailing" id="aCT-Dc-E4C"/>
                             <constraint firstItem="99s-It-F5M" firstAttribute="leading" secondItem="e5S-5f-ly1" secondAttribute="leadingMargin" id="b2d-VW-BAm"/>
                             <constraint firstItem="b5Y-Aj-KRv" firstAttribute="centerX" secondItem="99s-It-F5M" secondAttribute="centerX" id="du2-TJ-eIi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Y1g-mt-IGT" secondAttribute="trailing" constant="4" id="dzc-DT-IG8"/>
@@ -1226,7 +1219,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ccz-TH-LdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2166" y="1316"/>
+            <point key="canvasLocation" x="1955" y="1280"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fWQ-rk-GXH">

@@ -240,6 +240,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 			invTuneType.text = newOrderTextFieldStruct.tunePicker
 		}
 	}
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        
+    }
 	
 /*+--------------------------------- textField() ---------------------------------------+
   | textField() is a function that checks the constraints on the current text. First it |
