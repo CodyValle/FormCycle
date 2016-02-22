@@ -74,10 +74,13 @@ class AdditionalServicesViewController: UIViewController, UITableViewDataSource 
         ("Boxed Bike Build","$95 - $125") ]
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+         print(self)
         return 7
+       
     }
-    
+   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if section == 0 {
             return Brakes.count
         } else if section == 1 {
@@ -155,6 +158,7 @@ class AdditionalServicesViewController: UIViewController, UITableViewDataSource 
         } else {
             return "Boxing"
         }
+    
     }
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
