@@ -11,30 +11,17 @@ import SwiftyJSON
 
 class AutoFillTableViewController: UITableViewController {
     
-    var results = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
     var resultSet = [CustomerAutoFill]()
 
     
-    func loadData()
-    {
-        print(results.count)
-        if (results.count > 0) // Fill the form
-        {
-            for var i = 0; i < results.count; i++
-            {
-                self.resultSet.append(CustomerAutoFill(fname: results[i]["fname"].string!, lname:results[i]["lname"].string!, address : results[i]["address"].string!, phone : results[i]["phone"].string!))
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.tableView.reloadData()
-                })
-            }
-        }
-    }
+  
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        print("In the table")
+        print(resultSet.count)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,9 +30,6 @@ class AutoFillTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        loadData()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

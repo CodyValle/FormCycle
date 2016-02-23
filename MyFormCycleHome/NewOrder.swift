@@ -156,7 +156,7 @@ extension ViewController
                               // Probably needs more error checks.
                               let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
                               self.customers = JSON(data: retString!)
-                            
+                                print("I am right here")
                               if (self.customers.count > 0) // Fill the form
                               {
                                   // UI updates should not occur on a non-main thread. So call it on the main thread.

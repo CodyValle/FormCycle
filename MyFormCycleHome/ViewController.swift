@@ -61,6 +61,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     }
     
     var customers = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+    var results = [CustomerAutoFill]()
     
 /*+------------------------------- viewDidLoad() --------------------------------------+
 	| viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
@@ -485,10 +486,24 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         }
         else if segue.identifier == "autoFill"
         {
+            print(customers.count)
             newOrderTextFieldStruct.autoFillPopUp = true
+
             if let destination = segue.destinationViewController as? AutoFillTableViewController
             {
-                destination.results = customers
+                destination.preferredContentSize = CGSize(width: 450, height: 500)
+                if (customers.count > 0) // Fill the form
+                {
+                    for var i = 0; i < customers.count; i++
+                    {
+                        self.results.append(CustomerAutoFill(fname: customers[i]["fname"].string!, lname:customers[i]["lname"].string!, address : customers[i]["address"].string!, phone : customers[i]["phone"].string!))
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        })
+                    }
+                }
+                destination.resultSet = results
+                results.removeAll()
+
             }
 
         }
