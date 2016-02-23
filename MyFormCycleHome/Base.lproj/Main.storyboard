@@ -1086,7 +1086,7 @@
                                 <state key="normal" title="Search Customer"/>
                                 <connections>
                                     <action selector="RetrieveCustomerInfo:" destination="Sfg-OH-txt" eventType="touchDown" id="VLp-vg-7Rg"/>
-                                    <segue destination="DsO-Ab-6pZ" kind="popoverPresentation" popoverAnchorView="0wy-q3-lUd" id="a1e-5J-MCE">
+                                    <segue destination="DsO-Ab-6pZ" kind="popoverPresentation" identifier="autoFill" popoverAnchorView="0wy-q3-lUd" id="a1e-5J-MCE">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>

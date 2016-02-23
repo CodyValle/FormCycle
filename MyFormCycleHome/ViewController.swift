@@ -60,6 +60,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     }
     
+    var customers = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+    
 /*+------------------------------- viewDidLoad() --------------------------------------+
 	| viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
   | display information on a current page. Because we have only implemented a single   |
@@ -465,6 +467,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		newOrderTextFieldStruct.bikeInfoPage = false /* sets current page to nothing */
 		newOrderTextFieldStruct.invoicePage = false /* sets current page to nothing */
         newOrderTextFieldStruct.loginPage = false
+        
 		/* checks if the user pressed the "new order" button, if so then move to
 		 * new order: customer information page.
 		 */
@@ -479,6 +482,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		else if segue.identifier == "backToLoginPage"
         {
             newOrderTextFieldStruct.loginPage = true
+        }
+        else if segue.identifier == "autoFill"
+        {
+            newOrderTextFieldStruct.autoFillPopUp = true
+            if let destination = segue.destinationViewController as? AutoFillTableViewController
+            {
+                destination.results = customers
+            }
+
         }
 		/* checks if the user pressed the submit button on the bike info page */
 		else if segue.identifier == "moveToInvoice"
@@ -557,7 +569,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
           return false
         }
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
-		if newOrderTextFieldStruct.neworderpage == true
+		if newOrderTextFieldStruct.neworderpage == true && !newOrderTextFieldStruct.autoFillPopUp
 		{
 			if fname.text?.utf16.count == 0 /* constraint for first name, if empty then prompt user. */
 			{

@@ -51,6 +51,7 @@ extension ViewController
         static var invoicePage = false
         static var loginPage = true
         static var addServicesPage = false
+        static var autoFillPopUp = false
     }
     
     /* Sends the user back to the Home Page if currently on the Customer Information page. */
@@ -89,8 +90,11 @@ extension ViewController
     email.text = ""
   }
 
+    
+    
     @IBAction func RetrieveCustomerInfo(sender: AnyObject)
     {
+        newOrderTextFieldStruct.autoFillPopUp = true
         /* Submits the server request */
         var MyParams = ["action":"custSearch"]
         
@@ -151,13 +155,14 @@ extension ViewController
                           {
                               // Probably needs more error checks.
                               let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-                              let customers = JSON(data: retString!)
-                              
-                              if (customers.count > 0) // Fill the form
+                              self.customers = JSON(data: retString!)
+                            
+                              if (self.customers.count > 0) // Fill the form
                               {
                                   // UI updates should not occur on a non-main thread. So call it on the main thread.
-                                  dispatch_async(dispatch_get_main_queue())
+                                 /* dispatch_async(dispatch_get_main_queue())
                                   {
+                                    
                                       // Write all the data to the text fields. We first check to make sure the textfield does not already contain data and that the wanted value exists in the JSON string.
                                       // The [0] is the index of the row that we want to auto fill with.
                                       if (customers[0]["custid"].isExists()) {
@@ -197,7 +202,8 @@ extension ViewController
                                       if (customers[0]["email"].isExists()) {
                                           self.email.text = customers[0]["email"].string
                                       }
-                                  }
+
+                                  }*/
                               }
                               else
                               {
@@ -213,6 +219,6 @@ extension ViewController
           print("got an error creating the request: \(error)")
       }
     }
-    
+   
 }
 

@@ -7,18 +7,44 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class AutoFillTableViewController: UITableViewController {
     
+    var results = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+    var resultSet = [CustomerAutoFill]()
 
+    
+    func loadData()
+    {
+        print(results.count)
+        if (results.count > 0) // Fill the form
+        {
+            for var i = 0; i < results.count; i++
+            {
+                self.resultSet.append(CustomerAutoFill(fname: results[i]["fname"].string!, lname:results[i]["lname"].string!, address : results[i]["address"].string!, phone : results[i]["phone"].string!))
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+                })
+            }
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,24 +55,26 @@ class AutoFillTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return resultSet.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cellIdentifier = "CustSearchTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CustSearchTableViewCell
+        let cust = resultSet[indexPath.row]
+        
+        cell.fullName.text = cust.name
+        cell.address.text = cust.address
+        cell.phoneNum.text = cust.phone
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
