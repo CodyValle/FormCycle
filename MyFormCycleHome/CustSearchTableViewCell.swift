@@ -13,7 +13,13 @@ class CustSearchTableViewCell: UITableViewCell {
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var phoneNum: UILabel!
-    
+    var address2 = ""
+    var city = ""
+    var state = ""
+    var zip = ""
+    var email = ""
+    var fname = ""
+    var lname = ""
     
     
     

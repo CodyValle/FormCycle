@@ -55,6 +55,13 @@ class AutoFillTableViewController: UITableViewController {
         cell.fullName.text = cust.name
         cell.address.text = cust.address
         cell.phoneNum.text = cust.phone
+        cell.address2 = cust.address2
+        cell.city = cust.city
+        cell.state = cust.state
+        cell.zip = cust.zip
+        cell.email = cust.email
+        cell.lname = cust.lname
+        cell.fname = cust.fname
 
         return cell
     }
@@ -104,5 +111,27 @@ class AutoFillTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "autoFillSelection"
+        {
+            if let destination = segue.destinationViewController as? ViewController
+            {
+                if let custIndex = tableView.indexPathForSelectedRow?.row
+                {
+                    destination.fname.text = resultSet[custIndex].fname
+                    destination.lname.text = resultSet[custIndex].lname
+                    destination.address.text = resultSet[custIndex].address
+                    destination.address2.text = resultSet[custIndex].address2
+                    destination.city.text = resultSet[custIndex].city
+                    destination.state.text = resultSet[custIndex].state
+                    destination.zip.text = resultSet[custIndex].zip
+                    destination.phone.text = resultSet[custIndex].phone
+                    destination.email.text = resultSet[custIndex].email
+                }
+            }
+        }
+    }
 
 }

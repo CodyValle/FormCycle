@@ -496,7 +496,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                 {
                     for var i = 0; i < customers.count; i++
                     {
-                        self.results.append(CustomerAutoFill(fname: customers[i]["fname"].string!, lname:customers[i]["lname"].string!, address : customers[i]["address"].string!, phone : customers[i]["phone"].string!))
+                        if customers[i]["address2"] == nil
+                        {
+                            customers[i]["address2"] = ""
+                        }
+                        if customers[i]["email"] == nil
+                        {
+                            customers[i]["email"] = ""
+                        }
+                        self.results.append(CustomerAutoFill(fname: customers[i]["fname"].string!, lname:customers[i]["lname"].string!, address : customers[i]["address"].string!, address2 : customers[i]["address2"].string!, city : customers[i]["city"].string!, state : customers[i]["state"].string!, phone : customers[i]["phone"].string!, zip : customers[i]["zip"].string!, email : customers[i]["email"].string!))
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         })
                     }
