@@ -63,15 +63,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     var customers = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
     var results = [CustomerAutoFill]()
     
-    var fnameV = ""
-    var lnameV = ""
-    var addressV = ""
-    var address2V = ""
-    var cityV = ""
-    var stateV = ""
-    var zipV = ""
-    var phoneV = ""
-    var emailV = ""
 
     
 /*+------------------------------- viewDidLoad() --------------------------------------+
@@ -256,10 +247,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 	}
     
     
-    
-    override func viewWillAppear(animated: Bool) {
-       
-    }
 	
 /*+--------------------------------- textField() ---------------------------------------+
   | textField() is a function that checks the constraints on the current text. First it |
