@@ -65,7 +65,24 @@ class AutoFillTableViewController: UITableViewController {
 
         return cell
     }
-
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let custIndex = tableView.indexPathForSelectedRow?.row
+        {
+            /*viewController.fname.text = resultSet[custIndex].fname
+            newOrderPage.lname.text = resultSet[custIndex].lname
+            newOrderPage.address.text = resultSet[custIndex].address
+            newOrderPage.address2.text = resultSet[custIndex].address2
+            newOrderPage.city.text = resultSet[custIndex].city
+            newOrderPage.state.text = resultSet[custIndex].state
+            newOrderPage.zip.text = resultSet[custIndex].zip
+            newOrderPage.phone.text = resultSet[custIndex].phone
+            newOrderPage.email.text = resultSet[custIndex].email
+            print(resultSet[custIndex].fname)*/
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // Override to support conditional editing of the table view.

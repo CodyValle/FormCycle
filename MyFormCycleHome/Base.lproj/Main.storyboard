@@ -835,7 +835,7 @@
         <!--newOrder-->
         <scene sceneID="oSN-g4-khG">
             <objects>
-                <viewController title="newOrder" id="Sfg-OH-txt" customClass="ViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewOrderPage" title="newOrder" id="Sfg-OH-txt" customClass="ViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sz6-rN-D3h"/>
                         <viewControllerLayoutGuide type="bottom" id="zpl-jU-s03"/>
