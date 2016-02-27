@@ -90,8 +90,11 @@ extension ViewController
     email.text = ""
   }
 
+    
+    
     @IBAction func RetrieveCustomerInfo(sender: AnyObject)
     {
+        newOrderTextFieldStruct.autoFillPopUp = true
         /* Submits the server request */
         var MyParams = ["action":"custSearch"]
         
@@ -152,58 +155,7 @@ extension ViewController
                           {
                               // Probably needs more error checks.
                               let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-                              let customers = JSON(data: retString!)
-                              
-                              if (customers.count > 0) // Fill the form
-                              {
-                                  // UI updates should not occur on a non-main thread. So call it on the main thread.
-                                  dispatch_async(dispatch_get_main_queue())
-                                  {
-                                      // Write all the data to the text fields. We first check to make sure the textfield does not already contain data and that the wanted value exists in the JSON string.
-                                      // The [0] is the index of the row that we want to auto fill with.
-                                      if (customers[0]["custid"].isExists()) {
-                                        newOrderTextFieldStruct.custid = customers[0]["custid"].string!
-                                      }
-                                      if (customers[0]["fname"].isExists()) {
-                                        //if newOrderTextFieldStruct.admin
-                                        //{
-                                        //  self.fname.text = "Admin Account"
-                                        //}
-                                        //else
-                                        //{
-                                          self.fname.text = customers[0]["fname"].string
-                                        //}
-                                      }
-                                      if (customers[0]["lname"].isExists()) {
-                                          self.lname.text = customers[0]["lname"].string
-                                      }
-                                      if (customers[0]["address"].isExists()) {
-                                          self.address.text = customers[0]["address"].string
-                                      }
-                                      if (customers[0]["address2"].isExists()) {
-                                          self.address2.text = customers[0]["address2"].string
-                                      }
-                                      if (customers[0]["city"].isExists()) {
-                                          self.city.text = customers[0]["city"].string
-                                      }
-                                      if (customers[0]["state"].isExists()) {
-                                          self.state.text = customers[0]["state"].string
-                                      }
-                                      if (customers[0]["zip"].isExists()) {
-                                          self.zip.text = customers[0]["zip"].string
-                                      }
-                                      if (customers[0]["phone"].isExists()) {
-                                          self.phone.text = customers[0]["phone"].string
-                                      }
-                                      if (customers[0]["email"].isExists()) {
-                                          self.email.text = customers[0]["email"].string
-                                      }
-                                  }
-                              }
-                              else
-                              {
-                                // No customer found.
-                              }
+                              self.customers = JSON(data: retString!)
                           }
                       }
                   }
@@ -215,5 +167,17 @@ extension ViewController
       }
     }
     
+    func setTextFields(cust: CustomerAutoFill) {
+        self.fname.text = cust.fname
+        self.lname.text = cust.lname
+        self.address.text = cust.address
+        self.address2.text = cust.address2
+        self.city.text = cust.city
+        self.state.text = cust.state
+        self.zip.text = cust.zip
+        self.phone.text = cust.phone
+        self.email.text = cust.email
+    }
+   
 }
 

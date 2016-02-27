@@ -984,7 +984,7 @@
         <!--newOrder-->
         <scene sceneID="oSN-g4-khG">
             <objects>
-                <viewController title="newOrder" id="Sfg-OH-txt" customClass="ViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewOrderPage" title="newOrder" id="Sfg-OH-txt" customClass="ViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sz6-rN-D3h"/>
                         <viewControllerLayoutGuide type="bottom" id="zpl-jU-s03"/>
@@ -1256,6 +1256,22 @@
                                     <action selector="backToMainPageBtn:" destination="Sfg-OH-txt" eventType="touchUpInside" id="kAf-wm-Lof"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wy-q3-lUd">
+                                <rect key="frame" x="20" y="367" width="350" height="95"/>
+                                <color key="backgroundColor" red="0.11601205376307155" green="0.31030345190826025" blue="0.72109374999999998" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="3Fn-Np-I4d"/>
+                                    <constraint firstAttribute="width" constant="350" id="MX7-T3-ura"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <state key="normal" title="Search Customer"/>
+                                <connections>
+                                    <action selector="RetrieveCustomerInfo:" destination="Sfg-OH-txt" eventType="touchDown" id="VLp-vg-7Rg"/>
+                                    <segue destination="DsO-Ab-6pZ" kind="popoverPresentation" identifier="autoFill" popoverAnchorView="0wy-q3-lUd" id="a1e-5J-MCE">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1333,6 +1349,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0X-Jg-oVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1730" y="305"/>
+        </scene>
+        <!--Auto Fill Table View Controller-->
+        <scene sceneID="MIG-SU-zRj">
+            <objects>
+                <tableViewController id="DsO-Ab-6pZ" customClass="AutoFillTableViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="rbx-2i-k3n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustSearchTableViewCell" rowHeight="60" id="bRQ-6M-BRL" customClass="CustSearchTableViewCell" customModule="FormCycle" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bRQ-6M-BRL" id="Hfz-mA-uCg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99A-Ub-Va7">
+                                            <rect key="frame" x="8" y="8" width="173" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5e-Ub-EgH">
+                                            <rect key="frame" x="8" y="30" width="173" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9j-lN-zeJ">
+                                            <rect key="frame" x="243" y="8" width="196" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="address" destination="S9j-lN-zeJ" id="req-h1-J6k"/>
+                                    <outlet property="fullName" destination="99A-Ub-Va7" id="WAP-v5-QNw"/>
+                                    <outlet property="phoneNum" destination="n5e-Ub-EgH" id="17o-yo-6xe"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DsO-Ab-6pZ" id="3oM-OV-vDG"/>
+                            <outlet property="delegate" destination="DsO-Ab-6pZ" id="izz-ZX-c5C"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ccz-TH-LdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2327" y="1452"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fWQ-rk-GXH">

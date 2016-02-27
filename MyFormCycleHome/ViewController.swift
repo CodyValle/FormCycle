@@ -12,7 +12,7 @@ import SwiftHTTP
 import SwiftyJSON
 import MessageUI
 
-class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, MFMailComposeViewControllerDelegate
+class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, MFMailComposeViewControllerDelegate, AutoFillTableViewControllerDelegate
 {
     /* List all Text Fields imported from Sign In Page */
     @IBOutlet weak var USRTextField: UITextField!
@@ -260,6 +260,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 			invTuneType.text = newOrderTextFieldStruct.tunePicker
 		}
 	}
+    
+    
 	
 /*+--------------------------------- textField() ---------------------------------------+
   | textField() is a function that checks the constraints on the current text. First it |
@@ -480,6 +482,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		newOrderTextFieldStruct.bikeInfoPage = false /* sets current page to nothing */
 		newOrderTextFieldStruct.invoicePage = false /* sets current page to nothing */
         newOrderTextFieldStruct.loginPage = false
+        
 		/* checks if the user pressed the "new order" button, if so then move to
 		 * new order: customer information page.
 		 */
@@ -494,6 +497,38 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		else if segue.identifier == "backToLoginPage"
         {
             newOrderTextFieldStruct.loginPage = true
+        }
+        else if segue.identifier == "autoFill"
+        {
+            print(customers.count)
+            newOrderTextFieldStruct.autoFillPopUp = true
+
+            if let destination = segue.destinationViewController as? AutoFillTableViewController
+            {
+                destination.preferredContentSize = CGSize(width: 450, height: 500)
+                if (customers.count > 0) // Fill the form
+                {
+                    for var i = 0; i < customers.count; i++
+                    {
+                        if customers[i]["address2"] == nil
+                        {
+                            customers[i]["address2"] = ""
+                        }
+                        if customers[i]["email"] == nil
+                        {
+                            customers[i]["email"] = ""
+                        }
+                        self.results.append(CustomerAutoFill(fname: customers[i]["fname"].string!, lname:customers[i]["lname"].string!, address : customers[i]["address"].string!, address2 : customers[i]["address2"].string!, city : customers[i]["city"].string!, state : customers[i]["state"].string!, phone : customers[i]["phone"].string!, zip : customers[i]["zip"].string!, email : customers[i]["email"].string!))
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        })
+                    }
+                }
+                destination.delegate = self
+                destination.resultSet = results
+                results.removeAll()
+
+            }
+
         }
 		/* checks if the user pressed the submit button on the bike info page */
 		else if segue.identifier == "moveToInvoice"

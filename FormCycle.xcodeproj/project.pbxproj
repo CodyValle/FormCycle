@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104AD841C7900000056B10F /* CustSearchTableViewCell.swift */; };
+		0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104AD901C79072D0056B10F /* AutoFillTableViewController.swift */; };
+		0104AD951C7910C30056B10F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0104AD931C7910C30056B10F /* Main.storyboard */; };
+		0104AD981C7BC7D70056B10F /* CustomerAutoFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104AD971C7BC7D70056B10F /* CustomerAutoFill.swift */; };
 		014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014283CE1C5D65940097C61F /* PickupTableViewCell.swift */; };
 		014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */; };
 		0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
@@ -19,7 +23,6 @@
 		14A0F8731BF2D5680077CFAD /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADDC031BEC5510005ECABA /* AppDelegate.swift */; };
 		14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADDC051BEC5510005ECABA /* ViewController.swift */; };
-		14ADDC091BEC5510005ECABA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC071BEC5510005ECABA /* Main.storyboard */; };
 		14ADDC0B1BEC5510005ECABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0A1BEC5510005ECABA /* Assets.xcassets */; };
 		14ADDC0E1BEC5510005ECABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */; };
 		14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */; };
@@ -145,6 +148,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0104AD841C7900000056B10F /* CustSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustSearchTableViewCell.swift; sourceTree = "<group>"; };
+		0104AD901C79072D0056B10F /* AutoFillTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoFillTableViewController.swift; sourceTree = "<group>"; };
+		0104AD941C7910C30056B10F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0104AD971C7BC7D70056B10F /* CustomerAutoFill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerAutoFill.swift; sourceTree = "<group>"; };
 		014283CE1C5D65940097C61F /* PickupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
 		014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingPickupTableViewController.swift; sourceTree = "<group>"; };
 		0147B5921C4EBF1900218606 /* WorkOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkOrder.swift; path = ../WorkOrder.swift; sourceTree = "<group>"; };
@@ -156,7 +163,6 @@
 		14ADDC001BEC5510005ECABA /* FormCycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormCycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14ADDC031BEC5510005ECABA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14ADDC051BEC5510005ECABA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		14ADDC081BEC5510005ECABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14ADDC0A1BEC5510005ECABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14ADDC0D1BEC5510005ECABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14ADDC0F1BEC5510005ECABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +200,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0104AD921C79073B0056B10F /* AutoFillTable */ = {
+			isa = PBXGroup;
+			children = (
+				0104AD841C7900000056B10F /* CustSearchTableViewCell.swift */,
+				0104AD901C79072D0056B10F /* AutoFillTableViewController.swift */,
+			);
+			name = AutoFillTable;
+			sourceTree = "<group>";
+		};
+		0104AD961C7BC7560056B10F /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				0147B5921C4EBF1900218606 /* WorkOrder.swift */,
+				0104AD971C7BC7D70056B10F /* CustomerAutoFill.swift */,
+			);
+			name = DataModels;
+			sourceTree = "<group>";
+		};
 		014283C21C5D5FCB0097C61F /* OpenOrdersTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,13 +271,14 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				0104AD921C79073B0056B10F /* AutoFillTable */,
 				014283C21C5D5FCB0097C61F /* OpenOrdersTable */,
 				014283CD1C5D63580097C61F /* WaitingPickupTable */,
 				9D9E96741C5170FE002AD84C /* Pages */,
+				0104AD961C7BC7560056B10F /* DataModels */,
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
+				0104AD931C7910C30056B10F /* Main.storyboard */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
-				0147B5921C4EBF1900218606 /* WorkOrder.swift */,
-				14ADDC071BEC5510005ECABA /* Main.storyboard */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,
 				14ADDC0F1BEC5510005ECABA /* Info.plist */,
@@ -478,7 +503,7 @@
 				14ADDC0E1BEC5510005ECABA /* LaunchScreen.storyboard in Resources */,
 				9DFBA13C1C5D75DD008D13CB /* Capstone in Resources */,
 				14ADDC0B1BEC5510005ECABA /* Assets.xcassets in Resources */,
-				14ADDC091BEC5510005ECABA /* Main.storyboard in Resources */,
+				0104AD951C7910C30056B10F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,12 +530,14 @@
 				9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */,
 				9D9E96731C517077002AD84C /* SignInPage.swift in Sources */,
 				9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */,
+				0104AD981C7BC7D70056B10F /* CustomerAutoFill.swift in Sources */,
 				01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */,
 				14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */,
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
 				9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */,
 				01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */,
+				0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */,
 				014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,10 +567,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		14ADDC071BEC5510005ECABA /* Main.storyboard */ = {
+		0104AD931C7910C30056B10F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				14ADDC081BEC5510005ECABA /* Base */,
+				0104AD941C7910C30056B10F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
