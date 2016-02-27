@@ -89,10 +89,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
+    print("\n\n\nPreparing for segue")
     if newOrderTextFieldStruct.mainPage {
       newOrderTextFieldStruct.loginPage = false
     }
-    else if newOrderTextFieldStruct.loginPage
+
+    if newOrderTextFieldStruct.loginPage
     {
       newOrderTextFieldStruct.mainPage = false
 
@@ -419,14 +421,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		else if segue.identifier == "moveToCustInfo" {
 			newOrderTextFieldStruct.neworderpage = true /* on new order page, set flag to true. */
 		}
-		else if segue.identifier == "backToLoginPage"
-    {
+		else if segue.identifier == "backToLoginPage" {
       newOrderTextFieldStruct.loginPage = true
     }
 		/* checks if the user pressed the submit button on the bike info page */
 		else if segue.identifier == "moveToInvoice"
 		{
 			newOrderTextFieldStruct.invoicePage = true
+      newOrderTextFieldStruct.bikeInfoPage = false
 
 			/* on invoice page, set flag to true. */
 			newOrderTextFieldStruct.myBrand = brand.text!
@@ -457,8 +459,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       ServerCom.send(MyParams, f: {(json:JSON) in
         return json["success"].bool!
       })
-
-      //while ServerCom.waiting() {}
 
       newOrderTextFieldStruct.custid = ""
 		}
