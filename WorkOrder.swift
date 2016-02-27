@@ -8,25 +8,22 @@
 
 import UIKit
 
-class WorkOrder {
+class WorkOrder
+{
+  //MARK: Properties
+  let tagNumber: String
+  let bikeType: String
+  let orderID: String
+  let tune: String
+  let lname: String
 
-    //MARK: Properties
-    
-    let tagNumber: String
-    let bikeType: String
-    let orderID: String
-    let tune: String
-    let lname: String
-    
-    
-    //MARK: Initialize properties
-    
-    init(tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
-    {
-        self.tagNumber = tagNumber
-        self.bikeType = bikeType + " " + model
-        self.tune = tune
-        self.orderID = orderID
-        self.lname = lname
-    }
+  //MARK: Initialize properties
+  init(tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
+  {
+    self.tagNumber = tagNumber
+    self.bikeType = bikeType + " " + model
+    self.tune = tune
+    self.orderID = orderID
+    self.lname = lname
+  }
 }

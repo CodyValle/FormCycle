@@ -2101,7 +2101,7 @@
                                 <animations/>
                                 <state key="normal" backgroundImage="tireEdit3"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5C-zv-8j4">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No notes." translatesAutoresizingMaskIntoConstraints="NO" id="w5C-zv-8j4">
                                 <rect key="frame" x="7" y="264" width="748" height="348"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.44741379310000001" colorSpace="calibratedRGB"/>
@@ -4342,7 +4342,7 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gya-s1-jvi"/>
+        <segue reference="seo-sA-4cV"/>
         <segue reference="2ks-vk-vqT"/>
     </inferredMetricsTieBreakers>
 </document>
