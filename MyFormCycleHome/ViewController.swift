@@ -60,6 +60,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     }
     
+    var customers = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+    var results = [CustomerAutoFill]()
+    
+
+    
+/*+------------------------------- viewDidLoad() --------------------------------------+
+	| viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
+  | display information on a current page. Because we have only implemented a single   |
+  | view controller for this app we have to set flags for each page. This will allows  |
+  | us to access the correct values from a current view.                               |
+  | MARK: viewDidLoad () Function																											 |
+  +------------------------------------------------------------------------------------+*/
+	/* viewDidLoad. This function allows the view to be flagged based on the current
+   * page that is loaded. 
+   */
     /* ViewDidAppear() is a function that is overwritten here. This allows us to display
     *   an alert view while still on the same view controller. This is also confronting
     *   a problem that occured when trying to load more items in a single view controller
@@ -617,7 +632,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     
         }
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
-		else if newOrderTextFieldStruct.neworderpage == true
+		if newOrderTextFieldStruct.neworderpage == true && !newOrderTextFieldStruct.autoFillPopUp
 		{
 			if fname.text?.utf16.count == 0 /* constraint for first name, if empty then prompt user. */
 			{

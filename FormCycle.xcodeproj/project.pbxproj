@@ -532,6 +532,7 @@
 				9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */,
 				0104AD981C7BC7D70056B10F /* CustomerAutoFill.swift in Sources */,
 				01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */,
+				0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */,
 				14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */,
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
