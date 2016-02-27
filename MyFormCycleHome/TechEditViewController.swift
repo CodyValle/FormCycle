@@ -214,11 +214,19 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
         
     }
     
+    
     override func viewWillAppear(animated: Bool) {
         self.notes.text = storedNote
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddlServices" {
     
+            segue.destinationViewController 
+            print(self)
+        
+        }
+    }
 
     
     

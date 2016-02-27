@@ -498,6 +498,7 @@
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
 				014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */,
+				8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */,
 				9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */,
 				9D9E96731C517077002AD84C /* SignInPage.swift in Sources */,
 				9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */,
