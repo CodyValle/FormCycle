@@ -9,18 +9,21 @@
 import UIKit
 import SwiftyJSON
 
+protocol AutoFillTableViewControllerDelegate {
+    func setTextFields(cust: CustomerAutoFill)
+}
+
 class AutoFillTableViewController: UITableViewController {
     
     var resultSet = [CustomerAutoFill]()
-
-    
+    var delegate : AutoFillTableViewControllerDelegate! = nil
+    var cust : CustomerAutoFill! = nil
   
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("In the table")
         print(resultSet.count)
 
         // Uncomment the following line to preserve selection between presentations
@@ -69,22 +72,14 @@ class AutoFillTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let custIndex = tableView.indexPathForSelectedRow?.row
-        {
-            /*viewController.fname.text = resultSet[custIndex].fname
-            newOrderPage.lname.text = resultSet[custIndex].lname
-            newOrderPage.address.text = resultSet[custIndex].address
-            newOrderPage.address2.text = resultSet[custIndex].address2
-            newOrderPage.city.text = resultSet[custIndex].city
-            newOrderPage.state.text = resultSet[custIndex].state
-            newOrderPage.zip.text = resultSet[custIndex].zip
-            newOrderPage.phone.text = resultSet[custIndex].phone
-            newOrderPage.email.text = resultSet[custIndex].email
-            print(resultSet[custIndex].fname)*/
+       {
+            delegate.setTextFields(resultSet[custIndex])
+    
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    /*
+        /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -137,15 +132,16 @@ class AutoFillTableViewController: UITableViewController {
             {
                 if let custIndex = tableView.indexPathForSelectedRow?.row
                 {
-                    destination.fname.text = resultSet[custIndex].fname
-                    destination.lname.text = resultSet[custIndex].lname
-                    destination.address.text = resultSet[custIndex].address
-                    destination.address2.text = resultSet[custIndex].address2
-                    destination.city.text = resultSet[custIndex].city
-                    destination.state.text = resultSet[custIndex].state
-                    destination.zip.text = resultSet[custIndex].zip
-                    destination.phone.text = resultSet[custIndex].phone
-                    destination.email.text = resultSet[custIndex].email
+                    destination.fnameV = resultSet[custIndex].fname
+                    destination.lnameV = resultSet[custIndex].lname
+                    destination.addressV = resultSet[custIndex].address
+                    destination.address2V = resultSet[custIndex].address2
+                    destination.cityV = resultSet[custIndex].city
+                    destination.stateV = resultSet[custIndex].state
+                    destination.zipV = resultSet[custIndex].zip
+                    destination.phoneV = resultSet[custIndex].phone
+                    destination.emailV = resultSet[custIndex].email
+
                 }
             }
         }

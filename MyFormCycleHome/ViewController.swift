@@ -12,7 +12,7 @@ import SwiftHTTP
 import SwiftyJSON
 import MessageUI 
 
-class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, MFMailComposeViewControllerDelegate
+class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, MFMailComposeViewControllerDelegate, AutoFillTableViewControllerDelegate
 {
     /* List all Text Fields imported from Sign In Page */
     @IBOutlet weak var USRTextField: UITextField!
@@ -62,6 +62,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     
     var customers = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
     var results = [CustomerAutoFill]()
+    
+    var fnameV = ""
+    var lnameV = ""
+    var addressV = ""
+    var address2V = ""
+    var cityV = ""
+    var stateV = ""
+    var zipV = ""
+    var phoneV = ""
+    var emailV = ""
+
     
 /*+------------------------------- viewDidLoad() --------------------------------------+
 	| viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
@@ -245,8 +256,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 	}
     
     
-    override func viewDidAppear(animated: Bool) {
-        
+    
+    override func viewWillAppear(animated: Bool) {
+       
     }
 	
 /*+--------------------------------- textField() ---------------------------------------+
@@ -509,6 +521,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                         })
                     }
                 }
+                destination.delegate = self
                 destination.resultSet = results
                 results.removeAll()
 

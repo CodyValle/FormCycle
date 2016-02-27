@@ -219,6 +219,18 @@ extension ViewController
           print("got an error creating the request: \(error)")
       }
     }
+    
+    func setTextFields(cust: CustomerAutoFill) {
+        self.fname.text = cust.fname
+        self.lname.text = cust.lname
+        self.address.text = cust.address
+        self.address2.text = cust.address2
+        self.city.text = cust.city
+        self.state.text = cust.state
+        self.zip.text = cust.zip
+        self.phone.text = cust.phone
+        self.email.text = cust.email
+    }
    
 }
 
