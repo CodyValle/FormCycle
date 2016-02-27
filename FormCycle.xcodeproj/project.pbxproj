@@ -24,6 +24,7 @@
 		14ADDC0E1BEC5510005ECABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */; };
 		14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */; };
 		14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6A151C79313D006605C7 /* AdminPage.swift */; };
+		8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */; };
 		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
 		9D05CF231C485D4800998F15 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; };
 		9D05CF241C485D4E00998F15 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -161,6 +162,7 @@
 		14ADDC0F1BEC5510005ECABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitingOrderViewController.swift; sourceTree = "<group>"; };
 		14FC6A151C79313D006605C7 /* AdminPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
+		8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesViewController.swift; sourceTree = "<group>"; };
 		8FAA46EA1BFE5ABD00E39874 /* FormCycle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormCycle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormCycleHomeTests.swift; sourceTree = "<group>"; };
 		8FAA46EE1BFE5ABD00E39874 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				01D6ECC11C66A28A00945391 /* TechEditViewController.swift */,
 				14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */,
 				14FC6A151C79313D006605C7 /* AdminPage.swift */,
+				8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
