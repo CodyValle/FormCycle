@@ -36,6 +36,7 @@
 		9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96701C516FF7002AD84C /* BikeInfo.swift */; };
 		9D9E96731C517077002AD84C /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96721C517077002AD84C /* SignInPage.swift */; };
 		9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E96751C517132002AD84C /* LoadInvoice.swift */; };
+		9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC52411C84F8D000DB2965 /* ServerCom.swift */; };
 		9DFBA13C1C5D75DD008D13CB /* Capstone in Resources */ = {isa = PBXBuildFile; fileRef = 9DFBA13B1C5D75DD008D13CB /* Capstone */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +180,7 @@
 		9D9E96701C516FF7002AD84C /* BikeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeInfo.swift; sourceTree = "<group>"; };
 		9D9E96721C517077002AD84C /* SignInPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
 		9D9E96751C517132002AD84C /* LoadInvoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadInvoice.swift; sourceTree = "<group>"; };
+		9DEC52411C84F8D000DB2965 /* ServerCom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerCom.swift; path = MyFormCycleHome/ServerCom.swift; sourceTree = "<group>"; };
 		9DFBA13B1C5D75DD008D13CB /* Capstone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Capstone; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +254,7 @@
 		14ADDBF71BEC5510005ECABA = {
 			isa = PBXGroup;
 			children = (
+				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				9D11CF251C827C8A000471D0 /* .gitignore */,
 				9DFBA13B1C5D75DD008D13CB /* Capstone */,
 				9D05CF081C485D4000998F15 /* SwiftyJSON.xcodeproj */,
@@ -525,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */,
 				0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */,
 				14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
