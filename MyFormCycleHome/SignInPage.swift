@@ -106,6 +106,7 @@ extension ViewController
     */
     @IBAction func MyButton(sender: AnyObject)
     {
+        
       var wait = true
       var next = false
 
@@ -142,6 +143,7 @@ extension ViewController
 
               if (json["success"])
               {
+                newOrderTextFieldStruct.welcomePopup = true
                 let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
                 let retJSON = JSON(data: retString!)
                   //if adminJSON.isExists()

@@ -53,6 +53,7 @@ extension ViewController
         static var addServicesPage = false
         static var autoFillPopUp = false
         static var mainPage = false
+        static var welcomePopup = true
     }
     
     /* Sends the user back to the Home Page if currently on the Customer Information page. */

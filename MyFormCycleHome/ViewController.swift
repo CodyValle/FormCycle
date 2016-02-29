@@ -80,13 +80,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     *   a problem that occured when trying to load more items in a single view controller
     */
     override func viewDidAppear(animated: Bool) {
-        if newOrderTextFieldStruct.mainPage == true
+        if newOrderTextFieldStruct.mainPage && newOrderTextFieldStruct.welcomePopup
         {
             let myrefreshAlert = UIAlertController(title: "Welcome!", message:newOrderTextFieldStruct.USRname, preferredStyle: UIAlertControllerStyle.Alert)
             
             myrefreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action: UIAlertAction!) in
             }))
             presentViewController   (myrefreshAlert, animated: false, completion: nil)
+            newOrderTextFieldStruct.welcomePopup = false
         }
     }
     
