@@ -180,7 +180,7 @@
 		9D9E96701C516FF7002AD84C /* BikeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeInfo.swift; sourceTree = "<group>"; };
 		9D9E96721C517077002AD84C /* SignInPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
 		9D9E96751C517132002AD84C /* LoadInvoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadInvoice.swift; sourceTree = "<group>"; };
-		9DEC52411C84F8D000DB2965 /* ServerCom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerCom.swift; path = MyFormCycleHome/ServerCom.swift; sourceTree = "<group>"; };
+		9DEC52411C84F8D000DB2965 /* ServerCom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCom.swift; sourceTree = "<group>"; };
 		9DFBA13B1C5D75DD008D13CB /* Capstone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Capstone; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,7 +254,6 @@
 		14ADDBF71BEC5510005ECABA = {
 			isa = PBXGroup;
 			children = (
-				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				9D11CF251C827C8A000471D0 /* .gitignore */,
 				9DFBA13B1C5D75DD008D13CB /* Capstone */,
 				9D05CF081C485D4000998F15 /* SwiftyJSON.xcodeproj */,
@@ -284,6 +283,7 @@
 				0104AD961C7BC7560056B10F /* DataModels */,
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
 				0104AD931C7910C30056B10F /* Main.storyboard */,
+				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,

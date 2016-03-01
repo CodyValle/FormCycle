@@ -8,24 +8,12 @@
 
 import UIKit
 
-class PickupTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var lname: UILabel!
-    @IBOutlet weak var tuneType: UILabel!
-    @IBOutlet weak var tagNum: UILabel!
-    @IBOutlet weak var bikeInfo: UILabel!
-    var workidWait = ""
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+class PickupTableViewCell: UITableViewCell
+{
+  @IBOutlet weak var lname: UILabel!
+  @IBOutlet weak var tuneType: UILabel!
+  @IBOutlet weak var tagNum: UILabel!
+  @IBOutlet weak var bikeInfo: UILabel!
+  var workidWait = ""
 
 }
