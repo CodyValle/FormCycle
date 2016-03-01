@@ -13,6 +13,7 @@ class ServerCom
 {
   static var succ = false
   static var done = false
+  static var theURL = "http://107.170.219.218/CapstoneTest/delegate.php"
 
   static func send(d:Dictionary<String,String>, f:(JSON->Bool))
   {
@@ -22,7 +23,7 @@ class ServerCom
     do
     {
       /* tries to submit to server */
-      let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php", parameters: d)
+      let opt = try HTTP.POST(self.theURL, parameters: d)
       opt.start
         {
           response in
@@ -57,7 +58,7 @@ class ServerCom
   {
     do
     {
-      let opt = try HTTP.POST("http://107.170.219.218/Capstone/delegate.php")
+      let opt = try HTTP.POST(self.theURL)
       opt.start
         {
           response in

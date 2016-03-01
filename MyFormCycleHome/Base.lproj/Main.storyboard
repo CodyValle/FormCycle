@@ -1239,7 +1239,6 @@
                                 </state>
                                 <connections>
                                     <action selector="ClearForm:" destination="Sfg-OH-txt" eventType="touchUpInside" id="uxC-J2-TRa"/>
-                                    <action selector="backToMainPageBtn:" destination="Sfg-OH-txt" eventType="touchUpInside" id="kAf-wm-Lof"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wy-q3-lUd">
@@ -1591,8 +1590,6 @@
                                 </state>
                                 <connections>
                                     <action selector="ClearBikeForm:" destination="WuO-xh-qv8" eventType="touchUpInside" id="znD-DB-c7p"/>
-                                    <action selector="ClearForm:" destination="Sfg-OH-txt" eventType="touchUpInside" id="KVu-Il-CvF"/>
-                                    <action selector="backToMainPageBtn:" destination="Sfg-OH-txt" eventType="touchUpInside" id="o2G-OV-AZX"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -540,7 +540,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       return false
     }
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
-		if newOrderTextFieldStruct.neworderpage == true && !newOrderTextFieldStruct.autoFillPopUp
+		if newOrderTextFieldStruct.neworderpage && !newOrderTextFieldStruct.autoFillPopUp
 		{
 			if fname.text?.utf16.count == 0 /* constraint for first name, if empty then prompt user. */
 			{
