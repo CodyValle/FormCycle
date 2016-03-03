@@ -51,36 +51,34 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
     MyParams["workid"] = workidWait
 
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      if (json["success"])
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+      if (succ)
       {
-        let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let order = JSON(data: retString!)
-        if (order.count > 0) // Fill the form
+        if (retjson.count > 0) // Fill the form
         {
           dispatch_async(dispatch_get_main_queue())
             {
-              self.name.text = order[0]["fname"].string! + " " + order[0]["lname"].string!
+              self.name.text = retjson[0]["fname"].string! + " " + retjson[0]["lname"].string!
 
-              if(order[0]["address2"] != nil)
+              if(retjson[0]["address2"] != nil)
               {
-                self.address1.text = order[0]["address"].string!
-                self.address2.text =  order[0]["address2"].string!
+                self.address1.text = retjson[0]["address"].string!
+                self.address2.text = retjson[0]["address2"].string!
               }
-              else if(order[0]["address2"] == nil)
+              else if(retjson[0]["address2"] == nil)
               {
                 self.address1.text = ""
-                self.address2.text = order[0]["address"].string!
+                self.address2.text = retjson[0]["address"].string!
               }
-              self.cityStateZip.text = order[0]["city"].string! + ", " + order[0]["state"].string! + ", " + order[0]["zip"].string!
-              self.makeModelColor.text = order[0]["brand"].string! + " " + order[0]["model"].string! + ", " + order[0]["color"].string!
-              self.tune.text = order[0]["tune"].string!
-              self.tagNum.text = order[0]["tagnum"].string!
-              self.phone.text = order[0]["phone"].string!
-              if(order[0]["email"] != nil)
+              self.cityStateZip.text = retjson[0]["city"].string! + ", " + retjson[0]["state"].string! + ", " + retjson[0]["zip"].string!
+              self.makeModelColor.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
+              self.tune.text = retjson[0]["tune"].string!
+              self.tagNum.text = retjson[0]["tagnum"].string!
+              self.phone.text = retjson[0]["phone"].string!
+              if(retjson[0]["email"] != nil)
               {
-                self.email.text = order[0]["email"].string!
-                self.emailUsr = order[0]["email"].string!
+                self.email.text = retjson[0]["email"].string!
+                self.emailUsr = retjson[0]["email"].string!
               }
               //self.userNotes.text = order[0]["notes"].string!
           }
@@ -159,8 +157,8 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     MyParams["workid"] = workidWait
     MyParams["open"] = "P"
 
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      return json["success"].bool!
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+      return succ
     })
   }
     

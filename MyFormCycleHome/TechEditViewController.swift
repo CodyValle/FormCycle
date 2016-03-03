@@ -35,9 +35,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     MyParams["open"] = "N"
     MyParams["notes"] = notes.text
 
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      return json["success"].bool!
-    })
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
   }
 
   @IBAction func BackToHomePage(sender: AnyObject)
@@ -47,9 +45,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     MyParams["workid"] = workid
     MyParams["notes"] = notes.text
 
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      return json["success"].bool!
-    })
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
   }
 
   @IBAction func closeOrder(sender: AnyObject)
@@ -77,26 +73,23 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
     MyParams["workid"] = workid
 
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      if (json["success"])
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+      if succ
       {
-        // Probably needs more error checks.
-        let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let order = JSON(data: retString!)
-        if (order.count > 0) // Fill the form
+        if (retjson.count > 0) // Fill the form
         {
-          self.userID.text = order[0]["userID"].string!
-          self.fullName.text = order[0]["fname"].string! + " " + order[0]["lname"].string!
-          self.address.text = order[0]["address"].string!
-          if(order[0]["address2"] != nil) {
-            self.address.text =  self.address.text! + " " + order[0]["address2"].string!
+          self.userID.text = retjson[0]["userID"].string!
+          self.fullName.text = retjson[0]["fname"].string! + " " + retjson[0]["lname"].string!
+          self.address.text = retjson[0]["address"].string!
+          if(retjson[0]["address2"] != nil) {
+            self.address.text =  self.address.text! + " " + retjson[0]["address2"].string!
           }
-          self.cityNState.text = order[0]["city"].string! + ", " + order[0]["state"].string! + ", " + order[0]["zip"].string!
-          self.bikeInfo.text = order[0]["brand"].string! + " " + order[0]["model"].string! + ", " + order[0]["color"].string!
-          self.tune.text = order[0]["tune"].string!
-          self.tagNum.text = order[0]["tagnum"].string!
-          if(order[0]["notes"] != nil) {
-            self.storedNote = order[0]["notes"].string!
+          self.cityNState.text = retjson[0]["city"].string! + ", " + retjson[0]["state"].string! + ", " + retjson[0]["zip"].string!
+          self.bikeInfo.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
+          self.tune.text = retjson[0]["tune"].string!
+          self.tagNum.text = retjson[0]["tagnum"].string!
+          if(retjson[0]["notes"] != nil) {
+            self.storedNote = retjson[0]["notes"].string!
           }
           //self.notes.text = "Hello"
         }

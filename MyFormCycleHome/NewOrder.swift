@@ -125,15 +125,11 @@ extension ViewController
     if (email.text != nil) {
         MyParams["email"] = email.text!
     }
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      if (json["success"])
-      {
-        // Probably needs more error checks.
-        let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        self.customers = JSON(data: retString!)
-        return true
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+      if succ {
+        self.customers = retjson
       }
-      return false
+      return succ
     })
   }
 

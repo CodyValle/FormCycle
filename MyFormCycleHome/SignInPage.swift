@@ -43,8 +43,8 @@ extension ViewController
       MyParams["pwd"] = PWDTextField.text!
     }
 
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      if (json["success"])
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+      if succ
       {
         NSOperationQueue.mainQueue().addOperationWithBlock
         {
@@ -88,14 +88,12 @@ extension ViewController
       MyParams["pwd"] = PWDTextField.text!
     }
 
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      if (json["success"])
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+      if succ
       {
         newOrderTextFieldStruct.welcomePopup = true
-        let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let retJSON = JSON(data: retString!)
 
-        if let adminRet = retJSON[0]["admin"].string {
+        if let adminRet = retjson[0]["admin"].string {
           newOrderTextFieldStruct.admin = adminRet == "Y"
         }
 

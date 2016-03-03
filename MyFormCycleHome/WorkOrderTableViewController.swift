@@ -29,18 +29,12 @@ class WorkOrderTableViewController: UITableViewController
     // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
     MyParams["open"] = "Y"
 
-    ServerCom.send(MyParams, f: {(json:JSON) in
-      if (json["success"])
-      {
-        let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let orders = JSON(data: retString!)
-        if (orders.count > 0) // Fill the form
-        {
-          for var i = 0; i < orders.count; i++
-          {
-            self.workOrders.append(WorkOrder(tagNumber: orders[i]["tagnum"].string!, orderID:orders[i]["workid"].string!, tune: orders[i]["tune"].string!, bikeType:orders[i]["brand"].string!, model:orders[i]["model"].string!, lname:orders[i]["lname"].string!))
-            dispatch_async(dispatch_get_main_queue())
-            {
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+      if (succ) {
+				if (retjson.count > 0) {
+          for var i = 0; i < retjson.count; i++ {
+            self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!, orderID:retjson[i]["workid"].string!, tune: retjson[i]["tune"].string!, bikeType:retjson[i]["brand"].string!, model:retjson[i]["model"].string!, lname:retjson[i]["lname"].string!))
+            dispatch_async(dispatch_get_main_queue()) {
               self.tableView.reloadData()
             }
           }

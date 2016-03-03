@@ -15,7 +15,7 @@ class ServerCom
   static var done = false
   static var theURL = "http://107.170.219.218/CapstoneTest/delegate.php"
 
-  static func send(d:Dictionary<String,String>, f:(JSON->Bool))
+  static func send(d:Dictionary<String,String>, f: ((succ: Bool, retjson: JSON) -> Bool))
   {
     self.succ = false
     self.done = false
@@ -41,7 +41,9 @@ class ServerCom
             if let datafromstring = response.text!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
             {
               let json = JSON(data: datafromstring)
-              self.succ = f(json)
+              let retString = json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+
+              self.succ = f(succ: json["success"].bool!, retjson: JSON(data: retString!))
               self.done = true
             } //if let datastring = ...
           } // if (response.text != null)
