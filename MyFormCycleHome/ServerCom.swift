@@ -20,7 +20,7 @@ class ServerCom
     self.succ = false
     self.done = false
 
-    do
+    do 
     {
       /* tries to submit to server */
       let opt = try HTTP.POST(self.theURL, parameters: d)
