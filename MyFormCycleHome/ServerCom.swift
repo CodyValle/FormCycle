@@ -13,7 +13,7 @@ class ServerCom
 {
   static var succ = false
   static var done = false
-  static var theURL = "http://107.170.219.218/CapstoneTest/delegate.php"
+  static var theURL = "http://107.170.219.218/Capstone/delegate.php"
 
   static func send(d:Dictionary<String,String>, f: ((succ: Bool, retjson: JSON) -> Bool))
   {
