@@ -50,6 +50,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   @IBOutlet weak var Name: UILabel!
   @IBOutlet weak var invTuneType: UILabel!
 
+    
+    @IBAction func moveToSearchPage(sender: AnyObject) {
+        
+        performSegueWithIdentifier("nextView", sender: self)
+        
+        defaults.setBool(false, forKey: "searchPressed")
+        print(defaults.boolForKey("searchPressed"))
+    }
+    
+    
   var customers = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
   var results = [CustomerAutoFill]()
 
