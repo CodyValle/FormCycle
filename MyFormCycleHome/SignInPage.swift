@@ -40,7 +40,7 @@ extension ViewController
       MyParams["logid"] = USRTextField.text!
     }
     if (PWDTextField.text != nil) {
-      MyParams["pwd"] = PWDTextField.text!
+      MyParams["pwd"] = Crypto.encrypt(PWDTextField.text!)
     }
 
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
@@ -77,6 +77,11 @@ extension ViewController
   */
   @IBAction func MyButton(sender: AnyObject)
   {
+
+		let enc = Crypto.encrypt("Valle")
+    print("enc: " + enc)
+    print("dec: " + Crypto.decrypt(enc))
+
     /* Submits the server request */
     var MyParams = ["action":"login"]
 
@@ -85,7 +90,7 @@ extension ViewController
       MyParams["logid"] = USRTextField.text!
     }
     if (PWDTextField.text != nil) {
-      MyParams["pwd"] = PWDTextField.text!
+      MyParams["pwd"] = Crypto.encrypt(PWDTextField.text!)
     }
 
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in

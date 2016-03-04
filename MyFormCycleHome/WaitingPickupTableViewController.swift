@@ -34,9 +34,14 @@ class WaitingPickupTableViewController: UITableViewController
         if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++
           {
-            self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!, orderID: retjson[i]["workid"].string!, tune: retjson[i]["tune"].string!, bikeType: retjson[i]["brand"].string!, model: retjson[i]["model"].string!, lname: retjson[i]["lname"].string!))
-            dispatch_async(dispatch_get_main_queue())
-            {
+            self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!,
+                                             orderID:   retjson[i]["workid"].string!,
+                                             tune:      retjson[i]["tune"].string!,
+                                             bikeType:  retjson[i]["brand"].string!,
+                                             model:     retjson[i]["model"].string!,
+                                             lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
+
+            dispatch_async(dispatch_get_main_queue()){
               self.tableView.reloadData()
             }
           }

@@ -58,27 +58,28 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
         {
           dispatch_async(dispatch_get_main_queue())
             {
-              self.name.text = retjson[0]["fname"].string! + " " + retjson[0]["lname"].string!
+              self.name.text = Crypto.decrypt(retjson[0]["fname"].string!) + " " + Crypto.decrypt(retjson[0]["lname"].string!)
 
               if(retjson[0]["address2"] != nil)
               {
-                self.address1.text = retjson[0]["address"].string!
-                self.address2.text = retjson[0]["address2"].string!
+                self.address1.text = Crypto.decrypt(retjson[0]["address"].string!)
+                self.address2.text = Crypto.decrypt(retjson[0]["address2"].string!)
               }
               else if(retjson[0]["address2"] == nil)
               {
                 self.address1.text = ""
-                self.address2.text = retjson[0]["address"].string!
+                self.address2.text = Crypto.decrypt(retjson[0]["address"].string!)
               }
-              self.cityStateZip.text = retjson[0]["city"].string! + ", " + retjson[0]["state"].string! + ", " + retjson[0]["zip"].string!
+              self.cityStateZip.text = Crypto.decrypt(retjson[0]["city"].string!) + ", " + retjson[0]["state"].string! + ", " + Crypto.decrypt(retjson[0]["zip"].string!)
               self.makeModelColor.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
               self.tune.text = retjson[0]["tune"].string!
               self.tagNum.text = retjson[0]["tagnum"].string!
-              self.phone.text = retjson[0]["phone"].string!
+              self.phone.text = Crypto.decrypt(retjson[0]["phone"].string!)
               if(retjson[0]["email"] != nil)
               {
-                self.email.text = retjson[0]["email"].string!
-                self.emailUsr = retjson[0]["email"].string!
+                let email = Crypto.decrypt(retjson[0]["email"].string!)
+                self.email.text = email
+                self.emailUsr = email
               }
               //self.userNotes.text = order[0]["notes"].string!
           }
@@ -157,9 +158,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
     MyParams["workid"] = workidWait
     MyParams["open"] = "P"
 
-    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-      return succ
-    })
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
   }
     
   /* This function: pickedUp, will run when the user presses the "Picked Up" button on the Awaiting

@@ -79,12 +79,12 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
         if (retjson.count > 0) // Fill the form
         {
           self.userID.text = retjson[0]["userID"].string!
-          self.fullName.text = retjson[0]["fname"].string! + " " + retjson[0]["lname"].string!
-          self.address.text = retjson[0]["address"].string!
+          self.fullName.text = Crypto.decrypt(retjson[0]["fname"].string!) + " " + Crypto.decrypt(retjson[0]["lname"].string!)
+          self.address.text = Crypto.decrypt(retjson[0]["address"].string!)
           if(retjson[0]["address2"] != nil) {
-            self.address.text =  self.address.text! + " " + retjson[0]["address2"].string!
+            self.address.text =  self.address.text! + " " + Crypto.decrypt(retjson[0]["address2"].string!)
           }
-          self.cityNState.text = retjson[0]["city"].string! + ", " + retjson[0]["state"].string! + ", " + retjson[0]["zip"].string!
+          self.cityNState.text = Crypto.decrypt(retjson[0]["city"].string!) + ", " + retjson[0]["state"].string! + ", " + Crypto.decrypt(retjson[0]["zip"].string!)
           self.bikeInfo.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
           self.tune.text = retjson[0]["tune"].string!
           self.tagNum.text = retjson[0]["tagnum"].string!

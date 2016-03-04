@@ -451,7 +451,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             if customers[i]["email"] == nil {
               customers[i]["email"] = ""
             }
-            self.results.append(CustomerAutoFill(fname: customers[i]["fname"].string!, lname:customers[i]["lname"].string!, address : customers[i]["address"].string!, address2 : customers[i]["address2"].string!, city : customers[i]["city"].string!, state : customers[i]["state"].string!, phone : customers[i]["phone"].string!, zip : customers[i]["zip"].string!, email : customers[i]["email"].string!))
+            self.results.append(CustomerAutoFill(fname:    Crypto.decrypt(customers[i]["fname"].string!),
+                                                 lname:    Crypto.decrypt(customers[i]["lname"].string!),
+                                                 address:  Crypto.decrypt(customers[i]["address"].string!),
+              																	 address2: customers[i]["address2"].string == "" ? "" : Crypto.decrypt(customers[i]["address2"].string!),
+                                                 city:     Crypto.decrypt(customers[i]["city"].string!),
+              																	 state:    customers[i]["state"].string!,
+                                                 phone:    Crypto.decrypt(customers[i]["phone"].string!),
+                                                 zip:      Crypto.decrypt(customers[i]["zip"].string!),
+                                                 email:    customers[i]["email"].string == "" ? "" : Crypto.decrypt(customers[i]["email"].string!)))
             /* Is this line needed? */ dispatch_async(dispatch_get_main_queue(), { () -> Void in })
           }
         }
@@ -473,15 +481,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             
 			/* Submits the server request */
       var MyParams = ["action": "workOrder"]
-      MyParams["fname"] = newOrderTextFieldStruct.firstName
-      MyParams["lname"] = newOrderTextFieldStruct.lastName
-      MyParams["address"] = newOrderTextFieldStruct.myAddress
-      MyParams["address2"] = newOrderTextFieldStruct.myAddress2
-      MyParams["city"] = newOrderTextFieldStruct.myCity
+      MyParams["fname"] = Crypto.encrypt(newOrderTextFieldStruct.firstName)
+      MyParams["lname"] = Crypto.encrypt(newOrderTextFieldStruct.lastName)
+      MyParams["address"] = Crypto.encrypt(newOrderTextFieldStruct.myAddress)
+      MyParams["address2"] = Crypto.encrypt(newOrderTextFieldStruct.myAddress2)
+      MyParams["city"] = Crypto.encrypt(newOrderTextFieldStruct.myCity)
       MyParams["state"] = newOrderTextFieldStruct.myState
-      MyParams["zip"] = newOrderTextFieldStruct.myZip
-      MyParams["phone"] = newOrderTextFieldStruct.myPhone
-      MyParams["email"] = newOrderTextFieldStruct.myEmail
+      MyParams["zip"] = Crypto.encrypt(newOrderTextFieldStruct.myZip)
+      MyParams["phone"] = Crypto.encrypt(newOrderTextFieldStruct.myPhone)
+      MyParams["email"] = Crypto.encrypt(newOrderTextFieldStruct.myEmail)
       MyParams["brand"] = newOrderTextFieldStruct.myBrand
       MyParams["model"] = newOrderTextFieldStruct.myModel
       MyParams["color"] = newOrderTextFieldStruct.myColor
@@ -490,9 +498,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       MyParams["tune"] = newOrderTextFieldStruct.tunePicker
       MyParams["userID"] = newOrderTextFieldStruct.USRname
 
-      ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-        return succ
-      })
+      ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
 
       newOrderTextFieldStruct.custid = ""
 		}
@@ -697,7 +703,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
           MyParams["logid"] = self.tField.text
       }
       if (self.pField.text != nil) {
-          MyParams["pwd"] = self.pField.text
+        MyParams["pwd"] = Crypto.encrypt(self.pField.text!)
       }
 
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
