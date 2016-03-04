@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         performSegueWithIdentifier("nextView", sender: self)
         
         defaults.setBool(false, forKey: "searchPressed")
-        print(defaults.boolForKey("searchPressed"))
+        
     }
     
     
