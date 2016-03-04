@@ -26,9 +26,9 @@
 		14ADDC0B1BEC5510005ECABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0A1BEC5510005ECABA /* Assets.xcassets */; };
 		14ADDC0E1BEC5510005ECABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */; };
 		14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */; };
-		14DE9B0F1C88FA010004ABC1 /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B0E1C88FA010004ABC1 /* Candy.swift */; };
-		14DE9B1F1C88FA190004ABC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B1D1C88FA190004ABC1 /* DetailViewController.swift */; };
-		14DE9B201C88FA190004ABC1 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B1E1C88FA190004ABC1 /* SearchPageViewController.swift */; };
+		14DE9B361C8908C10004ABC1 /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B351C8908C10004ABC1 /* Candy.swift */; };
+		14DE9B381C8909000004ABC1 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */; };
+		14DE9B3A1C8909200004ABC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B391C8909200004ABC1 /* DetailViewController.swift */; };
 		14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6A151C79313D006605C7 /* AdminPage.swift */; };
 		8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */; };
 		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
@@ -225,9 +225,9 @@
 		14ADDC0D1BEC5510005ECABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14ADDC0F1BEC5510005ECABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitingOrderViewController.swift; sourceTree = "<group>"; };
-		14DE9B0E1C88FA010004ABC1 /* Candy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Candy.swift; path = ../../Candy.swift; sourceTree = "<group>"; };
-		14DE9B1D1C88FA190004ABC1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../../DetailViewController.swift; sourceTree = "<group>"; };
-		14DE9B1E1C88FA190004ABC1 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPageViewController.swift; path = ../../SearchPageViewController.swift; sourceTree = "<group>"; };
+		14DE9B351C8908C10004ABC1 /* Candy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candy.swift; sourceTree = "<group>"; };
+		14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
+		14DE9B391C8909200004ABC1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14FC6A151C79313D006605C7 /* AdminPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
 		8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesViewController.swift; sourceTree = "<group>"; };
 		8FAA46EA1BFE5ABD00E39874 /* FormCycle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormCycle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,8 +352,8 @@
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,
 				14ADDC0F1BEC5510005ECABA /* Info.plist */,
-				14DE9B0E1C88FA010004ABC1 /* Candy.swift */,
 				141B96111C014F7300D2AFA4 /* stringUtils.swift */,
+				14DE9B351C8908C10004ABC1 /* Candy.swift */,
 			);
 			path = MyFormCycleHome;
 			sourceTree = "<group>";
@@ -404,8 +404,8 @@
 				14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */,
 				14FC6A151C79313D006605C7 /* AdminPage.swift */,
 				8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */,
-				14DE9B1E1C88FA190004ABC1 /* SearchPageViewController.swift */,
-				14DE9B1D1C88FA190004ABC1 /* DetailViewController.swift */,
+				14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */,
+				14DE9B391C8909200004ABC1 /* DetailViewController.swift */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -650,8 +650,7 @@
 			files = (
 				9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */,
 				0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */,
-				14DE9B1F1C88FA190004ABC1 /* DetailViewController.swift in Sources */,
-				14DE9B201C88FA190004ABC1 /* SearchPageViewController.swift in Sources */,
+				14DE9B3A1C8909200004ABC1 /* DetailViewController.swift in Sources */,
 				14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
@@ -659,13 +658,14 @@
 				8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */,
 				9D222ECC1C88C9D300EBB5EE /* Crypto.swift in Sources */,
 				9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */,
+				14DE9B381C8909000004ABC1 /* SearchPageViewController.swift in Sources */,
+				14DE9B361C8908C10004ABC1 /* Candy.swift in Sources */,
 				9D9E96731C517077002AD84C /* SignInPage.swift in Sources */,
 				9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */,
 				0104AD981C7BC7D70056B10F /* CustomerAutoFill.swift in Sources */,
 				01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */,
 				0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */,
 				14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */,
-				14DE9B0F1C88FA010004ABC1 /* Candy.swift in Sources */,
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
 				9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */,
