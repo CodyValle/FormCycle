@@ -53,7 +53,6 @@ class SearchPageViewController: UITableViewController  {
     }
     
     override func viewWillAppear(animated: Bool) {
-        //clearsSelectionOnViewWillAppear = splitViewController!.collapsed
         super.viewWillAppear(animated)
     }
     

@@ -779,6 +779,7 @@
         <!--Navigation Controller-->
         <scene sceneID="XfY-bG-9YY">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Das-z6-NPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="8xw-u6-HVi" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uX0-4f-tVH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -788,9 +789,8 @@
                         <segue destination="ndQ-BN-EZY" kind="relationship" relationship="rootViewController" id="VbM-rP-ip1"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Das-z6-NPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172" y="2012"/>
+            <point key="canvasLocation" x="-60" y="2464"/>
         </scene>
         <!--Search Records-->
         <scene sceneID="hqc-zW-UmX">
@@ -845,7 +845,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBs-Ad-ilh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1518" y="1220"/>
+            <point key="canvasLocation" x="1378" y="1220"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KMC-Gt-Dgw">
@@ -861,11 +861,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a66-L9-pYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="991"/>
+            <point key="canvasLocation" x="542" y="1483"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="IaP-uy-CZn">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f4Z-NI-lE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ndQ-BN-EZY" customClass="DetailViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9xW-Ir-EHj"/>
@@ -878,9 +879,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="B1P-hK-DkQ"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f4Z-NI-lE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="2012"/>
+            <point key="canvasLocation" x="1176" y="2464"/>
         </scene>
         <!--newOrder-->
         <scene sceneID="oSN-g4-khG">
@@ -1268,7 +1268,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ccz-TH-LdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2327" y="1452"/>
+            <point key="canvasLocation" x="2311" y="1220"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fWQ-rk-GXH">
@@ -4225,9 +4225,9 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uGt-B7-ACX"/>
         <segue reference="dWG-Xp-aU6"/>
         <segue reference="lwk-5N-r6W"/>
+        <segue reference="YKu-K1-H8q"/>
         <segue reference="PcX-bm-q5E"/>
     </inferredMetricsTieBreakers>
 </document>
