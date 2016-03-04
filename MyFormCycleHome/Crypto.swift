@@ -32,15 +32,15 @@ extension String {
 class Crypto
 {
   // Encryption stuffs /* THESE SHOULD NOT BE HARDOCDED LIKE THIS*/
-  static var key = "bbC2H19lkVbQDfakxcrtNMQdd0FloLyw" // length == 32
-  static var iv = "gqLOHUioQ0QjhuvI" // length == 16
+  private static var key = "bbC2H19lkVbQDfakxcrtNMQdd0FloLyw" // length == 32
+  private static var iv = "gqLOHUioQ0QjhuvI" // length == 16
 
-  static func encrypt(str: String) -> String
+  internal static func encrypt(str: String) -> String
   {
 		return try! str.aesEncrypt(self.key, iv: self.iv)
   }
 
-  static func decrypt(str: String) -> String
+  internal static func decrypt(str: String) -> String
   {
     return try! str.aesDecrypt(self.key, iv: self.iv)
   }
