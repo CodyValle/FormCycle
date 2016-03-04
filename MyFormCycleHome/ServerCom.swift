@@ -13,7 +13,7 @@ class ServerCom
 {
   private static var succ = false
   private static var done = false
-  private static var theURL = "http://107.170.219.218/Capstone/delegate.php"
+  private static var theURL = "http://107.170.219.218/CapstoneTest/delegate.php"
 
   private static var customAllowedSet =  NSCharacterSet(charactersInString:"+\"#%/<>?@\\^`{|}").invertedSet
 
@@ -27,6 +27,8 @@ class ServerCom
     for (key, value) in d {
       NewParams[key] = value.stringByAddingPercentEncodingWithAllowedCharacters(customAllowedSet)
     }
+
+    //NewParams["DEBUG"] = "true"
 
     do
     {
@@ -46,6 +48,7 @@ class ServerCom
         // No errors
         if (response.text != nil)
         {
+          //print (response.text!)
           if let datafromstring = response.text!.stringByRemovingPercentEncoding!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
           {
             let json = JSON(data: datafromstring)

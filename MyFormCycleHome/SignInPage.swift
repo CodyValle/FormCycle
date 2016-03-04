@@ -77,12 +77,7 @@ extension ViewController
   */
   @IBAction func MyButton(sender: AnyObject)
   {
-
-		let enc = Crypto.encrypt("Valle")
-    print("enc: " + enc)
-    print("dec: " + Crypto.decrypt(enc))
-
-    /* Submits the server request */
+		/* Submits the server request */
     var MyParams = ["action":"login"]
 
     // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
