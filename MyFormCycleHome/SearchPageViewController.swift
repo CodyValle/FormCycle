@@ -32,7 +32,7 @@ class SearchPageViewController: UITableViewController  {
         searchController.dimsBackgroundDuringPresentation = false
         
         // Setup the Scope Bar
-        searchController.searchBar.scopeButtonTitles = ["Name", "City", "State", "Brand"]
+        searchController.searchBar.scopeButtonTitles = ["Name"]//, "City", "State", "Brand"]
         tableView.tableHeaderView = searchController.searchBar
         
         candies = [
