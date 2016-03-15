@@ -16,14 +16,19 @@ class ServerCom
   private static var working = false
   private static var theURL = "http://107.170.219.218/CapstoneTest/delegate.php"
 
+  private static var debugJSON = "Empty"
+
   private static var customAllowedSet =  NSCharacterSet(charactersInString:"+\"#%/<>?@\\^`{|}").invertedSet
 
   internal static func send(d:Dictionary<String,String>, f: ((succ: Bool, retjson: JSON) -> Bool))
   {
-    while self.working {} // Wait for the previous request to be domplete.
+    if d["action"]! == "workSearch" {
+	    while self.working {} // Wait for the previous request to be domplete.
+    }
 
     self.succ = false
     self.done = false
+    self.debugJSON = "Empty"
 
     var NewParams = [String:String]()
 
@@ -57,6 +62,10 @@ class ServerCom
           {
             let json = JSON(data: datafromstring)
             let retString = json["return"].isExists() ? json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) : NSData()
+
+            if json["DEBUG"].isExists(){
+              debugJSON = json["DEBUG"].string!
+            }
 
             self.succ = f(succ: json["success"].bool!, retjson: JSON(data: retString!))
             self.done = true
@@ -101,7 +110,7 @@ class ServerCom
 
   internal static func getDebug() -> String
   {
-    return "Empty"
+    return self.debugJSON
   }
 
 internal static func waiting() -> Bool
