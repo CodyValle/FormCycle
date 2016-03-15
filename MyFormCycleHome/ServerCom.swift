@@ -13,12 +13,15 @@ class ServerCom
 {
   private static var succ = false
   private static var done = false
+  private static var working = false
   private static var theURL = "http://107.170.219.218/CapstoneTest/delegate.php"
 
   private static var customAllowedSet =  NSCharacterSet(charactersInString:"+\"#%/<>?@\\^`{|}").invertedSet
 
   internal static func send(d:Dictionary<String,String>, f: ((succ: Bool, retjson: JSON) -> Bool))
   {
+    while self.working {} // Wait for the previous request to be domplete.
+
     self.succ = false
     self.done = false
 
@@ -30,6 +33,7 @@ class ServerCom
 
     //NewParams["DEBUG"] = "true"
 
+    self.working = true
     do
     {
       /* tries to submit to server */
@@ -56,6 +60,7 @@ class ServerCom
 
             self.succ = f(succ: json["success"].bool!, retjson: JSON(data: retString!))
             self.done = true
+            self.working = false
           } //if let datastring = ...
           else {
             print("ERROR: The server returned completely unrecognized stuff.")
