@@ -25,27 +25,27 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-    @IBOutlet weak var candyImageView: UIImageView!
+    @IBOutlet weak var recordImageView: UIImageView!
     
-    var detailCandy: Candy? {
+    var detailRecord: Record? {
         didSet {
-            configureView()
+            //configureView()
         }
     }
     
-    func configureView() {
-        if let detailCandy = detailCandy {
-            if let detailDescriptionLabel = detailDescriptionLabel, candyImageView = candyImageView {
-                detailDescriptionLabel.text = detailCandy.name
-                candyImageView.image = UIImage(named: detailCandy.name)
-                title = detailCandy.category
-            }
-        }
-    }
+//    func configureView() {
+//        if let detailRecord = detailRecord {
+//            if let detailDescriptionLabel = detailDescriptionLabel, recordImageView = recordImageView {
+//                detailDescriptionLabel.text = detailRecord.name
+//                recordImageView.image = UIImage(named: detailRecord.name)
+//                title = detailRecord.category
+//            }
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        //configureView()
     }
     
     override func didReceiveMemoryWarning() {
