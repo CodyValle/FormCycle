@@ -18,8 +18,6 @@ class SearchPageViewController: UITableViewController  {
     @IBOutlet weak var subtitle: UILabel!
     @IBOutlet weak var address: UILabel!
     // MARK: - Properties
-    var detailViewController: DetailViewController? = nil
-    //var records = [WorkOrder]()
     var records = [Record]()
     var filteredRecords = [Record]()
     let searchController = UISearchController(searchResultsController: nil)
@@ -74,22 +72,8 @@ class SearchPageViewController: UITableViewController  {
             }
             return false
         })
-
-//        records = [
-//            Record(category:"Name", name:"John Ragan", address:"1234 N Howard St."),
-//            Record(category:"Name", name:"Cody Valle", address:"512 N Main St."),
-//            Record(category:"Name", name:"Adam Cross", address:"10909 E. Farr Rd"),
-//            Record(category:"Name", name:"Jack Black", address:"777 N gold st."),
-//            Record(category:"Name", name:"Ryder Cliff", address:"12 W Euclid"),
-//            Record(category:"Name", name:"Jo Topper", address:"634 S Division St"),
-//            Record(category:"Name", name:"Jamie Long", address:"8 W Wall"),
-//            Record(category:"Name", name:"Javier Lewis", address:"45 N Long rd"),
-//            Record(category:"Name", name:"Kelly Rippa", address:"1212 E Jack Rd")]
         
-        if let splitViewController = splitViewController {
-            let controllers = splitViewController.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
+       
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -146,21 +130,7 @@ class SearchPageViewController: UITableViewController  {
     
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let Result: Record
-                if searchController.active && searchController.searchBar.text != "" {
-                    Result = filteredRecords[indexPath.row]
-                } else {
-                    Result = records[indexPath.row]
-                }
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailRecord = Result
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-        else if segue.identifier == "EditSegue" {
+        if segue.identifier == "EditSegue" {
             if let destination = segue.destinationViewController as? SearchResultsViewController {
                 if let orderIndex = tableView.indexPathForSelectedRow?.row {
                     destination.workidPassed = records[orderIndex].orderID

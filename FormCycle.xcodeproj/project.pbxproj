@@ -30,7 +30,6 @@
 		14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */; };
 		14DE9B361C8908C10004ABC1 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B351C8908C10004ABC1 /* Record.swift */; };
 		14DE9B381C8909000004ABC1 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */; };
-		14DE9B3A1C8909200004ABC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B391C8909200004ABC1 /* DetailViewController.swift */; };
 		14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6A151C79313D006605C7 /* AdminPage.swift */; };
 		8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */; };
 		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
@@ -231,7 +230,6 @@
 		14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitingOrderViewController.swift; sourceTree = "<group>"; };
 		14DE9B351C8908C10004ABC1 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
-		14DE9B391C8909200004ABC1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14FC6A151C79313D006605C7 /* AdminPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
 		8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesViewController.swift; sourceTree = "<group>"; };
 		8FAA46EA1BFE5ABD00E39874 /* FormCycle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormCycle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +305,15 @@
 			name = WaitingPickupTable;
 			sourceTree = "<group>";
 		};
+		1492D88B1C9909F800CB05BB /* SearchPageAndTable */ = {
+			isa = PBXGroup;
+			children = (
+				14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */,
+				1492D8871C98F0E600CB05BB /* SearchPageTableViewCell.swift */,
+			);
+			name = SearchPageAndTable;
+			sourceTree = "<group>";
+		};
 		14A0F8611BF2D3E60077CFAD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +351,7 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				1492D88B1C9909F800CB05BB /* SearchPageAndTable */,
 				0104AD921C79073B0056B10F /* AutoFillTable */,
 				014283C21C5D5FCB0097C61F /* OpenOrdersTable */,
 				014283CD1C5D63580097C61F /* WaitingPickupTable */,
@@ -408,10 +416,7 @@
 				14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */,
 				14FC6A151C79313D006605C7 /* AdminPage.swift */,
 				8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */,
-				14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */,
-				1492D8871C98F0E600CB05BB /* SearchPageTableViewCell.swift */,
 				1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */,
-				14DE9B391C8909200004ABC1 /* DetailViewController.swift */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -656,7 +661,6 @@
 			files = (
 				9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */,
 				0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */,
-				14DE9B3A1C8909200004ABC1 /* DetailViewController.swift in Sources */,
 				1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */,
 				14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
