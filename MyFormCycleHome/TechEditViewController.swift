@@ -46,7 +46,6 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     MyParams["notes"] = notes.text
 
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
-    dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
   }
 
   @IBAction func closeOrder(sender: AnyObject)

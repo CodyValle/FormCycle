@@ -2420,6 +2420,7 @@
                                 </state>
                                 <connections>
                                     <action selector="BackToHomePage:" destination="d5K-jO-m63" eventType="touchUpInside" id="N9E-l1-7Q7"/>
+                                    <segue destination="Vah-XA-teY" kind="presentation" id="Fo2-1f-X94"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Order Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8T-Ys-SFa">
@@ -2491,7 +2492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDB-Vn-5w6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="-852"/>
+            <point key="canvasLocation" x="450" y="-949"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zaz-da-nFs">
@@ -4495,9 +4496,9 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dWG-Xp-aU6"/>
-        <segue reference="uGt-B7-ACX"/>
-        <segue reference="lwk-5N-r6W"/>
+        <segue reference="Fo2-1f-X94"/>
         <segue reference="w82-2O-uLI"/>
+        <segue reference="lwk-5N-r6W"/>
+        <segue reference="uGt-B7-ACX"/>
     </inferredMetricsTieBreakers>
 </document>
