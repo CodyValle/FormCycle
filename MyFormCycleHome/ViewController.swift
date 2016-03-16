@@ -59,6 +59,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         
     }
     
+    @IBAction func backToTechEditPage(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+    }
+    
     
   var customers = JSON(data:"".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
   var results = [CustomerAutoFill]()
@@ -108,7 +112,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     {
       newOrderTextFieldStruct.loginPage = false
     }
-
+        
+    else if newOrderTextFieldStruct.addServicesPage
+    {
+        newOrderTextFieldStruct.mainPage = false
+    }
     if newOrderTextFieldStruct.loginPage
     {
       newOrderTextFieldStruct.mainPage = false
@@ -431,7 +439,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* checks if the user pressed the "new order" button, if so then move to
 		 * new order: customer information page.
 		 */
-    if segue.identifier == "moveToAddServices"
+    if segue.identifier == "AddlServices"
     {
      newOrderTextFieldStruct.addServicesPage = true
     }
@@ -443,6 +451,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     {
         newOrderTextFieldStruct.loginPage = true
     }
+    
     else if segue.identifier == "autoFill"
     {
       print(customers.count)
