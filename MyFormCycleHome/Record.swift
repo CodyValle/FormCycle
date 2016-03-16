@@ -16,4 +16,5 @@ struct Record {
     let phone: String
     let bikeType: String
     let bikeModel: String
+    let orderID: String
 }

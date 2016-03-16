@@ -56,7 +56,8 @@ class SearchPageViewController: UITableViewController  {
                             address: Crypto.decrypt(retjson[i]["address"].string!),
                             phone: Crypto.decrypt(retjson[i]["phone"].string!),
                             bikeType: retjson[i]["brand"].string!,
-                            bikeModel: retjson[i]["model"].string!))
+                            bikeModel: retjson[i]["model"].string!,
+                            orderID:   retjson[i]["workid"].string!))
 //                            orderID:   retjson[i]["workid"].string!,
 //                            tune:      retjson[i]["tune"].string!,
 //                            bikeType:  retjson[i]["brand"].string!,
@@ -141,6 +142,8 @@ class SearchPageViewController: UITableViewController  {
         tableView.reloadData()
     }
     
+    
+    
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
@@ -155,6 +158,13 @@ class SearchPageViewController: UITableViewController  {
                 controller.detailRecord = Result
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+        else if segue.identifier == "EditSegue" {
+            if let destination = segue.destinationViewController as? SearchResultsViewController {
+                if let orderIndex = tableView.indexPathForSelectedRow?.row {
+                    destination.workidPassed = records[orderIndex].orderID
+                }
             }
         }
     }
@@ -175,6 +185,8 @@ extension SearchPageViewController: UISearchResultsUpdating {
         let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
+    
+    
     
     
     
