@@ -93,7 +93,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       newOrderTextFieldStruct.welcomePopup = false
     }
   }
-
+ 
     
   /*+------------------------------- viewDidLoad() --------------------------------------+
   | viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
