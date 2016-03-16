@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   @IBOutlet weak var USRTextField: UITextField!
   @IBOutlet weak var PWDTextField: UITextField!
   
+    
   /* List all Text Fields imported from New Order Page */
   @IBOutlet weak var fname: UITextField!
   @IBOutlet weak var lname: UITextField!
