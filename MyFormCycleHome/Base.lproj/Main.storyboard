@@ -249,7 +249,7 @@
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lB0-Vo-6WT">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <state key="normal" backgroundImage="tireEdit3"/>
+                                <state key="normal" backgroundImage="bg1bike_blue"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHO-5B-zY5">
                                 <rect key="frame" x="0.0" y="20" width="768" height="44"/>
@@ -320,7 +320,7 @@
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wc8-Rx-qwx">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" backgroundImage="tireEdit3">
+                                <state key="normal" backgroundImage="bg1bike_blue">
                                     <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -793,16 +793,23 @@
         <scene sceneID="hqc-zW-UmX">
             <objects>
                 <tableViewController id="J11-CE-RCE" customClass="SearchPageViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Ny-Qf-HgP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Ny-Qf-HgP">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.44668260119999997" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <button key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ozl-Km-B1L">
+                            <rect key="frame" x="0.0" y="136" width="768" height="889"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" backgroundImage="bg1bike_blue"/>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="9sM-EH-Ve2" customClass="SearchPageTableViewCell" customModule="FormCycle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9sM-EH-Ve2" id="O93-JS-50q">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p8-X6-jJ7">
@@ -824,19 +831,13 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMQ-bg-Fvn">
-                                            <rect key="frame" x="8" y="22" width="490" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a2-Fq-Q0X">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a2-Fq-Q0X">
                                             <rect key="frame" x="173" y="0.0" width="157" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bikeType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-5N-e0R">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="bikeType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-5N-e0R">
                                             <rect key="frame" x="338" y="8" width="108" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="108" id="v32-Ff-Aut"/>
@@ -845,11 +846,17 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJz-P3-cqN">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJz-P3-cqN">
                                             <rect key="frame" x="417" y="8" width="105" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="105" id="fVY-qx-hlO"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMQ-bg-Fvn">
+                                            <rect key="frame" x="8" y="22" width="490" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -877,6 +884,7 @@
                                         <constraint firstItem="8a2-Fq-Q0X" firstAttribute="firstBaseline" secondItem="uJz-P3-cqN" secondAttribute="firstBaseline" constant="-8" id="xor-j7-Gav"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="address" destination="iMQ-bg-Fvn" id="YtG-bA-GHM"/>
                                     <outlet property="bikeModel" destination="uJz-P3-cqN" id="VP8-sX-ruv"/>
@@ -901,10 +909,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBs-Ad-ilh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="1402"/>
+            <point key="canvasLocation" x="957" y="1402"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KMC-Gt-Dgw">
@@ -936,7 +945,7 @@
                         <subviews>
                             <button userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOd-sq-ey9">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <state key="normal" backgroundImage="tireEdit3"/>
+                                <state key="normal" backgroundImage="bg1bike_blue"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="City" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="nES-VS-pcS">
                                 <rect key="frame" x="20" y="251" width="289" height="50"/>
@@ -1099,6 +1108,13 @@
                                     <segue destination="WuO-xh-qv8" kind="presentation" identifier="loadCustomerInfo" id="Y17-eX-35d"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5Y-Aj-KRv">
+                                <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="lSp-bw-Ztb"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="transparent-dark-gray"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7c-lM-aBj">
                                 <rect key="frame" x="262" y="28" width="244" height="28"/>
                                 <constraints>
@@ -1172,13 +1188,6 @@
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
-                            </button>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5Y-Aj-KRv">
-                                <rect key="frame" x="0.0" y="20" width="768" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="lSp-bw-Ztb"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="transparent-dark-gray"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1271,7 +1280,7 @@
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E87-yh-9O1" userLabel="Back ground">
                                 <rect key="frame" x="0.0" y="-7" width="768" height="1031"/>
-                                <state key="normal" backgroundImage="tireEdit3"/>
+                                <state key="normal" backgroundImage="bg1bike_blue"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciW-dz-jRF">
                                 <rect key="frame" x="7" y="264" width="748" height="348"/>
@@ -1530,7 +1539,7 @@
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6Q-50-J6f">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <state key="normal" image="tireEdit3"/>
+                                <state key="normal" image="bg1bike_blue"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebe-cK-sGd">
                                 <rect key="frame" x="0.0" y="20" width="768" height="44"/>
@@ -2154,15 +2163,15 @@
             <objects>
                 <tableViewController id="5h6-Zb-xm7" customClass="WorkOrderTableViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="fIS-ed-gmj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="362" height="824"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.44668260118610903" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BikeOrderTableViewCell" rowHeight="60" id="ZHE-bq-4cl" customClass="BikeOrderTableViewCell" customModule="FormCycle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="28" width="362" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZHE-bq-4cl" id="poU-Sq-gav">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="362" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsZ-Be-VFh">
@@ -2226,7 +2235,7 @@
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WN9-9V-IL6" userLabel="Back ground">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1031"/>
-                                <state key="normal" backgroundImage="tireEdit3"/>
+                                <state key="normal" backgroundImage="bg1bike_blue"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5C-zv-8j4">
                                 <rect key="frame" x="7" y="264" width="748" height="348"/>
@@ -3677,15 +3686,15 @@
             <objects>
                 <tableViewController id="wMV-fT-EcY" customClass="WaitingPickupTableViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="mdN-KZ-hlC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="362" height="464"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.45010775862068964" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PickupTableViewCell" rowHeight="60" id="hlm-yc-qxe" customClass="PickupTableViewCell" customModule="FormCycle" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="28" width="362" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hlm-yc-qxe" id="YaJ-dX-aty">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="362" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ai-19-CTf">
@@ -3771,12 +3780,12 @@
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNq-wL-1D8">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <state key="normal" backgroundImage="tireEdit3"/>
+                                <state key="normal" backgroundImage="bg1bike_blue"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-Ri-70g">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-Ri-70g">
                                 <rect key="frame" x="120" y="91" width="718" height="914"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-p8-Nof">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-p8-Nof">
                                         <rect key="frame" x="0.0" y="0.0" width="718" height="914"/>
                                     </stackView>
                                 </subviews>
@@ -4387,7 +4396,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uA-QG-3hL">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <state key="normal" backgroundImage="tireEdit3"/>
+                                <state key="normal" backgroundImage="bg1bike_blue"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdk-79-n2s">
                                 <rect key="frame" x="20" y="17" width="94" height="36"/>
@@ -4463,6 +4472,7 @@
     </scenes>
     <resources>
         <image name="538474-user_512x512" width="512" height="512"/>
+        <image name="bg1bike_blue" width="1233" height="1714"/>
         <image name="btn" width="400" height="150"/>
         <image name="img1" width="87" height="86"/>
         <image name="lock-icon" width="128" height="128"/>
@@ -4471,8 +4481,8 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4iP-vV-Har"/>
-        <segue reference="Fo2-1f-X94"/>
+        <segue reference="dWG-Xp-aU6"/>
+        <segue reference="lwk-5N-r6W"/>
         <segue reference="w82-2O-uLI"/>
     </inferredMetricsTieBreakers>
 </document>
