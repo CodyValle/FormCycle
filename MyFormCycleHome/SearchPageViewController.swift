@@ -42,7 +42,8 @@ class SearchPageViewController: UITableViewController  {
         var MyParams = ["action":"workSearch"]
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
-        MyParams["open"] = "Y"
+        //MyParams["open"] = "Y"
+        MyParams["date"] = "2016-02-01"
         
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if (succ) {
