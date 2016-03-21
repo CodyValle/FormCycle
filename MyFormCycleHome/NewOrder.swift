@@ -51,7 +51,6 @@ extension ViewController
     static var invoicePage = false
     static var loginPage = true
     static var addServicesPage = false
-    static var autoFillPopUp = false
     static var mainPage = false
     static var welcomePopup = true
   }
@@ -94,7 +93,7 @@ extension ViewController
 
   @IBAction func RetrieveCustomerInfo(sender: AnyObject)
   {
-    newOrderTextFieldStruct.autoFillPopUp = true
+   
     /* Submits the server request */
     var MyParams = ["action":"custSearch"]
 
