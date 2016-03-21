@@ -14,7 +14,7 @@ class ServerCom
   private static var succ = false
   private static var done = false
   private static var working = false
-  private static var theURL = "http://107.170.219.218/CapstoneTest/delegate.php"
+  private static var theURL = "http://107.170.219.218/Capstone/delegate.php"
 
   private static var debugJSON = "Empty"
 
