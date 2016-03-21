@@ -51,7 +51,6 @@ extension ViewController
     static var invoicePage = false
     static var loginPage = true
     static var addServicesPage = false
-    static var autoFillPopUp = false
     static var mainPage = false
     static var welcomePopup = true
   }
@@ -94,43 +93,45 @@ extension ViewController
 
   @IBAction func RetrieveCustomerInfo(sender: AnyObject)
   {
-    newOrderTextFieldStruct.autoFillPopUp = true
+   
     /* Submits the server request */
     var MyParams = ["action":"custSearch"]
 
-    if (fname.text != nil) {
-        MyParams["fname"] = fname.text!
+    if (fname.text?.characters.count > 0) {
+        MyParams["fname"] = Crypto.encrypt(fname.text!)
     }
-    if (lname.text != nil) {
-        MyParams["lname"] = lname.text!
+    if (lname.text?.characters.count > 0) {
+        MyParams["lname"] = Crypto.encrypt(lname.text!)
     }
-    if (address.text != nil) {
-        MyParams["address"] = address.text!
+    if (address.text?.characters.count > 0) {
+        MyParams["address"] = Crypto.encrypt(address.text!)
     }
-    if (address2.text != nil) {
-        MyParams["address2"] = address2.text!
+    if (address2.text?.characters.count > 0) {
+        MyParams["address2"] = Crypto.encrypt(address2.text!)
     }
-    if (city.text != nil) {
-        MyParams["city"] = city.text!
+    if (city.text?.characters.count > 0) {
+        MyParams["city"] = Crypto.encrypt(city.text!)
     }
-    if (state.text != nil) {
+    if (state.text?.characters.count > 0) {
         MyParams["state"] = state.text!
     }
-    if (zip.text != nil) {
-        MyParams["zip"] = zip.text!
+    if (zip.text?.characters.count > 0) {
+        MyParams["zip"] = Crypto.encrypt(zip.text!)
     }
-    if (phone.text != nil) {
-        MyParams["phone"] = phone.text!
+    if (phone.text?.characters.count > 0) {
+        MyParams["phone"] = Crypto.encrypt(phone.text!)
     }
-    if (email.text != nil) {
-        MyParams["email"] = email.text!
+    if (email.text?.characters.count > 0) {
+        MyParams["email"] = Crypto.encrypt(email.text!)
     }
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
         self.customers = retjson
+        print(retjson)
       }
       return succ
     })
+    while ServerCom.waiting() {}
   }
 
   func setTextFields(cust: CustomerAutoFill)

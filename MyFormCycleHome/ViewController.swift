@@ -456,7 +456,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     else if segue.identifier == "autoFill"
     {
       print(customers.count)
-      newOrderTextFieldStruct.autoFillPopUp = true
 
       if let destination = segue.destinationViewController as? AutoFillTableViewController
       {
@@ -562,9 +561,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       return false
     }
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
-		if newOrderTextFieldStruct.neworderpage && !newOrderTextFieldStruct.autoFillPopUp
+		if identifier == "loadCustomerInfo"
 		{
-			if fname.text?.utf16.count == 0 /* constraint for first name, if empty then prompt user. */
+			if fname.text?.utf16.count == 0 || fname.text == ""/* constraint for first name, if empty then prompt user. */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter First Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
 				
