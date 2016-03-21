@@ -1,4 +1,4 @@
-//
+ //
 //  ServerCom.swift
 //  FormCycle
 //
@@ -14,11 +14,11 @@ class ServerCom
   private static var succ = false
   private static var done = false
   private static var working = false
-  private static var theURL = "http://107.170.219.218/CapstoneTest/delegate.php"
+  private static var theURL = "http://107.170.219.218/Capstone/delegate.php"
 
   private static var debugJSON = "Empty"
 
-  private static var customAllowedSet =  NSCharacterSet(charactersInString:"+\"#%/<>?@\\^`{|}").invertedSet
+  private static var customAllowedSet =  NSCharacterSet(charactersInString:"+\"%#/<>?@\\^`{|}").invertedSet
 
   internal static func send(d:Dictionary<String,String>, f: ((succ: Bool, retjson: JSON) -> Bool))
   {
@@ -36,7 +36,7 @@ class ServerCom
       NewParams[key] = value.stringByAddingPercentEncodingWithAllowedCharacters(customAllowedSet)
     }
 
-    //NewParams["DEBUG"] = "true"
+    NewParams["DEBUG"] = "true"
 
     self.working = true
     do
@@ -57,14 +57,15 @@ class ServerCom
         // No errors
         if (response.text != nil)
         {
-          //print (response.text!)
-          if let datafromstring = response.text!.stringByRemovingPercentEncoding!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+          print (response.text!)
+          if let datafromstring = response.text!.stringByRemovingPercentEncoding?.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
           {
             let json = JSON(data: datafromstring)
             let retString = json["return"].isExists() ? json["return"].string!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) : NSData()
 
             if json["DEBUG"].isExists(){
               debugJSON = json["DEBUG"].string!
+                print(debugJSON)
             }
 
             self.succ = f(succ: json["success"].bool!, retjson: JSON(data: retString!))

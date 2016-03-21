@@ -561,10 +561,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       return false
     }
 		/* Checks to make sure that all Customer Info is filled out before moving onto next page. */
-        print(identifier)
 		if identifier == "loadCustomerInfo"
 		{
-            print("I should be nah")
 			if fname.text?.utf16.count == 0 || fname.text == ""/* constraint for first name, if empty then prompt user. */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter First Name", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
