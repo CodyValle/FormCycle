@@ -30,8 +30,60 @@ extension ViewController
    }
   }
 
-    @IBAction func forgotPassword(sender: AnyObject) {
-        self.performSegueWithIdentifier("segueIdentifier", sender: self)
+    /* Admin login button to transition to forgot password recovery page */
+    @IBAction func forgotPassword(sender: AnyObject)
+    {
+        let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addTextFieldWithConfigurationHandler(passwordTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: handleCancel))
+        alert.addAction(UIAlertAction(title: "Submit", style: UIAlertActionStyle.Default, handler:{(UIAlertAction) in
+            /* Submits the server request */
+            var MyParams = ["action":"login"]
+            
+            // Append possible search data to the parameters.
+            if (self.tField.text != nil) {
+                MyParams["logid"] = self.tField.text
+            }
+            if (self.pField.text != nil) {
+                MyParams["pwd"] = Crypto.encrypt(self.pField.text!)
+            }
+            
+            ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+                if (succ)
+                {
+                    if let retjson = retjson[0]["admin"].string {
+                        newOrderTextFieldStruct.admin = retjson == "Y"
+                    }
+                    
+                    generateIncorrectLoginAttempts.loginAttempts = 0
+                    newOrderTextFieldStruct.USRname = self.tField.text!
+                    self.performSegueWithIdentifier("segueIdentifier", sender: self)
+                    
+                    return true
+                }
+                else
+                {
+                    generateIncorrectLoginAttempts.loginAttempts += 1
+                    if generateIncorrectLoginAttempts.loginAttempts < 5
+                    {
+                        NSOperationQueue.mainQueue().addOperationWithBlock
+                            {
+                                alert.title = "Incorrect Username or Password"
+                                alert.message = "Try Again"
+                                
+                                self.presentViewController(alert, animated: true, completion: { })
+                        }
+                    }
+                    return false
+                }
+            }) // ServerCom...
+            
+            while ServerCom.waiting() {}
+        })) // add Action..."Submit"...
+        
+        self.presentViewController(alert, animated: true, completion: { })
     }
 
   struct generateIncorrectLoginAttempts

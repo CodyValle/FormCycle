@@ -29,7 +29,7 @@ class RegisterUserViewController: UIViewController
         }
         
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if succ
+            if succ //if request to server was successful
             {
                 NSOperationQueue.mainQueue().addOperationWithBlock
                     {
@@ -39,7 +39,7 @@ class RegisterUserViewController: UIViewController
                 }
                 return true
             }
-            else
+            else //if request to server was unsuccessful
             {
                 NSOperationQueue.mainQueue().addOperationWithBlock
                     {
