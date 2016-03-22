@@ -19,7 +19,7 @@ class AccountRecoveryViewController: UIViewController
     @IBAction func sendRecoveryRequest(sender: AnyObject) {
     
         /* Submits the server request */
-        var MyParams = ["action":"register"]
+        var MyParams = ["action":"updateLogin"]
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         if (userName.text != nil) {
@@ -30,27 +30,20 @@ class AccountRecoveryViewController: UIViewController
         }
         
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if succ
-            {
+            
                 NSOperationQueue.mainQueue().addOperationWithBlock
                     {
-                        let refreshAlert = UIAlertController(title: "Success", message: "Registered New User", preferredStyle: UIAlertControllerStyle.Alert)
-                        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in }))
+                        let refreshAlert = UIAlertController(title: "Success", message: "Changed Password for User", preferredStyle: UIAlertControllerStyle.Alert)
+                        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                        
+                        self.performSegueWithIdentifier("segueToLoginPage", sender: self)
+                        }))
                         self.presentViewController(refreshAlert, animated: true, completion: nil)
+                        
                 }
                 return true
-            }
-            else
-            {
-                NSOperationQueue.mainQueue().addOperationWithBlock
-                    {
-                        let refreshAlert = UIAlertController(title: "Conflicts, Consult your Admin", message: "Cannot reset password", preferredStyle: UIAlertControllerStyle.Alert)
-                        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in }))
-                        self.presentViewController(refreshAlert, animated: true, completion: nil)
-                }
-                
-            }
-            return true
+            
+        
         })
         
     }

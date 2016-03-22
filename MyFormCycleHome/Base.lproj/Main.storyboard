@@ -2430,6 +2430,7 @@
                                 </state>
                                 <connections>
                                     <action selector="sendRecoveryRequest:" destination="KtB-Nt-YAd" eventType="touchDown" id="8Ag-W5-kex"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueToLoginPage" id="DFP-fU-CwK"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="New Password" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="TtJ-CQ-5Cg">
@@ -4145,10 +4146,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <state key="normal" backgroundImage="bg1bike_blue"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-Ri-70g">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-Ri-70g">
                                 <rect key="frame" x="120" y="91" width="718" height="914"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-p8-Nof">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-p8-Nof">
                                         <rect key="frame" x="0.0" y="0.0" width="718" height="914"/>
                                     </stackView>
                                 </subviews>
@@ -4845,9 +4846,9 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f00-un-rDd"/>
         <segue reference="6Z3-Za-71m"/>
+        <segue reference="VUy-vi-UU1"/>
         <segue reference="w82-2O-uLI"/>
-        <segue reference="7sQ-yY-zx5"/>
+        <segue reference="DFP-fU-CwK"/>
     </inferredMetricsTieBreakers>
 </document>
