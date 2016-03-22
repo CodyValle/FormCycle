@@ -44,7 +44,7 @@ class AccountRecoveryViewController: UIViewController
             {
                 NSOperationQueue.mainQueue().addOperationWithBlock
                     {
-                        let refreshAlert = UIAlertController(title: "Failed to Registered New User", message: "Username Taken", preferredStyle: UIAlertControllerStyle.Alert)
+                        let refreshAlert = UIAlertController(title: "Conflicts, Consult your Admin", message: "Cannot reset password", preferredStyle: UIAlertControllerStyle.Alert)
                         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in }))
                         self.presentViewController(refreshAlert, animated: true, completion: nil)
                 }
