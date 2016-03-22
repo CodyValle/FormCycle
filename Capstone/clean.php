@@ -31,8 +31,8 @@ address2       varchar(255),
 city           varchar(255)    NOT NULL, 
 state          char(2)         NOT NULL, 
 country        char(3)         NOT NULL DEFAULT 'USA', 
-zip            char(5)         NOT NULL, 
-phone          char(10)        NOT NULL, 
+zip            varchar(255)    NOT NULL, 
+phone          varchar(255)    NOT NULL, 
 email          varchar(255), 
 KEY (rowid), 
 PRIMARY KEY (custid) 
@@ -54,7 +54,7 @@ CREATE TABLE BikeNoteData (
 bikeid         binary(16)      NOT NULL, 
 notes          text, 
 KEY (bikeid) 
-); 
+);
  
 CREATE TABLE BikeIMGData ( 
 bikeid         binary(16)      NOT NULL, 
@@ -80,8 +80,7 @@ KEY (bikeid)
  
 CREATE TABLE WorkOrderNotes ( 
 workid         binary(16)      NOT NULL, 
-pre            text            DEFAULT '', 
-post           text            DEFAULT '', 
+notes          text            DEFAULT '',  
 KEY (workid) 
 ); 
 
@@ -105,7 +104,7 @@ PRIMARY KEY (tune)
 CREATE TABLE LogInData ( 
 rowid          int           NOT NULL AUTO_INCREMENT, 
 username       varchar(6)    UNIQUE NOT NULL, 
-pin            varchar(6)    NOT NULL, 
+pin            varchar(255)  NOT NULL, 
 admin          enum('Y','N') NOT NULL DEFAULT 'N', 
 KEY (rowid), 
 PRIMARY KEY (username) 
@@ -126,13 +125,13 @@ INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('8','Rear Suspension 
 INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('9','Dropper Post Service','85.00','2.00','Put that seat where you want it!');
 INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('10','Box a Bike','80','1.00','Get ready for the move');
 INSERT INTO TuneData (tune,name,cost,time,descrip) VALUES ('11','Boxed Bike Build','105.00','1.25','Done with the move');
-
-INSERT INTO LogInData (username, pin, admin) VALUES ('50972', '03118', 'Y');
+";
+/*INSERT INTO LogInData (username, pin, admin) VALUES ('50972', '03118', 'Y');
 INSERT INTO LogInData (username, pin, admin) VALUES ('11111', '42', 'N');
 INSERT INTO LogInData (username, pin, admin) VALUES ('161616', '616161', 'Y');
 INSERT INTO LogInData (username, pin, admin) VALUES ('3', '2', 'N');
-";	
-	
+";*/	
+/*	
 	$statement .="
 INSERT INTO CustData (custid, fname, lname, address, city, state, zip, phone, email)
 VALUES (UNHEX(REPLACE(UUID(),'-','')),'Jill','White','4321 S Main St.','Spokane','WA','54321','5091179888','whitej@gmail.com');
@@ -170,7 +169,7 @@ VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Adam','Cross','Gonzaga Campus Somewhere'
 INSERT INTO CustData (custid, fname, lname, address, city, state, zip, phone, email)
 VALUES (UNHEX(REPLACE(UUID(),'-','')), 'Merrill','Lines','Somewhere in Spokane','Spokane','WA','99215','5097892654','lines@zagmail');
 ";
-	
+	*/
 	// Send the queries and test for success
 	$result = $GLOBALS['con']->multi_query($statement);
 	if ($GLOBALS['DEBUG'])

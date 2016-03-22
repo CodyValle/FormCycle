@@ -163,6 +163,7 @@ class Customer
 	{
 		// Creates a new MYSQLSelectCommand to select data from the 'CustData' table.
 		$cmd = new MYSQLSelectCommand('CustData');
+		$cmd->addOrder('rowid DESC');
 		$cmd->addColumn("HEX(custid) as custid");
 		$cmd->addColumn('fname');
 		$cmd->addColumn('lname');
@@ -195,8 +196,10 @@ class Customer
 		if ($clean['email'] !== NULL)
 			$cmd->addParameter('email', $clean['email']);
 		
+		$GLOBALS['RETURN']->addData('custSearchSQL', $cmd->getSQL());
+		
 		// Sends the query and stores the result.
-		$results = $GLOBALS['con']->query($cmd->getSQL(' ORDER BY rowid DESC'));
+		$results = $GLOBALS['con']->query($cmd->getSQL());
 		if (!is_object($results))
 			return false;
 

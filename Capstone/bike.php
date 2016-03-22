@@ -60,8 +60,8 @@ class Bike
 	{
 		if ($this->bikeExists($clean))
 		{
-			// The bike exists, so insert notes data
-			return $this->insertBikeNotes($clean);
+			// The bike exists
+			return true;
 		}
 		
 		// Creates a new MYSQLInsertCommand to insert data into the 'BikeData' table.
@@ -82,44 +82,19 @@ class Bike
 			// If the insert was successful,
 			// create a new MYSQLSelectCommand to retrieve the bike's handle.
 			$sel = new MYSQLSelectCommand('BikeData');
-			$sel->addColumn("HEX(bikeid) AS bikeid");
+			$sel->addColumn('HEX(bikeid) AS bikeid');
 			$sel->addParameter('rowid', $GLOBALS['con']->insert_id);
 			
 			$guid = $GLOBALS['con']->query($sel->getSQL());
 			
 			$clean['bikeid'] = $guid->fetch_assoc()['bikeid'];
 			
-			// Insert notes data
-			return $this->insertBikeNotes($clean);
+			return true;
 		}
 
 		$GLOBALS['ERROR']->reportErrorCode("BIKIN");
 		$GLOBALS['ERROR']->reportError("BIKIN" . $clean['model'] . $clean['color'], $cmd->getSQL());
 		return false;
-	}
-	
-	/*
-	Function: insertBikeNotes
-	Param clean: The clean array with all of the variables to be put into the database.
-	Descrip: Inserts notes about the bike into the database.
-	*/
-	function insertBikeNotes(&$clean)
-	{
-		// Creates a new MYSQLInsertCommand to insert data into the 'BikeData' table.
-		$cmd = new MYSQLInsertCommand('BikeNoteData');
-		if ($clean['bikeid'] !== NULL)
-			$cmd->addParameter("bikeid", "UNHEX('" . $clean['bikeid'] . "')", false);
-		if ($clean['notes'] !== NULL)
-			$cmd->addParameter('notes', $clean['notes']);
-		
-		if (!$GLOBALS['con']->query($cmd->getSQL()))
-		{
-			$GLOBALS['ERROR']->reportErrorCode("BIKNOT");
-			$GLOBALS['ERROR']->reportError("BIKNOT" . $clean['model'] . $clean['color'], $cmd->getSQL());
-			return false;
-		}
-		
-		return true;
 	}
 	
 	function searchForBike(&$clean)
@@ -139,8 +114,10 @@ class Bike
 		if ($clean['color'] !== NULL)
 			$cmd->addParameter('color', $clean['color']);
 		
+		$cmd->addOrder('rowid DESC');
+		
 		// Sends the query and stores the result.
-		$results = $GLOBALS['con']->query($cmd->getSQL(' ORDER BY rowid DESC'));
+		$results = $GLOBALS['con']->query($cmd->getSQL());
 		if (!is_object($results))
 			return false;
 

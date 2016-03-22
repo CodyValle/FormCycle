@@ -13,10 +13,10 @@
 		$_SERVER['REQUEST_METHOD'] = "POST";
 	}
 
-  include_once 'regexes.php';
+	include_once 'regexes.php';
 	include_once 'DebugMessage.php';
 	include_once 'ReturnString.php';
-  
+
 	include_once 'debug.php';
 	include_once 'error.php';
 	include_once 'loginCapstone.php';
@@ -54,7 +54,7 @@
 			// Update a work order
 			include 'workOrder.php';
 			$wo = new WorkOrder;
-			$ret = $wo->updateOrder($clean['workid'], $clean['open']);
+			$ret = $wo->updateOrder($clean);
 			break;
 			
 		case "workSearch":
@@ -141,13 +141,16 @@
 	// Add run success value
 	$GLOBALS['RETURN']->addData('success', $ret);
 	
+	// Add Debug action value
+	$GLOBALS['RETURN']->addData('action', $_POST['action']);
+	
 	// Prepare return string
 	$toReturn = $GLOBALS['RETURN']->getReturn();
 	
 	// Write return string to log file
 	$date = new DateTime();
-	file_put_contents('/log/Capstone/' . $date->format('Y-m-d_H:i:s') . '.txt', $toReturn);
+	file_put_contents('/log/Capstone/' . $date->format('Y-m-d_H:i:s') . '.log', $toReturn);
 	
 	// Print return string and exit
-	print($GLOBALS['RETURN']->getReturn());
+	print($toReturn);
 ?>

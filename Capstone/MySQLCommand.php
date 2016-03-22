@@ -61,6 +61,7 @@ class MySQLSelectCommand
 	protected $columns;
 	protected $parameters;
 	protected $joins;
+	protected $order;
 	
 	function __construct($table)
 	{
@@ -83,14 +84,17 @@ class MySQLSelectCommand
 	
 	function addJoin($table, $on)
 	{
-		//if ($this->joins !== NULL)
-		//	$this->joins .= ", ";
 		$this->joins .= " JOIN " . $table . " ON " . $on;
 	}
 	
-	function getSQL($append = '')
+	function addOrder($ord)
+	{
+		$this->order = ' ORDER BY ' . $ord . ' ';
+	}
+	
+	function getSQL()
 	{		
-		return ("SELECT " . ($this->columns === NULL ? "*" : $this->columns) . " FROM " . $this->tb . ($this->joins === NULL ? "" : $this->joins) . ($this->parameters !== NULL ? " WHERE " : "") . $this->parameters . ' ' . $append . ($this->parameters === NULL ? ' LIMIT 10' : '') . ";");
+		return ("SELECT " . ($this->columns === NULL ? "*" : $this->columns) . " FROM " . $this->tb . ($this->joins === NULL ? "" : $this->joins) . ($this->parameters !== NULL ? " WHERE " : "") . $this->parameters . ($this->order === NULL ? '' : $this->order) . ($this->parameters === NULL ? ' LIMIT 10' : '') . ";");
 	}
 }
 
