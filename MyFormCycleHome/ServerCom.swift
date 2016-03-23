@@ -22,7 +22,7 @@ class ServerCom
   internal static func send(d:Dictionary<String,String>, f: ((succ: Bool, retjson: JSON) -> Bool))
   {
     if d["action"]! == "workSearch" {
-      while !self.done {} // Wait for the previous request to be domplete.
+      while !self.done {} // Wait for the previous request to be complete.
     }
 
     self.done = false

@@ -23,5 +23,10 @@ class ReturnString
 	{
 		return json_encode(self::$retData);
 	}
+	
+	function isDefined($arrayName)
+	{
+		return isset(self::$retData[$arrayname]);
+	}
 }
 ?>
