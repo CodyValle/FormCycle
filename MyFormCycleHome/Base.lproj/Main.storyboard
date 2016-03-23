@@ -1494,7 +1494,7 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciW-dz-jRF">
                                 <rect key="frame" x="7" y="264" width="748" height="348"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.44741379310000001" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="0.14956896551724139" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="348" id="d7n-A0-UHS"/>
                                 </constraints>
@@ -1581,7 +1581,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59819504310000005" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="0.1480603448275862" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="uu0-1c-cW9" firstAttribute="trailing" secondItem="luI-10-DXb" secondAttribute="trailing" id="2gB-Wk-NEu"/>
                                     <constraint firstItem="UGi-ag-yiq" firstAttribute="baseline" secondItem="LSN-qC-3yo" secondAttribute="firstBaseline" id="3Fb-pi-lK8"/>
@@ -4848,9 +4848,9 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Z3-Za-71m"/>
-        <segue reference="VUy-vi-UU1"/>
         <segue reference="w82-2O-uLI"/>
+        <segue reference="6Z3-Za-71m"/>
+        <segue reference="f00-un-rDd"/>
         <segue reference="DFP-fU-CwK"/>
     </inferredMetricsTieBreakers>
 </document>
