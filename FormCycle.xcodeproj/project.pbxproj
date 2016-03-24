@@ -17,7 +17,6 @@
 		0147B5941C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
 		01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */; };
 		01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D6ECC11C66A28A00945391 /* TechEditViewController.swift */; };
-		01D7887A1CA359AA00CEF255 /* SignatureCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D788791CA359AA00CEF255 /* SignatureCapture.swift */; };
 		01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */; };
 		141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B96111C014F7300D2AFA4 /* stringUtils.swift */; };
 		1430DF181C993DC900AF1CDC /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430DF171C993DC900AF1CDC /* RegisterUserViewController.swift */; };
@@ -219,7 +218,6 @@
 		0147B5921C4EBF1900218606 /* WorkOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkOrder.swift; path = ../WorkOrder.swift; sourceTree = "<group>"; };
 		01CB32841C483646009D3565 /* BikeOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeOrderTableViewCell.swift; sourceTree = "<group>"; };
 		01D6ECC11C66A28A00945391 /* TechEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechEditViewController.swift; sourceTree = "<group>"; };
-		01D788791CA359AA00CEF255 /* SignatureCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignatureCapture.swift; path = ../../SignatureCapture.swift; sourceTree = "<group>"; };
 		01F524081C540B7300AB3631 /* WorkOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOrderTableViewController.swift; sourceTree = "<group>"; };
 		141B96111C014F7300D2AFA4 /* stringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stringUtils.swift; sourceTree = "<group>"; };
 		1430DF171C993DC900AF1CDC /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
@@ -366,7 +364,6 @@
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
 				0104AD931C7910C30056B10F /* Main.storyboard */,
 				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
-				01D788791CA359AA00CEF255 /* SignatureCapture.swift */,
 				9D222ECB1C88C9D300EBB5EE /* Crypto.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
@@ -683,7 +680,6 @@
 				9D9E96731C517077002AD84C /* SignInPage.swift in Sources */,
 				9D9E96711C516FF7002AD84C /* BikeInfo.swift in Sources */,
 				0104AD981C7BC7D70056B10F /* CustomerAutoFill.swift in Sources */,
-				01D7887A1CA359AA00CEF255 /* SignatureCapture.swift in Sources */,
 				01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */,
 				0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */,
 				1430DF271C9943BA00AF1CDC /* AccountRecoveryViewController.swift in Sources */,
