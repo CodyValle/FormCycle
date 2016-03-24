@@ -345,7 +345,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7z-ve-vr4">
-                                <rect key="frame" x="194" y="432" width="287" height="75"/>
+                                <rect key="frame" x="193" y="565" width="287" height="75"/>
                                 <color key="backgroundColor" red="0.060968689620494843" green="0.84309357404708862" blue="0.20669656991958618" alpha="0.57280585110000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="287" id="fTR-mN-VXn"/>
@@ -359,17 +359,33 @@
                                     <action selector="registerUser:" destination="IKR-4Z-C3M" eventType="touchDown" id="Gx9-dS-1q7"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPb-YJ-HUs" customClass="YPDrawSignatureView" customModule="FormCycle" customModuleProvider="target">
+                                <rect key="frame" x="131" y="415" width="412" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-kv-YGV">
+                                <rect key="frame" x="610" y="464" width="96" height="30"/>
+                                <state key="normal" title="Clear" backgroundImage="transparent-dark-gray">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Clear:" destination="IKR-4Z-C3M" eventType="touchUpInside" id="sPi-fp-bSU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="P7z-ve-vr4" firstAttribute="top" secondItem="m4V-ry-SOT" secondAttribute="bottom" constant="37" id="0M0-qJ-kwa"/>
+                            <constraint firstItem="P7z-ve-vr4" firstAttribute="top" secondItem="m4V-ry-SOT" secondAttribute="bottom" constant="170" id="0M0-qJ-kwa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="L2S-Or-hjQ" secondAttribute="trailing" constant="42" id="1QS-k8-iuB"/>
                             <constraint firstItem="v2s-uA-Ape" firstAttribute="centerX" secondItem="hLm-f5-c9D" secondAttribute="centerX" id="4NT-rU-TCD"/>
                             <constraint firstItem="u6U-Fj-MXg" firstAttribute="leading" secondItem="L0Z-oC-jJc" secondAttribute="leading" constant="131" id="82P-TG-0nz"/>
                             <constraint firstItem="iC1-Wt-jUi" firstAttribute="leading" secondItem="L0Z-oC-jJc" secondAttribute="leading" id="8Ny-3z-Ped"/>
                             <constraint firstItem="v2s-uA-Ape" firstAttribute="top" secondItem="l9P-VZ-buA" secondAttribute="bottom" constant="9" id="8Tm-Vf-k33"/>
+                            <constraint firstItem="P7z-ve-vr4" firstAttribute="top" secondItem="xPb-YJ-HUs" secondAttribute="bottom" constant="22" id="A1i-F3-OU7"/>
                             <constraint firstItem="iC1-Wt-jUi" firstAttribute="leading" secondItem="hLm-f5-c9D" secondAttribute="leading" id="AWT-xd-6RO"/>
                             <constraint firstItem="u6U-Fj-MXg" firstAttribute="trailing" secondItem="0EI-Sy-rah" secondAttribute="trailing" id="BLU-FU-phk"/>
+                            <constraint firstItem="xPb-YJ-HUs" firstAttribute="trailing" secondItem="m4V-ry-SOT" secondAttribute="trailing" id="F8a-8H-HR9"/>
+                            <constraint firstItem="xPb-YJ-HUs" firstAttribute="leading" secondItem="m4V-ry-SOT" secondAttribute="leading" id="FcY-hL-Awz"/>
                             <constraint firstItem="m4V-ry-SOT" firstAttribute="leading" secondItem="0EI-Sy-rah" secondAttribute="leading" id="GMw-sr-1M4"/>
                             <constraint firstItem="L2S-Or-hjQ" firstAttribute="top" secondItem="3VL-2n-YeT" secondAttribute="bottom" constant="8" symbolic="YES" id="IBc-Nz-iII"/>
                             <constraint firstItem="thG-T9-IMr" firstAttribute="centerY" secondItem="v2s-uA-Ape" secondAttribute="centerY" id="K4C-Ur-EJr"/>
@@ -391,18 +407,20 @@
                             <constraint firstItem="iC1-Wt-jUi" firstAttribute="top" secondItem="L0Z-oC-jJc" secondAttribute="top" id="jxi-Sa-w9g"/>
                             <constraint firstItem="thG-T9-IMr" firstAttribute="top" secondItem="l9P-VZ-buA" secondAttribute="bottom" constant="5" id="lS4-Wz-z8M"/>
                             <constraint firstItem="hLm-f5-c9D" firstAttribute="baseline" secondItem="iC1-Wt-jUi" secondAttribute="firstBaseline" id="ltf-2O-88f"/>
-                            <constraint firstItem="PRr-Pf-6Or" firstAttribute="top" secondItem="P7z-ve-vr4" secondAttribute="bottom" constant="517" id="mv3-L8-0E9"/>
+                            <constraint firstItem="PRr-Pf-6Or" firstAttribute="top" secondItem="P7z-ve-vr4" secondAttribute="bottom" constant="384" id="mv3-L8-0E9"/>
                             <constraint firstItem="0EI-Sy-rah" firstAttribute="leading" secondItem="u6U-Fj-MXg" secondAttribute="leading" id="pTV-ve-uWG"/>
                             <constraint firstItem="L2S-Or-hjQ" firstAttribute="centerY" secondItem="w2K-Ds-zfB" secondAttribute="centerY" id="qra-W3-hjm"/>
                             <constraint firstItem="iC1-Wt-jUi" firstAttribute="bottom" secondItem="PRr-Pf-6Or" secondAttribute="top" id="tsz-vk-VFa"/>
-                            <constraint firstItem="P7z-ve-vr4" firstAttribute="top" secondItem="0EI-Sy-rah" secondAttribute="bottom" constant="104" id="vmd-ix-wFu"/>
-                            <constraint firstItem="P7z-ve-vr4" firstAttribute="centerX" secondItem="0EI-Sy-rah" secondAttribute="centerX" constant="0.5" id="zsH-xp-d23"/>
+                            <constraint firstItem="P7z-ve-vr4" firstAttribute="top" secondItem="0EI-Sy-rah" secondAttribute="bottom" constant="237" id="vmd-ix-wFu"/>
+                            <constraint firstItem="xPb-YJ-HUs" firstAttribute="top" secondItem="m4V-ry-SOT" secondAttribute="bottom" constant="20" id="zGi-QA-fGK"/>
+                            <constraint firstItem="P7z-ve-vr4" firstAttribute="centerX" secondItem="0EI-Sy-rah" secondAttribute="centerX" constant="-0.5" id="zsH-xp-d23"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="admin" destination="w2K-Ds-zfB" id="fY4-oo-kuT"/>
                         <outlet property="password" destination="0EI-Sy-rah" id="s9W-R1-0Zv"/>
+                        <outlet property="signatureField" destination="xPb-YJ-HUs" id="giy-rc-TLB"/>
                         <outlet property="userName" destination="u6U-Fj-MXg" id="Wxl-zA-Ikd"/>
                     </connections>
                 </viewController>
@@ -2527,11 +2545,13 @@
         <scene sceneID="k0z-Ed-ZnD">
             <objects>
                 <tableViewController id="5h6-Zb-xm7" customClass="WorkOrderTableViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="fIS-ed-gmj">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="fIS-ed-gmj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="0.15250538793103449" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.3724724311" green="0.99063756359999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="BikeOrderTableViewCell" rowHeight="60" id="ZHE-bq-4cl" customClass="BikeOrderTableViewCell" customModule="FormCycle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="60"/>
@@ -2565,9 +2585,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.45401400862068964" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.84594111775739322" blue="0.92355769230769225" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.16009591719999999" green="0.72597996249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.16009591719999999" green="0.72597996249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="ReferenceNumber" destination="2bN-I2-O2d" id="jdo-PN-g9l"/>
                                     <outlet property="bikeInfo" destination="DsZ-Be-VFh" id="eiz-Ek-yag"/>
@@ -4055,6 +4076,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="0.2981950431034483" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.16009591719999999" green="0.72597996249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PickupTableViewCell" rowHeight="60" id="hlm-yc-qxe" customClass="PickupTableViewCell" customModule="FormCycle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="60"/>
@@ -4095,7 +4117,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.45401400860000002" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.82654671029883076" blue="0.90238381410256407" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="3pE-3e-KwZ" firstAttribute="bottom" secondItem="YaJ-dX-aty" secondAttribute="bottomMargin" id="4bQ-aS-5bT"/>
                                         <constraint firstItem="9ai-19-CTf" firstAttribute="firstBaseline" secondItem="3pE-3e-KwZ" secondAttribute="firstBaseline" id="7Yh-75-kiB"/>
@@ -4112,7 +4134,8 @@
                                         <constraint firstItem="gHG-h9-bJg" firstAttribute="baseline" secondItem="Yfp-M5-eRb" secondAttribute="baseline" id="lt5-cH-81h"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.16009591719999999" green="0.72597996249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.16009591719999999" green="0.72597996249999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="bikeInfo" destination="9ai-19-CTf" id="JDR-8L-qEu"/>
                                     <outlet property="lname" destination="Yfp-M5-eRb" id="QAw-Kp-HXE"/>
@@ -4848,9 +4871,9 @@
         <image name="vertical-bike-storage copy" width="1240" height="1715"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w82-2O-uLI"/>
         <segue reference="6Z3-Za-71m"/>
+        <segue reference="lwk-5N-r6W"/>
+        <segue reference="w82-2O-uLI"/>
         <segue reference="f00-un-rDd"/>
-        <segue reference="DFP-fU-CwK"/>
     </inferredMetricsTieBreakers>
 </document>

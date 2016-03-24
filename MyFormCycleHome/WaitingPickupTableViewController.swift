@@ -78,7 +78,7 @@ class WaitingPickupTableViewController: UITableViewController
     cell.tagNum.text = order.tagNumber
     cell.lname.text = order.lname
 
-    cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 0.7, alpha: 1.0) : UIColor(white: 1.0, alpha: 1.0)
+    //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 0.7, alpha: 1.0) : UIColor(white: 1.0, alpha: 1.0)
 
     return cell
   }
