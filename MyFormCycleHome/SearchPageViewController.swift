@@ -22,22 +22,10 @@ class SearchPageViewController: UITableViewController  {
     var filteredRecords = [Record]()
     let searchController = UISearchController(searchResultsController: nil)
     
-    var currentDate: UILabel!
-    
-    /* printTimestamp() creates a variable to store the current time and date. This can then
-    *  be used anywhere in this class to display the current time stamp.
-    */
-    func printTimestamp()->String
-    {
-        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .NoStyle)
-        print(timestamp)
-        return timestamp
-    }
-    
     // MARK: - View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
-        printTimestamp()
+        
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -45,7 +33,7 @@ class SearchPageViewController: UITableViewController  {
         searchController.dimsBackgroundDuringPresentation = false
         
         // Setup the Scope Bar
-        searchController.searchBar.scopeButtonTitles = [ "All","1 Month", "3 Months", "6 Months", "Year"]
+        searchController.searchBar.scopeButtonTitles = ["All", "1 Month", "6 Months", "1 Year"]
         tableView.tableHeaderView = searchController.searchBar
         //Load data
         records.removeAll()
@@ -53,10 +41,8 @@ class SearchPageViewController: UITableViewController  {
         /* Submits the server request */
         var MyParams = ["action":"workSearch"]
         
-        
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         //MyParams["open"] = "Y"
-        MyParams["date"] = "2016-02-01"
         
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if (succ) {
@@ -70,7 +56,11 @@ class SearchPageViewController: UITableViewController  {
                             bikeType: retjson[i]["brand"].string!,
                             bikeModel: retjson[i]["model"].string!,
                             orderID:   retjson[i]["workid"].string!))
-
+                        //                            orderID:   retjson[i]["workid"].string!,
+                        //                            tune:      retjson[i]["tune"].string!,
+                        //                            bikeType:  retjson[i]["brand"].string!,
+                        //                            model:     retjson[i]["model"].string!,
+                        //                            lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             self.tableView.reloadData()
@@ -83,7 +73,7 @@ class SearchPageViewController: UITableViewController  {
             return false
         })
         
-       
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -100,7 +90,11 @@ class SearchPageViewController: UITableViewController  {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active && searchController.searchBar.text != "" {
+        if  searchController.searchBar.text == "1 Month" {
+            print("\nIS THIS WORKING?\n")
+            return filteredRecords.count
+        }
+        else if searchController.active && searchController.searchBar.text != "" {
             return filteredRecords.count
         }
         return records.count
@@ -128,40 +122,16 @@ class SearchPageViewController: UITableViewController  {
         return cell
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "Year") {
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredRecords = records.filter({( Record : Record) -> Bool in
-            let categoryMatch = (scope == "Year") || (Record.category == scope)
+            let categoryMatch = (scope == "All") || (Record.category == scope)
             return categoryMatch && Record.fname.lowercaseString.containsString(searchText.lowercaseString) || Record.lname.lowercaseString.containsString(searchText.lowercaseString) || Record.phone.lowercaseString.containsString(searchText.lowercaseString)
         })
-        var MyParams = ["action":"workSearch"]
-        MyParams["date"] = "2012-02-01"
-        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if (succ) {
-                if (retjson.count > 0) {
-                    for var i = 0; i < retjson.count; i++ {
-                        self.records.append(Record(category: "Name",
-                            fname: Crypto.decrypt(retjson[i]["fname"].string!),
-                            lname: Crypto.decrypt(retjson[i]["lname"].string!),
-                            address: Crypto.decrypt(retjson[i]["address"].string!),
-                            phone: Crypto.decrypt(retjson[i]["phone"].string!),
-                            bikeType: retjson[i]["brand"].string!,
-                            bikeModel: retjson[i]["model"].string!,
-                            orderID:   retjson[i]["workid"].string!))
-                        
-                        
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-                //else you are done- TO DO LATER
-                return true
-            }
-            return false
-        })
-        records.removeAll()
+        
         tableView.reloadData()
     }
+    
+    
     
     
     
