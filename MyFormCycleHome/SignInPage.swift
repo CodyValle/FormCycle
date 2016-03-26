@@ -54,20 +54,33 @@ extension ViewController
                 if (succ)
                 {
                     if let retjson = retjson[0]["admin"].string {
-                        newOrderTextFieldStruct.admin = retjson == "Y"
+
+                      if retjson == "Y" {
+                        generateIncorrectLoginAttempts.loginAttempts = 0
+                        newOrderTextFieldStruct.USRname = self.tField.text!
+                        self.performSegueWithIdentifier("segueIdentifier", sender: self)
+                        return true
+                      }
+
                     }
-                    
-                    generateIncorrectLoginAttempts.loginAttempts = 0
-                    newOrderTextFieldStruct.USRname = self.tField.text!
-                    self.performSegueWithIdentifier("segueIdentifier", sender: self)
-                    
-                    return true
+
+
+                    NSOperationQueue.mainQueue().addOperationWithBlock
+                      {
+                        alert.title = "Incorrect Username or Password"
+                        alert.message = "Try Again"
+
+                        self.presentViewController(alert, animated: true, completion: { })
+
+                  }
+
+
+                    return false
                 }
                 else
                 {
-                    generateIncorrectLoginAttempts.loginAttempts += 1
-                    if generateIncorrectLoginAttempts.loginAttempts < 5
-                    {
+
+
                         NSOperationQueue.mainQueue().addOperationWithBlock
                             {
                                 alert.title = "Incorrect Username or Password"
@@ -75,7 +88,7 @@ extension ViewController
                                 
                                 self.presentViewController(alert, animated: true, completion: { })
                         }
-                    }
+
                     return false
                 }
             }) // ServerCom...
