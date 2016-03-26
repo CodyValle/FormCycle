@@ -38,6 +38,7 @@
 		9D05CF231C485D4800998F15 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; };
 		9D05CF241C485D4E00998F15 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D10383D1CA7075200B62AB5 /* SignatureCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D10383C1CA7075200B62AB5 /* SignatureCapture.swift */; };
+		9D10383F1CA746BD00B62AB5 /* TuneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D10383E1CA746BD00B62AB5 /* TuneTests.swift */; };
 		9D11CF261C827C8A000471D0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9D11CF251C827C8A000471D0 /* .gitignore */; };
 		9D222ECC1C88C9D300EBB5EE /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D222ECB1C88C9D300EBB5EE /* Crypto.swift */; };
 		9D222EE31C88DC1C00EBB5EE /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D222ED81C88DC0800EBB5EE /* CryptoSwift.framework */; };
@@ -242,6 +243,7 @@
 		8FAA46EE1BFE5ABD00E39874 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D05CF081C485D4000998F15 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		9D10383C1CA7075200B62AB5 /* SignatureCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureCapture.swift; sourceTree = "<group>"; };
+		9D10383E1CA746BD00B62AB5 /* TuneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuneTests.swift; sourceTree = "<group>"; };
 		9D11CF251C827C8A000471D0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9D222ECB1C88C9D300EBB5EE /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		9D222ECF1C88DC0700EBB5EE /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "CryptoSwift-master/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
@@ -357,7 +359,6 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
-				9D10383C1CA7075200B62AB5 /* SignatureCapture.swift */,
 				1492D88B1C9909F800CB05BB /* SearchPageAndTable */,
 				0104AD921C79073B0056B10F /* AutoFillTable */,
 				014283C21C5D5FCB0097C61F /* OpenOrdersTable */,
@@ -365,6 +366,8 @@
 				9D9E96741C5170FE002AD84C /* Pages */,
 				0104AD961C7BC7560056B10F /* DataModels */,
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
+				9D10383C1CA7075200B62AB5 /* SignatureCapture.swift */,
+				9D10383E1CA746BD00B62AB5 /* TuneTests.swift */,
 				0104AD931C7910C30056B10F /* Main.storyboard */,
 				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				9D222ECB1C88C9D300EBB5EE /* Crypto.swift */,
@@ -673,6 +676,7 @@
 				1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */,
 				14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
+				9D10383F1CA746BD00B62AB5 /* TuneTests.swift in Sources */,
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
 				014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */,
 				8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */,
