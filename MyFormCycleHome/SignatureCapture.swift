@@ -21,14 +21,14 @@ class YPDrawSignatureView: UIView {
 
     // Capturing Touches
     // DrawTouch
-    var pan: UIPanGestureRecognizer = UIPanGestureRecognizer(target:self, action:"pan:")
+    let pan: UIPanGestureRecognizer = UIPanGestureRecognizer(target:self, action:"pan:")
     pan.maximumNumberOfTouches = 1
     pan.minimumNumberOfTouches = 1
     pan.cancelsTouchesInView = true
     self.addGestureRecognizer(pan)
 
     // Dotting-The-I's-Touches
-    var tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:"tap:")
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:"tap:")
     pan.cancelsTouchesInView = true
     self.addGestureRecognizer(tap)
 
@@ -82,7 +82,7 @@ class YPDrawSignatureView: UIView {
 
   // MARK: Tap - Draws the Dots
   func tap(touch: UITapGestureRecognizer){
-    var touchPoint: CGPoint = touch.locationInView(self)
+    let touchPoint: CGPoint = touch.locationInView(self)
     self.path.moveToPoint(CGPointMake(touchPoint.x-1.0,touchPoint.y))
     self.path.addLineToPoint(CGPointMake(touchPoint.x+1.0,touchPoint.y))
     self.setNeedsDisplay()
@@ -100,7 +100,7 @@ class YPDrawSignatureView: UIView {
   func getSignature() ->UIImage {
     UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width, self.bounds.size.height))
     self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-    var signature: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+    let signature: UIImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     return signature
   }

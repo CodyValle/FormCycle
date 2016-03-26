@@ -39,7 +39,7 @@ class SearchPageViewController: UITableViewController  {
         records.removeAll()
         
         /* Submits the server request */
-        var MyParams = ["action":"workSearch"]
+        let MyParams = ["action":"workSearch"]
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         //MyParams["open"] = "Y"
