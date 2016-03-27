@@ -31,6 +31,8 @@
 		14ADDC0E1BEC5510005ECABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */; };
 		14B31DC81CA745B8004E84AD /* EditRemoveUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B31DC71CA745B8004E84AD /* EditRemoveUserViewController.swift */; };
 		14B31DD71CA74CB6004E84AD /* EditTuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B31DD61CA74CB6004E84AD /* EditTuneViewController.swift */; };
+		14B31DDA1CA7576B004E84AD /* EditUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B31DD91CA7576B004E84AD /* EditUsersTableViewController.swift */; };
+		14B31DDC1CA75799004E84AD /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B31DDB1CA75799004E84AD /* UsersTableViewCell.swift */; };
 		14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */; };
 		14DE9B361C8908C10004ABC1 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B351C8908C10004ABC1 /* Record.swift */; };
 		14DE9B381C8909000004ABC1 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */; };
@@ -236,6 +238,8 @@
 		14ADDC0F1BEC5510005ECABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B31DC71CA745B8004E84AD /* EditRemoveUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRemoveUserViewController.swift; sourceTree = "<group>"; };
 		14B31DD61CA74CB6004E84AD /* EditTuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTuneViewController.swift; sourceTree = "<group>"; };
+		14B31DD91CA7576B004E84AD /* EditUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUsersTableViewController.swift; sourceTree = "<group>"; };
+		14B31DDB1CA75799004E84AD /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitingOrderViewController.swift; sourceTree = "<group>"; };
 		14DE9B351C8908C10004ABC1 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
@@ -361,7 +365,7 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
-				9D10383C1CA7075200B62AB5 /* SignatureCapture.swift */,
+				14B31DD81CA75727004E84AD /* EditRemoveUsers */,
 				1492D88B1C9909F800CB05BB /* SearchPageAndTable */,
 				0104AD921C79073B0056B10F /* AutoFillTable */,
 				014283C21C5D5FCB0097C61F /* OpenOrdersTable */,
@@ -370,6 +374,7 @@
 				0104AD961C7BC7560056B10F /* DataModels */,
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
 				0104AD931C7910C30056B10F /* Main.storyboard */,
+				9D10383C1CA7075200B62AB5 /* SignatureCapture.swift */,
 				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				9D222ECB1C88C9D300EBB5EE /* Crypto.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
@@ -379,6 +384,16 @@
 				141B96111C014F7300D2AFA4 /* stringUtils.swift */,
 			);
 			path = MyFormCycleHome;
+			sourceTree = "<group>";
+		};
+		14B31DD81CA75727004E84AD /* EditRemoveUsers */ = {
+			isa = PBXGroup;
+			children = (
+				14B31DC71CA745B8004E84AD /* EditRemoveUserViewController.swift */,
+				14B31DD91CA7576B004E84AD /* EditUsersTableViewController.swift */,
+				14B31DDB1CA75799004E84AD /* UsersTableViewCell.swift */,
+			);
+			name = EditRemoveUsers;
 			sourceTree = "<group>";
 		};
 		8FAA46EB1BFE5ABD00E39874 /* MyFormCycleHomeTests */ = {
@@ -430,7 +445,6 @@
 				1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */,
 				1430DF171C993DC900AF1CDC /* RegisterUserViewController.swift */,
 				1430DF261C9943BA00AF1CDC /* AccountRecoveryViewController.swift */,
-				14B31DC71CA745B8004E84AD /* EditRemoveUserViewController.swift */,
 				14B31DD61CA74CB6004E84AD /* EditTuneViewController.swift */,
 			);
 			name = Pages;
@@ -674,6 +688,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B31DDA1CA7576B004E84AD /* EditUsersTableViewController.swift in Sources */,
 				9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */,
 				0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */,
 				1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */,
@@ -681,6 +696,7 @@
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
 				014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */,
+				14B31DDC1CA75799004E84AD /* UsersTableViewCell.swift in Sources */,
 				8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */,
 				9D222ECC1C88C9D300EBB5EE /* Crypto.swift in Sources */,
 				9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */,
