@@ -11,10 +11,14 @@ import UIKit
 class EditUserViewController: UIViewController
 {
     
+    @IBOutlet weak var signatureField: YPDrawSignatureView!
     @IBAction func backToEditRemoveTable(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     }
     
+    @IBAction func clearSignature(sender: AnyObject) {
+        signatureField.clearSignature()
+    }
     
     
 }
