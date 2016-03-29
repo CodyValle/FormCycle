@@ -29,11 +29,12 @@ class RegisterUserViewController: UIViewController
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         if (userName.text != nil) {
             MyParams["logid"] = userName.text!
-        }
-        if (password.text != nil) {
-            MyParams["pwd"] = Crypto.encrypt(password.text!)
-        }
-        
+      }
+      if (password.text != nil) {
+        MyParams["pwd"] = Crypto.encrypt(password.text!)
+      }
+      MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
+
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ //if request to server was successful
             {

@@ -33,6 +33,31 @@ extension ViewController
     /* Admin login button to transition to forgot password recovery page */
     @IBAction func forgotPassword(sender: AnyObject)
     {
+
+      // Get and display all users
+//      let MyParams = ["action":"retrieveUsers"]
+//
+//      ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+//        if succ {
+//          print("There are \(retjson.count) tunes on the server")
+//          for (var i = 0; i < retjson.count; i++) {
+//            print("User \(i):")
+//            print("username: \(retjson[i]["username"].string!)")
+//            print("admin: \(retjson[i]["admin"].string!)")
+//            print("\n")
+//          }
+//        }
+//        else {
+//          print("Failed to retrieve users.")
+//        }
+//        return succ
+//      })
+//      
+//      while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+
+
+
+
         let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addTextFieldWithConfigurationHandler(configurationTextField)

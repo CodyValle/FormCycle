@@ -28,6 +28,8 @@ class AccountRecoveryViewController: UIViewController
         if (password.text != nil) {
             MyParams["pwd"] = Crypto.encrypt(password.text!)
         }
+
+      //MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
         
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             
