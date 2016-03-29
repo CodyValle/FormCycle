@@ -25,32 +25,32 @@ class EditUsersTableViewController: UITableViewController
         workOrders.removeAll()
         
         /* Submits the server request */
-        var MyParams = ["action":"workSearch"]
-        
-        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
-        MyParams["open"] = "Y"
-        
-        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if (succ) {
-                if (retjson.count > 0) {
-                    for var i = 0; i < retjson.count; i++ {
-                        self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!,
-                            orderID:   retjson[i]["workid"].string!,
-                            tune:      retjson[i]["tune"].string!,
-                            bikeType:  retjson[i]["brand"].string!,
-                            model:     retjson[i]["model"].string!,
-                            lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
-                        
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-                //else you are done- TO DO LATER
-                return true
-            }
-            return false
-        })
+//        var MyParams = ["action":"workSearch"]
+//        
+//        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+//        MyParams["open"] = "Y"
+//        
+//        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+//            if (succ) {
+//                if (retjson.count > 0) {
+//                    for var i = 0; i < retjson.count; i++ {
+//                        self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!,
+//                            orderID:   retjson[i]["workid"].string!,
+//                            tune:      retjson[i]["tune"].string!,
+//                            bikeType:  retjson[i]["brand"].string!,
+//                            model:     retjson[i]["model"].string!,
+//                            lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
+//                        
+//                        dispatch_async(dispatch_get_main_queue()) {
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                }
+//                //else you are done- TO DO LATER
+//                return true
+//            }
+//            return false
+//        })
     }
     
     override func didReceiveMemoryWarning()
@@ -72,7 +72,7 @@ class EditUsersTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cellIdentifier = "UsersTableViewCell"
+        let cellIdentifier = "UserCell"
         
         //Set the cell as the BikeOrderTableViewCell class, using the WorkOrder data model
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UsersTableViewCell
@@ -90,17 +90,17 @@ class EditUsersTableViewController: UITableViewController
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    let techSegueIndetifier = "TechEditSegue"
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        if segue.identifier == techSegueIndetifier {
-            if let destination = segue.destinationViewController as? TechEditViewController {
-                if let orderIndex = tableView.indexPathForSelectedRow?.row {
-                    destination.workidPassed = workOrders[orderIndex].orderID
-                }
-            }
-        }
-    }
+//    let techSegueIndetifier = "TechEditSegue"
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+//    {
+//        if segue.identifier == techSegueIndetifier {
+//            if let destination = segue.destinationViewController as? TechEditViewController {
+//                if let orderIndex = tableView.indexPathForSelectedRow?.row {
+//                    destination.workidPassed = workOrders[orderIndex].orderID
+//                }
+//            }
+//        }
+//    }
     
 }
