@@ -2773,13 +2773,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4It-ta-Kw7">
-                                <rect key="frame" x="334" y="446" width="101" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="b0g-vX-faB"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="transparent-dark-gray"/>
-                            </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFu-ok-45K">
                                 <rect key="frame" x="124" y="210" width="451" height="30"/>
                                 <constraints>
@@ -2790,26 +2783,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zgy-8e-ZIN">
-                                <rect key="frame" x="348" y="454" width="73" height="29"/>
-                                <segments>
-                                    <segment title="No"/>
-                                    <segment title="Yes"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </segmentedControl>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKX-Vr-vc2">
-                                <rect key="frame" x="303" y="416" width="162" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="162" id="IJH-fQ-Mha"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="Admin?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDC-ET-v1n">
-                                <rect key="frame" x="245" y="549" width="278" height="64"/>
+                                <rect key="frame" x="245" y="425" width="278" height="64"/>
                                 <color key="backgroundColor" red="0.060968689620494843" green="0.84309357404708862" blue="0.20669656991958618" alpha="0.57280585110000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="myf-mU-8nQ"/>
@@ -2830,14 +2805,12 @@
                             <constraint firstItem="Xbv-4b-c8r" firstAttribute="baseline" secondItem="i2g-0l-IbY" secondAttribute="baseline" id="035-zf-pGr"/>
                             <constraint firstItem="TtJ-CQ-5Cg" firstAttribute="leading" secondItem="6au-ue-KhI" secondAttribute="leading" id="1EL-tM-KHD"/>
                             <constraint firstItem="Xbv-4b-c8r" firstAttribute="top" secondItem="dOl-iu-NP5" secondAttribute="bottom" constant="8" symbolic="YES" id="3yw-YC-e0i"/>
-                            <constraint firstItem="zgy-8e-ZIN" firstAttribute="top" secondItem="DKX-Vr-vc2" secondAttribute="bottom" constant="8" symbolic="YES" id="4a7-Q8-rS9"/>
                             <constraint firstItem="x1e-Ks-csW" firstAttribute="top" secondItem="Xbv-4b-c8r" secondAttribute="bottom" constant="72" id="5JX-SO-UpN"/>
                             <constraint firstItem="Xbv-4b-c8r" firstAttribute="centerY" secondItem="kHC-o8-ENk" secondAttribute="centerY" id="5UA-Z7-6n9"/>
-                            <constraint firstItem="QRh-Pd-HpH" firstAttribute="top" secondItem="nDC-ET-v1n" secondAttribute="bottom" constant="411" id="8AR-yv-6Ij"/>
+                            <constraint firstItem="QRh-Pd-HpH" firstAttribute="top" secondItem="nDC-ET-v1n" secondAttribute="bottom" constant="535" id="8AR-yv-6Ij"/>
                             <constraint firstItem="by8-AC-Bsg" firstAttribute="top" secondItem="dOl-iu-NP5" secondAttribute="bottom" constant="15" id="8cR-ZT-Uni"/>
                             <constraint firstItem="i2g-0l-IbY" firstAttribute="bottom" secondItem="QRh-Pd-HpH" secondAttribute="top" id="ATa-tZ-k9C"/>
-                            <constraint firstItem="DKX-Vr-vc2" firstAttribute="centerX" secondItem="TtJ-CQ-5Cg" secondAttribute="centerX" id="CN6-G9-SdE"/>
-                            <constraint firstItem="nDC-ET-v1n" firstAttribute="top" secondItem="6au-ue-KhI" secondAttribute="bottom" constant="228" id="Fw9-oM-I61"/>
+                            <constraint firstItem="nDC-ET-v1n" firstAttribute="top" secondItem="6au-ue-KhI" secondAttribute="bottom" constant="104" id="Fw9-oM-I61"/>
                             <constraint firstItem="i2g-0l-IbY" firstAttribute="trailing" secondItem="Xbv-4b-c8r" secondAttribute="trailing" id="GBJ-Qx-KCH"/>
                             <constraint firstItem="nDC-ET-v1n" firstAttribute="leading" secondItem="Ojl-E4-ftj" secondAttribute="leading" constant="245" id="JG3-OZ-Xjh"/>
                             <constraint firstItem="by8-AC-Bsg" firstAttribute="leading" secondItem="Ojl-E4-ftj" secondAttribute="leadingMargin" constant="-11" id="O7P-zU-gWF"/>
@@ -2845,14 +2818,9 @@
                             <constraint firstItem="Xbv-4b-c8r" firstAttribute="centerX" secondItem="kHC-o8-ENk" secondAttribute="centerX" id="XIK-d5-tGb"/>
                             <constraint firstItem="TtJ-CQ-5Cg" firstAttribute="top" secondItem="6au-ue-KhI" secondAttribute="bottom" constant="18" id="YjB-Ba-2z0"/>
                             <constraint firstItem="i2g-0l-IbY" firstAttribute="leading" secondItem="Ojl-E4-ftj" secondAttribute="leading" id="ZUt-A3-iZ8"/>
-                            <constraint firstItem="4It-ta-Kw7" firstAttribute="centerY" secondItem="zgy-8e-ZIN" secondAttribute="centerY" id="bOz-18-967"/>
-                            <constraint firstItem="DKX-Vr-vc2" firstAttribute="top" secondItem="TtJ-CQ-5Cg" secondAttribute="bottom" constant="32" id="eUu-Nn-kFG"/>
                             <constraint firstItem="mFu-ok-45K" firstAttribute="top" secondItem="x1e-Ks-csW" secondAttribute="bottom" constant="8" symbolic="YES" id="hhG-D8-K6j"/>
-                            <constraint firstItem="nDC-ET-v1n" firstAttribute="top" secondItem="4It-ta-Kw7" secondAttribute="bottom" constant="60" id="iMr-8I-qbR"/>
-                            <constraint firstItem="zgy-8e-ZIN" firstAttribute="centerX" secondItem="4It-ta-Kw7" secondAttribute="centerX" id="ns4-NO-CpU"/>
                             <constraint firstItem="Xbv-4b-c8r" firstAttribute="baseline" secondItem="i2g-0l-IbY" secondAttribute="firstBaseline" id="rZl-gu-3UH"/>
                             <constraint firstItem="i2g-0l-IbY" firstAttribute="top" secondItem="Ojl-E4-ftj" secondAttribute="top" id="sFk-Wr-y0S"/>
-                            <constraint firstItem="DKX-Vr-vc2" firstAttribute="centerX" secondItem="zgy-8e-ZIN" secondAttribute="centerX" id="tzL-jW-6aI"/>
                             <constraint firstItem="Xbv-4b-c8r" firstAttribute="leading" secondItem="i2g-0l-IbY" secondAttribute="leading" id="uqC-eg-Umv"/>
                             <constraint firstItem="kHC-o8-ENk" firstAttribute="top" secondItem="dOl-iu-NP5" secondAttribute="bottom" constant="13" id="vYg-vQ-prw"/>
                             <constraint firstAttribute="trailing" secondItem="Xbv-4b-c8r" secondAttribute="trailing" id="vul-8W-Fh6"/>
@@ -2860,13 +2828,11 @@
                             <constraint firstItem="6au-ue-KhI" firstAttribute="top" secondItem="mFu-ok-45K" secondAttribute="bottom" constant="36" id="wcL-Q0-K3A"/>
                             <constraint firstItem="kHC-o8-ENk" firstAttribute="centerY" secondItem="by8-AC-Bsg" secondAttribute="centerY" id="y4d-5t-Mtd"/>
                             <constraint firstItem="x1e-Ks-csW" firstAttribute="leading" secondItem="Ojl-E4-ftj" secondAttribute="leading" constant="124" id="yOK-aa-oVs"/>
-                            <constraint firstItem="nDC-ET-v1n" firstAttribute="top" secondItem="zgy-8e-ZIN" secondAttribute="bottom" constant="67" id="zbE-Mp-sAG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OdH-8y-0at"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
-                        <outlet property="admin" destination="zgy-8e-ZIN" id="JWy-8d-tZ1"/>
                         <outlet property="password" destination="TtJ-CQ-5Cg" id="Flw-dj-Jx3"/>
                         <outlet property="userName" destination="6au-ue-KhI" id="3IB-vr-zFs"/>
                     </connections>
