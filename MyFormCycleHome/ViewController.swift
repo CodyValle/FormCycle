@@ -131,6 +131,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 
       // Open the connection to the database.
       ServerCom.open()
+
+      // Load the tunes into the app
+      Tune.populateTunes()
     }
     /* if user is on the new order page set flag to true */
 		else if newOrderTextFieldStruct.neworderpage
@@ -233,7 +236,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       makeModelColor.text = newOrderTextFieldStruct.myBrand + " " + newOrderTextFieldStruct.myModel + "  (" + newOrderTextFieldStruct.myColor + ")"
       invTagNum.text = newOrderTextFieldStruct.myTagNumber
       invNotes.text = newOrderTextFieldStruct.myNotes
-			invTuneType.text = newOrderTextFieldStruct.tunePicker
+
+      var tuneString = newOrderTextFieldStruct.tunePicker
+      if let tuneID = Int(tuneString)
+      {
+        tuneString = Tune.ID(tuneID)
+      }
+			invTuneType.text = tuneString
 		}
 	}
 
@@ -514,7 +523,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       MyParams["color"] = newOrderTextFieldStruct.myColor
       MyParams["tagNum"] = newOrderTextFieldStruct.myTagNumber
       MyParams["notes"] = newOrderTextFieldStruct.myNotes
-      MyParams["tune"] = newOrderTextFieldStruct.tunePicker
+      MyParams["tune"] = newOrderTextFieldStruct.tunePicker // We need to add aditional services here
       MyParams["userID"] = newOrderTextFieldStruct.USRname
 
       ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
@@ -767,12 +776,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   }
 
 	//*************************** Tune Selection Picker *************************//
-  var tuneType = ["    ","Basic Tune: $70","ATD: $120","Complete Overhaul: $199","Race and Event Prep: $50","Find the Creak Service: $50-$95","Front Suspension Service: $80","Rear Air Shock Service: $45","Rear Suspension Linkage Services: $125","Dropper Post Service: $60-$95"]
-
   /* creates picker for tune type and sets the number of selections to the length of the tuneType array */
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
   {
-    return tuneType.count
+    return Tune.numberOfTunes()
   }
 
   /* sets the number of columns in the picker to one */
@@ -785,7 +792,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
      text color to white so it can be more easily displayed on the interface. */
   func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString?
   {
-    let attributedString = NSAttributedString(string: tuneType[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+    let attributedString = NSAttributedString(string: Tune.ID(row), attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
     return attributedString
   }
 
@@ -795,7 +802,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   */
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
   {
-    newOrderTextFieldStruct.tunePicker = tuneType[row]
+    newOrderTextFieldStruct.tunePicker = String(row)
   }
 
 //********************* PRACTICE TEST FUNCTIONS *********************

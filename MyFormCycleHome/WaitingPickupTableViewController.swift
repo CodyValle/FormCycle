@@ -34,9 +34,14 @@ class WaitingPickupTableViewController: UITableViewController
         if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++
           {
+            var tuneString = retjson[i]["tune"].string!
+            if let tuneID = Int(tuneString)
+            {
+              tuneString = Tune.ID(tuneID)
+            }
             self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!,
                                              orderID:   retjson[i]["workid"].string!,
-                                             tune:      retjson[i]["tune"].string!,
+                                             tune:      tuneString,
                                              bikeType:  retjson[i]["brand"].string!,
                                              model:     retjson[i]["model"].string!,
                                              lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
