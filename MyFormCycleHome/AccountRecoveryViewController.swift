@@ -15,6 +15,7 @@ class AccountRecoveryViewController: UIViewController
     
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var admin: UISegmentedControl!
     
     @IBAction func sendRecoveryRequest(sender: AnyObject) {
     
@@ -29,7 +30,7 @@ class AccountRecoveryViewController: UIViewController
             MyParams["pwd"] = Crypto.encrypt(password.text!)
         }
 
-      //MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
+      MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
         
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             
