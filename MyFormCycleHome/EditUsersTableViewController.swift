@@ -112,8 +112,20 @@ class EditUsersTableViewController: UITableViewController
         //cell.username.text = "161616"//order.tagNumber
         
         
-        //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            editUser.removeAtIndex(indexPath.row)
+            self.tableView.reloadData()
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
     }
     
     // MARK: - Navigation
