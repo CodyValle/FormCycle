@@ -15,14 +15,42 @@ class EditUsersTableViewController: UITableViewController
 {
     
     // MARK: Properties
-    var workOrders = [WorkOrder]()
+    var editUser = [EditUser]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         //Load data
-        workOrders.removeAll()
+        editUser.removeAll()
+        
+        
+         //Get and display all users
+              let MyParams = ["action":"retrieveUsers"]
+        
+              ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+                if succ {
+                  print("There are \(retjson.count) tunes on the server")
+                  for (var i = 0; i < retjson.count; i++) {
+                    self.editUser.append(EditUser(username: retjson[i]["username"].string!,
+                        admin: retjson[i]["admin"].string!))
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableView.reloadData()
+                    }
+//                    print("User \(i):")
+//                    print("username: \(retjson[i]["username"].string!)")
+//                    print("admin: \(retjson[i]["admin"].string!)")
+//                    print("\n")
+                  }
+                }
+                else {
+                  print("Failed to retrieve users.")
+                }
+                return succ
+              })
+              
+              while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
         
         /* Submits the server request */
 //        var MyParams = ["action":"workSearch"]
@@ -67,7 +95,7 @@ class EditUsersTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return workOrders.count
+        return editUser.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -76,12 +104,12 @@ class EditUsersTableViewController: UITableViewController
         
         //Set the cell as the BikeOrderTableViewCell class, using the WorkOrder data model
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UsersTableViewCell
-        let order = workOrders[indexPath.row]
+        let user = editUser[indexPath.row]
         
         //Setting cell attributes to those in our array
-        cell.fname.text = order.bikeType
-        cell.lname.text = order.tune
-        cell.username.text = order.tagNumber
+        cell.username.text = user.username
+        cell.admin.text = user.admin
+        //cell.username.text = "161616"//order.tagNumber
         
         
         //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
