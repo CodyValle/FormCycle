@@ -30,7 +30,7 @@ class EditUsersTableViewController: UITableViewController
         
               ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
                 if succ {
-                  print("There are \(retjson.count) tunes on the server")
+                  //print("There are \(retjson.count) tunes on the server")
                   for (var i = 0; i < retjson.count; i++) {
                     self.editUser.append(EditUser(username: retjson[i]["username"].string!,
                         admin: retjson[i]["admin"].string!))
