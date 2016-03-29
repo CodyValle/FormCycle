@@ -17,7 +17,7 @@ class ServerCom
 
   private static var debugJSON = "Empty"
 
-  private static var customAllowedSet =  NSCharacterSet(charactersInString:"+\\").invertedSet
+  private static var customAllowedSet =  NSCharacterSet(charactersInString:"+\\&").invertedSet
 
   internal static func send(d:Dictionary<String,String>, f: ((succ: Bool, retjson: JSON) -> Bool))
   {
