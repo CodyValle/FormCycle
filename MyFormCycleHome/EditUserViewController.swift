@@ -10,9 +10,9 @@ import UIKit
 
 class EditUserViewController: UIViewController
 {
+    
     @IBAction func backToEditRemoveTable(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
-        
     }
     
     
