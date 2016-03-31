@@ -10,11 +10,29 @@ import SwiftyJSON
 
 class Tune
 {
+	class Service
+  {
+    var sID:   Int
+    var sName: String
+    var sCost: Int
+    var sTime: Int
+
+    init(id: Int, name: String, cost:Int, time:Int)
+    {
+      sID = id
+			sName = name
+      sCost = cost
+      sTime = time
+    }
+  }
+
   private static var tunes : [String] = []
   private static var num = 0
+  private static var Services : [Service] = []
 
   static func populateTunes()
   {
+    Services = []
     tunes = []
     num = 0
 
@@ -26,14 +44,18 @@ class Tune
         print("Loading \(retjson.count) tunes from the server")
         num = retjson.count
         for (var i = 0; i < retjson.count; i++) {
-          print("Tune \(i)")
-          print("tune: \(retjson[i]["tune"].string!)")
-          print("name: \(retjson[i]["name"].string!)")
-          print("time: \(retjson[i]["time"].string!)")
-          print("cost: \(retjson[i]["cost"].string!)")
-          print("\n")
+//          print("Tune \(i)")
+//          print("tune: \(retjson[i]["tune"].string!)")
+//          print("name: \(retjson[i]["name"].string!)")
+//          print("time: \(retjson[i]["time"].string!)")
+//          print("cost: \(retjson[i]["cost"].string!)")
+//          print("\n")
 
           tunes.append(retjson[i]["name"].string!)
+          Services.append(Service(id: Int(retjson[i]["tune"].string!)!,
+                                  name: retjson[i]["name"].string!,
+                                  cost: Int(retjson[i]["cost"].string!)!,
+                                  time: Int(retjson[i]["time"].string!)!))
         }
       }
       else {
@@ -45,7 +67,14 @@ class Tune
 
   static func ID(id: Int) -> String
   {
-		return tunes[id]
+    for s in Services
+    {
+      if s.sID == id
+      {
+        return s.sName
+      }
+    }
+		return ""
   }
 
   static func editTune(id: Int, name: String = "", cost: String = "", time: String = "")
@@ -68,13 +97,16 @@ class Tune
     })
 
     while ServerCom.waiting() {}
-    
-    self.populateTunes()
+
+    // Change the local copy of the Service
+    //Services[0].sID = 4
+
+    //self.populateTunes()
   }
 
   static func numberOfTunes() -> Int
   {
-    return num
+    return Services.count
   }
 
 }
