@@ -435,7 +435,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		newOrderTextFieldStruct.neworderpage = false /* set current page to nothing */
 		newOrderTextFieldStruct.bikeInfoPage = false /* sets current page to nothing */
 		newOrderTextFieldStruct.invoicePage = false /* sets current page to nothing */
-    newOrderTextFieldStruct.loginPage = false
+        newOrderTextFieldStruct.loginPage = false
 
 		/* checks if the user pressed the "new order" button, if so then move to
 		 * new order: customer information page.
