@@ -449,28 +449,32 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 			newOrderTextFieldStruct.neworderpage = true /* on new order page, set flag to true. */
 		}
 		else if segue.identifier == "backToLoginPage"
-    {
-        newOrderTextFieldStruct.loginPage = true
-    }
-    
-    else if segue.identifier == "autoFill"
-    {
-      print(customers.count)
-
-      if let destination = segue.destinationViewController as? AutoFillTableViewController
-      {
-        destination.preferredContentSize = CGSize(width: 450, height: 500)
-        if (customers.count > 0) // Fill the form
         {
-          for var i = 0; i < customers.count; i++
-          {
-            if customers[i]["address2"] == nil {
-              customers[i]["address2"] = ""
-            }
-            if customers[i]["email"] == nil {
-              customers[i]["email"] = ""
-            }
-            self.results.append(CustomerAutoFill(fname:    Crypto.decrypt(customers[i]["fname"].string!),
+            newOrderTextFieldStruct.loginPage = true
+        }
+        else if segue.identifier == "toBikeInfo"
+        {
+        
+        }
+    
+        else if segue.identifier == "autoFill"
+        {
+            print(customers.count)
+
+            if let destination = segue.destinationViewController as? AutoFillTableViewController
+            {
+                destination.preferredContentSize = CGSize(width: 450, height: 500)
+                if (customers.count > 0) // Fill the form
+                {
+                    for var i = 0; i < customers.count; i++
+                    {
+                        if customers[i]["address2"] == nil {
+                            customers[i]["address2"] = ""
+                        }
+                        if customers[i]["email"] == nil {
+                            customers[i]["email"] = ""
+                        }
+                        self.results.append(CustomerAutoFill(fname:    Crypto.decrypt(customers[i]["fname"].string!),
                                                  lname:    Crypto.decrypt(customers[i]["lname"].string!),
                                                  address:  Crypto.decrypt(customers[i]["address"].string!),
               																	 address2: customers[i]["address2"].string == "" ? "" : Crypto.decrypt(customers[i]["address2"].string!),
