@@ -72,7 +72,13 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
               }
               self.cityStateZip.text = Crypto.decrypt(retjson[0]["city"].string!) + ", " + retjson[0]["state"].string! + ", " + Crypto.decrypt(retjson[0]["zip"].string!)
               self.makeModelColor.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
-              self.tune.text = retjson[0]["tune"].string!
+
+              var tuneString = retjson[0]["tune"].string!
+              if let tuneID = Int(tuneString)
+              {
+                tuneString = Tune.ID(tuneID)!
+              }
+              self.tune.text = tuneString
               self.tagNum.text = retjson[0]["tagnum"].string!
               self.phone.text = Crypto.decrypt(retjson[0]["phone"].string!)
               if(retjson[0]["email"] != nil)

@@ -44,5 +44,10 @@ extension String
 		
 		return scanner.scanDecimal(nil) && scanner.atEnd
 	}
-	
+
+  // Returns a float value from the string
+  var floatValue: Float {
+    return (self as NSString).floatValue
+  }
+
 }
