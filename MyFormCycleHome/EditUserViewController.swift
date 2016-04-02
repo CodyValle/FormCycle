@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftHTTP
-import SwiftyJSON 
+import SwiftyJSON
 
 class EditUserViewController: UIViewController
 {
@@ -38,7 +38,8 @@ class EditUserViewController: UIViewController
         if (username.text != nil) {
             MyParams["logid"] = username.text!
         }
-        else if (password.text != nil) {
+        //if (password.text != nil) {
+        if (password.text?.characters.count > 0) {
             MyParams["pwd"] = Crypto.encrypt(password.text!)
         }
         MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
@@ -46,22 +47,16 @@ class EditUserViewController: UIViewController
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ //if request to server was successful
             {
-                NSOperationQueue.mainQueue().addOperationWithBlock
-                    {
-                        let refreshAlert = UIAlertController(title: "Success", message: "Edited User", preferredStyle: UIAlertControllerStyle.Alert)
-                        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in }))
-                        self.presentViewController(refreshAlert, animated: true, completion: nil)
-                        
-                }
-                
+                self.dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
                 return true
                 
             }
+             
             else //if request to server was unsuccessful
             {
                 NSOperationQueue.mainQueue().addOperationWithBlock
                     {
-                        let refreshAlert = UIAlertController(title: "Failed to Edit User", message: "Username Taken", preferredStyle: UIAlertControllerStyle.Alert)
+                        let refreshAlert = UIAlertController(title: "Failed to Edit User", message: "Please Try Again", preferredStyle: UIAlertControllerStyle.Alert)
                         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in }))
                         self.presentViewController(refreshAlert, animated: true, completion: nil)
                 }
