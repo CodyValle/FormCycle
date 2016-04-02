@@ -17,9 +17,54 @@ class EditUsersTableViewController: UITableViewController
     // MARK: Properties
     var editUser = [EditUser]()
     
+    let myValue = 0
+    
+    
+    /* Reloads data after coming back from Editing a User */
+    override func viewDidAppear(animated: Bool) {
+        
+        
+        super.viewDidLoad()
+        
+        
+        //Load data
+        editUser.removeAll()
+        
+        
+        //Get and display all users
+        let MyParams = ["action":"retrieveUsers"]
+        
+        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+            if succ {
+                //print("There are \(retjson.count) tunes on the server")
+                for (var i = 0; i < retjson.count; i++) {
+                    self.editUser.append(EditUser(username: retjson[i]["username"].string!,
+                        admin: retjson[i]["admin"].string!))
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableView.reloadData()
+                    }
+                    //                    print("User \(i):")
+                    //                    print("username: \(retjson[i]["username"].string!)")
+                    //                    print("admin: \(retjson[i]["admin"].string!)")
+                    //                    print("\n")
+                }
+            }
+            else {
+                print("Failed to retrieve users.")
+            }
+            return succ
+        })
+        
+        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+        
+    }
+    
+    /* Initially loads the table as soon as the view loads. */
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         
         //Load data
         editUser.removeAll()
@@ -38,10 +83,7 @@ class EditUsersTableViewController: UITableViewController
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
                     }
-//                    print("User \(i):")
-//                    print("username: \(retjson[i]["username"].string!)")
-//                    print("admin: \(retjson[i]["admin"].string!)")
-//                    print("\n")
+
                   }
                 }
                 else {
@@ -51,34 +93,6 @@ class EditUsersTableViewController: UITableViewController
               })
               
               while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
-        
-        /* Submits the server request */
-//        var MyParams = ["action":"workSearch"]
-//        
-//        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
-//        MyParams["open"] = "Y"
-//        
-//        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-//            if (succ) {
-//                if (retjson.count > 0) {
-//                    for var i = 0; i < retjson.count; i++ {
-//                        self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!,
-//                            orderID:   retjson[i]["workid"].string!,
-//                            tune:      retjson[i]["tune"].string!,
-//                            bikeType:  retjson[i]["brand"].string!,
-//                            model:     retjson[i]["model"].string!,
-//                            lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
-//                        
-//                        dispatch_async(dispatch_get_main_queue()) {
-//                            self.tableView.reloadData()
-//                        }
-//                    }
-//                }
-//                //else you are done- TO DO LATER
-//                return true
-//            }
-//            return false
-//        })
     }
     
     override func didReceiveMemoryWarning()
@@ -134,6 +148,7 @@ class EditUsersTableViewController: UITableViewController
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
+        
         if segue.identifier == editSegueIndetifier {
             if let destination = segue.destinationViewController as? EditUserViewController {
                 if let orderIndex = tableView.indexPathForSelectedRow?.row {
