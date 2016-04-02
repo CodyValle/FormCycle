@@ -9,6 +9,7 @@
 import UIKit 
 import SwiftHTTP
 import SwiftyJSON
+import Foundation
 
 class RegisterUserViewController: UIViewController
 {
@@ -24,7 +25,13 @@ class RegisterUserViewController: UIViewController
     
     @IBAction func registerUser(sender: AnyObject) {
         /* Submits the server request */
+        let sigData = UIImageJPEGRepresentation(signatureField.getSignature(),1.0)
         var MyParams = ["action":"register"]
+        if(sigData != nil)
+        {
+            let sigString = String(data: sigData!, encoding: NSUTF16StringEncoding)
+            MyParams["signature"] = sigString
+        }
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         if (userName.text != nil) {
