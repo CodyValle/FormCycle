@@ -139,7 +139,6 @@ extension ViewController
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
         self.customers = retjson
-        //print(retjson)
       }
       return succ
     })
