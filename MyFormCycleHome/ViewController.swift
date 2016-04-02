@@ -786,7 +786,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
      text color to white so it can be more easily displayed on the interface. */
   func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString?
   {
-    let attributedString = NSAttributedString(string: String(row), attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+    let attributedString = NSAttributedString(string: Tune.ID(row)!, attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
     return attributedString
   }
 
