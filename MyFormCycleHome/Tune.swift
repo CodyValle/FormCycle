@@ -94,6 +94,11 @@ class Tune
     }
   }
 
+  static func getServices() -> [Service]
+  {
+    return Services
+  }
+
   static func numberOfTunes() -> Int
   {
     return Services.count
