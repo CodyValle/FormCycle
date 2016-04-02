@@ -76,7 +76,7 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
               var tuneString = retjson[0]["tune"].string!
               if let tuneID = Int(tuneString)
               {
-                tuneString = Tune.ID(tuneID)
+                tuneString = Tune.ID(tuneID)!
               }
               self.tune.text = tuneString
               self.tagNum.text = retjson[0]["tagnum"].string!

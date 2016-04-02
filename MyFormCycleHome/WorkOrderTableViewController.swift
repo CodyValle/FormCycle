@@ -33,15 +33,9 @@ class WorkOrderTableViewController: UITableViewController
       if (succ) {
 				if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++ {
-            var tuneString = retjson[i]["tune"].string!
-            if let tuneID = Int(tuneString)
-            {
-              tuneString = Tune.ID(tuneID)
-            }
-
             self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!,
                                              orderID:   retjson[i]["workid"].string!,
-                                             tune:      tuneString,
+                                             tune:      retjson[i]["tune"].string!,
                                              bikeType:  retjson[i]["brand"].string!,
                                              model:     retjson[i]["model"].string!,
                                              lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
@@ -85,7 +79,7 @@ class WorkOrderTableViewController: UITableViewController
     
     //Setting cell attributes to those in our array
     cell.bikeInfo.text = order.bikeType
-    cell.tuneType.text = order.tune
+    cell.tuneType.text = Tune.ID(order.getServices()[0])
     cell.referenceNumber.text = order.tagNumber
     cell.lname.text = order.lname
     cell.workid = order.orderID

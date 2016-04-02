@@ -15,9 +15,9 @@ class Tune
     var sID:   Int
     var sName: String
     var sCost: Int
-    var sTime: Int
+    var sTime: Float
 
-    init(id: Int, name: String, cost:Int, time:Int)
+    init(id: Int, name: String, cost: Int, time: Float)
     {
       sID = id
 			sName = name
@@ -25,16 +25,12 @@ class Tune
       sTime = time
     }
   }
-
-  private static var tunes : [String] = []
-  private static var num = 0
+  
   private static var Services : [Service] = []
 
   static func populateTunes()
   {
     Services = []
-    tunes = []
-    num = 0
 
     // Get and display all tunes
     let MyParams = ["action":"retrieveTunes"]
@@ -42,20 +38,11 @@ class Tune
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
         print("Loading \(retjson.count) tunes from the server")
-        num = retjson.count
         for (var i = 0; i < retjson.count; i++) {
-//          print("Tune \(i)")
-//          print("tune: \(retjson[i]["tune"].string!)")
-//          print("name: \(retjson[i]["name"].string!)")
-//          print("time: \(retjson[i]["time"].string!)")
-//          print("cost: \(retjson[i]["cost"].string!)")
-//          print("\n")
-
-          tunes.append(retjson[i]["name"].string!)
           Services.append(Service(id: Int(retjson[i]["tune"].string!)!,
                                   name: retjson[i]["name"].string!,
                                   cost: Int(retjson[i]["cost"].string!)!,
-                                  time: Int(retjson[i]["time"].string!)!))
+                                  time: retjson[i]["time"].string!.floatValue))
         }
       }
       else {
@@ -65,7 +52,7 @@ class Tune
     })
   }
 
-  static func ID(id: Int) -> String
+  static func ID(id: Int) -> String?
   {
     for s in Services
     {
@@ -74,7 +61,7 @@ class Tune
         return s.sName
       }
     }
-		return ""
+		return nil
   }
 
   static func editTune(id: Int, name: String = "", cost: String = "", time: String = "")
@@ -99,14 +86,41 @@ class Tune
     while ServerCom.waiting() {}
 
     // Change the local copy of the Service
-    //Services[0].sID = 4
-
-    //self.populateTunes()
+    if let s = Tune.getTune(id)
+    {
+			if name != "" { s.sName = name }
+    	if cost != "" { s.sCost = Int(cost)! }
+    	if time != "" { s.sTime = time.floatValue }
+    }
   }
 
   static func numberOfTunes() -> Int
   {
     return Services.count
+  }
+
+  static func getTune(id: Int) -> Service?
+  {
+    for s in Services
+    {
+      if s.sID == id
+      {
+        return s
+      }
+    }
+    return nil
+  }
+
+  static func getTune(name: String) -> Service?
+  {
+    for s in Services
+    {
+      if s.sName == name
+      {
+        return s
+      }
+    }
+    return nil
   }
 
 }

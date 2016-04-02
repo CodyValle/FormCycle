@@ -34,17 +34,12 @@ class WaitingPickupTableViewController: UITableViewController
         if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++
           {
-            var tuneString = retjson[i]["tune"].string!
-            if let tuneID = Int(tuneString)
-            {
-              tuneString = Tune.ID(tuneID)
-            }
             self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!,
-                                             orderID:   retjson[i]["workid"].string!,
-                                             tune:      tuneString,
-                                             bikeType:  retjson[i]["brand"].string!,
-                                             model:     retjson[i]["model"].string!,
-                                             lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
+              orderID:   retjson[i]["workid"].string!,
+                        tune:      retjson[i]["tune"].string!,
+                         bikeType:  retjson[i]["brand"].string!,
+                         model:     retjson[i]["model"].string!,
+                         lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
 
             dispatch_async(dispatch_get_main_queue()){
               self.tableView.reloadData()
@@ -79,7 +74,7 @@ class WaitingPickupTableViewController: UITableViewController
     
     //Setting cell attributes to those in our array
     cell.bikeInfo.text = order.bikeType
-    cell.tuneType.text = order.tune
+    cell.tuneType.text = Tune.ID(order.getServices()[0])
     cell.tagNum.text = order.tagNumber
     cell.lname.text = order.lname
 

@@ -296,6 +296,7 @@
 		0104AD961C7BC7560056B10F /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				9D0934A11CAB058900C38CCB /* Tune.swift */,
 				0147B5921C4EBF1900218606 /* WorkOrder.swift */,
 				0104AD971C7BC7D70056B10F /* CustomerAutoFill.swift */,
 				14DE9B351C8908C10004ABC1 /* Record.swift */,
@@ -380,7 +381,6 @@
 				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				9D222ECB1C88C9D300EBB5EE /* Crypto.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
-				9D0934A11CAB058900C38CCB /* Tune.swift */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,
 				14ADDC0F1BEC5510005ECABA /* Info.plist */,

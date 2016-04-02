@@ -236,13 +236,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       makeModelColor.text = newOrderTextFieldStruct.myBrand + " " + newOrderTextFieldStruct.myModel + "  (" + newOrderTextFieldStruct.myColor + ")"
       invTagNum.text = newOrderTextFieldStruct.myTagNumber
       invNotes.text = newOrderTextFieldStruct.myNotes
-
-      var tuneString = newOrderTextFieldStruct.tunePicker
-      if let tuneID = Int(tuneString)
-      {
-        tuneString = Tune.ID(tuneID)
-      }
-			invTuneType.text = tuneString
+			invTuneType.text = newOrderTextFieldStruct.tunePicker
 		}
 	}
 
@@ -792,7 +786,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
      text color to white so it can be more easily displayed on the interface. */
   func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString?
   {
-    let attributedString = NSAttributedString(string: Tune.ID(row), attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+    let attributedString = NSAttributedString(string: String(row), attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
     return attributedString
   }
 
