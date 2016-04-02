@@ -50,7 +50,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   @IBOutlet weak var address1: UILabel!
   @IBOutlet weak var Name: UILabel!
   @IBOutlet weak var invTuneType: UILabel!
-
+    
+ 
     
     @IBAction func moveToSearchPage(sender: AnyObject) {
         
@@ -176,8 +177,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       tagNumber.delegate = self
       tagNumber.clearButtonMode = .WhileEditing
       notes.delegate = self
-
-      if newOrderTextFieldStruct.custid != ""
+      brand.text = BikeAutoFillStruct.brand
+      color.text = BikeAutoFillStruct.color
+      model.text = BikeAutoFillStruct.model
+      
+            
+    /*if newOrderTextFieldStruct.custid != ""
       {
         /* Submits the server request */
         var MyParams = ["action":"bikeSearch"]
@@ -217,7 +222,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         brand.text = ""
       	model.text = ""
       	color.text = ""
-      }
+      }*/
 		}
 		else if newOrderTextFieldStruct.invoicePage
 		{
@@ -482,7 +487,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
               																	 state:    customers[i]["state"].string!,
                                                  phone:    Crypto.decrypt(customers[i]["phone"].string!),
                                                  zip:      Crypto.decrypt(customers[i]["zip"].string!),
-                                                 email:    customers[i]["email"].string == "" ? "" : Crypto.decrypt(customers[i]["email"].string!)))
+                                                 email:    customers[i]["email"].string == "" ? "" : Crypto.decrypt(customers[i]["email"].string!),
+                            model: customers[i]["model"].string!,
+                            brand: customers[i]["brand"].string!,
+                            color: customers[i]["color"].string!))
             /* Is this line needed? */ dispatch_async(dispatch_get_main_queue(), { () -> Void in })
           }
         }

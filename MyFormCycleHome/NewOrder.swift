@@ -54,6 +54,15 @@ extension ViewController
     static var mainPage = false
     static var welcomePopup = true
   }
+
+ struct BikeAutoFillStruct
+ {
+    static var brand = ""
+    static var color = ""
+    static var model = ""
+    
+ }
+    
     
   /* Sends the user back to the Home Page if currently on the Customer Information page. */
   @IBAction func backToMainPageBtn(sender: AnyObject)
@@ -89,13 +98,16 @@ extension ViewController
     zip.text = ""
     phone.text = ""
     email.text = ""
+    BikeAutoFillStruct.model = ""
+    BikeAutoFillStruct.color = ""
+    BikeAutoFillStruct.brand = ""
   }
 
   @IBAction func RetrieveCustomerInfo(sender: AnyObject)
   {
    
     /* Submits the server request */
-    var MyParams = ["action":"custSearch"]
+    var MyParams = ["action":"custBikeSearch"]
 
     if (fname.text?.characters.count > 0) {
         MyParams["fname"] = Crypto.encrypt(fname.text!)
@@ -145,6 +157,10 @@ extension ViewController
     self.zip.text = cust.zip
     self.phone.text = cust.phone
     self.email.text = cust.email
+    BikeAutoFillStruct.brand = cust.brand
+    BikeAutoFillStruct.model = cust.model
+    BikeAutoFillStruct.color = cust.color
+    
   }
    
 }
