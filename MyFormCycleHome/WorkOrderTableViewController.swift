@@ -33,7 +33,8 @@ class WorkOrderTableViewController: UITableViewController
       if (succ) {
 				if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++ {
-            self.workOrders.append(WorkOrder(tagNumber: retjson[i]["tagnum"].string!,
+            self.workOrders.append(WorkOrder(id: i,
+              															 tagNumber: retjson[i]["tagnum"].string!,
                                              orderID:   retjson[i]["workid"].string!,
                                              tune:      retjson[i]["tune"].string!,
                                              bikeType:  retjson[i]["brand"].string!,
@@ -44,6 +45,8 @@ class WorkOrderTableViewController: UITableViewController
               self.tableView.reloadData()
             }
           }
+          BinPacker.setOrders(self.workOrders)
+          BinPacker.packBins()
         }
         //else you are done- TO DO LATER
         return true

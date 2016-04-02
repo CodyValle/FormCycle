@@ -808,6 +808,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   */
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
   {
+    print(String(row))
     newOrderTextFieldStruct.tunePicker = String(row)
   }
 

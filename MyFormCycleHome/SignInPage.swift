@@ -34,8 +34,16 @@ extension ViewController
     @IBAction func forgotPassword(sender: AnyObject)
     {
 
+      var Params = ["action":"login"]
+      Params["logid"] = "21"
+      ServerCom.send(Params, f: {(succ: Bool, retjson: JSON) in
+        print(retjson)
+				print(retjson[0]["signature"].string)
+        return succ }) // ServerCom...
+
+
         let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: UIAlertControllerStyle.Alert)
-        
+
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
         alert.addTextFieldWithConfigurationHandler(passwordTextField)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: handleCancel))

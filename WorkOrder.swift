@@ -11,6 +11,7 @@ import UIKit
 class WorkOrder
 {
   //MARK: Properties
+  let id: Int
 
   let tagNumber: String
   let bikeType: String
@@ -19,10 +20,13 @@ class WorkOrder
   let lname: String
 
   var ServiceIDs: [Int]
+  var totalHours: Float
+  var totalCost: Int
 
     //MARK: Initialize properties
-  init(tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
+  init(id: Int, tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
   {
+    self.id = id
     self.tagNumber = tagNumber
     self.bikeType = bikeType + " " + model
     self.orderID = orderID
@@ -30,11 +34,17 @@ class WorkOrder
 
 
     self.ServiceIDs = []
+    self.totalHours = 0
+    self.totalCost = 0
 
     let tuneList = tune.characters.split{$0 == ","}.map(String.init)
-    for s in tuneList
+    for id in tuneList
     {
-      self.ServiceIDs.append(Int(s)!)
+      self.ServiceIDs.append(Int(id)!)
+
+      let service = Tune.getTune(Int(id)!)!
+      self.totalHours += service.sTime
+      self.totalCost += service.sCost
     }
 
     self.tune = Tune.ID(ServiceIDs[0])!
