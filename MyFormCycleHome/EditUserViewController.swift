@@ -17,7 +17,7 @@ class EditUserViewController: UIViewController
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var admin: UISegmentedControl!
     
-    var useridPassed = ""
+    var useridPassed = "" 
     
     @IBOutlet weak var signatureField: YPDrawSignatureView!
     @IBAction func backToEditRemoveTable(sender: AnyObject) {
