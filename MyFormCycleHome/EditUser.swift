@@ -14,12 +14,15 @@ class EditUser
     
     let admin: String
     let username: String
+    //let password: String
+    
     
     //MARK: Initialize properties
     init(username: String, admin: String)
     {
         self.admin = admin
         self.username = username
+        //self.password = password
         
     }
 }
