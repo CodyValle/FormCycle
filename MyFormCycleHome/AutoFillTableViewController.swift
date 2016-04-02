@@ -41,6 +41,7 @@ class AutoFillTableViewController: UITableViewController
     cell.fullName.text = cust.name
     cell.address.text = cust.address
     cell.phoneNum.text = cust.phone
+    cell.bike.text = cust.bike
     cell.address2 = cust.address2
     cell.city = cust.city
     cell.state = cust.state
@@ -48,6 +49,9 @@ class AutoFillTableViewController: UITableViewController
     cell.email = cust.email
     cell.lname = cust.lname
     cell.fname = cust.fname
+    cell.brand = cust.brand
+    cell.model = cust.model
+    cell.color = cust.color
 
     return cell
   }

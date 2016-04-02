@@ -22,9 +22,13 @@ class CustomerAutoFill
   let zip : String
   let email : String
   let phone : String
+  let model : String
+  let brand : String
+  let color : String
+    let bike : String
     
   //MARK: Initialize properties
-  init(fname : String, lname : String, address : String, address2 : String, city : String, state : String, phone: String, zip : String, email : String)
+    init(fname : String, lname : String, address : String, address2 : String, city : String, state : String, phone: String, zip : String, email : String, model: String, brand: String, color: String)
   {
     self.fname = fname
     self.lname = lname
@@ -36,5 +40,9 @@ class CustomerAutoFill
     self.zip = zip
     self.email = email
     self.phone = phone
+    self.model = model
+    self.brand = brand
+    self.color = color
+    self.bike = brand + " " + model + ", " + color
   }
 }

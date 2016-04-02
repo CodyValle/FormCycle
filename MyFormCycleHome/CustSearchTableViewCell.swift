@@ -13,6 +13,7 @@ class CustSearchTableViewCell: UITableViewCell
   @IBOutlet weak var fullName: UILabel!
   @IBOutlet weak var address: UILabel!
   @IBOutlet weak var phoneNum: UILabel!
+  @IBOutlet weak var bike: UILabel!
   var address2 = ""
   var city = ""
   var state = ""
@@ -20,5 +21,8 @@ class CustSearchTableViewCell: UITableViewCell
   var email = ""
   var fname = ""
   var lname = ""
+  var model = ""
+  var brand = ""
+  var color = ""
 
 }
