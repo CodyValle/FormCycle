@@ -12,12 +12,13 @@ import SwiftyJSON
 
 class EditUserViewController: UIViewController
 {
-    
+    var editUser = [EditUser]()
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var admin: UISegmentedControl!
     
-    var useridPassed = "" 
+    var useridPassed = ""
+    var adminPassed = ""
     
     @IBOutlet weak var signatureField: YPDrawSignatureView!
     @IBAction func backToEditRemoveTable(sender: AnyObject) {
@@ -37,7 +38,7 @@ class EditUserViewController: UIViewController
         if (username.text != nil) {
             MyParams["logid"] = username.text!
         }
-        if (password.text != nil) {
+        else if (password.text != nil) {
             MyParams["pwd"] = Crypto.encrypt(password.text!)
         }
         MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
@@ -50,8 +51,11 @@ class EditUserViewController: UIViewController
                         let refreshAlert = UIAlertController(title: "Success", message: "Edited User", preferredStyle: UIAlertControllerStyle.Alert)
                         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in }))
                         self.presentViewController(refreshAlert, animated: true, completion: nil)
+                        
                 }
+                
                 return true
+                
             }
             else //if request to server was unsuccessful
             {
@@ -70,6 +74,15 @@ class EditUserViewController: UIViewController
     {
         super.viewDidLoad()
         username.text = useridPassed
+        
+        if adminPassed == "Y"
+        {
+            admin.selectedSegmentIndex = 1
+        }
+        else if adminPassed == "N"
+        {
+            admin.selectedSegmentIndex = 0
+        }
     }
     
 

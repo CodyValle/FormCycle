@@ -136,6 +136,10 @@ class EditUsersTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            let user = editUser[indexPath.row]
+            var DelParams = ["action":"updateLogin"]
+            DelParams["logid"] = user.username
+            ServerCom.send(DelParams, f: {(succ: Bool, retjson: JSON) in return succ})
             editUser.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
             // handle delete (by removing the data from your array and updating the tableview)
@@ -153,6 +157,7 @@ class EditUsersTableViewController: UITableViewController
             if let destination = segue.destinationViewController as? EditUserViewController {
                 if let orderIndex = tableView.indexPathForSelectedRow?.row {
                     destination.useridPassed = editUser[orderIndex].username
+                    destination.adminPassed = editUser[orderIndex].admin
                 }
             }
         }

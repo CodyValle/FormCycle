@@ -20,7 +20,7 @@ class Tune
     init(id: Int, name: String, cost: Int, time: Float)
     {
       sID = id
-			sName = name
+      sName = name
       sCost = cost
       sTime = time
     }
