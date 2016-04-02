@@ -11,7 +11,7 @@ import UIKit
 class UsersTableViewCell: UITableViewCell
 {
     
-    @IBOutlet weak var fname: UILabel!
-    @IBOutlet weak var lname: UILabel!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var admin: UILabel!
+    
 }
