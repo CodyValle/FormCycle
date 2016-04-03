@@ -31,6 +31,7 @@ class RegisterUserViewController: UIViewController
         {
             let sigString = String(data: sigData!, encoding: NSUTF16StringEncoding)
             MyParams["signature"] = sigString
+            print(sigString)
         }
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
