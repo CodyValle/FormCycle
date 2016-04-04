@@ -6,6 +6,16 @@
 //  Copyright © 2016 Merrill Lines. All rights reserved.
 //
 
+
+/*
+* This is the class that handles the AutoFill table, and uses the Delegate protocol to fill out the relevant fields on the New Order page. 
+* When a cell is selected, this class will tell the ViewController class to run the function setTextFields, and pass along all information stored
+* in the AutoFillTableViewCell that was selected.
+*
+* This is handled by a popover segue, meaning when the search customer button is pushed, the search will be executed and the results will be passed back here,
+* and then presented as a popover over the NewOrder page.
+*
+*/
 import UIKit
 import SwiftyJSON
 
@@ -28,10 +38,13 @@ class AutoFillTableViewController: UITableViewController
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-    // #warning Incomplete implementation, return the number of rows
     return resultSet.count
   }
 
+  /*
+   * Function that initilizes each cell. It pulls information from the resultSet array that comes from the search querie sent and recieved
+   * from our database.
+   */
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
     let cellIdentifier = "CustSearchTableViewCell"
@@ -56,7 +69,7 @@ class AutoFillTableViewController: UITableViewController
     return cell
   }
     
-    
+  //When a cell is selected in this table, it takes the infromation and then sends it to the ViewController class via the delegate protocol
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
     if let custIndex = tableView.indexPathForSelectedRow?.row {

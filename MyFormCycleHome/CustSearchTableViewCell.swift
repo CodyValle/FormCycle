@@ -6,6 +6,11 @@
 //  Copyright © 2016 Merrill Lines. All rights reserved.
 //
 
+/*
+ * This is the class that will handle the Cells in the auto-fill table. These cells will have all relevant information to the customer, four of which will be used to display on the cell itself.
+ * The rest of the variables will be used to set all fields on the new order page, both customer information and the bike information page.
+ */
+
 import UIKit
 
 class CustSearchTableViewCell: UITableViewCell
