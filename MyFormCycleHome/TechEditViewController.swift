@@ -13,7 +13,6 @@
  * pickup table.
  */
 
-
 import Foundation
 import UIKit
 import SwiftHTTP
