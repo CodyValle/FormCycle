@@ -126,10 +126,10 @@ class EditTuneTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
-//            let user = editTune[indexPath.row]
-//            var DelParams = ["action":"updateLogin"]
-//            DelParams["logid"] = user.username
-//            ServerCom.send(DelParams, f: {(succ: Bool, retjson: JSON) in return succ})
+            let tune = editTune[indexPath.row]
+            var DelParams = ["action":"editTune"]
+            DelParams["tunename"] = tune.name
+            ServerCom.send(DelParams, f: {(succ: Bool, retjson: JSON) in return succ})
             editTune.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
             // handle delete (by removing the data from your array and updating the tableview)

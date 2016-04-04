@@ -1667,7 +1667,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VHD-IW-2an">
                                 <rect key="frame" x="20" y="102" width="728" height="421"/>
                                 <connections>
-                                    <segue destination="QzI-Fz-Se2" kind="embed" id="gQM-Hq-Ccm"/>
+                                    <segue destination="QzI-Fz-Se2" kind="embed" id="hhi-YN-B9V"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -1692,12 +1692,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5be-h7-xUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="2488"/>
+            <point key="canvasLocation" x="152" y="2512"/>
         </scene>
-        <!--Edit Users Table View Controller-->
+        <!--Edit Tune Table View Controller-->
         <scene sceneID="sus-qS-oPV">
             <objects>
-                <tableViewController id="QzI-Fz-Se2" customClass="EditUsersTableViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="QzI-Fz-Se2" customClass="EditTuneTableViewController" customModule="FormCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="naP-gd-1lG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1731,14 +1731,14 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="QzI-Fz-Se2" id="UHW-3h-boe"/>
-                            <outlet property="delegate" destination="QzI-Fz-Se2" id="I0F-cp-fHT"/>
+                            <outlet property="dataSource" destination="QzI-Fz-Se2" id="uIv-6f-RnE"/>
+                            <outlet property="delegate" destination="QzI-Fz-Se2" id="XWI-Xs-Hgk"/>
                         </connections>
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZ1-Nb-qzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="3552"/>
+            <point key="canvasLocation" x="112" y="3542"/>
         </scene>
         <!--newOrder-->
         <scene sceneID="oSN-g4-khG">
@@ -5518,8 +5518,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="bek-Cm-sC2"/>
         <segue reference="gMc-bB-5Dh"/>
-        <segue reference="lwk-5N-r6W"/>
-        <segue reference="hke-1J-UDo"/>
         <segue reference="w82-2O-uLI"/>
+        <segue reference="hke-1J-UDo"/>
+        <segue reference="4iP-vV-Har"/>
     </inferredMetricsTieBreakers>
 </document>
