@@ -21,35 +21,36 @@ class EditTuneTableViewController: UITableViewController
     /* Reloads data after coming back from Editing a User */
     override func viewDidAppear(animated: Bool) {
         
+        super.viewDidLoad()
         
-//        super.viewDidLoad()
-//        
-//        
-//        //Load data
-//        editTune.removeAll()
-//        
-//        
-//        //Get and display all users
-//        let MyParams = ["action":"retrieveTunes"]
-//        
-//        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-//            if succ {
-//                for (var i = 0; i < retjson.count; i++) {
-//                    self.editTune.append(EditTune(name: retjson[i]["name"].string!,
-//                        cost: Int(retjson[i]["cost"].string!)!))
-//                    
-//                    dispatch_async(dispatch_get_main_queue()) {
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//            }
-//            else {
-//                print("Failed to retrieve users.")
-//            }
-//            return succ
-//        })
-//        
-//        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+        
+        //Load data
+        editTune.removeAll()
+        
+        
+        //Get and display all users
+        let MyParams = ["action":"retrieveTunes"]
+        
+        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+            if succ {
+                for (var i = 0; i < retjson.count; i++) {
+                    self.editTune.append(EditTune(name: retjson[i]["name"].string!,
+                        cost: Int(retjson[i]["cost"].string!)!,
+                        id: Int(retjson[i]["tune"].string!)!,
+                        time: retjson[i]["time"].string!.floatValue))
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+            else {
+                print("Failed to retrieve users.")
+            }
+            return succ
+        })
+        
+        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
         
     }
     
@@ -70,7 +71,9 @@ class EditTuneTableViewController: UITableViewController
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
                     self.editTune.append(EditTune(name: retjson[i]["name"].string!,
-                        cost: Int(retjson[i]["cost"].string!)!))
+                                                  cost: Int(retjson[i]["cost"].string!)!,
+                                                  id: Int(retjson[i]["tune"].string!)!,
+                                                  time: retjson[i]["time"].string!.floatValue))
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
@@ -138,19 +141,21 @@ class EditTuneTableViewController: UITableViewController
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    let editSegueIndetifier = "editUserSegue"
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-//    {
-//        
-//        if segue.identifier == editSegueIndetifier {
-//            if let destination = segue.destinationViewController as? EditUserViewController {
-//                if let orderIndex = tableView.indexPathForSelectedRow?.row {
-//                    destination.useridPassed = editUser[orderIndex].username
-//                    destination.adminPassed = editUser[orderIndex].admin
-//                }
-//            }
-//        }
-//    }
+    let editSegueIndetifier = "ModifyTune"
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+        if segue.identifier == editSegueIndetifier {
+            if let destination = segue.destinationViewController as? ModifyTuneViewController {
+                if let orderIndex = tableView.indexPathForSelectedRow?.row {
+                    destination.namePassed = editTune[orderIndex].name
+                    destination.idPassed = editTune[orderIndex].id
+                    destination.costPassed = editTune[orderIndex].cost
+                    destination.timePassed = editTune[orderIndex].time
+                }
+            }
+        }
+    }
     
 }

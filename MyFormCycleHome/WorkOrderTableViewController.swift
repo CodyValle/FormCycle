@@ -87,7 +87,7 @@ class WorkOrderTableViewController: UITableViewController
     
     //Setting cell attributes to those in our array
     cell.bikeInfo.text = order.bikeType
-    cell.tuneType.text = Tune.ID(order.getServices()[0])
+    cell.tuneType.text = "tune1"//Tune.ID(order.getServices()[0])
     cell.referenceNumber.text = order.tagNumber
     cell.lname.text = order.lname
     cell.workid = order.orderID
