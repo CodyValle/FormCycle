@@ -6,6 +6,10 @@
 //  Copyright © 2016 FormCycle Developers. All rights reserved.
 //
 
+/*
+ * This class handles the cells that will be used to populate the WorkOrderTable, these include all currently open workorders.
+ */
+
 import UIKit
 
 class BikeOrderTableViewCell: UITableViewCell

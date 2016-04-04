@@ -6,6 +6,12 @@
 //  Copyright © 2016 FormCycle Developers. All rights reserved.
 //
 
+
+
+/*
+ * This class exists to store WorkOrder information, and is used to handle all information used for the WorkOrders table and the WaitingPickupTable.
+ * It is used for cell creation and is stored in the arrays that the data is accessed from. 
+ */
 import UIKit
 
 class WorkOrder

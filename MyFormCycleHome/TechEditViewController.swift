@@ -6,6 +6,14 @@
 //  Copyright © 2016 FormCycle Developers. All rights reserved.
 //
 
+/*
+ * This class will handle the TechEdit page. The user will come to this page when they select a currently open work order from the
+ * WorkOrders table. On this page, they will be able to edit notes and read all information regarding the selected work order.
+ * The user can also add on more additional services that need to be done to the bike, or close the order and move it to the waiting
+ * pickup table.
+ */
+
+
 import Foundation
 import UIKit
 import SwiftHTTP
@@ -26,7 +34,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
   
   var workidPassed = ""
   var workid = ""
-
+  
   func submitServerRequest()
   {
     /* Submits the server request */
@@ -97,9 +105,8 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
           if(retjson[0]["notes"] != nil) {
             self.storedNote = retjson[0]["notes"].string!
           }
-          //self.notes.text = "Hello"
+          
         }
-        //else you are done- TO DO LATER
         return true
       }
       return false
@@ -110,7 +117,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     
   override func viewWillAppear(animated: Bool)
   {
-    self.notes.text = storedNote
+    self.notes.text = storedNote //Only set the notes field when the view has finished loading. Cannot access the text area before this point.
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)

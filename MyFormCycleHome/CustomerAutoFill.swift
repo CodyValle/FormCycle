@@ -6,6 +6,11 @@
 //  Copyright © 2016 Merrill Lines. All rights reserved.
 //
 
+/*
+ * This class handles all relevant information for the AutoFillCell class. It will store information for the customer and their bike, and is used
+ * for cell creation in the AutoFillTable class. 
+ */
+
 import UIKit
 
 class CustomerAutoFill
@@ -25,7 +30,7 @@ class CustomerAutoFill
   let model : String
   let brand : String
   let color : String
-    let bike : String
+  let bike : String
     
   //MARK: Initialize properties
     init(fname : String, lname : String, address : String, address2 : String, city : String, state : String, phone: String, zip : String, email : String, model: String, brand: String, color: String)

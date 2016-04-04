@@ -6,6 +6,13 @@
 //  Copyright © 2016 FormCycle Developers. All rights reserved.
 //
 
+
+/*
+ * This class handles all recently closed work orders that are waiting to be picked up. It is very similar to the WorkOrder table,
+ * the cells contain the same information and is also on the main page. However when a cell is selected in this table, the user will
+ * be taken to a new page where they will have the option to complete the order, and set it as picked up and finished.
+ */
+
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
@@ -29,7 +36,7 @@ class WaitingPickupTableViewController: UITableViewController
     // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
     MyParams["open"] = "N"
 
-    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in //Receiving all recently closed waiting to be picked up orders
       if succ {
         if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++
@@ -39,7 +46,7 @@ class WaitingPickupTableViewController: UITableViewController
                         tune:      retjson[i]["tune"].string!,
                          bikeType:  retjson[i]["brand"].string!,
                          model:     retjson[i]["model"].string!,
-                         lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
+                         lname:     Crypto.decrypt(retjson[i]["lname"].string!))) //putting all relevant information into the workOrders array for cell creation
 
             dispatch_async(dispatch_get_main_queue()){
               self.tableView.reloadData()
@@ -64,6 +71,7 @@ class WaitingPickupTableViewController: UITableViewController
     return workOrders.count
   }
     
+   //Creating our cells and populating our table
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
     let cellIdentifier = "PickupTableViewCell"
@@ -84,7 +92,9 @@ class WaitingPickupTableViewController: UITableViewController
   }
 
   // MARK: - Navigation
-  // In a storyboard-based application, you will often want to do a little preparation before navigation
+
+  //When a cell is slected, the user will be brought to a new page showing all notes and descriptions of the work done. From here the user can set the bike as picked up.
+  // When a bike is picked up, it will be removed from this table
   let awaitingPickupSegueIdentifier = "awaitingPickupSegue"
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)

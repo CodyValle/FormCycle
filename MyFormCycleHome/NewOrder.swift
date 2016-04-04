@@ -54,7 +54,8 @@ extension ViewController
     static var mainPage = false
     static var welcomePopup = true
   }
-
+  
+ //This struct will be used to handle BikeAutoFill. When an order is selected, these values will be set and can then be passed on to the next page without causing a null exception.
  struct BikeAutoFillStruct
  {
     static var brand = ""
@@ -103,6 +104,9 @@ extension ViewController
     BikeAutoFillStruct.brand = ""
   }
 
+    
+  // This is our auto fill function. When a user hits search customer, this function will take any relevant information entered into the text fields and querie the database.
+  // It will then take the results and store them in the customers array, which will be accessed to send the results to the AutoFillTable class for the table to be populated.
   @IBAction func RetrieveCustomerInfo(sender: AnyObject)
   {
    
@@ -144,7 +148,11 @@ extension ViewController
     })
     while ServerCom.waiting() {}
   }
-
+  
+    
+  // This is the delegate function setTextFields. This will be called by the AutoFillTableViewController class. All information will be passed from the table and to the ViewController class.
+  // When called, the text fields on the new order page will be filled with all information relevant to the customer selected, and the bike info for this customer will be stored for when the
+  // user moves to Bike Info page. 
   func setTextFields(cust: CustomerAutoFill)
   {
     self.fname.text = cust.fname

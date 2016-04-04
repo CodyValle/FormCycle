@@ -464,10 +464,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         {
         
         }
-    
         else if segue.identifier == "autoFill"
         {
-            print(customers.count)
 
             if let destination = segue.destinationViewController as? AutoFillTableViewController
             {
@@ -476,7 +474,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                 {
                     for var i = 0; i < customers.count; i++
                     {
-                        if customers[i]["address2"] == nil {
+                        if customers[i]["address2"] == nil {  //checking for null values on optional fields
                             customers[i]["address2"] = ""
                         }
                         if customers[i]["email"] == nil {
@@ -493,7 +491,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                                                  email:    customers[i]["email"].string == "" ? "" : Crypto.decrypt(customers[i]["email"].string!),
                             model: customers[i]["model"].string!,
                             brand: customers[i]["brand"].string!,
-                            color: customers[i]["color"].string!))
+                            color: customers[i]["color"].string!))  //filling the results array with all information from the customer array
             /* Is this line needed? */ dispatch_async(dispatch_get_main_queue(), { () -> Void in })
           }
         }
