@@ -16,15 +16,17 @@ class EditTune
     let cost: Int
     let id: Int
     let time: Float
+    let tune: String
     
     
     //MARK: Initialize properties
-    init(name: String, cost: Int, id: Int, time: Float)
+    init(name: String, cost: Int, id: Int, time: Float, tune: String)
     {
         self.id = id
         self.name = name
         self.cost = cost
         self.time = time
+        self.tune = tune
         
     }
 }

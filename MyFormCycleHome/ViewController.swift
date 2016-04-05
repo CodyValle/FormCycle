@@ -85,6 +85,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   */
   override func viewDidAppear(animated: Bool)
   {
+    if (newOrderTextFieldStruct.bikeInfoPage)
+    {
+        super.viewDidLoad()
+        
+        
+    }
     if newOrderTextFieldStruct.mainPage && newOrderTextFieldStruct.welcomePopup
     {
       let myrefreshAlert = UIAlertController(title: "Welcome!", message:newOrderTextFieldStruct.USRname, preferredStyle: UIAlertControllerStyle.Alert)

@@ -33,8 +33,8 @@ class Tune
     Services = []
 
     // Get and display all tunes
-    let MyParams = ["action":"retrieveTunes"]
-
+    var MyParams = ["action":"retrieveTunes"]
+    MyParams["tunetype"] = "1"
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
         print("Loading \(retjson.count) tunes from the server")

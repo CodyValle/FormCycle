@@ -29,16 +29,16 @@ class EditTuneTableViewController: UITableViewController
         
         
         //Get and display all users
-        let MyParams = ["action":"retrieveTunes"]
-        
+        var MyParams = ["action":"retrieveTunes"]
+        MyParams["tunetype"] = "1"
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
                     self.editTune.append(EditTune(name: retjson[i]["name"].string!,
                         cost: Int(retjson[i]["cost"].string!)!,
                         id: Int(retjson[i]["tune"].string!)!,
-                        time: retjson[i]["time"].string!.floatValue))
-                    
+                        time: retjson[i]["time"].string!.floatValue,
+                        tune: retjson[i]["tune"].string!))
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
                     }
@@ -57,36 +57,37 @@ class EditTuneTableViewController: UITableViewController
     /* Initially loads the table as soon as the view loads. */
     override func viewDidLoad()
     {
-        super.viewDidLoad()
+        super.viewDidLoad() 
         
         
         //Load data
         editTune.removeAll()
         
         
-        //Get and display all users 
-        let MyParams = ["action":"retrieveTunes"]
-        
-        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if succ {
-                for (var i = 0; i < retjson.count; i++) {
-                    self.editTune.append(EditTune(name: retjson[i]["name"].string!,
-                                                  cost: Int(retjson[i]["cost"].string!)!,
-                                                  id: Int(retjson[i]["tune"].string!)!,
-                                                  time: retjson[i]["time"].string!.floatValue))
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.tableView.reloadData()
+        //Get and display all users
+        var MyParams = ["action":"retrieveTunes"]
+        MyParams["tunetype"] = "1"
+            ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+                if succ {
+                    for (var i = 0; i < retjson.count; i++) {
+                        
+                        self.editTune.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["tune"].string!))
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.tableView.reloadData()
+                        }
                     }
                 }
-            }
-            else {
-                print("Failed to retrieve users.")
-            }
-            return succ
-        })
-        
-        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+                else {
+                    print("Failed to retrieve users.")
+                }
+                return succ
+            })
+            
+            while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
     }
     
     override func didReceiveMemoryWarning()
