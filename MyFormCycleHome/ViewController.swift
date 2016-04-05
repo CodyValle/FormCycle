@@ -6,7 +6,7 @@
 //  Copyright © 2015 FormCycle Developers. All rights reserved.
 //
 
-import Foundation
+import Foundation 
 import UIKit
 import SwiftHTTP  
 import SwiftyJSON 
@@ -85,10 +85,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   */
   override func viewDidAppear(animated: Bool)
   {
+    //super.viewDidLoad()
     if (newOrderTextFieldStruct.bikeInfoPage)
     {
-        super.viewDidLoad()
         
+        pickerTuneSelection.reloadAllComponents()
         
     }
     if newOrderTextFieldStruct.mainPage && newOrderTextFieldStruct.welcomePopup
@@ -174,6 +175,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* else if user is on the bike info page, set this flag to true */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
+            pickerTuneSelection.reloadAllComponents()
       newOrderTextFieldStruct.neworderpage = false
       newOrderTextFieldStruct.loginPage = false
       newOrderTextFieldStruct.invoicePage = false
@@ -468,7 +470,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         }
         else if segue.identifier == "toBikeInfo"
         {
-        
+            pickerTuneSelection.reloadAllComponents()
         }
         else if segue.identifier == "autoFill"
         {
@@ -654,12 +656,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 
 				return false
 			}
-
       return true
 		}
 		/* Check if currently on bike info page */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
+            
 			if brand.text?.utf16.count == 0 /* Checks brand restrictions */
 			{
 				let refreshAlert = UIAlertController(title: "Did Not Enter Brand", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
