@@ -57,7 +57,7 @@ class EditTuneTableViewController: UITableViewController
     /* Initially loads the table as soon as the view loads. */
     override func viewDidLoad()
     {
-        super.viewDidLoad() 
+        super.viewDidLoad()  
         
         
         //Load data
