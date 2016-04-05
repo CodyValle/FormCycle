@@ -33,7 +33,7 @@ class WorkOrderTableViewController: UITableViewController
       if (succ) {
 				if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++ {
-            self.workOrders.append(WorkOrder(id: i,
+            self.workOrders.append(WorkOrder(id:        Int(retjson[i]["rowid"].string!)!,
               															 tagNumber: retjson[i]["tagnum"].string!,
                                              orderID:   retjson[i]["workid"].string!,
                                              tune:      retjson[i]["tune"].string!,
@@ -45,10 +45,12 @@ class WorkOrderTableViewController: UITableViewController
               self.tableView.reloadData()
             }
           }
-          BinPacker.setOrders(self.workOrders)
-          BinPacker.packBins()
         }
         //else you are done- TO DO LATER
+
+
+        BinPacker.setOrders(self.workOrders)
+				BinPacker.packBins()
         return true
       }
       return false
@@ -87,7 +89,12 @@ class WorkOrderTableViewController: UITableViewController
     cell.lname.text = order.lname
     cell.workid = order.orderID
 
-    //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+
+    cell.backgroundColor = BinPacker.IDinDay(order.id, day: 0) ?
+      indexPath.row % 2 == 0 ? UIColor(red: 0.1608, green: 0.7255, blue: 1, alpha: 1.0) : UIColor(red: 0, green: 0.8471, blue: 0.9255, alpha: 1.0)
+    :
+			indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+
     return cell
   }
     

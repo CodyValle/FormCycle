@@ -28,6 +28,7 @@ class BinPacker
 
   static private var WorkOrders: [WorkOrder] = []
   static private var Days: [Day] = []
+  static private var todayLock = false
 
   static func setOrders(orders: [WorkOrder])
   {
@@ -36,10 +37,25 @@ class BinPacker
 
   static func packBins()
   {
-    Days = [Day()]
-    var curDay: Int = 0
 
-    for order in WorkOrders
+    let defaults = NSUserDefaults.standardUserDefaults()
+
+    defaults.setValue("true", forKey: "LockedDay")
+    defaults.setValue(NSDate(), forKey: "LastLoaded")
+
+    defaults.synchronize()
+
+    let defaults = NSUserDefaults.standardUserDefaults()
+    print(defaults.stringForKey("LastLoaded"))
+
+    self.todayLock = defaults.stringForKey("LockedDay") == "true"
+
+
+
+
+    self.Days = [Day()]
+
+    for order in self.WorkOrders
     {
       print("For work order \(order.lname), \(order.tagNumber):")
       print(" Services:")
@@ -54,20 +70,49 @@ class BinPacker
       print(" Work Hours: \(order.totalHours)")
       print(" Work Cost: \(order.totalCost)")
 
-      if Days[curDay].getHours() + order.totalHours > 8
+      var placed = false
+      var day = todayLock ? 1 : 0
+      
+      while day < self.Days.count
       {
-				Days.append(Day())
-        curDay++
+        if self.Days[day].getHours() + order.totalHours <= 8
+        {
+          placed = true
+          break
+        }
+        day++
       }
 
-      Days[curDay].WorkOrders.append(order)
+      if !placed { self.Days.append(Day()) }
+
+      self.Days[day].WorkOrders.append(order)
     }
 
     for i in 0...(Days.count - 1)
     {
       print("Day: \(i)")
       print(" Hours scheduled: \(Days[i].getHours())")
+      print("  Work Order IDs:")
+      for w in Days[i].WorkOrders
+      {
+        print("   \(w.id)")
+      }
     }
+  }
+
+  static func getOrdersOfDay(day: Int) -> [WorkOrder]
+  {
+    return self.Days[day].WorkOrders
+  }
+
+  static func IDinDay(id: Int, day: Int) -> Bool
+  {
+    for w in Days[day].WorkOrders {
+      if id == w.id {
+        return true
+      }
+    }
+    return false
   }
 
 }
