@@ -373,6 +373,9 @@
                                     <action selector="Clear:" destination="IKR-4Z-C3M" eventType="touchUpInside" id="sPi-fp-bSU"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="amP-Wb-ON5">
+                                <rect key="frame" x="89" y="682" width="535" height="246"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -424,6 +427,7 @@
                         <outlet property="admin" destination="w2K-Ds-zfB" id="fY4-oo-kuT"/>
                         <outlet property="password" destination="0EI-Sy-rah" id="s9W-R1-0Zv"/>
                         <outlet property="signatureField" destination="xPb-YJ-HUs" id="giy-rc-TLB"/>
+                        <outlet property="test" destination="amP-Wb-ON5" id="KoE-32-EWY"/>
                         <outlet property="userName" destination="u6U-Fj-MXg" id="Wxl-zA-Ikd"/>
                     </connections>
                 </viewController>

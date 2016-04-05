@@ -13,6 +13,7 @@ import Foundation
 
 class RegisterUserViewController: UIViewController
 {
+    @IBOutlet weak var test: UIImageView!
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var admin: UISegmentedControl!
@@ -24,14 +25,16 @@ class RegisterUserViewController: UIViewController
    }
     
     @IBAction func registerUser(sender: AnyObject) {
+    
         /* Submits the server request */
         let sigData = UIImageJPEGRepresentation(signatureField.getSignature(),1.0)
         var MyParams = ["action":"register"]
         if(sigData != nil)
         {
-            let sigString = String(data: sigData!, encoding: NSUTF16StringEncoding)
-            MyParams["signature"] = sigString
-            print(sigString)
+            let sigString = sigData?.base64EncodedDataWithOptions(.Encoding64CharacterLineLength)
+            MyParams["signature"] = String(sigString)
+            print(String(sigString))
+            test.image = UIImage(data:NSData(base64EncodedData: sigString!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!, scale:1.0)
         }
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
