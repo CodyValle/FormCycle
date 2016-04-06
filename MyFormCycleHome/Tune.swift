@@ -43,6 +43,9 @@ class Tune
                                   name: retjson[i]["name"].string!,
                                   cost: Int(retjson[i]["cost"].string!)!,
                                   time: retjson[i]["time"].string!.floatValue))
+//            print(retjson[i]["tune"].string!)
+//            print("Count:",Services.count)
+//            print(Tune.getTune(i))
         }
       }
       else {
@@ -102,7 +105,7 @@ class Tune
   /* Currently the count is not correct. */
   static func numberOfTunes() -> Int
   {
-    print("Number of Services" , Services.count)
+    //print("Number of Services" , Services.count)
     return 2//Services.count
   }
 

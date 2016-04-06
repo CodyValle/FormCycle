@@ -53,6 +53,7 @@ extension ViewController
     static var addServicesPage = false
     static var mainPage = false
     static var welcomePopup = true
+    static var myListOfTunes: [String] = []
   }
   
  //This struct will be used to handle BikeAutoFill. When an order is selected, these values will be set and can then be passed on to the next page without causing a null exception.

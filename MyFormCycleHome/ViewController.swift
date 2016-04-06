@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   @IBOutlet weak var Name: UILabel!
   @IBOutlet weak var invTuneType: UILabel!
     
- 
+    //var myListOfTunes: [String] = []
     
     @IBAction func moveToSearchPage(sender: AnyObject) {
         
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     //super.viewDidLoad()
     if (newOrderTextFieldStruct.bikeInfoPage)
     {
-        
+        pickerTuneSelection.reloadAllComponents()
 //        dispatch_async(dispatch_get_main_queue()) {
 //            self.pickerTuneSelection.reloadAllComponents()
 //        }
@@ -121,7 +121,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		super.viewDidLoad()
     if newOrderTextFieldStruct.mainPage
     {
-        
+        generateListForTunes()
+       //myListOfTunes = generateListForTunes()
 
       newOrderTextFieldStruct.loginPage = false
     }
@@ -151,9 +152,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		else if newOrderTextFieldStruct.neworderpage
 		{
             // Open the connection to the database.
-            ServerCom.open()
+            //ServerCom.open()
             // Load the tunes into the app
-            Tune.populateTunes()
+            //Tune.populateTunes()
             
       newOrderTextFieldStruct.mainPage = false
       newOrderTextFieldStruct.loginPage = false
@@ -184,7 +185,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* else if user is on the bike info page, set this flag to true */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
-            
+            pickerTuneSelection.reloadAllComponents()
 //            dispatch_async(dispatch_get_main_queue()) {
 //            self.pickerTuneSelection.reloadAllComponents()
 //            }
@@ -801,11 +802,49 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 
 	//*************************** Tune Selection Picker *************************//
   /* creates picker for tune type and sets the number of selections to the length of the tuneType array */
-  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+ func generateListForTunes()
+ {
+    var editTune = [EditTune]()
+    var myTunes: [String] = []
+    //Get and display all users
+    var getTunes = ["action":"retrieveTunes"]
+    getTunes["tunetype"] = "1"
+    ServerCom.send(getTunes, f: {(succ: Bool, retjson: JSON) in
+    if succ {
+    for (var i = 0; i < retjson.count; i++) {
+        editTune.append(EditTune(name: retjson[i]["name"].string!,
+                                      cost: Int(retjson[i]["cost"].string!)!,
+                                      id: Int(retjson[i]["tune"].string!)!,
+                                      time: retjson[i]["time"].string!.floatValue,
+                                      tune: retjson[i]["tune"].string!))
+    
+        myTunes.append(retjson[i]["name"].string!)
+        //myTunes[2] = "Test New Tune'"
+        //myTunes[i] = retjson[i]["name"].string!
+        //print(i)
+        //print(retjson[i]["name"].string!)
+        //print(myTunes)
+        //print(retjson[i]["tune"].string!)
+            //print(editTune.)
+            //print(Tune.getTune(i))
+        }
+        newOrderTextFieldStruct.myListOfTunes = myTunes
+     //return myTunes
+    }
+        
+    else {
+    print("Failed to retrieve tunes.")
+    }
+    return succ
+    })
+    //return myTunes
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
   {
     //pickerTuneSelection.reloadAllComponents()
-    print("Picker View Number of Tunes:",Tune.numberOfTunes())
-    return Tune.numberOfTunes()
+    //print("Picker View Number of Tunes:",Tune.numberOfTunes())
+    return newOrderTextFieldStruct.myListOfTunes.count
   }
 
   /* sets the number of columns in the picker to one */
@@ -818,8 +857,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
      text color to white so it can be more easily displayed on the interface. */
   func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString?
   {
+    //let myServices = Tune.getServices()
     //pickerTuneSelection.reloadAllComponents()
-    let attributedString = NSAttributedString(string: Tune.ID(row)!, attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+    let attributedString = NSAttributedString(string: newOrderTextFieldStruct.myListOfTunes[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
     return attributedString
   }
 
@@ -829,8 +869,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   */
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
   {
-    newOrderTextFieldStruct.tunePicker = String(row)
     pickerTuneSelection.reloadAllComponents()
+    newOrderTextFieldStruct.tunePicker = String(row)
+    
   }
 
 //********************* PRACTICE TEST FUNCTIONS *********************

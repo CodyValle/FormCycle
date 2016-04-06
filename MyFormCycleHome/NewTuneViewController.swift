@@ -20,7 +20,7 @@ class NewTuneViewController: UIViewController
         /* Submits the server request */
         var MyParams = ["action":"addTune"]
         MyParams["tunetype"] = "1"
-        MyParams["tune"] = String(Tune.numberOfTunes())
+        //MyParams["tune"] = String(Tune.numberOfTunes())
         //MyParams["tune"] = String(idPassed)
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         if (name.text?.characters.count > 0) {
