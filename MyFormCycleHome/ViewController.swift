@@ -51,7 +51,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   @IBOutlet weak var Name: UILabel!
   @IBOutlet weak var invTuneType: UILabel!
     
-    //var myListOfTunes: [String] = []
     
     @IBAction func moveToSearchPage(sender: AnyObject) {
         
@@ -819,14 +818,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                                       tune: retjson[i]["tune"].string!))
     
         myTunes.append(retjson[i]["name"].string!)
-        //myTunes[2] = "Test New Tune'"
-        //myTunes[i] = retjson[i]["name"].string!
-        //print(i)
-        //print(retjson[i]["name"].string!)
-        //print(myTunes)
-        //print(retjson[i]["tune"].string!)
-            //print(editTune.)
-            //print(Tune.getTune(i))
         }
         newOrderTextFieldStruct.myListOfTunes = myTunes
      //return myTunes
