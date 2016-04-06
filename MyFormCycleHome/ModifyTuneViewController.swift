@@ -34,8 +34,10 @@ class ModifyTuneViewController: UIViewController
     @IBAction func submitBtnEditTune(sender: AnyObject) {
         /* Submits the server request */
         var MyParams = ["action":"editTune"]
+        MyParams["tunetype"] = "0"
         //MyParams["tune"] = String(idPassed)
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+        MyParams["tunename"] = namePassed
         if (name.text?.characters.count > 0) {
             MyParams["tunename"] = name.text
         }
@@ -51,8 +53,8 @@ class ModifyTuneViewController: UIViewController
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ //if request to server was successful
             {
-                print("\n\nSuccess\n\n")
-                //self.dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+                //print("\n\nSuccess\n\n")
+                self.dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
                 return true
                 
             }

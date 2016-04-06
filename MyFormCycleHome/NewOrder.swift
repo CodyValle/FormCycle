@@ -77,6 +77,7 @@ extension ViewController
   //MARK: Variables and functions for Customer Information Page.
   @IBAction func submitCustInfo(sender: AnyObject)
   {
+    
     newOrderTextFieldStruct.firstName = fname.text!
     newOrderTextFieldStruct.lastName = lname.text!
     newOrderTextFieldStruct.myAddress = address.text!

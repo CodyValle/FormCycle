@@ -102,7 +102,8 @@ class Tune
   /* Currently the count is not correct. */
   static func numberOfTunes() -> Int
   {
-    return Services.count
+    print("Number of Services" , Services.count)
+    return 2//Services.count
   }
 
   static func getTune(id: Int) -> Service?

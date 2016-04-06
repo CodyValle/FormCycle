@@ -89,7 +89,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     if (newOrderTextFieldStruct.bikeInfoPage)
     {
         
-        pickerTuneSelection.reloadAllComponents()
+//        dispatch_async(dispatch_get_main_queue()) {
+//            self.pickerTuneSelection.reloadAllComponents()
+//        }
         
     }
     if newOrderTextFieldStruct.mainPage && newOrderTextFieldStruct.welcomePopup
@@ -119,6 +121,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		super.viewDidLoad()
     if newOrderTextFieldStruct.mainPage
     {
+        
+
       newOrderTextFieldStruct.loginPage = false
     }
         
@@ -137,15 +141,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       PWDTextField.delegate = self
       PWDTextField.clearButtonMode = .WhileEditing
 
-      // Open the connection to the database.
-      ServerCom.open()
-
-      // Load the tunes into the app
-      Tune.populateTunes()
+//      // Open the connection to the database.
+//      ServerCom.open()
+//        // Load the tunes into the app
+//        Tune.populateTunes()
+      
     }
     /* if user is on the new order page set flag to true */
 		else if newOrderTextFieldStruct.neworderpage
 		{
+            // Open the connection to the database.
+            ServerCom.open()
+            // Load the tunes into the app
+            Tune.populateTunes()
+            
       newOrderTextFieldStruct.mainPage = false
       newOrderTextFieldStruct.loginPage = false
       newOrderTextFieldStruct.bikeInfoPage = false
@@ -175,7 +184,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* else if user is on the bike info page, set this flag to true */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
-            pickerTuneSelection.reloadAllComponents()
+            
+//            dispatch_async(dispatch_get_main_queue()) {
+//            self.pickerTuneSelection.reloadAllComponents()
+//            }
       newOrderTextFieldStruct.neworderpage = false
       newOrderTextFieldStruct.loginPage = false
       newOrderTextFieldStruct.invoicePage = false
@@ -470,7 +482,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         }
         else if segue.identifier == "toBikeInfo"
         {
-            pickerTuneSelection.reloadAllComponents()
+           // pickerTuneSelection.reloadAllComponents()
         }
         else if segue.identifier == "autoFill"
         {
@@ -791,6 +803,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   /* creates picker for tune type and sets the number of selections to the length of the tuneType array */
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
   {
+    //pickerTuneSelection.reloadAllComponents()
+    print("Picker View Number of Tunes:",Tune.numberOfTunes())
     return Tune.numberOfTunes()
   }
 
@@ -804,6 +818,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
      text color to white so it can be more easily displayed on the interface. */
   func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString?
   {
+    //pickerTuneSelection.reloadAllComponents()
     let attributedString = NSAttributedString(string: Tune.ID(row)!, attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
     return attributedString
   }
@@ -815,6 +830,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
   {
     newOrderTextFieldStruct.tunePicker = String(row)
+    pickerTuneSelection.reloadAllComponents()
   }
 
 //********************* PRACTICE TEST FUNCTIONS *********************
