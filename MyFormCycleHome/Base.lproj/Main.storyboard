@@ -1949,6 +1949,19 @@
             </objects>
             <point key="canvasLocation" x="28" y="4432"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hfP-zc-7I9">
+            <objects>
+                <navigationController id="OJh-MB-qNC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D33-Xp-oPn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IvJ-YF-0OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1224" y="-72"/>
+        </scene>
         <!--newOrder-->
         <scene sceneID="oSN-g4-khG">
             <objects>
@@ -5150,7 +5163,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-Ri-70g">
                                 <rect key="frame" x="120" y="91" width="718" height="934"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-p8-Nof">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-p8-Nof">
                                         <rect key="frame" x="0.0" y="0.0" width="718" height="934"/>
                                     </stackView>
                                 </subviews>

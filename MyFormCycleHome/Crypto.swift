@@ -9,7 +9,7 @@
 import Foundation
 import CryptoSwift
 
-extension String {
+extension String { 
 
   func aesEncrypt(key: String, iv: String) throws -> String{
     let data = self.dataUsingEncoding(NSUTF8StringEncoding)

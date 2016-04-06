@@ -184,6 +184,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* else if user is on the bike info page, set this flag to true */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
+            pickerTuneSelection.delegate = self
+            //pickerTuneSelection.dataSource = self
             pickerTuneSelection.reloadAllComponents()
 //            dispatch_async(dispatch_get_main_queue()) {
 //            self.pickerTuneSelection.reloadAllComponents()
@@ -789,7 +791,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                         
                         self.presentViewController(alert, animated: true, completion: { })
                 }
-                return false 
+                return false
             }
         }) // ServerCom...
         
@@ -860,10 +862,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   */
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
   {
+    if( pickerView == pickerTuneSelection)
+    {
+        pickerTuneSelection.reloadAllComponents()
+    }
     pickerTuneSelection.reloadAllComponents()
     newOrderTextFieldStruct.tunePicker = String(row)
+    //newOrderTextFieldStruct.myListOfTunes
     
   }
+    
+    func pickerView(pickerView: UIPickerView,titleForRow row: Int) -> String? {
+            return newOrderTextFieldStruct.myListOfTunes[row]
+    }
 
 //********************* PRACTICE TEST FUNCTIONS *********************
     
