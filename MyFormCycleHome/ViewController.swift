@@ -78,16 +78,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
   }
     
+    
   /* ViewDidAppear() is a function that is overwritten here. This allows us to display
   *   an alert view while still on the same view controller. This is also confronting
   *   a problem that occured when trying to load more items in a single view controller
   */
   override func viewDidAppear(animated: Bool)
   {
-    //super.viewDidLoad()
+    super.viewDidLoad()
     if (newOrderTextFieldStruct.bikeInfoPage)
     {
+        generateListForTunes()
+        pickerTuneSelection.delegate = self
         pickerTuneSelection.reloadAllComponents()
+        //pickerTuneSelection.reloadAllComponents()
 //        dispatch_async(dispatch_get_main_queue()) {
 //            self.pickerTuneSelection.reloadAllComponents()
 //        }
@@ -184,8 +188,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* else if user is on the bike info page, set this flag to true */
 		else if newOrderTextFieldStruct.bikeInfoPage == true
 		{
+            generateListForTunes()
             pickerTuneSelection.delegate = self
-            //pickerTuneSelection.dataSource = self
             pickerTuneSelection.reloadAllComponents()
 //            dispatch_async(dispatch_get_main_queue()) {
 //            self.pickerTuneSelection.reloadAllComponents()

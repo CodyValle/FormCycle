@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-850" y="74"/>
+            <point key="canvasLocation" x="-578" y="82"/>
         </scene>
         <!--Register User View Controller-->
         <scene sceneID="hNF-tq-u6K">
@@ -942,7 +942,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" animates="NO" id="ucj-7w-5JU"/>
+                                    <segue destination="Sfg-OH-txt" kind="presentation" identifier="moveToCustInfo" id="6Ht-XH-mUl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOC-dX-9dG">
@@ -1949,19 +1949,6 @@
             </objects>
             <point key="canvasLocation" x="28" y="4432"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hfP-zc-7I9">
-            <objects>
-                <navigationController id="OJh-MB-qNC" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D33-Xp-oPn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IvJ-YF-0OB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1224" y="-72"/>
-        </scene>
         <!--newOrder-->
         <scene sceneID="oSN-g4-khG">
             <objects>
@@ -2295,7 +2282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0X-Jg-oVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1730" y="305"/>
+            <point key="canvasLocation" x="1430" y="289"/>
         </scene>
         <!--Search Results View Controller-->
         <scene sceneID="tED-Nz-62N">
@@ -5864,10 +5851,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ffT-cw-02l"/>
-        <segue reference="bek-Cm-sC2"/>
-        <segue reference="dWG-Xp-aU6"/>
         <segue reference="hke-1J-UDo"/>
+        <segue reference="Zok-Ro-m6E"/>
+        <segue reference="lwk-5N-r6W"/>
+        <segue reference="VUy-vi-UU1"/>
         <segue reference="w82-2O-uLI"/>
-        <segue reference="4iP-vV-Har"/>
     </inferredMetricsTieBreakers>
 </document>
