@@ -146,9 +146,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       PWDTextField.clearButtonMode = .WhileEditing
 
 //      // Open the connection to the database.
-//      ServerCom.open()
+      ServerCom.open()
 //        // Load the tunes into the app
-//        Tune.populateTunes()
+       Tune.populateTunes()
       
     }
     /* if user is on the new order page set flag to true */

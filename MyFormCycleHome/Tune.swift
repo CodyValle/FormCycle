@@ -34,7 +34,7 @@ class Tune
 
     // Get and display all tunes
     var MyParams = ["action":"retrieveTunes"]
-    MyParams["tunetype"] = "1"
+    //MyParams["tunetype"] = "1"
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
         print("Loading \(retjson.count) tunes from the server")
@@ -106,7 +106,7 @@ class Tune
   static func numberOfTunes() -> Int
   {
     //print("Number of Services" , Services.count)
-    return 2//Services.count
+    return Services.count
   }
 
   static func getTune(id: Int) -> Service?
