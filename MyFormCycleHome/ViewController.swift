@@ -529,6 +529,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 		/* checks if the user pressed the submit button on the bike info page */
 		else if segue.identifier == "moveToInvoice"
 		{
+            
 			newOrderTextFieldStruct.invoicePage = true
 			/* on invoice page, set flag to true. */
 			newOrderTextFieldStruct.myBrand = brand.text!
@@ -872,7 +873,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 //    {
 //        pickerTuneSelection.reloadAllComponents()
 //    }
-    
+//    newOrderTextFieldStruct.rowForPicker = row
     //pickerTuneSelection.reloadAllComponents()
     //print("Current Row", row)
 //    let storage = newOrderTextFieldStruct.myListOfTunes[row]
@@ -885,6 +886,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   }
     
     func pickerView(pickerView: UIPickerView,titleForRow row: Int) -> String? {
+        let storage = newOrderTextFieldStruct.myListOfTunes[row]
+        print("Name of Local Tune in Picker:", storage)
+        FindTuneIndex(storage)
+        print("BEFORE SETTING FINAL VALUE:", newOrderTextFieldStruct.returnValue)
+        newOrderTextFieldStruct.tunePicker = String(newOrderTextFieldStruct.returnValue)
+            //newOrderTextFieldStruct.rowForPicker = row
             return newOrderTextFieldStruct.myListOfTunes[row]
     }
     
