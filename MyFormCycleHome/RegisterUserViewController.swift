@@ -31,10 +31,10 @@ class RegisterUserViewController: UIViewController
         var MyParams = ["action":"register"]
         if(sigData != nil)
         {
-            let sigString = sigData?.base64EncodedDataWithOptions(.Encoding64CharacterLineLength)
-            MyParams["signature"] = String(sigString)
-            print(String(sigString))
-            test.image = UIImage(data:NSData(base64EncodedData: sigString!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!, scale:1.0)
+            let sigString = sigData?.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+            MyParams["signature"] = sigString
+            test.image = UIImage(data:NSData(base64EncodedString: sigString!, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!, scale:1.0)
+            
         }
         
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
