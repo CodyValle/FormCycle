@@ -82,7 +82,7 @@ class WaitingPickupTableViewController: UITableViewController
     
     //Setting cell attributes to those in our array
     cell.bikeInfo.text = order.bikeType
-    cell.tuneType.text = "tune1"//Tune.ID(order.getServices()[0])
+    cell.tuneType.text = Tune.ID(order.getServices()[0])
     cell.tagNum.text = order.tagNumber
     cell.lname.text = order.lname
 

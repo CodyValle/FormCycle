@@ -856,6 +856,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   {
     //let myServices = Tune.getServices()
     //pickerTuneSelection.reloadAllComponents()
+    let storage = newOrderTextFieldStruct.myListOfTunes[row]
+    FindTuneIndex(storage)
     let attributedString = NSAttributedString(string: newOrderTextFieldStruct.myListOfTunes[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
     return attributedString
   }
@@ -866,12 +868,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   */
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
   {
-    if( pickerView == pickerTuneSelection)
-    {
-        pickerTuneSelection.reloadAllComponents()
-    }
-    pickerTuneSelection.reloadAllComponents()
-    newOrderTextFieldStruct.tunePicker = String(row)
+//    if( pickerView == pickerTuneSelection)
+//    {
+//        pickerTuneSelection.reloadAllComponents()
+//    }
+    
+    //pickerTuneSelection.reloadAllComponents()
+    //print("Current Row", row)
+//    let storage = newOrderTextFieldStruct.myListOfTunes[row]
+//    FindTuneIndex(storage)
+    print("BEFORE SETTING FINAL VALUE:", newOrderTextFieldStruct.returnValue)
+    newOrderTextFieldStruct.tunePicker = String(newOrderTextFieldStruct.returnValue)//String(row)
+    //print("Being Stored", storage)
     //newOrderTextFieldStruct.myListOfTunes
     
   }
@@ -879,6 +887,46 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     func pickerView(pickerView: UIPickerView,titleForRow row: Int) -> String? {
             return newOrderTextFieldStruct.myListOfTunes[row]
     }
+    
+    func FindTuneIndex(myVar :String)
+    {
+        var counter = 0
+        var returnThisValue = 0
+        var getTunes = ["action":"retrieveTunes"]
+        ServerCom.send(getTunes, f: {(succ: Bool, retjson: JSON) in
+            if succ {
+                for (var i = 0; i < retjson.count; i++) {
+                    if (myVar == retjson[i]["name"].string! )
+                    {
+                        
+                        counter = Int(retjson[i]["tune"].string!)!
+                        print("FOUND THE ONE:", counter)
+                        newOrderTextFieldStruct.returnValue = counter
+                        print(retjson[i]["name"].string!)
+                        
+                        break
+                    }
+                    else{
+                    //counter = counter + 1
+                    }
+                    //print(counter)
+                    
+                }
+                //return counter
+               
+                //return myTunes
+            }
+                
+            else {
+                print("Failed to retrieve tunes.")
+            }
+            //break
+            return succ
+        })
+        
+    }
+    
+    
 
 //********************* PRACTICE TEST FUNCTIONS *********************
     

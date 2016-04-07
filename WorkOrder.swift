@@ -24,7 +24,7 @@ class WorkOrder
   let tune: String
   let lname: String
 
-  //var ServiceIDs: [Int]
+  var ServiceIDs: [Int]
 
     //MARK: Initialize properties
   init(tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
@@ -35,22 +35,22 @@ class WorkOrder
     self.lname = lname
 
 
-//    self.ServiceIDs = []
-//
-//    let tuneList = tune.characters.split{$0 == ","}.map(String.init)
-//    for s in tuneList
-//    {
-//      self.ServiceIDs.append(Int(s)!)
-//    }
-//
-//    self.tune = Tune.ID(ServiceIDs[0])!
-    self.tune = tune
+    self.ServiceIDs = []
+
+    let tuneList = tune.characters.split{$0 == ","}.map(String.init)
+    for s in tuneList
+    {
+      self.ServiceIDs.append(Int(s)!)
+    }
+
+    self.tune = Tune.ID(ServiceIDs[0])!
+    //self.tune = tune
     self.orderID = orderID
     
   }
 
-//  func getServices() -> [Int]
-//  {
-//    return ServiceIDs
-//  }
+  func getServices() -> [Int]
+  {
+    return ServiceIDs
+  }
 }
