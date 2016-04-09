@@ -56,6 +56,7 @@
 		9DE0558B1CB06F18001CA645 /* BinPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE0558A1CB06F17001CA645 /* BinPacker.swift */; };
 		9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC52411C84F8D000DB2965 /* ServerCom.swift */; };
 		9DFBA13C1C5D75DD008D13CB /* Capstone in Resources */ = {isa = PBXBuildFile; fileRef = 9DFBA13B1C5D75DD008D13CB /* Capstone */; };
+		AF94A69C1CB9853100536C88 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94A69B1CB9853100536C88 /* NSDateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -267,6 +268,7 @@
 		9DE0558A1CB06F17001CA645 /* BinPacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinPacker.swift; sourceTree = "<group>"; };
 		9DEC52411C84F8D000DB2965 /* ServerCom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCom.swift; sourceTree = "<group>"; };
 		9DFBA13B1C5D75DD008D13CB /* Capstone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Capstone; sourceTree = "<group>"; };
+		AF94A69B1CB9853100536C88 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,7 +394,7 @@
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,
 				14ADDC0F1BEC5510005ECABA /* Info.plist */,
-				141B96111C014F7300D2AFA4 /* stringUtils.swift */,
+				AF94A6AA1CB9856000536C88 /* Extensions */,
 			);
 			path = MyFormCycleHome;
 			sourceTree = "<group>";
@@ -460,6 +462,15 @@
 				14B31DD61CA74CB6004E84AD /* EditTuneViewController.swift */,
 			);
 			name = Pages;
+			sourceTree = "<group>";
+		};
+		AF94A6AA1CB9856000536C88 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AF94A69B1CB9853100536C88 /* NSDateExtensions.swift */,
+				141B96111C014F7300D2AFA4 /* stringUtils.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -703,6 +714,7 @@
 				14B31DDA1CA7576B004E84AD /* EditUsersTableViewController.swift in Sources */,
 				9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */,
 				0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */,
+				AF94A69C1CB9853100536C88 /* NSDateExtensions.swift in Sources */,
 				1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */,
 				14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,

@@ -36,12 +36,27 @@ extension ViewController
 				
       
 
-//      var Params = ["action":"login"]
-//      Params["logid"] = "21"
-//      ServerCom.send(Params, f: {(succ: Bool, retjson: JSON) in
-//        print(retjson)
-//				print(retjson[0]["signature"].string)
-//        return succ }) // ServerCom...
+      let defaults = NSUserDefaults.standardUserDefaults()
+
+      //let formatter = NSDateFormatter()
+      //formatter.dateFormat = "MM-dd-yyyy"
+      //let stringDate: String = formatter.stringFromDate()
+
+      defaults.setValue("04-08-2016", forKey: "LastLoaded")
+
+      defaults.synchronize()
+
+      //let lastloadedDate = formatter.dateFromString(defaults.stringForKey("LastLoaded")!)
+      //let toDayte = formatter.dateFromString(formatter.stringFromDate(NSDate()))
+      //print("The comparison")
+      //print("LastDate: \(lastloadedDate)")
+      //print("toDayte: \(toDayte)")
+      //print(lastloadedDate?.isLessThanDate((toDayte!)))
+      //print("\n\n")
+
+
+
+
 
 
         let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: UIAlertControllerStyle.Alert)

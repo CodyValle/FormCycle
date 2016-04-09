@@ -20,7 +20,7 @@ class WorkOrder
   let lname: String
 
   var ServiceIDs: [Int]
-  var totalHours: Float
+  var totalMinutes: Float
   var totalCost: Int
 
     //MARK: Initialize properties
@@ -34,7 +34,7 @@ class WorkOrder
 
 
     self.ServiceIDs = []
-    self.totalHours = 0
+    self.totalMinutes = 0
     self.totalCost = 0
 
     let tuneList = tune.characters.split{$0 == ","}.map(String.init)
@@ -43,10 +43,10 @@ class WorkOrder
       self.ServiceIDs.append(Int(id)!)
 
       let service = Tune.getTune(Int(id)!)!
-      self.totalHours += service.sTime
+      self.totalMinutes += service.sTime
       self.totalCost += service.sCost
     }
-
+    
     self.tune = Tune.ID(ServiceIDs[0])!
   }
 

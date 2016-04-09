@@ -50,7 +50,21 @@ class WorkOrderTableViewController: UITableViewController
 
 
         BinPacker.setOrders(self.workOrders)
-				BinPacker.packBins()
+        BinPacker.packBins()
+
+        // Set the last loaded date
+        let defaults = NSUserDefaults.standardUserDefaults()
+
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        let stringDate: String = formatter.stringFromDate(NSDate())
+
+        defaults.setValue(stringDate, forKey: "LastLoaded")
+        
+        defaults.synchronize()
+
+        BinPacker.saveToday()
+        
         return true
       }
       return false
