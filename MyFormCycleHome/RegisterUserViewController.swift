@@ -15,12 +15,10 @@ class RegisterUserViewController: UIViewController
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var admin: UISegmentedControl!
-    @IBOutlet weak var signatureField: YPDrawSignatureView!
+   
 
     
-    @IBAction func Clear(sender: AnyObject) {
-       signatureField.clearSignature()
-   }
+   
     
     @IBAction func registerUser(sender: AnyObject) {
         /* Submits the server request */

@@ -20,15 +20,11 @@ class EditUserViewController: UIViewController
     var useridPassed = ""
     var adminPassed = ""
     
-    @IBOutlet weak var signatureField: YPDrawSignatureView!
     @IBAction func backToEditRemoveTable(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
         
     }
     
-    @IBAction func clearSignature(sender: AnyObject) {
-        signatureField.clearSignature()
-    }
     
     @IBAction func submitEditUserBtn(sender: AnyObject) {
         /* Submits the server request */
