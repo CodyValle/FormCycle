@@ -33,9 +33,8 @@ extension ViewController
     /* Admin login button to transition to forgot password recovery page */
     @IBAction func forgotPassword(sender: AnyObject)
     {
+      let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: UIAlertControllerStyle.Alert)
 
-        let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: UIAlertControllerStyle.Alert)
-        
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
         alert.addTextFieldWithConfigurationHandler(passwordTextField)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: handleCancel))
