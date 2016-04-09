@@ -7,14 +7,6 @@
 //  Copyright © 2016 FormCycle Developers. All rights reserved.
 //
 
-
-
-/*
- * This class handles the current open WorkOrders table on our main page. It is filled with each currently open work order with the newest on the bottom, and the oldest up top.
- * When a cell is selected, the user will be taken to the TechEdit page, where they will be able to review all information regarding the work order and make any appropriate changes.
- * When a work order is closed, it will be removed from this table and sent over to the WaitingPickupTable
- */
-
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
@@ -37,23 +29,42 @@ class WorkOrderTableViewController: UITableViewController
     // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
     MyParams["open"] = "Y"
 
-    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in //Recieving all current open orders
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if (succ) {
-				if (retjson.count > 0) {
+        if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++ {
             self.workOrders.append(WorkOrder(id:        Int(retjson[i]["rowid"].string!)!,
-              															 tagNumber: retjson[i]["tagnum"].string!,
-                                             orderID:   retjson[i]["workid"].string!,
-                                             tune:      retjson[i]["tune"].string!,
-                                             bikeType:  retjson[i]["brand"].string!,
-                                             model:     retjson[i]["model"].string!,
-                                             lname:     Crypto.decrypt(retjson[i]["lname"].string!)))   //adding all work orders into the workOrders array to be used to fill out the table.
+              tagNumber: retjson[i]["tagnum"].string!,
+              orderID:   retjson[i]["workid"].string!,
+              tune:      retjson[i]["tune"].string!,
+              bikeType:  retjson[i]["brand"].string!,
+              model:     retjson[i]["model"].string!,
+              lname:     Crypto.decrypt(retjson[i]["lname"].string!)))
 
             dispatch_async(dispatch_get_main_queue()) {
               self.tableView.reloadData()
             }
           }
         }
+        //else you are done- TO DO LATER
+
+
+        BinPacker.setOrders(self.workOrders)
+        BinPacker.packBins()
+
+        // Set the last loaded date
+        let defaults = NSUserDefaults.standardUserDefaults()
+
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        let stringDate: String = formatter.stringFromDate(NSDate())
+
+        defaults.setValue(stringDate, forKey: "LastLoaded")
+
+        defaults.synchronize()
+
+        BinPacker.saveToday()
+
         return true
       }
       return false
@@ -76,19 +87,18 @@ class WorkOrderTableViewController: UITableViewController
   {
     return workOrders.count
   }
-    
-  //Creating cells and populating our table
+
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
     let cellIdentifier = "BikeOrderTableViewCell"
-    
+
     //Set the cell as the BikeOrderTableViewCell class, using the WorkOrder data model
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! BikeOrderTableViewCell
     let order = workOrders[indexPath.row]
-    
+
     //Setting cell attributes to those in our array
     cell.bikeInfo.text = order.bikeType
-    cell.tuneType.text = "tune1"//Tune.ID(order.getServices()[0])
+    cell.tuneType.text = Tune.ID(order.getServices()[0])
     cell.referenceNumber.text = order.tagNumber
     cell.lname.text = order.lname
     cell.workid = order.orderID
@@ -96,17 +106,16 @@ class WorkOrderTableViewController: UITableViewController
 
     cell.backgroundColor = BinPacker.IDinDay(order.id, day: 0) ?
       indexPath.row % 2 == 0 ? UIColor(red: 0.1608, green: 0.7255, blue: 1, alpha: 1.0) : UIColor(red: 0, green: 0.8471, blue: 0.9255, alpha: 1.0)
-    :
-			indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+      :
+      indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
 
     return cell
   }
-    
-  
- //When a cell is selected, the user will be taken to the TechEdit page. The orderid is passed to the new page which will then pull all information for it from the database.
-    
+
+  // MARK: - Navigation
+  // In a storyboard-based application, you will often want to do a little preparation before navigation
   let techSegueIndetifier = "TechEditSegue"
-  
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
   {
     if segue.identifier == techSegueIndetifier {

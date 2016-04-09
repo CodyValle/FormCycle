@@ -6,12 +6,6 @@
 //  Copyright © 2016 FormCycle Developers. All rights reserved.
 //
 
-
-
-/*
- * This class exists to store WorkOrder information, and is used to handle all information used for the WorkOrders table and the WaitingPickupTable.
- * It is used for cell creation and is stored in the arrays that the data is accessed from. 
- */
 import UIKit
 
 class WorkOrder
@@ -21,13 +15,15 @@ class WorkOrder
 
   let tagNumber: String
   let bikeType: String
-  var orderID: String
+  let orderID: String
   let tune: String
   let lname: String
 
-  //var ServiceIDs: [Int]
+  var ServiceIDs: [Int]
+  var totalMinutes: Float
+  var totalCost: Int
 
-    //MARK: Initialize properties
+  //MARK: Initialize properties
   init(id: Int, tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
   {
     self.id = id
@@ -37,22 +33,25 @@ class WorkOrder
     self.lname = lname
 
 
-//    self.ServiceIDs = []
-//
-//    let tuneList = tune.characters.split{$0 == ","}.map(String.init)
-//    for s in tuneList
-//    {
-//      self.ServiceIDs.append(Int(s)!)
-//    }
-//
-//    self.tune = Tune.ID(ServiceIDs[0])!
-    self.tune = tune
-    self.orderID = orderID
-    
+    self.ServiceIDs = []
+    self.totalMinutes = 0
+    self.totalCost = 0
+
+    let tuneList = tune.characters.split{$0 == ","}.map(String.init)
+    for id in tuneList
+    {
+      self.ServiceIDs.append(Int(id)!)
+
+      let service = Tune.getTune(Int(id)!)!
+      self.totalMinutes += service.sTime
+      self.totalCost += service.sCost
+    }
+
+    self.tune = Tune.ID(ServiceIDs[0])!
   }
 
-//  func getServices() -> [Int]
-//  {
-//    return ServiceIDs
-//  }
+  func getServices() -> [Int]
+  {
+    return ServiceIDs
+  }
 }

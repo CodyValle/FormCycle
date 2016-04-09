@@ -10,7 +10,7 @@ import SwiftyJSON
 
 class Tune
 {
-	class Service
+  class Service
   {
     var sID:   Int
     var sName: String
@@ -27,7 +27,7 @@ class Tune
       sType = type
     }
   }
-  
+
   private static var Services : [Service] = []
 
   static func populateTunes()
@@ -35,19 +35,23 @@ class Tune
     Services = []
 
     // Get and display all tunes
-    var MyParams = ["action":"retrieveTunes"]
-    MyParams["tunetype"] = "1"
+    let MyParams = ["action":"retrieveTunes"]
+
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
         print("Loading \(retjson.count) tunes from the server")
         for (var i = 0; i < retjson.count; i++) {
           Services.append(Service(id: Int(retjson[i]["tune"].string!)!,
-                                  name: retjson[i]["name"].string!,
-                                  cost: Int(retjson[i]["cost"].string!)!,
-                                  time: retjson[i]["time"].string!.floatValue))
-//            print(retjson[i]["tune"].string!)
-//            print("Count:",Services.count)
-//            print(Tune.getTune(i))
+            name: retjson[i]["name"].string!,
+            cost: Int(retjson[i]["cost"].string!)!,
+            time: retjson[i]["time"].string!.floatValue,
+            type: Int(retjson[i]["type"].string!)!))
+
+          //print("Tune ID  : \(retjson[i]["tune"].string!)")
+          //print("Tune Name: \(retjson[i]["name"].string!)")
+          //print("Tune Cost: \(retjson[i]["cost"].string!)")
+          //print("Tune Time: \(retjson[i]["time"].string!)")
+          //print("Tune Type: \(retjson[i]["type"].string!)\n")
         }
       }
       else {
@@ -66,8 +70,8 @@ class Tune
         return s.sName
       }
     }
-		return nil
-  } 
+    return nil
+  }
 
   static func editTune(id: Int, name: String = "", cost: String = "", time: String = "")
   {
@@ -93,9 +97,9 @@ class Tune
     // Change the local copy of the Service
     if let s = Tune.getTune(id)
     {
-			if name != "" { s.sName = name }
-    	if cost != "" { s.sCost = Int(cost)! }
-    	if time != "" { s.sTime = time.floatValue }
+      if name != "" { s.sName = name }
+      if cost != "" { s.sCost = Int(cost)! }
+      if time != "" { s.sTime = time.floatValue }
     }
   }
 
@@ -104,11 +108,9 @@ class Tune
     return Services
   }
 
-  /* Currently the count is not correct. */
   static func numberOfTunes() -> Int
   {
-    //print("Number of Services" , Services.count)
-    return 2//Services.count
+    return Services.count
   }
 
   static func getTune(id: Int) -> Service?

@@ -141,11 +141,24 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       PWDTextField.delegate = self
       PWDTextField.clearButtonMode = .WhileEditing
 
-//      // Open the connection to the database.
-//      ServerCom.open()
-//        // Load the tunes into the app
-//        Tune.populateTunes()
-      
+      // Open the connection to the database.
+      ServerCom.open()
+      // Load the tunes into the app
+      Tune.populateTunes()
+
+      // Set default defaults
+      let defaults = NSUserDefaults.standardUserDefaults()
+      if defaults.stringForKey("TodaysOrders") == nil {
+        defaults.setValue("", forKey: "TodaysOrders")
+      }
+      if defaults.stringForKey("LockedDay") == nil {
+        defaults.setValue("false", forKey: "LockedDay")
+      }
+      if defaults.stringForKey("LastLoaded") == nil {
+        defaults.setValue("01-01-1900", forKey: "LastLoaded")
+      }
+      defaults.synchronize()
+
     }
     /* if user is on the new order page set flag to true */
 		else if newOrderTextFieldStruct.neworderpage
