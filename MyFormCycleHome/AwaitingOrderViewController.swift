@@ -25,7 +25,17 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
   @IBOutlet weak var tune: UILabel!
   @IBOutlet weak var currentDate: UILabel!
   @IBOutlet weak var userNotes: UILabel!
+    @IBOutlet weak var custSig: YPDrawSignatureView!
+    @IBOutlet weak var techSig: YPDrawSignatureView!
 
+    @IBAction func clearCustSig(sender: AnyObject) {
+        custSig.clearSignature()
+    }
+    @IBAction func clearTechSig(sender: AnyObject) {
+        techSig.clearSignature()
+    }
+    
+    
   /* local variables for passing the workID between view controllers */
   var workidPassedWait = ""
   var workidWait = ""

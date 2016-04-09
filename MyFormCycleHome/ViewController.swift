@@ -50,7 +50,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     @IBOutlet weak var address1: UILabel!
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var invTuneType: UILabel!
+    @IBOutlet weak var custSig: YPDrawSignatureView!
+    @IBOutlet weak var techSig: YPDrawSignatureView!
     
+    @IBAction func clearCustSig(sender: AnyObject) {
+        custSig.clearSignature()
+    }
+    
+    @IBAction func clearTechSig(sender: AnyObject) {
+        techSig.clearSignature()
+    }
     
     @IBAction func moveToSearchPage(sender: AnyObject) {
         
