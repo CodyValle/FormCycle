@@ -146,31 +146,37 @@ class AdditionalServicesViewController: UIViewController, UITableViewDataSource
   }
     
     
-  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-  {
-    switch section
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
-      case 0:
-        return "Brakes - Prices are Per Wheel"
-      case 1:
-        return "Wheels - Prices are Per Wheel"
-      case 2:
-        return "Stem, Bars, and Headset"
-      case 3:
-        return "Derailleur and Shifters"
-      case 4:
-        return "Chain and Cranks"
-      case 5:
-        return "Cycling Computer"
-      default:
-        return "Boxing"
+        switch section
+        {
+        case 0:
+            return "Brakes - Prices are Per Wheel"
+        case 1:
+            return "Wheels - Prices are Per Wheel"
+        case 2:
+            return "Stem, Bars, and Headset"
+        case 3:
+            return "Derailleur and Shifters"
+        case 4:
+            return "Chain and Cranks"
+        case 5:
+            return "Cycling Computer"
+        default:
+            return "Boxing"
+        }
     }
-  }
     
-  func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
-  {
-    let header = view as! UITableViewHeaderFooterView
-    header.textLabel?.font = UIFont(name: "helvetica", size: 25)
-  }
-
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "helvetica", size: 25)
+    }
+    
 }
+
+
+
+
+
+

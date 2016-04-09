@@ -16,13 +16,15 @@ class Tune
     var sName: String
     var sCost: Int
     var sTime: Float
-
-    init(id: Int, name: String, cost: Int, time: Float)
+    var sType: Int
+        
+        init(id: Int, name: String, cost: Int, time: Float, type: Int)
     {
       sID = id
       sName = name
       sCost = cost
       sTime = time
+      sType = type
     }
   }
   
@@ -42,7 +44,10 @@ class Tune
           Services.append(Service(id: Int(retjson[i]["tune"].string!)!,
                                   name: retjson[i]["name"].string!,
                                   cost: Int(retjson[i]["cost"].string!)!,
-                                  time: retjson[i]["time"].string!.floatValue))
+                                  time: retjson[i]["time"].string!.floatValue,
+                                  type: Int(retjson[i]["type"].string!)!))
+            
+            
 //            print(retjson[i]["tune"].string!)
 //            print("Count:",Services.count)
 //            print(Tune.getTune(i))
@@ -67,7 +72,7 @@ class Tune
 		return nil
   } 
 
-  static func editTune(id: Int, name: String = "", cost: String = "", time: String = "")
+    static func editTune(id: Int, name: String = "", cost: String = "", time: String = "", type: String = "")
   {
     // Edit an existing tune
     var MyParams = ["action":"editTune"]
@@ -75,6 +80,7 @@ class Tune
     if name != "" { MyParams["tunename"] = name }
     if cost != "" { MyParams["tunecost"] = cost }
     if time != "" { MyParams["tunetime"] = time }
+    if type != "" { MyParams["tunetype"] = type }
 
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
@@ -94,6 +100,7 @@ class Tune
 			if name != "" { s.sName = name }
     	if cost != "" { s.sCost = Int(cost)! }
     	if time != "" { s.sTime = time.floatValue }
+        if type != "" { s.sType = Int(type)! }
     }
   }
 

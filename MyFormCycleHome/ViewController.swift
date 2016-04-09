@@ -110,12 +110,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
  
     
   /*+------------------------------- viewDidLoad() --------------------------------------+
-  | viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
-  | display information on a current page. Because we have only implemented a single   |
-  | view controller for this app we have to set flags for each page. This will allows  |
-  | us to access the correct values from a current view.                               |
-  | MARK: viewDidLoad () Function																											 |
-  +------------------------------------------------------------------------------------+*/
+    | viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
+    | display information on a current page. Because we have only implemented a single   |
+    | view controller for this app we have to set flags for each page. This will allows  |
+    | us to access the correct values from a current view.                               |
+    | MARK: viewDidLoad () Function												   	     |
+    +-----------------------------------------------------------------------------------+*/
   /* viewDidLoad. This function allows the view to be flagged based on the current
   * page that is loaded.
   */
@@ -903,7 +903,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     }
     
     
-
 //********************* PRACTICE TEST FUNCTIONS *********************
     
   func somefuncReturnsTrue() -> Bool
