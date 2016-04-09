@@ -22,7 +22,7 @@ class ModifyTuneViewController: UIViewController
     var costPassed = 0
     var timePassed = Float()
     var myText = ""
-    
+     
     
     @IBAction func backToEditTuneTablePage(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
@@ -34,10 +34,12 @@ class ModifyTuneViewController: UIViewController
     @IBAction func submitBtnEditTune(sender: AnyObject) {
         /* Submits the server request */
         var MyParams = ["action":"editTune"]
-        MyParams["tunetype"] = "0"
+        //MyParams["tunetype"] = "0"
         //MyParams["tune"] = String(idPassed)
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         MyParams["tunename"] = namePassed
+        MyParams["tunecost"] = "0"
+        MyParams["tunetime"] = "12"
         if (name.text?.characters.count > 0) {
             MyParams["tunename"] = name.text
         }
