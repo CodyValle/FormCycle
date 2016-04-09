@@ -827,7 +827,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         myTunes.append(retjson[i]["name"].string!)
         }
         newOrderTextFieldStruct.myListOfTunes = myTunes
-     //return myTunes
     }
         
     else {
@@ -835,13 +834,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     }
     return succ
     })
-    //return myTunes
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
   {
-    //pickerTuneSelection.reloadAllComponents()
-    //print("Picker View Number of Tunes:",Tune.numberOfTunes())
     return newOrderTextFieldStruct.myListOfTunes.count
   }
 
@@ -855,10 +851,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
      text color to white so it can be more easily displayed on the interface. */
   func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString?
   {
-    //let myServices = Tune.getServices()
-    //pickerTuneSelection.reloadAllComponents()
-    //let storage = newOrderTextFieldStruct.myListOfTunes[row]
-    //FindTuneIndex(storage)
     let attributedString = NSAttributedString(string: newOrderTextFieldStruct.myListOfTunes[row], attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
     return attributedString
   }
@@ -869,25 +861,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   */
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
   {
-    //print("Current Row",row)
     let storage = newOrderTextFieldStruct.myListOfTunes[row]
     self.FindTuneIndex(storage)
-    dispatch_async(dispatch_get_main_queue()) {
-        
-        
-    }
-    
-    
     
   }
     
     func pickerView(pickerView: UIPickerView,titleForRow row: Int) -> String? {
-        
-        //print("Name of Local Tune in Picker:", storage)
-        
-        //print("BEFORE SETTING FINAL VALUE:", newOrderTextFieldStruct.returnValue)
-        //newOrderTextFieldStruct.tunePicker = String(newOrderTextFieldStruct.returnValue)
-            //newOrderTextFieldStruct.rowForPicker = row
         
             return newOrderTextFieldStruct.myListOfTunes[row]
     }
@@ -903,12 +882,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                     {
                         
                         counter = Int(retjson[i]["tune"].string!)!
-                        //print("FOUND THE ONE:", counter)
                         newOrderTextFieldStruct.returnValue = counter
-                        newOrderTextFieldStruct.tunePicker = String(newOrderTextFieldStruct.returnValue)//String(row)
-                        //print("Struct Value:",newOrderTextFieldStruct.tunePicker)
-                        //print("BEING SAVED:", newOrderTextFieldStruct.returnValue)
-                        //print("Current Selected Tune:",retjson[i]["name"].string!)
+                        newOrderTextFieldStruct.tunePicker = String(newOrderTextFieldStruct.returnValue)
                         
                         break
                     }
