@@ -16,13 +16,15 @@ class Tune
     var sName: String
     var sCost: Int
     var sTime: Float
+        var sTune: Int
 
-    init(id: Int, name: String, cost: Int, time: Float)
+        init(id: Int, name: String, cost: Int, time: Float, tune: Int)
     {
       sID = id
       sName = name
       sCost = cost
       sTime = time
+        sTune = tune
     }
   }
   
@@ -42,7 +44,8 @@ class Tune
           Services.append(Service(id: Int(retjson[i]["tune"].string!)!,
                                   name: retjson[i]["name"].string!,
                                   cost: Int(retjson[i]["cost"].string!)!,
-                                  time: retjson[i]["time"].string!.floatValue))
+                                  time: retjson[i]["time"].string!.floatValue,
+                                  tune:Int(retjson[i]["tune"].string!)!))
 //            print(retjson[i]["tune"].string!)
 //            print("Count:",Services.count)
 //            print(Tune.getTune(i))

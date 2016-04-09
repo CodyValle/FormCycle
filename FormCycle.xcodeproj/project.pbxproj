@@ -23,6 +23,9 @@
 		1430DF271C9943BA00AF1CDC /* AccountRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430DF261C9943BA00AF1CDC /* AccountRecoveryViewController.swift */; };
 		144C11D61CB2C097005F768C /* NewTuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C11D51CB2C097005F768C /* NewTuneViewController.swift */; };
 		144C11E51CB2C2B4005F768C /* ModifyTuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */; };
+		147800C51CB9904C00C00F96 /* AddServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147800C41CB9904C00C00F96 /* AddServicesViewController.swift */; };
+		147800C71CB9991C00C00F96 /* AddServViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147800C61CB9991C00C00F96 /* AddServViewCell.swift */; };
+		147800C91CB99BCF00C00F96 /* AddServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147800C81CB99BCF00C00F96 /* AddServices.swift */; };
 		1492D8881C98F0E600CB05BB /* SearchPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D8871C98F0E600CB05BB /* SearchPageTableViewCell.swift */; };
 		1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */; };
 		14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; };
@@ -44,7 +47,7 @@
 		14F82DDE1CB0806A0062BC0D /* TuneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F82DDD1CB0806A0062BC0D /* TuneTableViewCell.swift */; };
 		14F82DE01CB08A730062BC0D /* EditTune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F82DDF1CB08A730062BC0D /* EditTune.swift */; };
 		14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6A151C79313D006605C7 /* AdminPage.swift */; };
-		8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */; };
+		8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesTableViewController.swift */; };
 		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
 		9D05CF231C485D4800998F15 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; };
 		9D05CF241C485D4E00998F15 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -237,6 +240,9 @@
 		1430DF261C9943BA00AF1CDC /* AccountRecoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRecoveryViewController.swift; sourceTree = "<group>"; };
 		144C11D51CB2C097005F768C /* NewTuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTuneViewController.swift; sourceTree = "<group>"; };
 		144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyTuneViewController.swift; sourceTree = "<group>"; };
+		147800C41CB9904C00C00F96 /* AddServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServicesViewController.swift; sourceTree = "<group>"; };
+		147800C61CB9991C00C00F96 /* AddServViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServViewCell.swift; sourceTree = "<group>"; };
+		147800C81CB99BCF00C00F96 /* AddServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServices.swift; sourceTree = "<group>"; };
 		1492D8871C98F0E600CB05BB /* SearchPageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPageTableViewCell.swift; sourceTree = "<group>"; };
 		1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
@@ -259,7 +265,7 @@
 		14F82DDD1CB0806A0062BC0D /* TuneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuneTableViewCell.swift; sourceTree = "<group>"; };
 		14F82DDF1CB08A730062BC0D /* EditTune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTune.swift; sourceTree = "<group>"; };
 		14FC6A151C79313D006605C7 /* AdminPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
-		8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesViewController.swift; sourceTree = "<group>"; };
+		8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesTableViewController.swift; sourceTree = "<group>"; };
 		8FAA46EA1BFE5ABD00E39874 /* FormCycle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormCycle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormCycleHomeTests.swift; sourceTree = "<group>"; };
 		8FAA46EE1BFE5ABD00E39874 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -316,6 +322,7 @@
 				14DE9B351C8908C10004ABC1 /* Record.swift */,
 				14CA7D471CAB063F004FBE6C /* EditUser.swift */,
 				14F82DDF1CB08A730062BC0D /* EditTune.swift */,
+				147800C81CB99BCF00C00F96 /* AddServices.swift */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -472,12 +479,14 @@
 				01D6ECC11C66A28A00945391 /* TechEditViewController.swift */,
 				14D686A11C6713F30092770D /* AwaitingOrderViewController.swift */,
 				14FC6A151C79313D006605C7 /* AdminPage.swift */,
-				8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */,
+				8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesTableViewController.swift */,
 				1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */,
 				1430DF171C993DC900AF1CDC /* RegisterUserViewController.swift */,
 				1430DF261C9943BA00AF1CDC /* AccountRecoveryViewController.swift */,
 				144C11D51CB2C097005F768C /* NewTuneViewController.swift */,
 				144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */,
+				147800C41CB9904C00C00F96 /* AddServicesViewController.swift */,
+				147800C61CB9991C00C00F96 /* AddServViewCell.swift */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -730,7 +739,7 @@
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
 				014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */,
 				14B31DDC1CA75799004E84AD /* UsersTableViewCell.swift in Sources */,
-				8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */,
+				8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesTableViewController.swift in Sources */,
 				9D222ECC1C88C9D300EBB5EE /* Crypto.swift in Sources */,
 				9D9E96651C516DE3002AD84C /* NewOrder.swift in Sources */,
 				14DE9B381C8909000004ABC1 /* SearchPageViewController.swift in Sources */,
@@ -746,11 +755,13 @@
 				0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */,
 				14F82DDC1CB07DCD0062BC0D /* EditTuneTableViewController.swift in Sources */,
 				144C11D61CB2C097005F768C /* NewTuneViewController.swift in Sources */,
+				147800C71CB9991C00C00F96 /* AddServViewCell.swift in Sources */,
 				1430DF271C9943BA00AF1CDC /* AccountRecoveryViewController.swift in Sources */,
 				14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */,
 				144C11E51CB2C2B4005F768C /* ModifyTuneViewController.swift in Sources */,
 				141B96121C014F7300D2AFA4 /* stringUtils.swift in Sources */,
 				1492D8881C98F0E600CB05BB /* SearchPageTableViewCell.swift in Sources */,
+				147800C51CB9904C00C00F96 /* AddServicesViewController.swift in Sources */,
 				14ADDC041BEC5510005ECABA /* AppDelegate.swift in Sources */,
 				14B31DD71CA74CB6004E84AD /* EditTuneViewController.swift in Sources */,
 				14F82DE01CB08A730062BC0D /* EditTune.swift in Sources */,
@@ -758,6 +769,7 @@
 				1430DF181C993DC900AF1CDC /* RegisterUserViewController.swift in Sources */,
 				01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */,
 				0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */,
+				147800C91CB99BCF00C00F96 /* AddServices.swift in Sources */,
 				14CA7D481CAB063F004FBE6C /* EditUser.swift in Sources */,
 				014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */,
 			);

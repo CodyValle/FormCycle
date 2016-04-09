@@ -741,7 +741,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   }
     
   /* Runs this function when the alertview  handles the cancel button */
-  func handleCancel(alertView: UIAlertAction!) 
+  func handleCancel(alertView: UIAlertAction!)
   {
     /* Do nothing but cancel the alert view */
   }
