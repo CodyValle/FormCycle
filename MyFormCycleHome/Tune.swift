@@ -16,13 +16,15 @@ class Tune
     var sName: String
     var sCost: Int
     var sTime: Float
+    var sType: Int
 
-    init(id: Int, name: String, cost: Int, time: Float)
+    init(id: Int, name: String, cost: Int, time: Float, type: Int)
     {
       sID = id
       sName = name
       sCost = cost
       sTime = time
+      sType = type
     }
   }
   

@@ -33,9 +33,34 @@ extension ViewController
     /* Admin login button to transition to forgot password recovery page */
     @IBAction func forgotPassword(sender: AnyObject)
     {
+				
+      
+
+      let defaults = NSUserDefaults.standardUserDefaults()
+
+      //let formatter = NSDateFormatter()
+      //formatter.dateFormat = "MM-dd-yyyy"
+      //let stringDate: String = formatter.stringFromDate()
+
+      defaults.setValue("04-08-2016", forKey: "LastLoaded")
+
+      defaults.synchronize()
+
+      //let lastloadedDate = formatter.dateFromString(defaults.stringForKey("LastLoaded")!)
+      //let toDayte = formatter.dateFromString(formatter.stringFromDate(NSDate()))
+      //print("The comparison")
+      //print("LastDate: \(lastloadedDate)")
+      //print("toDayte: \(toDayte)")
+      //print(lastloadedDate?.isLessThanDate((toDayte!)))
+      //print("\n\n")
+
+
+
+
+
 
         let alert = UIAlertController(title: "Admin Login", message: "Enter Username and Password", preferredStyle: UIAlertControllerStyle.Alert)
-        
+
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
         alert.addTextFieldWithConfigurationHandler(passwordTextField)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: handleCancel))

@@ -17,6 +17,7 @@ import UIKit
 class WorkOrder
 {
   //MARK: Properties
+  let id: Int
 
   let tagNumber: String
   let bikeType: String
@@ -27,8 +28,9 @@ class WorkOrder
   //var ServiceIDs: [Int]
 
     //MARK: Initialize properties
-  init(tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
+  init(id: Int, tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
   {
+    self.id = id
     self.tagNumber = tagNumber
     self.bikeType = bikeType + " " + model
     self.orderID = orderID
