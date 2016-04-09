@@ -9,6 +9,7 @@
 import UIKit
 import SwiftHTTP
 import SwiftyJSON 
+import Foundation
 
 class EditUserViewController: UIViewController
 {
@@ -16,19 +17,17 @@ class EditUserViewController: UIViewController
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var admin: UISegmentedControl!
+
     
     var useridPassed = ""
     var adminPassed = ""
     
-    @IBOutlet weak var signatureField: YPDrawSignatureView!
+    
     @IBAction func backToEditRemoveTable(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
         
     }
-    
-    @IBAction func clearSignature(sender: AnyObject) {
-        signatureField.clearSignature()
-    }
+ 
     
     @IBAction func submitEditUserBtn(sender: AnyObject) {
         /* Submits the server request */
@@ -70,6 +69,8 @@ class EditUserViewController: UIViewController
         })
         
     }
+   
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -84,7 +85,6 @@ class EditUserViewController: UIViewController
             admin.selectedSegmentIndex = 0
         }
     }
-    
 
 }
     

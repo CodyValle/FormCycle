@@ -148,14 +148,15 @@ class EditUsersTableViewController: UITableViewController
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    let editSegueIndetifier = "editUserSegue"
+    let editSegueIdentifier = "editUserSegue"
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         
-        if segue.identifier == editSegueIndetifier {
+        if segue.identifier == editSegueIdentifier {
             if let destination = segue.destinationViewController as? EditUserViewController {
                 if let orderIndex = tableView.indexPathForSelectedRow?.row {
+                    print(editUser[orderIndex].username)
                     destination.useridPassed = editUser[orderIndex].username
                     destination.adminPassed = editUser[orderIndex].admin
                 }
