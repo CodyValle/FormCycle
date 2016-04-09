@@ -167,7 +167,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                 defaults.setValue("01-01-1900", forKey: "LastLoaded")
             }
             defaults.synchronize()
-            
+
+            // Uncomment this code to make the BinPacker think that this is the first time the app was loaded today
+//            defaults.setValue("01-01-1900", forKey: "LastLoaded")
+//            defaults.synchronize()
+
         }
             /* if user is on the new order page set flag to true */
         else if newOrderTextFieldStruct.neworderpage

@@ -164,6 +164,7 @@ class BinPacker
       if !placed { self.Days.append(Day()) }
 
       self.Days[day].WorkOrders.append(order)
+      order.day = todayLock ? day - 1 : day
     }
 
 //    for i in 0...(Days.count - 1)
@@ -176,6 +177,12 @@ class BinPacker
 //        print("   \(w.id)")
 //      }
 //    }
+  }
+
+  // Gets all orders this class stores
+  static func getOrders() -> [WorkOrder]
+  {
+    return self.WorkOrders
   }
 
   // Gets the orders of a specified day

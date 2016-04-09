@@ -12,6 +12,7 @@ class WorkOrder
 {
     //MARK: Properties
     let id: Int
+    var day: Int
     
     let tagNumber: String
     let bikeType: String
@@ -27,6 +28,7 @@ class WorkOrder
     init(id: Int, tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
     {
         self.id = id
+        self.day = 0
         self.tagNumber = tagNumber
         self.bikeType = bikeType + " " + model
         self.orderID = orderID
