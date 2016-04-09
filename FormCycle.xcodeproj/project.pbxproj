@@ -45,6 +45,7 @@
 		14F82DE01CB08A730062BC0D /* EditTune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F82DDF1CB08A730062BC0D /* EditTune.swift */; };
 		14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6A151C79313D006605C7 /* AdminPage.swift */; };
 		8F26BEE61CB9CCE60077A93D /* AddServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26BEE51CB9CCE60077A93D /* AddServices.swift */; };
+		8F26BEFB1CB9CDB60077A93D /* AddServViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26BEFA1CB9CDB60077A93D /* AddServViewCell.swift */; };
 		8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */; };
 		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
 		9D05CF231C485D4800998F15 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; };
@@ -263,6 +264,7 @@
 		14F82DDF1CB08A730062BC0D /* EditTune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTune.swift; sourceTree = "<group>"; };
 		14FC6A151C79313D006605C7 /* AdminPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
 		8F26BEE51CB9CCE60077A93D /* AddServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServices.swift; sourceTree = "<group>"; };
+		8F26BEFA1CB9CDB60077A93D /* AddServViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServViewCell.swift; sourceTree = "<group>"; };
 		8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesViewController.swift; sourceTree = "<group>"; };
 		8FAA46EA1BFE5ABD00E39874 /* FormCycle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormCycle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormCycleHomeTests.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				14CA7D471CAB063F004FBE6C /* EditUser.swift */,
 				14F82DDF1CB08A730062BC0D /* EditTune.swift */,
 				8F26BEE51CB9CCE60077A93D /* AddServices.swift */,
+				8F26BEFA1CB9CDB60077A93D /* AddServViewCell.swift */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				14B31DC81CA745B8004E84AD /* EditRemoveUserViewController.swift in Sources */,
 				9D10383D1CA7075200B62AB5 /* SignatureCapture.swift in Sources */,
 				9DE0558B1CB06F18001CA645 /* BinPacker.swift in Sources */,
+				8F26BEFB1CB9CDB60077A93D /* AddServViewCell.swift in Sources */,
 				01CB32851C483646009D3565 /* BikeOrderTableViewCell.swift in Sources */,
 				0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */,
 				14F82DDC1CB07DCD0062BC0D /* EditTuneTableViewController.swift in Sources */,
