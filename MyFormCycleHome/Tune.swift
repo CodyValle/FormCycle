@@ -73,7 +73,7 @@ class Tune
     return nil
   }
 
-  static func editTune(id: Int, name: String = "", cost: String = "", time: String = "")
+    static func editTune(id: Int, name: String = "", cost: String = "", time: String = "", type: String = "")
   {
     // Edit an existing tune
     var MyParams = ["action":"editTune"]
@@ -81,6 +81,7 @@ class Tune
     if name != "" { MyParams["tunename"] = name }
     if cost != "" { MyParams["tunecost"] = cost }
     if time != "" { MyParams["tunetime"] = time }
+    if type != "" { MyParams["tunetype"] = type }
 
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
