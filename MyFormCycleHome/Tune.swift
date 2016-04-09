@@ -17,8 +17,8 @@ class Tune
     var sCost: Int
     var sTime: Float
     var sType: Int
-
-    init(id: Int, name: String, cost: Int, time: Float, type: Int)
+        
+        init(id: Int, name: String, cost: Int, time: Float, type: Int)
     {
       sID = id
       sName = name
@@ -42,16 +42,15 @@ class Tune
         print("Loading \(retjson.count) tunes from the server")
         for (var i = 0; i < retjson.count; i++) {
           Services.append(Service(id: Int(retjson[i]["tune"].string!)!,
-            name: retjson[i]["name"].string!,
-            cost: Int(retjson[i]["cost"].string!)!,
-            time: retjson[i]["time"].string!.floatValue,
-            type: Int(retjson[i]["type"].string!)!))
-
-          //print("Tune ID  : \(retjson[i]["tune"].string!)")
-          //print("Tune Name: \(retjson[i]["name"].string!)")
-          //print("Tune Cost: \(retjson[i]["cost"].string!)")
-          //print("Tune Time: \(retjson[i]["time"].string!)")
-          //print("Tune Type: \(retjson[i]["type"].string!)\n")
+                                  name: retjson[i]["name"].string!,
+                                  cost: Int(retjson[i]["cost"].string!)!,
+                                  time: retjson[i]["time"].string!.floatValue,
+                                  type: Int(retjson[i]["type"].string!)!))
+            
+            
+//            print(retjson[i]["tune"].string!)
+//            print("Count:",Services.count)
+//            print(Tune.getTune(i))
         }
       }
       else {
@@ -76,7 +75,7 @@ class Tune
     static func editTune(id: Int, name: String = "", cost: String = "", time: String = "", type: String = "")
   {
     // Edit an existing tune
-    var MyParams = ["action":"editTune"]
+    var MyParams = ["action":"editTune"] 
     MyParams["tune"] = String(id) // This is the tune ID.
     if name != "" { MyParams["tunename"] = name }
     if cost != "" { MyParams["tunecost"] = cost }
@@ -96,11 +95,12 @@ class Tune
     while ServerCom.waiting() {}
 
     // Change the local copy of the Service
-    if let s = Tune.getTune(id)
-    {
-      if name != "" { s.sName = name }
-      if cost != "" { s.sCost = Int(cost)! }
-      if time != "" { s.sTime = time.floatValue }
+    if let s = Tune.getTune(id){
+			if name != "" { s.sName = name }
+    	if cost != "" { s.sCost = Int(cost)! }
+    	if time != "" { s.sTime = time.floatValue }
+        if type != "" { s.sType = Int(type)! }
+      
     }
   }
 
