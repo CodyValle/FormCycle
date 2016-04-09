@@ -44,6 +44,7 @@
 		14F82DDE1CB0806A0062BC0D /* TuneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F82DDD1CB0806A0062BC0D /* TuneTableViewCell.swift */; };
 		14F82DE01CB08A730062BC0D /* EditTune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F82DDF1CB08A730062BC0D /* EditTune.swift */; };
 		14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6A151C79313D006605C7 /* AdminPage.swift */; };
+		8F26BEE61CB9CCE60077A93D /* AddServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26BEE51CB9CCE60077A93D /* AddServices.swift */; };
 		8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */; };
 		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
 		9D05CF231C485D4800998F15 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; };
@@ -261,6 +262,7 @@
 		14F82DDD1CB0806A0062BC0D /* TuneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuneTableViewCell.swift; sourceTree = "<group>"; };
 		14F82DDF1CB08A730062BC0D /* EditTune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTune.swift; sourceTree = "<group>"; };
 		14FC6A151C79313D006605C7 /* AdminPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
+		8F26BEE51CB9CCE60077A93D /* AddServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServices.swift; sourceTree = "<group>"; };
 		8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesViewController.swift; sourceTree = "<group>"; };
 		8FAA46EA1BFE5ABD00E39874 /* FormCycle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormCycle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormCycleHomeTests.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				14DE9B351C8908C10004ABC1 /* Record.swift */,
 				14CA7D471CAB063F004FBE6C /* EditUser.swift */,
 				14F82DDF1CB08A730062BC0D /* EditTune.swift */,
+				8F26BEE51CB9CCE60077A93D /* AddServices.swift */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -550,7 +553,7 @@
 				TargetAttributes = {
 					14ADDBFF1BEC5510005ECABA = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = EPS3HG6PB6;
+						DevelopmentTeam = V4G46U8Q3F;
 					};
 					8FAA46E91BFE5ABD00E39874 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -774,6 +777,7 @@
 				1430DF181C993DC900AF1CDC /* RegisterUserViewController.swift in Sources */,
 				01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */,
 				0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */,
+				8F26BEE61CB9CCE60077A93D /* AddServices.swift in Sources */,
 				14CA7D481CAB063F004FBE6C /* EditUser.swift in Sources */,
 				014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */,
 			);
@@ -925,7 +929,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MyFormCycleHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.merrilltest.MyFormCycle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.john.MyFormCycle;
 				PRODUCT_NAME = FormCycle;
 				PROVISIONING_PROFILE = "";
 			};
@@ -940,7 +944,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MyFormCycleHome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.merrilltest.MyFormCycle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.john.MyFormCycle;
 				PRODUCT_NAME = FormCycle;
 				PROVISIONING_PROFILE = "";
 			};
