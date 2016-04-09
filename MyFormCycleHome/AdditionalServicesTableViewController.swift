@@ -30,7 +30,7 @@ class AdditionalServicesTableViewController: UITableViewController//UIViewContro
         
         //Get and display all users
         var MyParams = ["action":"retrieveTunes"]
-        MyParams["tunetype"] = "1"
+        MyParams["tunetype"] = "2"
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
@@ -63,7 +63,7 @@ class AdditionalServicesTableViewController: UITableViewController//UIViewContro
         
         //Get and display all users
         var MyParams = ["action":"retrieveTunes"]
-        MyParams["tunetype"] = "0"
+        MyParams["tunetype"] = "2"
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
@@ -120,6 +120,29 @@ class AdditionalServicesTableViewController: UITableViewController//UIViewContro
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
+    
+      override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+      {
+        switch section
+        {
+          case 0:
+            return "Brakes - Prices are Per Wheel"
+          case 1:
+            return "Wheels - Prices are Per Wheel"
+          case 2:
+            return "Stem, Bars, and Headset"
+          case 3:
+            return "Derailleur and Shifters"
+          case 4:
+            return "Chain and Cranks"
+          case 5:
+            return "Cycling Computer"
+          case 6:
+            return "Boxing"
+          default:
+            return "Misc"
+        }
+      }
     
 //    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 //        if (editingStyle == UITableViewCellEditingStyle.Delete) {
@@ -204,7 +227,7 @@ class AdditionalServicesTableViewController: UITableViewController//UIViewContro
 //    ("Handlebar Cut", "$20"),
 //    ("Face Head Tube", "$50") ]
 //    
-//  let Shifters = [
+//  let Shifters = [ 
 //    ("Front Derailleur Adjustment","$18"),
 //    ("Rear Derailleur Adjustment","$18"),
 //    ("Derailleur Cable Installation", "$18"),
@@ -318,26 +341,7 @@ class AdditionalServicesTableViewController: UITableViewController//UIViewContro
 //  }
 //    
 //    
-//  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-//  {
-//    switch section
-//    {
-//      case 0:
-//        return "Brakes - Prices are Per Wheel"
-//      case 1:
-//        return "Wheels - Prices are Per Wheel"
-//      case 2:
-//        return "Stem, Bars, and Headset"
-//      case 3:
-//        return "Derailleur and Shifters"
-//      case 4:
-//        return "Chain and Cranks"
-//      case 5:
-//        return "Cycling Computer"
-//      default:
-//        return "Boxing"
-//    }
-//  }
+
 //    class ListItem: NSObject {
 //        let itemName: String
 //        var completed: Bool
