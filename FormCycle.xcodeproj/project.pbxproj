@@ -46,6 +46,7 @@
 		14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6A151C79313D006605C7 /* AdminPage.swift */; };
 		8F26BF161CBA294C0077A93D /* AddServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26BF151CBA294C0077A93D /* AddServices.swift */; };
 		8F26BF2B1CBA2A730077A93D /* AddServViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26BF2A1CBA2A730077A93D /* AddServViewCell.swift */; };
+		8F26BF4C1CBAD6400077A93D /* AdditionalServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F26BF4B1CBAD6400077A93D /* AdditionalServicesTableViewController.swift */; };
 		8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */; };
 		8FAA46ED1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */; };
 		9D05CF231C485D4800998F15 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D05CF161C485D4000998F15 /* SwiftyJSON.framework */; };
@@ -265,6 +266,7 @@
 		14FC6A151C79313D006605C7 /* AdminPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
 		8F26BF151CBA294C0077A93D /* AddServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServices.swift; sourceTree = "<group>"; };
 		8F26BF2A1CBA2A730077A93D /* AddServViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServViewCell.swift; sourceTree = "<group>"; };
+		8F26BF4B1CBAD6400077A93D /* AdditionalServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesTableViewController.swift; sourceTree = "<group>"; };
 		8F9BEBB81C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServicesViewController.swift; sourceTree = "<group>"; };
 		8FAA46EA1BFE5ABD00E39874 /* FormCycle.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormCycle.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FAA46EC1BFE5ABD00E39874 /* MyFormCycleHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormCycleHomeTests.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				144C11D51CB2C097005F768C /* NewTuneViewController.swift */,
 				144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */,
 				8F26BF2A1CBA2A730077A93D /* AddServViewCell.swift */,
+				8F26BF4B1CBAD6400077A93D /* AdditionalServicesTableViewController.swift */,
 			);
 			name = Pages;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 			files = (
 				14B31DDA1CA7576B004E84AD /* EditUsersTableViewController.swift in Sources */,
 				9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */,
+				8F26BF4C1CBAD6400077A93D /* AdditionalServicesTableViewController.swift in Sources */,
 				0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */,
 				AF94A69C1CB9853100536C88 /* NSDateExtensions.swift in Sources */,
 				1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */,
