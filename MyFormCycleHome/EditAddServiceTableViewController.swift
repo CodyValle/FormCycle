@@ -1,5 +1,5 @@
 //
-//  EditTuneTableViewController.swift
+//  EditAddServiceTableViewController.swift
 //  FormCycle
 //
 //  Created by Merrill Lines on 4/2/16.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftHTTP
 import SwiftyJSON
 
-class EditTuneTableViewController: UITableViewController
+class EditAddServiceTableViewController: UITableViewController
 {
     
     
@@ -29,20 +29,23 @@ class EditTuneTableViewController: UITableViewController
         
         
         //Get and display all users
-        var MyParams = ["action":"retrieveTunes"]
-        MyParams["tunetype"] = "1"
+        let MyParams = ["action":"retrieveTunes"]
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
-                    self.editTune.append(EditTune(name: retjson[i]["name"].string!,
-                        cost: Int(retjson[i]["cost"].string!)!,
-                        id: Int(retjson[i]["tune"].string!)!,
-                        time: retjson[i]["time"].string!.floatValue,
-                        tune: retjson[i]["tune"].string!))
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.tableView.reloadData()
-                    }
-                }
+                    if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
+                    if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
+                    else
+                    {
+                        self.editTune.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.tableView.reloadData()
+                        }
+                    }}
             }
             else {
                 print("Failed to retrieve users.")
@@ -57,7 +60,7 @@ class EditTuneTableViewController: UITableViewController
     /* Initially loads the table as soon as the view loads. */
     override func viewDidLoad()
     {
-        super.viewDidLoad()  
+        super.viewDidLoad()
         
         
         //Load data
@@ -65,29 +68,31 @@ class EditTuneTableViewController: UITableViewController
         
         
         //Get and display all users
-        var MyParams = ["action":"retrieveTunes"]
-        MyParams["tunetype"] = "1"
-            ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-                if succ {
-                    for (var i = 0; i < retjson.count; i++) {
-                        
-                        self.editTune.append(EditTune(name: retjson[i]["name"].string!,
-                            cost: Int(retjson[i]["cost"].string!)!,
-                            id: Int(retjson[i]["tune"].string!)!,
-                            time: retjson[i]["time"].string!.floatValue,
-                            tune: retjson[i]["tune"].string!))
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.tableView.reloadData()
-                        }
+        let MyParams = ["action":"retrieveTunes"]
+        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+            if succ {
+                for (var i = 0; i < retjson.count; i++) {
+                    if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
+                    if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
+                    else
+                    {
+                    self.editTune.append(EditTune(name: retjson[i]["name"].string!,
+                        cost: Int(retjson[i]["cost"].string!)!,
+                        id: Int(retjson[i]["tune"].string!)!,
+                        time: retjson[i]["time"].string!.floatValue,
+                        tune: retjson[i]["type"].string!))
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableView.reloadData()
                     }
-                }
-                else {
-                    print("Failed to retrieve users.")
-                }
-                return succ
-            })
-            
-            while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+                    }}
+            }
+            else {
+                print("Failed to retrieve users.")
+            }
+            return succ
+        })
+        
+        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
     }
     
     override func didReceiveMemoryWarning()
@@ -109,10 +114,10 @@ class EditTuneTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cellIdentifier = "TuneCell"
+        let cellIdentifier = "AddCell"
         
         //Set the cell as the BikeOrderTableViewCell class, using the WorkOrder data model
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TuneTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EditServCell
         let user = editTune[indexPath.row]
         
         //Setting cell attributes to those in our array
@@ -142,13 +147,13 @@ class EditTuneTableViewController: UITableViewController
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    let editSegueIndetifier = "ModifyTune"
+    let editSegueIndetifier = "ModifyAddService"
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         
         if segue.identifier == editSegueIndetifier {
-            if let destination = segue.destinationViewController as? ModifyTuneViewController {
+            if let destination = segue.destinationViewController as? ModifyAddServiceViewController {
                 if let orderIndex = tableView.indexPathForSelectedRow?.row {
                     destination.namePassed = editTune[orderIndex].name
                     destination.idPassed = editTune[orderIndex].id

@@ -1,8 +1,8 @@
 //
-//  ModifyTuneViewController.swift
+//  ModifyAddServiceViewController.swift
 //  FormCycle
 //
-//  Created by Merrill Lines on 4/4/16.
+//  Created by Merrill Lines on 4/11/16.
 //  Copyright © 2016 Merrill Lines. All rights reserved.
 //
 
@@ -10,28 +10,30 @@ import UIKit
 import SwiftHTTP
 import SwiftyJSON
 
-class ModifyTuneViewController: UIViewController
+class ModifyAddServiceViewController: UIViewController
 {
-    @IBOutlet weak var tunename: UILabel!
+    @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var cost: UITextField!
     @IBOutlet weak var time: UITextField!
+    
     
     var idPassed = 0
     var namePassed = ""
     var costPassed = 0
     var timePassed = Float()
     var myText = ""
-     
+    
     
     @IBAction func backToEditTuneTablePage(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     }
     
     /* Sends the request to the server to modify
-     * an exisiting tune.
-     */
-    @IBAction func submitBtnEditTune(sender: AnyObject) {
+    * an exisiting tune.
+    */
+    @IBAction func submitBtnEditService(sender: AnyObject) {
+    
         /* Submits the server request */
         var MyParams = ["action":"editTune"]
         //MyParams["tunetype"] = "0"
@@ -50,7 +52,7 @@ class ModifyTuneViewController: UIViewController
             MyParams["tunetime"] = time.text
         }
         
-//        MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
+        //        MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
         
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ //if request to server was successful
@@ -72,13 +74,13 @@ class ModifyTuneViewController: UIViewController
             }
             return false
         })
-
+        
     }
-
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        tunename.text = namePassed
+        serviceName.text = namePassed
     }
     
     
