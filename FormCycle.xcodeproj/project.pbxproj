@@ -44,6 +44,9 @@
 		14DE9B361C8908C10004ABC1 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B351C8908C10004ABC1 /* Record.swift */; };
 		14DE9B381C8909000004ABC1 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */; };
 		14E9EFA71CBC062C00356250 /* ModifyAddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9EFA61CBC062C00356250 /* ModifyAddServiceViewController.swift */; };
+		14E9EFC21CBC588900356250 /* AddServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9EFC11CBC588900356250 /* AddServicesViewController.swift */; };
+		14E9EFD21CBC5A0D00356250 /* AServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9EFD11CBC5A0D00356250 /* AServicesTableViewController.swift */; };
+		14E9EFD41CBC5A7600356250 /* AddServCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9EFD31CBC5A7600356250 /* AddServCell.swift */; };
 		14F82DDC1CB07DCD0062BC0D /* EditTuneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F82DDB1CB07DCD0062BC0D /* EditTuneTableViewController.swift */; };
 		14F82DDE1CB0806A0062BC0D /* TuneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F82DDD1CB0806A0062BC0D /* TuneTableViewCell.swift */; };
 		14F82DE01CB08A730062BC0D /* EditTune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F82DDF1CB08A730062BC0D /* EditTune.swift */; };
@@ -265,6 +268,9 @@
 		14DE9B351C8908C10004ABC1 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		14DE9B371C8909000004ABC1 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		14E9EFA61CBC062C00356250 /* ModifyAddServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAddServiceViewController.swift; sourceTree = "<group>"; };
+		14E9EFC11CBC588900356250 /* AddServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServicesViewController.swift; sourceTree = "<group>"; };
+		14E9EFD11CBC5A0D00356250 /* AServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AServicesTableViewController.swift; sourceTree = "<group>"; };
+		14E9EFD31CBC5A7600356250 /* AddServCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServCell.swift; sourceTree = "<group>"; };
 		14F82DDB1CB07DCD0062BC0D /* EditTuneTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTuneTableViewController.swift; sourceTree = "<group>"; };
 		14F82DDD1CB0806A0062BC0D /* TuneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuneTableViewCell.swift; sourceTree = "<group>"; };
 		14F82DDF1CB08A730062BC0D /* EditTune.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTune.swift; sourceTree = "<group>"; };
@@ -396,6 +402,7 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				14E9EFD01CBC59F300356250 /* AdditionalServices */,
 				14B1E48F1CB9C57000FC7BEC /* EditAdditionalService */,
 				14F82DCD1CB07A130062BC0D /* EditRemoveTunes */,
 				14B31DD81CA75727004E84AD /* EditRemoveUsers */,
@@ -439,6 +446,16 @@
 				14CA7D591CAB16B1004FBE6C /* EditUserViewController.swift */,
 			);
 			name = EditRemoveUsers;
+			sourceTree = "<group>";
+		};
+		14E9EFD01CBC59F300356250 /* AdditionalServices */ = {
+			isa = PBXGroup;
+			children = (
+				14E9EFC11CBC588900356250 /* AddServicesViewController.swift */,
+				14E9EFD11CBC5A0D00356250 /* AServicesTableViewController.swift */,
+				14E9EFD31CBC5A7600356250 /* AddServCell.swift */,
+			);
+			name = AdditionalServices;
 			sourceTree = "<group>";
 		};
 		14F82DCD1CB07A130062BC0D /* EditRemoveTunes */ = {
@@ -765,7 +782,9 @@
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
 				14F82DDE1CB0806A0062BC0D /* TuneTableViewCell.swift in Sources */,
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
+				14E9EFC21CBC588900356250 /* AddServicesViewController.swift in Sources */,
 				014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */,
+				14E9EFD21CBC5A0D00356250 /* AServicesTableViewController.swift in Sources */,
 				14B31DDC1CA75799004E84AD /* UsersTableViewCell.swift in Sources */,
 				8F9BEBB91C7ACCEA007FA4A3 /* AdditionalServicesViewController.swift in Sources */,
 				9D222ECC1C88C9D300EBB5EE /* Crypto.swift in Sources */,
@@ -797,6 +816,7 @@
 				9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */,
 				1430DF181C993DC900AF1CDC /* RegisterUserViewController.swift in Sources */,
 				01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */,
+				14E9EFD41CBC5A7600356250 /* AddServCell.swift in Sources */,
 				0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */,
 				14CA7D481CAB063F004FBE6C /* EditUser.swift in Sources */,
 				014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */,
