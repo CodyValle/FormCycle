@@ -147,21 +147,21 @@ class EditAddServiceTableViewController: UITableViewController
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    let editSegueIndetifier = "ModifyTune"
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-//    {
-//        
-//        if segue.identifier == editSegueIndetifier {
-//            if let destination = segue.destinationViewController as? ModifyTuneViewController {
-//                if let orderIndex = tableView.indexPathForSelectedRow?.row {
-//                    destination.namePassed = editTune[orderIndex].name
-//                    destination.idPassed = editTune[orderIndex].id
-//                    destination.costPassed = editTune[orderIndex].cost
-//                    destination.timePassed = editTune[orderIndex].time
-//                }
-//            }
-//        }
-//    }
+    let editSegueIndetifier = "ModifyAddService"
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+        if segue.identifier == editSegueIndetifier {
+            if let destination = segue.destinationViewController as? ModifyAddServiceViewController {
+                if let orderIndex = tableView.indexPathForSelectedRow?.row {
+                    destination.namePassed = editTune[orderIndex].name
+                    destination.idPassed = editTune[orderIndex].id
+                    destination.costPassed = editTune[orderIndex].cost
+                    destination.timePassed = editTune[orderIndex].time
+                }
+            }
+        }
+    }
     
 }
