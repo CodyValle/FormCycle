@@ -117,7 +117,7 @@ class EditTuneTableViewController: UITableViewController
         
         //Setting cell attributes to those in our array
         cell.name.text = user.name
-        cell.cost.text = String(user.cost)
+        cell.cost.text = "$" + String(user.cost)
         
         
         cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)

@@ -29,20 +29,23 @@ class EditAddServiceTableViewController: UITableViewController
         
         
         //Get and display all users
-        var MyParams = ["action":"retrieveTunes"]
-        MyParams["tunetype"] = "1"
+        let MyParams = ["action":"retrieveTunes"]
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
-                    self.editTune.append(EditTune(name: retjson[i]["name"].string!,
-                        cost: Int(retjson[i]["cost"].string!)!,
-                        id: Int(retjson[i]["tune"].string!)!,
-                        time: retjson[i]["time"].string!.floatValue,
-                        tune: retjson[i]["tune"].string!))
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.tableView.reloadData()
-                    }
-                }
+                    if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
+                    if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
+                    else
+                    {
+                        self.editTune.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.tableView.reloadData()
+                        }
+                    }}
             }
             else {
                 print("Failed to retrieve users.")
@@ -65,21 +68,23 @@ class EditAddServiceTableViewController: UITableViewController
         
         
         //Get and display all users
-        var MyParams = ["action":"retrieveTunes"]
-        MyParams["tunetype"] = "1"
+        let MyParams = ["action":"retrieveTunes"]
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
-                    
+                    if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
+                    if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
+                    else
+                    {
                     self.editTune.append(EditTune(name: retjson[i]["name"].string!,
                         cost: Int(retjson[i]["cost"].string!)!,
                         id: Int(retjson[i]["tune"].string!)!,
                         time: retjson[i]["time"].string!.floatValue,
-                        tune: retjson[i]["tune"].string!))
+                        tune: retjson[i]["type"].string!))
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
                     }
-                }
+                    }}
             }
             else {
                 print("Failed to retrieve users.")
@@ -116,8 +121,8 @@ class EditAddServiceTableViewController: UITableViewController
         let user = editTune[indexPath.row]
         
         //Setting cell attributes to those in our array
-        //cell.name.text = user.name
-        //cell.cost.text = String(user.cost)
+        cell.name.text = user.name
+        cell.cost.text = "$" + String(user.cost)
         
         
         cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
