@@ -42,7 +42,10 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     MyParams["open"] = "N"
     MyParams["notes"] = notes.text
 
-    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
+    ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+      if succ { BinPacker.removerOrder(self.workid) }
+      return succ
+    })
   }
 
   @IBAction func BackToHomePage(sender: AnyObject)

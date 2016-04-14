@@ -42,6 +42,7 @@ class WaitingPickupTableViewController: UITableViewController
           for var i = 0; i < retjson.count; i++
           {
             self.workOrders.append(WorkOrder(id: i,
+              open: 1,
               tagNumber: retjson[i]["tagnum"].string!,
               orderID:   retjson[i]["workid"].string!,
                         tune:      retjson[i]["tune"].string!,

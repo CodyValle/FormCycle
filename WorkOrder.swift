@@ -12,6 +12,7 @@ class WorkOrder
 {
     //MARK: Properties
     let id: Int
+    let open: Int
     var day: Int
     
     let tagNumber: String
@@ -25,9 +26,10 @@ class WorkOrder
     var totalCost: Int
     
     //MARK: Initialize properties
-    init(id: Int, tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
+  init(id: Int, open: Int, tagNumber: String, orderID: String, tune: String, bikeType: String, model: String, lname: String)
     {
         self.id = id
+        self.open = open
         self.day = 0
         self.tagNumber = tagNumber
         self.bikeType = bikeType + " " + model

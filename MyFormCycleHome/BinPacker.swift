@@ -47,39 +47,23 @@ class BinPacker
         defaults.setValue("false", forKey: "LockedDay")
         defaults.synchronize()
         self.todayLock = false
-      }
-      else {
-        // We need to lock today and load the already set orders from the list saved to the device
-        defaults.setValue("true", forKey: "LockedDay")
-        defaults.synchronize()
-        self.todayLock = true
-
-        let tuneList = defaults.stringForKey("TodaysOrders")!.characters.split{$0 == ","}.map(String.init)
-        self.Days = []
-        self.Days.append(Day())
-
-        for id in tuneList {
-          if let w = BinPacker.WorkOrderFromID(Int(id)!) {
-            self.Days[0].WorkOrders.append(w)
-          }
-        }
+        return
       }
     }
-    else
-    {
-      // We need to lock today and load the already set orders from the list saved to the device
-      defaults.setValue("true", forKey: "LockedDay")
-      defaults.synchronize()
-      self.todayLock = true
 
-      let tuneList = defaults.stringForKey("TodaysOrders")!.characters.split{$0 == ","}.map(String.init)
-      self.Days = []
-      self.Days.append(Day())
+    // We need to lock today and load the already set orders from the list saved to the device
+    defaults.setValue("true", forKey: "LockedDay")
+    defaults.synchronize()
+    self.todayLock = true
 
-      for id in tuneList {
-        if let w = BinPacker.WorkOrderFromID(Int(id)!) {
-          self.Days[0].WorkOrders.append(w)
-        }
+    let tuneList = defaults.stringForKey("TodaysOrders")!.characters.split{$0 == ","}.map(String.init)
+    self.Days = []
+    self.Days.append(Day())
+
+    for id in tuneList {
+      if let w = BinPacker.WorkOrderFromID(Int(id)!) {
+        if w.open != 0 { continue }
+        self.Days[0].WorkOrders.append(w)
       }
     }
   }
@@ -125,6 +109,7 @@ class BinPacker
   static func packBins()
   {
     self.setToday()
+    print(self.todayLock)
 
     if self.todayLock {
       self.Days = [self.Days[0]]
@@ -164,19 +149,19 @@ class BinPacker
       if !placed { self.Days.append(Day()) }
 
       self.Days[day].WorkOrders.append(order)
-      order.day = todayLock ? day - 1 : day
+      order.day = day//todayLock ? day - 1 : day
     }
 
-//    for i in 0...(Days.count - 1)
-//    {
-//      print("Day: \(i)")
-//      print(" Hours scheduled: \(Days[i].getMinutes() / 60.0)")
-//      print("  Work Order IDs:")
-//      for w in Days[i].WorkOrders
-//      {
-//        print("   \(w.id)")
-//      }
-//    }
+    for i in 0...(Days.count - 1)
+    {
+      print("Day: \(i)")
+      print(" Hours scheduled: \(Days[i].getMinutes() / 60.0)")
+      print("  Work Order IDs:")
+      for w in Days[i].WorkOrders
+      {
+        print("   \(w.id)")
+      }
+    }
   }
 
   // Gets all orders this class stores
@@ -202,7 +187,7 @@ class BinPacker
     return false
   }
 
-  // Gets the work ordrr of the given id
+  // Gets the work order of the given id
   static func WorkOrderFromID(id: Int) -> WorkOrder?
   {
     for w in self.WorkOrders
@@ -212,6 +197,26 @@ class BinPacker
       }
     }
     return nil
+  }
+
+  // Removes a work order from this class
+  static func removerOrder(workid: String)
+  {
+    for i in 0...(WorkOrders.count - 1) {
+      if WorkOrders[i].orderID == workid {
+        WorkOrders.removeAtIndex(i)
+        break
+      }
+    }
+
+    if self.todayLock {
+      for i in 0...(Days[0].WorkOrders.count - 1) {
+        if Days[0].WorkOrders[i].orderID == workid {
+          Days[0].WorkOrders.removeAtIndex(i)
+          return
+        }
+      }
+    }
   }
 
 }

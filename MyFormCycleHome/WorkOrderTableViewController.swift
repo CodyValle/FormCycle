@@ -34,6 +34,7 @@ class WorkOrderTableViewController: UITableViewController
         if (retjson.count > 0) {
           for var i = 0; i < retjson.count; i++ {
             self.workOrders.append(WorkOrder(id:        Int(retjson[i]["rowid"].string!)!,
+              open: 0,
               tagNumber: retjson[i]["tagnum"].string!,
               orderID:   retjson[i]["workid"].string!,
               tune:      retjson[i]["tune"].string!,
@@ -112,7 +113,7 @@ class WorkOrderTableViewController: UITableViewController
     cell.workid = order.orderID
 
 
-    cell.backgroundColor = order.day == 0 ?              // This is the day we want to color
+    cell.backgroundColor = BinPacker.IDinDay(order.id, day: 0) ?              // This is the day we want to color
       indexPath.row % 2 == 0 ? UIColor(red: 0.1608, green: 0.7255, blue: 1, alpha: 1.0) : UIColor(red: 0, green: 0.8471, blue: 0.9255, alpha: 1.0)
       :
       indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)

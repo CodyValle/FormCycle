@@ -11,7 +11,6 @@
 		0104AD911C79072D0056B10F /* AutoFillTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104AD901C79072D0056B10F /* AutoFillTableViewController.swift */; };
 		0104AD951C7910C30056B10F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0104AD931C7910C30056B10F /* Main.storyboard */; };
 		0104AD981C7BC7D70056B10F /* CustomerAutoFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104AD971C7BC7D70056B10F /* CustomerAutoFill.swift */; };
-		010DDF331CBD72A6005173C0 /* WeeklyGlance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010DDF321CBD72A6005173C0 /* WeeklyGlance.swift */; };
 		014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014283CE1C5D65940097C61F /* PickupTableViewCell.swift */; };
 		014283D11C5D6B800097C61F /* WaitingPickupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */; };
 		0147B5931C4EBF1900218606 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147B5921C4EBF1900218606 /* WorkOrder.swift */; };
@@ -236,7 +235,6 @@
 		0104AD901C79072D0056B10F /* AutoFillTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoFillTableViewController.swift; sourceTree = "<group>"; };
 		0104AD941C7910C30056B10F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0104AD971C7BC7D70056B10F /* CustomerAutoFill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerAutoFill.swift; sourceTree = "<group>"; };
-		010DDF321CBD72A6005173C0 /* WeeklyGlance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyGlance.swift; sourceTree = "<group>"; };
 		014283CE1C5D65940097C61F /* PickupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupTableViewCell.swift; sourceTree = "<group>"; };
 		014283D01C5D6B800097C61F /* WaitingPickupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingPickupTableViewController.swift; sourceTree = "<group>"; };
 		0147B5921C4EBF1900218606 /* WorkOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkOrder.swift; path = ../WorkOrder.swift; sourceTree = "<group>"; };
@@ -420,7 +418,6 @@
 				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				9DE0558A1CB06F17001CA645 /* BinPacker.swift */,
 				9D222ECB1C88C9D300EBB5EE /* Crypto.swift */,
-				010DDF321CBD72A6005173C0 /* WeeklyGlance.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,
@@ -808,7 +805,6 @@
 				14F82DDC1CB07DCD0062BC0D /* EditTuneTableViewController.swift in Sources */,
 				144C11D61CB2C097005F768C /* NewTuneViewController.swift in Sources */,
 				1430DF271C9943BA00AF1CDC /* AccountRecoveryViewController.swift in Sources */,
-				010DDF331CBD72A6005173C0 /* WeeklyGlance.swift in Sources */,
 				14FC6A161C79313D006605C7 /* AdminPage.swift in Sources */,
 				14B1E4A21CB9C65A00FC7BEC /* EditServCell.swift in Sources */,
 				144C11E51CB2C2B4005F768C /* ModifyTuneViewController.swift in Sources */,
