@@ -65,7 +65,7 @@ class WorkOrderTableViewController: UITableViewController
 
         self.workOrders.sortInPlace({ $0.day < $1.day })
         for i in 0...(self.workOrders.count - 1) {
-          if self.workOrders[i].day == 0 {                    // This is the day we want on top.
+          if self.workOrders[i].day == 2 {                    // This is the day we want on top.
             let w = self.workOrders.removeAtIndex(i)
             self.workOrders.insert(w, atIndex:  0)
           }
@@ -113,7 +113,7 @@ class WorkOrderTableViewController: UITableViewController
     cell.workid = order.orderID
 
 
-    cell.backgroundColor = BinPacker.IDinDay(order.id, day: 0) ?              // This is the day we want to color
+    cell.backgroundColor = BinPacker.IDinDay(order.id, day: 2) ?              // This is the day we want to color
       indexPath.row % 2 == 0 ? UIColor(red: 0.1608, green: 0.7255, blue: 1, alpha: 1.0) : UIColor(red: 0, green: 0.8471, blue: 0.9255, alpha: 1.0)
       :
       indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)

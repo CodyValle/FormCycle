@@ -76,7 +76,7 @@ class BinPacker
       var found = false
       for w in self.WorkOrders
       {
-        if o.id == w.id {
+        if o.id == w.id {// || self.todayLock ? !self.IDinDay(o.id, day: 0) : true {
           found = true
           break
         }
@@ -152,16 +152,16 @@ class BinPacker
       order.day = day//todayLock ? day - 1 : day
     }
 
-    for i in 0...(Days.count - 1)
-    {
-      print("Day: \(i)")
-      print(" Hours scheduled: \(Days[i].getMinutes() / 60.0)")
-      print("  Work Order IDs:")
-      for w in Days[i].WorkOrders
-      {
-        print("   \(w.id)")
-      }
-    }
+//    for i in 0...(Days.count - 1)
+//    {
+//      print("Day: \(i)")
+//      print(" Hours scheduled: \(Days[i].getMinutes() / 60.0)")
+//      print("  Work Order IDs:")
+//      for w in Days[i].WorkOrders
+//      {
+//        print("   \(w.id)")
+//      }
+//    }
   }
 
   // Gets all orders this class stores
