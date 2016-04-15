@@ -800,8 +800,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                     }
                     NSOperationQueue.mainQueue().addOperationWithBlock
                         {
-                            alert.title = "Incorrect Username or Password"
-                            alert.message = "Try Again"
+                            /* Displays this error message if the user exists but does not
+                             * have admin access
+                             */
+                            alert.title = "This username does not have admin access"
+                            alert.message = "Contact an admin"
                             
                             self.presentViewController(alert, animated: true, completion: { })
                     }
@@ -811,6 +814,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                 {
                     NSOperationQueue.mainQueue().addOperationWithBlock
                         {
+                            /* Displays this error message if the user does not exist or an
+                             * incorrect password is entered.
+                             */
                             alert.title = "Incorrect Username or Password"
                             alert.message = "Try Again"
                             
