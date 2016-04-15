@@ -22,6 +22,7 @@ class ModifyTuneViewController: UIViewController
     var costPassed = 0
     var timePassed = Float()
     var myText = ""
+    var tunePassed = ""
      
     
     @IBAction func backToEditTuneTablePage(sender: AnyObject) {
@@ -34,12 +35,10 @@ class ModifyTuneViewController: UIViewController
     @IBAction func submitBtnEditTune(sender: AnyObject) {
         /* Submits the server request */
         var MyParams = ["action":"editTune"]
-        //MyParams["tunetype"] = "0"
-        //MyParams["tune"] = String(idPassed)
-        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+        MyParams["tune"] = tunePassed
         MyParams["tunename"] = namePassed
-        MyParams["tunecost"] = "0"
-        MyParams["tunetime"] = "12"
+        MyParams["tunecost"] = String(costPassed)
+        MyParams["tunetime"] = String(timePassed)
         if (name.text?.characters.count > 0) {
             MyParams["tunename"] = name.text
         }
@@ -50,22 +49,18 @@ class ModifyTuneViewController: UIViewController
             MyParams["tunetime"] = time.text
         }
         
-//        MyParams["admin"] = admin.selectedSegmentIndex == 1 ? "Y" : "N"
-        
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ //if request to server was successful
             {
-                //print("\n\nSuccess\n\n")
                 self.dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
                 return true
-                
             }
                 
             else //if request to server was unsuccessful
             {
                 NSOperationQueue.mainQueue().addOperationWithBlock
                     {
-                        let refreshAlert = UIAlertController(title: "Failed to Edit User", message: "Please Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+                        let refreshAlert = UIAlertController(title: "Failed to Edit Tune", message: "Please Try Again", preferredStyle: UIAlertControllerStyle.Alert)
                         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in }))
                         self.presentViewController(refreshAlert, animated: true, completion: nil)
                 }

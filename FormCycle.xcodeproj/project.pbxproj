@@ -464,6 +464,7 @@
 				14B31DD61CA74CB6004E84AD /* EditTuneViewController.swift */,
 				14F82DDB1CB07DCD0062BC0D /* EditTuneTableViewController.swift */,
 				14F82DDD1CB0806A0062BC0D /* TuneTableViewCell.swift */,
+				144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */,
 			);
 			name = EditRemoveTunes;
 			sourceTree = "<group>";
@@ -518,7 +519,6 @@
 				1430DF171C993DC900AF1CDC /* RegisterUserViewController.swift */,
 				1430DF261C9943BA00AF1CDC /* AccountRecoveryViewController.swift */,
 				144C11D51CB2C097005F768C /* NewTuneViewController.swift */,
-				144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */,
 				14E9EFA61CBC062C00356250 /* ModifyAddServiceViewController.swift */,
 			);
 			name = Pages;
