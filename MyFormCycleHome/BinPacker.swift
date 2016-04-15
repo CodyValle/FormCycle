@@ -179,6 +179,7 @@ class BinPacker
   // Returns true if the work order id is assigned to the specified day
   static func IDinDay(id: Int, day: Int) -> Bool
   {
+    if day >= Days.count { return false }
     for w in Days[day].WorkOrders {
       if id == w.id {
         return true
