@@ -53,7 +53,65 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     @IBOutlet weak var invTuneType: UILabel!
     @IBOutlet weak var custSig: YPDrawSignatureView!
     @IBOutlet weak var techSig: YPDrawSignatureView!
-    
+
+  // Weekly Glance Day Selectors
+  @IBOutlet weak var Day0Name: UILabel?
+  @IBOutlet weak var Day1Name: UILabel?
+  @IBOutlet weak var Day2Name: UILabel?
+  @IBOutlet weak var Day3Name: UILabel?
+  @IBOutlet weak var Day4Name: UILabel?
+  @IBOutlet weak var Day0Hours: UILabel?
+  @IBOutlet weak var Day1Hours: UILabel?
+  @IBOutlet weak var Day2Hours: UILabel?
+  @IBOutlet weak var Day3Hours: UILabel?
+  @IBOutlet weak var Day4Hours: UILabel?
+
+  func updateWeeklyGlanceData()
+  {
+    print("Updating")
+    dispatch_async(dispatch_get_main_queue())
+    {
+      print(WGData.Day0Hours)
+      self.Day0Name?.text = WGData.Day0Name
+      self.Day1Name?.text = WGData.Day1Name
+      self.Day2Name?.text = WGData.Day2Name
+      self.Day3Name?.text = WGData.Day3Name
+      self.Day4Name?.text = WGData.Day4Name
+
+      self.Day0Hours?.text = WGData.Day0Hours
+      self.Day1Hours?.text = WGData.Day1Hours
+      self.Day2Hours?.text = WGData.Day2Hours
+      self.Day3Hours?.text = WGData.Day3Hours
+      self.Day4Hours?.text = WGData.Day4Hours
+    }
+  }
+
+  @IBAction func Day0Select(sender: AnyObject) {
+    print("Setting Day 0")
+    WeeklyGlance.setDaySelected(0)
+  }
+
+  @IBAction func Day1Select(sender: AnyObject) {
+    print("Setting Day 1")
+    WeeklyGlance.setDaySelected(1)
+  }
+
+  @IBAction func Day2Select(sender: AnyObject) {
+    print("Setting Day 2")
+    WeeklyGlance.setDaySelected(2)
+  }
+  
+  @IBAction func Day3Select(sender: AnyObject) {
+    print("Setting Day 3")
+    WeeklyGlance.setDaySelected(3)
+  }
+
+  @IBAction func Day4Select(sender: AnyObject) {
+    print("Setting Day 4")
+    WeeklyGlance.setDaySelected(4)
+  }
+
+    // CLear form buttons
     @IBAction func clearCustSig(sender: AnyObject) {
         custSig.clearSignature()
     }
@@ -101,6 +159,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     override func viewDidAppear(animated: Bool)
     {
         //super.viewDidLoad()
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateWeeklyGlanceData",name:"refreshWeeklyGlance", object: nil)
         if (newOrderTextFieldStruct.bikeInfoPage)
         {
             pickerTuneSelection.reloadAllComponents()
@@ -180,8 +239,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             defaults.synchronize()
 
             // Uncomment this code to make the BinPacker think that this is the first time the app was loaded today
-            defaults.setValue("01-01-1900", forKey: "LastLoaded")
-            defaults.synchronize()
+//            defaults.setValue("01-01-1900", forKey: "LastLoaded")
+//            defaults.synchronize()
 
         }
             /* if user is on the new order page set flag to true */

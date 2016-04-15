@@ -20,6 +20,8 @@ class WorkOrderTableViewController: UITableViewController
   {
     super.viewDidLoad()
 
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshView",name:"reloadOpenOrderTable", object: nil)
+
     //Load data
     workOrders.removeAll()
     tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
@@ -66,21 +68,27 @@ class WorkOrderTableViewController: UITableViewController
 
         self.workOrders = BinPacker.getOrders()
 
-        self.workOrders.sortInPlace({ $0.day < $1.day })
-        for i in 0...(self.workOrders.count - 1) {
-          if self.workOrders[i].day == 0 {                    // This is the day we want on top.
-            let w = self.workOrders.removeAtIndex(i)
-            self.workOrders.insert(w, atIndex:  0)
-          }
-        }
+        self.refreshView()
 
-        dispatch_async(dispatch_get_main_queue()) {
-          self.tableView.reloadData()
-        }
         return true
       }
       return false
     })
+  }
+
+  func refreshView()
+  {
+    self.workOrders.sortInPlace({ $0.day < $1.day })
+    for i in 0...(self.workOrders.count - 1) {
+      if self.workOrders[i].day == WeeklyGlance.getDaySelected() {                    // This is the day we want on top.
+        let w = self.workOrders.removeAtIndex(i)
+        self.workOrders.insert(w, atIndex: 0)
+      }
+    }
+
+    dispatch_async(dispatch_get_main_queue()) {
+      self.tableView.reloadData()
+    }
   }
 
   override func didReceiveMemoryWarning()
@@ -116,7 +124,7 @@ class WorkOrderTableViewController: UITableViewController
     cell.workid = order.orderID
 
     cell.backgroundColor = UIColor.clearColor()
-    cell.backgroundColor = BinPacker.IDinDay(order.id, day: 0) ?              // This is the day we want to color
+    cell.backgroundColor = BinPacker.IDinDay(order.id, day: WeeklyGlance.getDaySelected()) ?              // This is the day we want to color
       indexPath.row % 2 == 0 ? UIColor(red: 0.0706, green: 0.4235, blue: 0.61, alpha: 0.75) : UIColor(red: 0.0706, green: 0.4235, blue: 0.61, alpha: 0.75)
       :
       UIColor(white: 0.1, alpha:0.75) //Gives a nice dark transparent background

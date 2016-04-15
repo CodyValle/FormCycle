@@ -120,6 +120,7 @@ class BinPacker
 
     for order in self.WorkOrders
     {
+      //if Days.count > 5 { order.day = 6 }
 //      print("For work order \(order.lname), \(order.tagNumber):")
 //      print(" Services:")
 //      for serviceID in order.getServices()
@@ -162,6 +163,21 @@ class BinPacker
 //        print("   \(w.id)")
 //      }
 //    }
+
+    // Update the Weekly Glance
+    WGData.Day0Hours = "\(Days[0].getMinutes() / 60) hours"
+    WGData.Day1Hours = "\(Days[1].getMinutes() / 60) hours"
+    WGData.Day2Hours = "\(Days[2].getMinutes() / 60) hours"
+    WGData.Day3Hours = "\(Days[3].getMinutes() / 60) hours"
+    WGData.Day4Hours = "\(Days[4].getMinutes() / 60) hours"
+
+    WGData.Day0Name = "Monday"
+    WGData.Day1Name = "Tuesday"
+    WGData.Day2Name = "Wednesday"
+    WGData.Day3Name = "Thursday"
+    WGData.Day4Name = "Friday"
+    NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
+
   }
 
   // Gets all orders this class stores

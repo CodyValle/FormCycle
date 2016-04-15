@@ -68,6 +68,8 @@
 		9DE0558B1CB06F18001CA645 /* BinPacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE0558A1CB06F17001CA645 /* BinPacker.swift */; };
 		9DEC52421C84F8D000DB2965 /* ServerCom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEC52411C84F8D000DB2965 /* ServerCom.swift */; };
 		9DFBA13C1C5D75DD008D13CB /* Capstone in Resources */ = {isa = PBXBuildFile; fileRef = 9DFBA13B1C5D75DD008D13CB /* Capstone */; };
+		AF2F92381CC195FD0073F423 /* WeeklyGlance.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2F92371CC195FD0073F423 /* WeeklyGlance.swift */; };
+		AF4C48D11CC1A4480091522D /* WGLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C48D01CC1A4480091522D /* WGLabels.swift */; };
 		AF94A69C1CB9853100536C88 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94A69B1CB9853100536C88 /* NSDateExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -292,6 +294,8 @@
 		9DE0558A1CB06F17001CA645 /* BinPacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinPacker.swift; sourceTree = "<group>"; };
 		9DEC52411C84F8D000DB2965 /* ServerCom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCom.swift; sourceTree = "<group>"; };
 		9DFBA13B1C5D75DD008D13CB /* Capstone */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Capstone; sourceTree = "<group>"; };
+		AF2F92371CC195FD0073F423 /* WeeklyGlance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyGlance.swift; sourceTree = "<group>"; };
+		AF4C48D01CC1A4480091522D /* WGLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WGLabels.swift; sourceTree = "<group>"; };
 		AF94A69B1CB9853100536C88 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -402,6 +406,7 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				AF4C48D01CC1A4480091522D /* WGLabels.swift */,
 				14E9EFD01CBC59F300356250 /* AdditionalServices */,
 				14B1E48F1CB9C57000FC7BEC /* EditAdditionalService */,
 				14F82DCD1CB07A130062BC0D /* EditRemoveTunes */,
@@ -415,6 +420,7 @@
 				14ADDC031BEC5510005ECABA /* AppDelegate.swift */,
 				0104AD931C7910C30056B10F /* Main.storyboard */,
 				9D10383C1CA7075200B62AB5 /* SignatureCapture.swift */,
+				AF2F92371CC195FD0073F423 /* WeeklyGlance.swift */,
 				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				9DE0558A1CB06F17001CA645 /* BinPacker.swift */,
 				9D222ECB1C88C9D300EBB5EE /* Crypto.swift */,
@@ -778,6 +784,7 @@
 				14E9EFA71CBC062C00356250 /* ModifyAddServiceViewController.swift in Sources */,
 				1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */,
 				14B1E49E1CB9C59D00FC7BEC /* EditAddServiceTableViewController.swift in Sources */,
+				AF4C48D11CC1A4480091522D /* WGLabels.swift in Sources */,
 				14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
 				14F82DDE1CB0806A0062BC0D /* TuneTableViewCell.swift in Sources */,
@@ -797,6 +804,7 @@
 				9D0934A21CAB058900C38CCB /* Tune.swift in Sources */,
 				0104AD981C7BC7D70056B10F /* CustomerAutoFill.swift in Sources */,
 				14B31DC81CA745B8004E84AD /* EditRemoveUserViewController.swift in Sources */,
+				AF2F92381CC195FD0073F423 /* WeeklyGlance.swift in Sources */,
 				9D10383D1CA7075200B62AB5 /* SignatureCapture.swift in Sources */,
 				14B1E4A01CB9C60E00FC7BEC /* EditAddServViewController.swift in Sources */,
 				9DE0558B1CB06F18001CA645 /* BinPacker.swift in Sources */,
