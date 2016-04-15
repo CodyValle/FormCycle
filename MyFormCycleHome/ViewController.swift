@@ -545,6 +545,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
                 destination.resultSet = results
                 results.removeAll()
             }
+            newOrderTextFieldStruct.neworderpage = true
         }
             /* checks if the user pressed the submit button on the bike info page */
         else if segue.identifier == "moveToInvoice"

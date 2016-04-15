@@ -109,7 +109,7 @@ class BinPacker
   static func packBins()
   {
     self.setToday()
-    print(self.todayLock)
+    //print(self.todayLock)
 
     if self.todayLock {
       self.Days = [self.Days[0]]
