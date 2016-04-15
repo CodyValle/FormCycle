@@ -156,10 +156,9 @@ class EditAddServiceTableViewController: UITableViewController
             if let destination = segue.destinationViewController as? ModifyAddServiceViewController {
                 if let orderIndex = tableView.indexPathForSelectedRow?.row {
                     destination.namePassed = editTune[orderIndex].name
-                    destination.idPassed = editTune[orderIndex].id
+                    destination.idPassed = String(editTune[orderIndex].id)
                     destination.costPassed = editTune[orderIndex].cost
                     destination.timePassed = editTune[orderIndex].time
-                    destination.tunePassed = editTune[orderIndex].tune
                 }
             }
         }

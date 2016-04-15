@@ -18,12 +18,11 @@ class ModifyAddServiceViewController: UIViewController
     @IBOutlet weak var time: UITextField!
     
     
-    var idPassed = 0
+    var idPassed = ""
     var namePassed = ""
     var costPassed = 0
     var timePassed = Float()
     var myText = ""
-    var tunePassed = ""
     
     
     @IBAction func backToEditTuneTablePage(sender: AnyObject) {
@@ -31,13 +30,13 @@ class ModifyAddServiceViewController: UIViewController
     }
     
     /* Sends the request to the server to modify
-    * an exisiting tune.
+    * an exisiting additional service.
     */
     @IBAction func submitBtnEditService(sender: AnyObject) {
     
         /* Submits the server request */
         var MyParams = ["action":"editTune"]
-        //MyParams["tune"] = tunePassed
+        MyParams["tune"] = idPassed
         MyParams["tunename"] = namePassed
         MyParams["tunecost"] = String(costPassed)
         MyParams["tunetime"] = String(timePassed)

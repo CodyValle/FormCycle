@@ -51,8 +51,8 @@ class NewTuneViewController: UIViewController, UIPickerViewDataSource, UIPickerV
      }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             servtype.typetransfer = row + 2
-        print(row)
-        print(servtype.typetransfer)
+        //print(row)
+        //print(servtype.typetransfer)
     }
     /** SUBMIT INFOR TO SERVER **/
     
