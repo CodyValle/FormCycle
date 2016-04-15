@@ -22,7 +22,10 @@ class WorkOrderTableViewController: UITableViewController
 
     //Load data
     workOrders.removeAll()
-
+    tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+    self.tableView.backgroundColor = UIColor.clearColor()
+    self.tableView.opaque.boolValue
+    self.tableView.backgroundView = nil
     /* Submits the server request */
     var MyParams = ["action":"workSearch"]
 
@@ -112,12 +115,13 @@ class WorkOrderTableViewController: UITableViewController
     cell.lname.text = order.lname
     cell.workid = order.orderID
 
-
+    cell.backgroundColor = UIColor.clearColor()
     cell.backgroundColor = BinPacker.IDinDay(order.id, day: 2) ?              // This is the day we want to color
-      indexPath.row % 2 == 0 ? UIColor(red: 0.1608, green: 0.7255, blue: 1, alpha: 1.0) : UIColor(red: 0, green: 0.8471, blue: 0.9255, alpha: 1.0)
+      indexPath.row % 2 == 0 ? UIColor(red: 0.0706, green: 0.4235, blue: 0.61, alpha: 0.75) : UIColor(red: 0.0706, green: 0.4235, blue: 0.61, alpha: 0.75)
       :
-      indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
-
+      UIColor(white: 0.1, alpha:0.75) //Gives a nice dark transparent background
+    //indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+    //red: 0.2608, green: 0.6255, blue: 1, alpha: 0.75
     return cell
   }
 

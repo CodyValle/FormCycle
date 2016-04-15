@@ -29,7 +29,10 @@ class WaitingPickupTableViewController: UITableViewController
     //Load data
 
     workOrders.removeAll()
-
+    tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+    self.tableView.backgroundColor = UIColor.clearColor()
+    self.tableView.opaque.boolValue
+    self.tableView.backgroundView = nil
     /* Submits the server request */
     var MyParams = ["action":"workSearch"]
 
@@ -88,6 +91,8 @@ class WaitingPickupTableViewController: UITableViewController
     cell.tagNum.text = order.tagNumber
     cell.lname.text = order.lname
 
+    cell.backgroundColor = UIColor.clearColor()
+    cell.backgroundColor = UIColor(red: 0.0706, green: 0.4235, blue: 0.61, alpha: 0.75)
     //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 0.7, alpha: 1.0) : UIColor(white: 1.0, alpha: 1.0)
 
     return cell

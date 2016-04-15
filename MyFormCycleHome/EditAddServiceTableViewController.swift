@@ -26,7 +26,10 @@ class EditAddServiceTableViewController: UITableViewController
         
         //Load data
         editTune.removeAll()
-        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.opaque.boolValue
+        self.tableView.backgroundView = nil
         
         //Get and display all users
         let MyParams = ["action":"retrieveTunes"]
@@ -65,7 +68,10 @@ class EditAddServiceTableViewController: UITableViewController
         
         //Load data
         editTune.removeAll()
-        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.opaque.boolValue
+        self.tableView.backgroundView = nil
         
         //Get and display all users
         let MyParams = ["action":"retrieveTunes"]
@@ -123,9 +129,11 @@ class EditAddServiceTableViewController: UITableViewController
         //Setting cell attributes to those in our array
         cell.name.text = user.name
         cell.cost.text = "$" + String(user.cost)
+        cell.time.text = String(user.time)
         
-        
-        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor(white: 0.01, alpha:0.7) //Gives a nice dark transparent background
+        //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
         return cell
     }
     
