@@ -164,13 +164,16 @@ class NewTuneViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         switch textField
         {
-            
+        case name:
+            return prospectiveText.characters.count <= 65
         case serviceCost:
             return prospectiveText.containsOnlyCharactersIn("0123456789") && prospectiveText.characters.count <= 4
             
             /* Allow only digits in this field,and limit its contents to 7, 10, or 11 characters. */
         case serviceTime:
             return prospectiveText.containsOnlyCharactersIn("0123456789") && prospectiveText.characters.count <= 3
+        case serviceTitle:
+            return prospectiveText.characters.count <= 65
         case cost:
             return prospectiveText.containsOnlyCharactersIn("0123456789") && prospectiveText.characters.count <= 4
             
