@@ -134,9 +134,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
+        
         if newOrderTextFieldStruct.mainPage
         {
             generateListForTunes()
@@ -151,6 +149,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         }
         if newOrderTextFieldStruct.loginPage
         {
+            //Looks for single or multiple taps.
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+            view.addGestureRecognizer(tap)
             newOrderTextFieldStruct.mainPage = false
             newOrderTextFieldStruct.neworderpage = false
             newOrderTextFieldStruct.bikeInfoPage = false
@@ -186,6 +187,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             /* if user is on the new order page set flag to true */
         else if newOrderTextFieldStruct.neworderpage
         {
+            //Looks for single or multiple taps.
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+            view.addGestureRecognizer(tap)
             // Open the connection to the database.
             //ServerCom.open()
             // Load the tunes into the app
@@ -220,6 +224,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             /* else if user is on the bike info page, set this flag to true */
         else if newOrderTextFieldStruct.bikeInfoPage == true
         {
+            //Looks for single or multiple taps.
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+            view.addGestureRecognizer(tap)
             pickerTuneSelection.reloadAllComponents()
             //            dispatch_async(dispatch_get_main_queue()) {
             //            self.pickerTuneSelection.reloadAllComponents()
