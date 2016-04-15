@@ -159,6 +159,7 @@ class EditAddServiceTableViewController: UITableViewController
                     destination.idPassed = editTune[orderIndex].id
                     destination.costPassed = editTune[orderIndex].cost
                     destination.timePassed = editTune[orderIndex].time
+                    destination.tunePassed = editTune[orderIndex].tune
                 }
             }
         }

@@ -1717,7 +1717,6 @@
                                                 <constraint firstAttribute="width" constant="66" id="gGX-hB-DlL"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="0.0" green="0.71193910260000004" blue="0.078854958370000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1760,29 +1759,34 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ti-0r-Kpd" id="CEQ-yo-z17">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBt-mK-FlK">
-                                            <rect key="frame" x="34" y="11" width="45" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="34" y="11" width="315" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="315" id="fjc-4C-gFg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7b-7s-O0z">
-                                            <rect key="frame" x="532" y="11" width="36" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="513" y="8" width="70" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="rE1-1h-4TN"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="gBt-mK-FlK" firstAttribute="top" secondItem="CEQ-yo-z17" secondAttribute="topMargin" constant="3" id="0BA-CM-ElI"/>
-                                        <constraint firstItem="gBt-mK-FlK" firstAttribute="firstBaseline" secondItem="q7b-7s-O0z" secondAttribute="firstBaseline" id="AzG-Ha-PeM"/>
-                                        <constraint firstItem="gBt-mK-FlK" firstAttribute="baseline" secondItem="q7b-7s-O0z" secondAttribute="baseline" id="ZcC-eJ-d8Z"/>
-                                        <constraint firstItem="gBt-mK-FlK" firstAttribute="leading" secondItem="CEQ-yo-z17" secondAttribute="leadingMargin" constant="26" id="i8W-ZZ-8pW"/>
-                                        <constraint firstItem="gBt-mK-FlK" firstAttribute="centerY" secondItem="CEQ-yo-z17" secondAttribute="centerY" id="sxY-gM-N6e"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="q7b-7s-O0z" secondAttribute="trailing" constant="24" id="zOP-U2-zb7"/>
+                                        <constraint firstItem="gBt-mK-FlK" firstAttribute="leading" secondItem="CEQ-yo-z17" secondAttribute="leadingMargin" constant="26" id="53r-1i-cuu"/>
+                                        <constraint firstItem="gBt-mK-FlK" firstAttribute="baseline" secondItem="q7b-7s-O0z" secondAttribute="firstBaseline" id="IHf-i0-WRc"/>
+                                        <constraint firstItem="q7b-7s-O0z" firstAttribute="top" secondItem="CEQ-yo-z17" secondAttribute="topMargin" id="Wpg-HE-agi"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="q7b-7s-O0z" secondAttribute="trailing" constant="9" id="Wt6-sv-flN"/>
+                                        <constraint firstItem="gBt-mK-FlK" firstAttribute="centerY" secondItem="CEQ-yo-z17" secondAttribute="centerY" id="hFN-5v-c1R"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
