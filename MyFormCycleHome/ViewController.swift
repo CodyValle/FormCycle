@@ -14,6 +14,7 @@ import MessageUI
 
 class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, MFMailComposeViewControllerDelegate, AutoFillTableViewControllerDelegate
 {
+    
     /* List all Text Fields imported from Sign In Page */
     @IBOutlet weak var USRTextField: UITextField!
     @IBOutlet weak var PWDTextField: UITextField!
@@ -91,6 +92,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     *   an alert view while still on the same view controller. This is also confronting
     *   a problem that occured when trying to load more items in a single view controller
     */
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     override func viewDidAppear(animated: Bool)
     {
         //super.viewDidLoad()
@@ -127,6 +134,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         if newOrderTextFieldStruct.mainPage
         {
             generateListForTunes()

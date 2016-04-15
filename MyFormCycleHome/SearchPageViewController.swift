@@ -22,9 +22,19 @@ class SearchPageViewController: UITableViewController  {
     var filteredRecords = [Record]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     // MARK: - View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         
         // Setup the Search Controller
         searchController.searchResultsUpdater = self

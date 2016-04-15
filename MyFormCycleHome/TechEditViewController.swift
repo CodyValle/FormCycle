@@ -72,10 +72,19 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     presentViewController(refreshAlert, animated: true, completion: nil)
   }
 
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
   override func viewDidLoad()
   {
     self.workid = workidPassed
 
+    //Looks for single or multiple taps.
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+    view.addGestureRecognizer(tap)
     //Load data
     /* Submits the server request */
     var MyParams = ["action":"workSearch"]
