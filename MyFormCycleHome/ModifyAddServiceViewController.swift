@@ -17,13 +17,11 @@ class ModifyAddServiceViewController: UIViewController
     @IBOutlet weak var cost: UITextField!
     @IBOutlet weak var time: UITextField!
     
-    
     var idPassed = ""
     var namePassed = ""
     var costPassed = 0
     var timePassed = Float()
     var myText = ""
-    
     
     @IBAction func backToEditTuneTablePage(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */

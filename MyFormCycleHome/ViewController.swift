@@ -561,6 +561,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             /* Submits the server request */
             var MyParams = ["action": "workOrder"]
             MyParams["fname"] = Crypto.encrypt(newOrderTextFieldStruct.firstName)
+   
             MyParams["lname"] = Crypto.encrypt(newOrderTextFieldStruct.lastName)
             MyParams["address"] = Crypto.encrypt(newOrderTextFieldStruct.myAddress)
             MyParams["address2"] = Crypto.encrypt(newOrderTextFieldStruct.myAddress2)
