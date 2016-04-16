@@ -67,6 +67,8 @@ class WorkOrderTableViewController: UITableViewController
 
         BinPacker.saveToday()
 
+        self.refreshView()
+
         return true
       }
       return false

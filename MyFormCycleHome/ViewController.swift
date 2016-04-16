@@ -75,7 +75,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   {
     dispatch_async(dispatch_get_main_queue())
     {
-      print("updating")
       self.Day0Button?.backgroundColor = WGData.Day0Color
       self.Day1Button?.backgroundColor = WGData.Day1Color
       self.Day2Button?.backgroundColor = WGData.Day2Color
@@ -178,14 +177,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             //        }
             
         }
-        if newOrderTextFieldStruct.mainPage && newOrderTextFieldStruct.welcomePopup
+        if newOrderTextFieldStruct.mainPage
         {
-            let myrefreshAlert = UIAlertController(title: "Welcome!", message:newOrderTextFieldStruct.USRname, preferredStyle: UIAlertControllerStyle.Alert)
-            
-            myrefreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action: UIAlertAction!) in }))
-            presentViewController(myrefreshAlert, animated: false, completion: nil)
-            
-            newOrderTextFieldStruct.welcomePopup = false
+          NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
+          print("sent update")
+
+          if newOrderTextFieldStruct.welcomePopup
+          {
+              let myrefreshAlert = UIAlertController(title: "Welcome!", message:newOrderTextFieldStruct.USRname, preferredStyle: UIAlertControllerStyle.Alert)
+              
+              myrefreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action: UIAlertAction!) in }))
+              presentViewController(myrefreshAlert, animated: false, completion: nil)
+              
+              newOrderTextFieldStruct.welcomePopup = false
+          }
         }
     }
     

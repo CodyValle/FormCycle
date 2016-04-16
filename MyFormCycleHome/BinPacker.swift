@@ -215,8 +215,6 @@ class BinPacker
     WGData.Day2Name = dayNames[2]
     WGData.Day3Name = dayNames[3]
     WGData.Day4Name = dayNames[4]
-
-    NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
   }
 
   private static func mapDayToName(var day: Int) -> [String]

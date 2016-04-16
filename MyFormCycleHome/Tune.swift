@@ -39,7 +39,7 @@ class Tune
     //MyParams["tunetype"] = "1"
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ {
-        print("Loading \(retjson.count) tunes from the server")
+        //print("Loading \(retjson.count) tunes from the server")
         for (var i = 0; i < retjson.count; i++) {
           Services.append(Service(id: Int(retjson[i]["tune"].string!)!,
                                   name: retjson[i]["name"].string!,
