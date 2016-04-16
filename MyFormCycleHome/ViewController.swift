@@ -180,7 +180,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         if newOrderTextFieldStruct.mainPage
         {
           NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
-          print("sent update")
+          //print("sent update")
 
           if newOrderTextFieldStruct.welcomePopup
           {
