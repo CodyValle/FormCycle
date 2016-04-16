@@ -31,7 +31,7 @@ class AServicesTableViewController: UITableViewController
         //Get and display all users
         let MyParams = ["action":"retrieveTunes"]
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if succ {
+            if succ {   
                 for (var i = 0; i < retjson.count; i++) {
                     if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
                     else if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
