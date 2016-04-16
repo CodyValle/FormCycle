@@ -49,9 +49,10 @@ class WorkOrderTableViewController: UITableViewController
           }
         }
 
-
         BinPacker.setOrders(self.workOrders)
         BinPacker.packBins()
+
+        self.workOrders = BinPacker.getOrders()
 
         // Set the last loaded date
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -66,10 +67,6 @@ class WorkOrderTableViewController: UITableViewController
 
         BinPacker.saveToday()
 
-        self.workOrders = BinPacker.getOrders()
-
-        self.refreshView()
-
         return true
       }
       return false
@@ -78,9 +75,10 @@ class WorkOrderTableViewController: UITableViewController
 
   func refreshView()
   {
+    if self.workOrders.count == 0 { return }
     self.workOrders.sortInPlace({ $0.day < $1.day })
     for i in 0...(self.workOrders.count - 1) {
-      if self.workOrders[i].day == WeeklyGlance.getDaySelected() {                    // This is the day we want on top.
+      if self.workOrders[i].day == WeeklyGlance.getDaySelected() {
         let w = self.workOrders.removeAtIndex(i)
         self.workOrders.insert(w, atIndex: 0)
       }

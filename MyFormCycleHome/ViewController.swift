@@ -75,6 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   {
     dispatch_async(dispatch_get_main_queue())
     {
+      print("updating")
       self.Day0Button?.backgroundColor = WGData.Day0Color
       self.Day1Button?.backgroundColor = WGData.Day1Color
       self.Day2Button?.backgroundColor = WGData.Day2Color
