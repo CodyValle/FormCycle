@@ -55,6 +55,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     @IBOutlet weak var techSig: YPDrawSignatureView!
 
   // Weekly Glance Day Selectors
+  @IBOutlet weak var Day0Button: UIButton?
+  @IBOutlet weak var Day1Button: UIButton?
+  @IBOutlet weak var Day2Button: UIButton?
+  @IBOutlet weak var Day3Button: UIButton?
+  @IBOutlet weak var Day4Button: UIButton?
   @IBOutlet weak var Day0Name: UILabel?
   @IBOutlet weak var Day1Name: UILabel?
   @IBOutlet weak var Day2Name: UILabel?
@@ -68,10 +73,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
 
   func updateWeeklyGlanceData()
   {
-    print("Updating")
     dispatch_async(dispatch_get_main_queue())
     {
-      print(WGData.Day0Hours)
+      self.Day0Button?.backgroundColor = WGData.Day0Color
+      self.Day1Button?.backgroundColor = WGData.Day1Color
+      self.Day2Button?.backgroundColor = WGData.Day2Color
+      self.Day3Button?.backgroundColor = WGData.Day3Color
+      self.Day4Button?.backgroundColor = WGData.Day4Color
+
       self.Day0Name?.text = WGData.Day0Name
       self.Day1Name?.text = WGData.Day1Name
       self.Day2Name?.text = WGData.Day2Name

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class BinPacker
 {
@@ -14,9 +15,9 @@ class BinPacker
   {
     var WorkOrders: [WorkOrder] = []
 
-    func getMinutes() -> Float
+    func getMinutes() -> Int
     {
-      var total: Float = 0
+      var total: Int = 0
       for w in WorkOrders
       {
         total += w.totalMinutes
@@ -139,7 +140,7 @@ class BinPacker
       
       while day < self.Days.count
       {
-        if (self.Days[day].getMinutes() + order.totalMinutes) / 60.0 <= 16
+        if (self.Days[day].getMinutes() + order.totalMinutes) / 60 <= 16
         {
           placed = true
           break
@@ -165,19 +166,86 @@ class BinPacker
 //    }
 
     // Update the Weekly Glance
+    var minutes = Days[0].getMinutes()
+    WGData.Day0Color = self.mapToGradient(minutes, max: 16 * 60)
+    minutes = Days[1].getMinutes()
+    WGData.Day1Color = self.mapToGradient(minutes, max: 16 * 60)
+    minutes = Days[2].getMinutes()
+    WGData.Day2Color = self.mapToGradient(minutes, max: 16 * 60)
+    minutes = Days[3].getMinutes()
+    WGData.Day3Color = self.mapToGradient(minutes, max: 16 * 60)
+    minutes = Days[4].getMinutes()
+    WGData.Day4Color = self.mapToGradient(minutes, max: 16 * 60)
+
     WGData.Day0Hours = "\(Days[0].getMinutes() / 60) hours"
     WGData.Day1Hours = "\(Days[1].getMinutes() / 60) hours"
     WGData.Day2Hours = "\(Days[2].getMinutes() / 60) hours"
     WGData.Day3Hours = "\(Days[3].getMinutes() / 60) hours"
     WGData.Day4Hours = "\(Days[4].getMinutes() / 60) hours"
 
-    WGData.Day0Name = "Monday"
-    WGData.Day1Name = "Tuesday"
-    WGData.Day2Name = "Wednesday"
-    WGData.Day3Name = "Thursday"
-    WGData.Day4Name = "Friday"
-    NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
+    let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.components([.Weekday], fromDate: NSDate())
+    let dayNames = self.mapDayToName(components.weekday)
 
+    WGData.Day0Name = dayNames[0]
+    WGData.Day1Name = dayNames[1]
+    WGData.Day2Name = dayNames[2]
+    WGData.Day3Name = dayNames[3]
+    WGData.Day4Name = dayNames[4]
+
+    NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
+  }
+
+  private static func mapDayToName(var day: Int) -> [String]
+  {
+    var names: [String] = []
+    var i = 0
+    while i < 5
+    {
+      switch day
+      {
+      case 1:
+        day = 2
+        fallthrough
+      case 2:
+        names.append("Monday")
+        i++
+        break
+      case 3:
+        names.append("Tuesday")
+        i++
+        break
+      case 4:
+        names.append("Wednesday")
+        i++
+        break
+      case 5:
+        names.append("Thursday")
+        i++
+        break
+      case 6:
+        names.append("Friday")
+        i++
+        break
+      case 7:
+        day = 1
+        break
+      default:
+        day = 2
+      }
+
+      day += 1
+    }
+
+    return names
+  }
+
+  private static func mapToGradient(minutes: Int, max: Int) -> UIColor
+  {
+    let ratio: Float = Float(minutes) / Float(max)
+    let r = CGFloat(ratio * 200.0 / 255)
+    let g = CGFloat((255 - ratio * 250.0) / 255)
+    let b = CGFloat(0.0)
+    return UIColor(red: r, green: g, blue: b, alpha: 1)
   }
 
   // Gets all orders this class stores

@@ -22,7 +22,7 @@ class WorkOrder
     let lname: String
     
     var ServiceIDs: [Int]
-    var totalMinutes: Float
+    var totalMinutes: Int
     var totalCost: Int
     
     //MARK: Initialize properties
