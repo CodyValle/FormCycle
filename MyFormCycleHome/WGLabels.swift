@@ -23,9 +23,9 @@ class WGData
   public static var Day3Name: String = ""
   public static var Day4Name: String = ""
 
-  public static var Day0Hours: String = ""
-  public static var Day1Hours: String = ""
-  public static var Day2Hours: String = ""
-  public static var Day3Hours: String = ""
-  public static var Day4Hours: String = ""
+  public static var Day0Hours: String = "0 hours"
+  public static var Day1Hours: String = "0 hours"
+  public static var Day2Hours: String = "0 hours"
+  public static var Day3Hours: String = "0 hours"
+  public static var Day4Hours: String = "0 hours"
 }

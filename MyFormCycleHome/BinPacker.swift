@@ -166,26 +166,50 @@ class BinPacker
 //    }
 
     // Update the Weekly Glance
-    var minutes = Days[0].getMinutes()
-    WGData.Day0Color = self.mapToGradient(minutes, max: 16 * 60)
-    minutes = Days[1].getMinutes()
-    WGData.Day1Color = self.mapToGradient(minutes, max: 16 * 60)
-    minutes = Days[2].getMinutes()
-    WGData.Day2Color = self.mapToGradient(minutes, max: 16 * 60)
-    minutes = Days[3].getMinutes()
-    WGData.Day3Color = self.mapToGradient(minutes, max: 16 * 60)
-    minutes = Days[4].getMinutes()
-    WGData.Day4Color = self.mapToGradient(minutes, max: 16 * 60)
+    var minutes = 0
 
-    WGData.Day0Hours = "\(Days[0].getMinutes() / 60) hours"
-    WGData.Day1Hours = "\(Days[1].getMinutes() / 60) hours"
-    WGData.Day2Hours = "\(Days[2].getMinutes() / 60) hours"
-    WGData.Day3Hours = "\(Days[3].getMinutes() / 60) hours"
-    WGData.Day4Hours = "\(Days[4].getMinutes() / 60) hours"
+    if Days.count > 0
+    {
+      minutes = Days[0].getMinutes()
+      WGData.Day0Color = self.mapToGradient(minutes, max: 16 * 60)
+      WGData.Day0Hours = "\(Days[0].getMinutes() / 60) hours"
+    }
+    else { WGData.Day0Color = self.mapToGradient(0, max: 16 * 60) }
+
+    if Days.count > 1
+    {
+      minutes = Days[1].getMinutes()
+      WGData.Day1Color = self.mapToGradient(minutes, max: 16 * 60)
+      WGData.Day1Hours = "\(Days[1].getMinutes() / 60) hours"
+    }
+    else { WGData.Day1Color = self.mapToGradient(0, max: 16 * 60) }
+
+    if Days.count > 2
+    {
+      minutes = Days[2].getMinutes()
+      WGData.Day2Color = self.mapToGradient(minutes, max: 16 * 60)
+      WGData.Day2Hours = "\(Days[2].getMinutes() / 60) hours"
+    }
+    else { WGData.Day2Color = self.mapToGradient(0, max: 16 * 60) }
+
+    if Days.count > 3
+    {
+      minutes = Days[3].getMinutes()
+      WGData.Day3Color = self.mapToGradient(minutes, max: 16 * 60)
+      WGData.Day3Hours = "\(Days[3].getMinutes() / 60) hours"
+    }
+    else { WGData.Day3Color = self.mapToGradient(0, max: 16 * 60) }
+
+    if Days.count > 4
+    {
+      minutes = Days[4].getMinutes()
+      WGData.Day4Color = self.mapToGradient(minutes, max: 16 * 60)
+      WGData.Day4Hours = "\(Days[4].getMinutes() / 60) hours"
+    }
+    else { WGData.Day4Color = self.mapToGradient(0, max: 16 * 60) }
 
     let components = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.components([.Weekday], fromDate: NSDate())
     let dayNames = self.mapDayToName(components.weekday)
-
     WGData.Day0Name = dayNames[0]
     WGData.Day1Name = dayNames[1]
     WGData.Day2Name = dayNames[2]

@@ -96,27 +96,27 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   }
 
   @IBAction func Day0Select(sender: AnyObject) {
-    print("Setting Day 0")
+    //print("Setting Day 0")
     WeeklyGlance.setDaySelected(0)
   }
 
   @IBAction func Day1Select(sender: AnyObject) {
-    print("Setting Day 1")
+    //print("Setting Day 1")
     WeeklyGlance.setDaySelected(1)
   }
 
   @IBAction func Day2Select(sender: AnyObject) {
-    print("Setting Day 2")
+    //print("Setting Day 2")
     WeeklyGlance.setDaySelected(2)
   }
   
   @IBAction func Day3Select(sender: AnyObject) {
-    print("Setting Day 3")
+    //print("Setting Day 3")
     WeeklyGlance.setDaySelected(3)
   }
 
   @IBAction func Day4Select(sender: AnyObject) {
-    print("Setting Day 4")
+    //print("Setting Day 4")
     WeeklyGlance.setDaySelected(4)
   }
 
@@ -248,8 +248,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             defaults.synchronize()
 
             // Uncomment this code to make the BinPacker think that this is the first time the app was loaded today
-//            defaults.setValue("01-01-1900", forKey: "LastLoaded")
-//            defaults.synchronize()
+            defaults.setValue("01-01-1900", forKey: "LastLoaded")
+            defaults.synchronize()
 
         }
             /* if user is on the new order page set flag to true */
