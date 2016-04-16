@@ -666,7 +666,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             MyParams["color"] = newOrderTextFieldStruct.myColor
             MyParams["tagNum"] = newOrderTextFieldStruct.myTagNumber
             MyParams["notes"] = newOrderTextFieldStruct.myNotes
-            MyParams["tune"] = newOrderTextFieldStruct.tunePicker // We need to add aditional services here
+          MyParams["tune"] = newOrderTextFieldStruct.tunePicker == "0" ? "1" : newOrderTextFieldStruct.tunePicker // We need to add aditional services here
             MyParams["userID"] = newOrderTextFieldStruct.USRname
             
             ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
@@ -790,7 +790,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             return true
         }
             /* Check if currently on bike info page */
-        else if newOrderTextFieldStruct.bikeInfoPage == true
+        else if newOrderTextFieldStruct.bikeInfoPage
         {
             
             if brand.text?.utf16.count == 0 /* Checks brand restrictions */
@@ -985,9 +985,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     */
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        pickerTuneSelection.reloadAllComponents()
-        newOrderTextFieldStruct.tunePicker = String(row)
-        
+      pickerTuneSelection.reloadAllComponents()
+      newOrderTextFieldStruct.tunePicker = String(Tune.getTunefromName(newOrderTextFieldStruct.myListOfTunes[row])!.sID)
     }
     
     //********************* PRACTICE TEST FUNCTIONS *********************

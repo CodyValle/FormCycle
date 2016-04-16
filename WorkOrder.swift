@@ -42,11 +42,11 @@ class WorkOrder
         self.totalCost = 0
         
         let tuneList = tune.characters.split{$0 == ","}.map(String.init)
-        for id in tuneList
+        for idfl in tuneList
         {
-            self.ServiceIDs.append(Int(id)!)
+            self.ServiceIDs.append(Int(idfl)!)
             
-            let service = Tune.getTune(Int(id)!)!
+            let service = Tune.getTune(Int(idfl)!)!
             self.totalMinutes += service.sTime
             self.totalCost += service.sCost
         }
