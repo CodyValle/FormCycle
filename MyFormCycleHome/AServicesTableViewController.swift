@@ -16,7 +16,7 @@ class AServicesTableViewController: UITableViewController
     
     // MARK: Properties
     var editTune = [EditTune]()
-    
+    var brakeSection = [EditTune]()
     
     /* Reloads data after coming back from Editing a User */
     override func viewDidAppear(animated: Bool) {
@@ -26,7 +26,7 @@ class AServicesTableViewController: UITableViewController
         
         //Load data
         editTune.removeAll()
-        
+       
         
         //Get and display all users
         let MyParams = ["action":"retrieveTunes"]
@@ -34,7 +34,18 @@ class AServicesTableViewController: UITableViewController
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
                     if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
-                    if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
+                    else if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
+                    else if(retjson[i]["type"].string! == "2")
+                    {
+                        self.brakeSection.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.tableView.reloadData()
+                        }
+                    }
                     else
                     {
                         self.editTune.append(EditTune(name: retjson[i]["name"].string!,
@@ -45,7 +56,8 @@ class AServicesTableViewController: UITableViewController
                         dispatch_async(dispatch_get_main_queue()) {
                             self.tableView.reloadData()
                         }
-                    }}
+                    }
+                }
             }
             else {
                 print("Failed to retrieve users.")
@@ -73,7 +85,7 @@ class AServicesTableViewController: UITableViewController
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
                     if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
-                    if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
+                    else if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
                     else
                     {
                         self.editTune.append(EditTune(name: retjson[i]["name"].string!,
@@ -84,7 +96,8 @@ class AServicesTableViewController: UITableViewController
                         dispatch_async(dispatch_get_main_queue()) {
                             self.tableView.reloadData()
                         }
-                    }}
+                    }
+                }
             }
             else {
                 print("Failed to retrieve users.")
@@ -104,13 +117,35 @@ class AServicesTableViewController: UITableViewController
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return 1
+        print(self)
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return editTune.count
-    }
+     {
+        switch section
+        {
+          case 0:
+            return editTune.count
+    //case 1:
+    //return brakeSection.count
+    //      case 2:
+    //        return Stem.count
+    //      case 3:
+    //        return Shifters.count
+    //      case 4:
+    //        return Chain.count
+    //      case 5:
+    //        return Computer.count
+         default:
+            return brakeSection.count
+        }
+      }
+    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+//    {
+//        return editTune.count
+//    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
@@ -118,11 +153,18 @@ class AServicesTableViewController: UITableViewController
         
         //Set the cell as the BikeOrderTableViewCell class, using the WorkOrder data model
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AddServCell
+        let user = editTune[indexPath.row]
         //let user = editTune[indexPath.row]
         
+        //        for (var i = 0; i < editTune.count; i++) {
+//            if (editTune[i]["type"].string! == "2"){
+//                let Brakes = editTune[indexPath.row]
+//            }
+//        }
         //Setting cell attributes to those in our array
-        cell.name.text = "fname"//user.name
-        cell.cost.text = "cost"//"$" + String(user.cost)
+       
+        cell.name.text = user.name//"fname"//user.name
+        cell.cost.text = "$" + String(user.cost)//"cost"//"$" + String(user.cost)
         
         
 //        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)

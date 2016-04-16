@@ -12,5 +12,4 @@ class AddServCell: UITableViewCell
 {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var cost: UILabel!
-    
 }

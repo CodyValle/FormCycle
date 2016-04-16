@@ -37,7 +37,7 @@ class EditAddServiceTableViewController: UITableViewController
             if succ {
                 for (var i = 0; i < retjson.count; i++) {
                     if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
-                    if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
+                    else if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
                     else
                     {
                         self.editTune.append(EditTune(name: retjson[i]["name"].string!,
@@ -90,7 +90,8 @@ class EditAddServiceTableViewController: UITableViewController
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
                     }
-                    }}
+                    }
+                }
             }
             else {
                 print("Failed to retrieve users.")

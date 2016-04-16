@@ -110,9 +110,9 @@ extension ViewController
   @IBAction func MyButton(sender: AnyObject)
   {
     // Uncomment these lines to quick login
-//    newOrderTextFieldStruct.loginPage = false
-//    newOrderTextFieldStruct.USRname = "Quick Login"
-//    return
+   newOrderTextFieldStruct.loginPage = false
+    newOrderTextFieldStruct.USRname = "Quick Login"
+    return
 
 		/* Submits the server request */
     var MyParams = ["action":"login"]
