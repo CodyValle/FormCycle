@@ -676,7 +676,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             
             /* check if the user pressed the next button
             on the cust info page. */
-        else if segue.identifier == "loadCustomerInfo"
+        else if segue.identifier == "loadCustomerInfo" 
         {
             newOrderTextFieldStruct.bikeInfoPage = true;
             newOrderTextFieldStruct.firstName = fname.text!
