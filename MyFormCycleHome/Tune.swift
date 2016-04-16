@@ -127,7 +127,7 @@ class Tune
     return nil
   }
 
-  static func getTune(name: String) -> Service?
+  static func getTunefromName(name: String) -> Service?
   {
     for s in Services
     {
