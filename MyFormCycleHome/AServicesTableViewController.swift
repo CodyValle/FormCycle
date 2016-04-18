@@ -2,7 +2,7 @@
 //  AServicesTableViewController.swift
 //  FormCycle
 //
-//  Created by Merrill Lines on 4/11/16.
+//  Created by John Ragan on 4/11/16.
 //  Copyright © 2016 Merrill Lines. All rights reserved.
 //
 
@@ -12,26 +12,34 @@ import SwiftyJSON
 
 class AServicesTableViewController: UITableViewController
 {
-    
-    
     // MARK: Properties
     var editTune = [EditTune]()
     var brakeSection = [EditTune]()
+    var wheelSection = [EditTune]()
+    var barStemSection = [EditTune]()
+    var derailleurShifterSection = [EditTune]()
+    var chainCranksSection = [EditTune]()
+    var computerSection = [EditTune]()
+    var boxingSection = [EditTune]()
     
-    /* Reloads data after coming back from Editing a User */
-    override func viewDidAppear(animated: Bool) {
-        
+    /* Initially loads the table as soon as the view loads. */
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
         
         //Load data
         editTune.removeAll()
-       
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.opaque.boolValue
+        self.tableView.backgroundView = nil
+        
         
         //Get and display all users
         let MyParams = ["action":"retrieveTunes"]
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if succ {   
+            if succ
+            {
                 for (var i = 0; i < retjson.count; i++) {
                     if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
                     else if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
@@ -42,62 +50,60 @@ class AServicesTableViewController: UITableViewController
                             id: Int(retjson[i]["tune"].string!)!,
                             time: retjson[i]["time"].string!.floatValue,
                             tune: retjson[i]["type"].string!))
-                        dispatch_async(dispatch_get_main_queue()) {
+                        dispatch_async(dispatch_get_main_queue())
+                        {
                             self.tableView.reloadData()
                         }
                     }
+                    else if(retjson[i]["type"].string! == "3")
+                    {
+                        self.wheelSection.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))                    }
+                    else if(retjson[i]["type"].string! == "4")
+                    {
+                        self.barStemSection.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))                    }
+                    else if(retjson[i]["type"].string! == "5")
+                    {
+                        self.derailleurShifterSection.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))                    }
+                    else if(retjson[i]["type"].string! == "6")
+                    {
+                        self.chainCranksSection.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))                    }
+                    else if(retjson[i]["type"].string! == "7")
+                    {
+                        self.computerSection.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))                    }
+                    else if(retjson[i]["type"].string! == "8")
+                    {
+                        self.boxingSection.append(EditTune(name: retjson[i]["name"].string!,
+                            cost: Int(retjson[i]["cost"].string!)!,
+                            id: Int(retjson[i]["tune"].string!)!,
+                            time: retjson[i]["time"].string!.floatValue,
+                            tune: retjson[i]["type"].string!))                    }
                     else
                     {
                         self.editTune.append(EditTune(name: retjson[i]["name"].string!,
                             cost: Int(retjson[i]["cost"].string!)!,
                             id: Int(retjson[i]["tune"].string!)!,
                             time: retjson[i]["time"].string!.floatValue,
-                            tune: retjson[i]["type"].string!))
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-            else {
-                print("Failed to retrieve users.")
-            }
-            return succ
-        })
-        
-        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
-        
-    }
-    
-    /* Initially loads the table as soon as the view loads. */
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        
-        
-        //Load data
-        editTune.removeAll()
-        
-        
-        //Get and display all users
-        let MyParams = ["action":"retrieveTunes"]
-        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if succ {
-                for (var i = 0; i < retjson.count; i++) {
-                    if(retjson[i]["type"].string! == "0" ) { /*Do Nothing*/ }
-                    else if(retjson[i]["type"].string! == "1") { /*Do Nothing*/ }
-                    else
-                    {
-                        self.editTune.append(EditTune(name: retjson[i]["name"].string!,
-                            cost: Int(retjson[i]["cost"].string!)!,
-                            id: Int(retjson[i]["tune"].string!)!,
-                            time: retjson[i]["time"].string!.floatValue,
-                            tune: retjson[i]["type"].string!))
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
+                            tune: retjson[i]["type"].string!))                    }                }
             }
             else {
                 print("Failed to retrieve users.")
@@ -118,34 +124,33 @@ class AServicesTableViewController: UITableViewController
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         print(self)
-        return 2
+        return 8
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-     {
+    {
         switch section
         {
-          case 0:
-            return editTune.count
-    //case 1:
-    //return brakeSection.count
-    //      case 2:
-    //        return Stem.count
-    //      case 3:
-    //        return Shifters.count
-    //      case 4:
-    //        return Chain.count
-    //      case 5:
-    //        return Computer.count
-         default:
+        case 0:
             return brakeSection.count
+        case 1:
+            return wheelSection.count
+        case 2:
+            return barStemSection.count
+        case 3:
+            return derailleurShifterSection.count
+        case 4:
+            return chainCranksSection.count
+        case 5:
+            return computerSection.count
+        case 6:
+            return boxingSection.count
+        default:
+            return editTune.count
         }
-      }
+    }
     
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-//    {
-//        return editTune.count
-//    }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
@@ -153,58 +158,89 @@ class AServicesTableViewController: UITableViewController
         
         //Set the cell as the BikeOrderTableViewCell class, using the WorkOrder data model
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AddServCell
-        let user = editTune[indexPath.row]
-        //let user = editTune[indexPath.row]
-        
-        //        for (var i = 0; i < editTune.count; i++) {
-//            if (editTune[i]["type"].string! == "2"){
-//                let Brakes = editTune[indexPath.row]
-//            }
-//        }
+        switch indexPath.section
+        {
         //Setting cell attributes to those in our array
-       
-        cell.name.text = user.name//"fname"//user.name
-        cell.cost.text = "$" + String(user.cost)//"cost"//"$" + String(user.cost)
-        
-        
-//        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+        case 0:
+            let user = brakeSection[indexPath.row]
+            cell.name.text = user.name
+            cell.cost.text = "$" + String(user.cost)
+            cell.time.text = String(user.time)
+        case 1:
+            let user = wheelSection[indexPath.row]
+            cell.name.text = user.name
+            cell.cost.text = "$" + String(user.cost)
+            cell.time.text = String(user.time)
+        case 2:
+            let user = barStemSection[indexPath.row]
+            cell.name.text = user.name
+            cell.cost.text = "$" + String(user.cost)
+            cell.time.text = String(user.time)
+        case 3:
+            let user = derailleurShifterSection[indexPath.row]
+            cell.name.text = user.name
+            cell.cost.text = "$" + String(user.cost)
+            cell.time.text = String(user.time)
+        case 4:
+            let user = chainCranksSection[indexPath.row]
+            cell.name.text = user.name
+            cell.cost.text = "$" + String(user.cost)
+            cell.time.text = String(user.time)
+        case 5:
+            let user = computerSection[indexPath.row]
+            cell.name.text = user.name
+            cell.cost.text = "$" + String(user.cost)
+            cell.time.text = String(user.time)
+        case 6:
+            let user = boxingSection[indexPath.row]
+            cell.name.text = user.name
+            cell.cost.text = "$" + String(user.cost)
+            cell.time.text = String(user.time)
+        default:
+            let user = editTune[indexPath.row]
+            cell.name.text = user.name
+            cell.cost.text = "$" + String(user.cost)
+            cell.time.text = String(user.time)
+        }
+        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor(white: 0.01, alpha:0.7) //Gives a nice dark transparent background
         return cell
     }
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
         return true
     }
-    
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-//            let tune = editTune[indexPath.row]
-//            var DelParams = ["action":"editTune"]
-//            DelParams["tunename"] = tune.name
-//            ServerCom.send(DelParams, f: {(succ: Bool, retjson: JSON) in return succ})
-//            editTune.removeAtIndex(indexPath.row)
-//            self.tableView.reloadData()
-//            // handle delete (by removing the data from your array and updating the tableview)
-//        }
-//    }
-    
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    let editSegueIndetifier = "ModifyAddService"
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-//    {
-//        
-//        if segue.identifier == editSegueIndetifier {
-//            if let destination = segue.destinationViewController as? ModifyAddServiceViewController {
-//                if let orderIndex = tableView.indexPathForSelectedRow?.row {
-//                    destination.namePassed = editTune[orderIndex].name
-//                    destination.idPassed = editTune[orderIndex].id
-//                    destination.costPassed = editTune[orderIndex].cost
-//                    destination.timePassed = editTune[orderIndex].time
-//                }
-//            }
-//        }
-//    }
-    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        switch section
+        {
+        case 0:
+            return "Brakes - Prices are Per Wheel"
+        case 1:
+            return "Wheels - Prices are Per Wheel"
+        case 2:
+            return "Stem, Bars, and Headset"
+        case 3:
+            return "Derailleur and Shifters"
+        case 4:
+            return "Chain and Cranks"
+        case 5:
+            return "Cycling Computer"
+        case 6:
+            return "Boxing"
+        default:
+            return "Misc"
+        }
+        
+        
+    }
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast view as a UITableViewHeaderFooterView
+        header.contentView.backgroundColor = UIColor(white: 0.01, alpha:0.7) //make the background color light gray
+        header.textLabel!.textColor = UIColor.whiteColor() //make the text white
+        header.alpha = 0.5 //make the header transparent
+    }
 }
 
