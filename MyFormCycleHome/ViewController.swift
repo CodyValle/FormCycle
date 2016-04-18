@@ -167,6 +167,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     
     override func viewDidAppear(animated: Bool)
     {
+      self.updateWeeklyGlanceData()
         //super.viewDidLoad()
       NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateWeeklyGlanceData",name:"refreshWeeklyGlance", object: nil)
         if (newOrderTextFieldStruct.bikeInfoPage)
@@ -180,7 +181,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         if newOrderTextFieldStruct.mainPage
         {
           NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
-          print("sent update")
+          //print("sent update")
 
           if newOrderTextFieldStruct.welcomePopup
           {
@@ -254,8 +255,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             defaults.synchronize()
 
             // Uncomment this code to make the BinPacker think that this is the first time the app was loaded today
-            defaults.setValue("01-01-1900", forKey: "LastLoaded")
-            defaults.synchronize()
+//            defaults.setValue("01-01-1900", forKey: "LastLoaded")
+//            defaults.synchronize()
 
         }
             /* if user is on the new order page set flag to true */
@@ -676,7 +677,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             
             /* check if the user pressed the next button
             on the cust info page. */
-        else if segue.identifier == "loadCustomerInfo" 
+        else if segue.identifier == "loadCustomerInfo"
         {
             newOrderTextFieldStruct.bikeInfoPage = true;
             newOrderTextFieldStruct.firstName = fname.text!
