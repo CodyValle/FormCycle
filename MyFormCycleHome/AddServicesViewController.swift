@@ -13,5 +13,9 @@ class AddServicesViewController: UIViewController
     @IBAction func backToOrderDetails(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     }
+    @IBAction func SubmitAddServices(sender: AnyObject) {
+    
+    dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+}
     
 }

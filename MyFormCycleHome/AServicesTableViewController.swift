@@ -242,5 +242,7 @@ class AServicesTableViewController: UITableViewController
         header.textLabel!.textColor = UIColor.whiteColor() //make the text white
         header.alpha = 0.5 //make the header transparent
     }
+    
+    
 }
 
