@@ -593,7 +593,7 @@
 				TargetAttributes = {
 					14ADDBFF1BEC5510005ECABA = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = EPS3HG6PB6;
+						DevelopmentTeam = V4G46U8Q3F;
 					};
 					8FAA46E91BFE5ABD00E39874 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -978,7 +978,7 @@
 				INFOPLIST_FILE = MyFormCycleHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.merrilltest.MyFormCycle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.john.MyFormCycle;
 				PRODUCT_NAME = FormCycle;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -995,7 +995,7 @@
 				INFOPLIST_FILE = MyFormCycleHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.merrilltest.MyFormCycle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.john.MyFormCycle;
 				PRODUCT_NAME = FormCycle;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
