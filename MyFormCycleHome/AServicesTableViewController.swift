@@ -150,7 +150,29 @@ class AServicesTableViewController: UITableViewController
         }
     }
     
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var storedValues = [user]()
+        var mySelectedCell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        if mySelectedCell.accessoryType == .Checkmark {
+            mySelectedCell.accessoryType = .None
+            switch section
+            {
+            case 0:
+                return brakeSection[indexPath.row]
+            default:
+                return 0 
+            }
+            storedValues.append(brakeSection[indexPath.row])
+            
+            print("setting checkmark")
+        }
+        else {
+            mySelectedCell.accessoryType = .Checkmark
+        }
+        
+        //print(mySelectedCell)
+        print("here")
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
@@ -162,10 +184,15 @@ class AServicesTableViewController: UITableViewController
         {
         //Setting cell attributes to those in our array
         case 0:
+            //var mySelectedCell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+            //print(mySelectedCell)
             let user = brakeSection[indexPath.row]
+            
             cell.name.text = user.name
             cell.cost.text = "$" + String(user.cost)
             cell.time.text = String(user.time)
+            print(user)
+            
         case 1:
             let user = wheelSection[indexPath.row]
             cell.name.text = user.name
