@@ -79,16 +79,17 @@ class WorkOrderTableViewController: UITableViewController
   {
     if self.workOrders.count == 0 { return }
     self.workOrders.sortInPlace({ $0.day < $1.day })
-    for i in 0...(self.workOrders.count - 1) {
+    /*for i in 0...(self.workOrders.count - 1) {
       if self.workOrders[i].day == WeeklyGlance.getDaySelected() {
         let w = self.workOrders.removeAtIndex(i)
         self.workOrders.insert(w, atIndex: 0)
       }
-    }
+    }*/
 
     dispatch_async(dispatch_get_main_queue()) {
       self.tableView.reloadData()
     }
+    NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
   }
 
   override func didReceiveMemoryWarning()

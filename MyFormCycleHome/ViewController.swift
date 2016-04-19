@@ -92,6 +92,57 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
       self.Day2Hours?.text = WGData.Day2Hours
       self.Day3Hours?.text = WGData.Day3Hours
       self.Day4Hours?.text = WGData.Day4Hours
+    
+      if WeeklyGlance.getDaySelected() == 0
+      {
+         self.Day0Name?.textColor = UIColor(white: 1, alpha: 1)
+         self.Day0Hours?.textColor = UIColor(white: 1, alpha: 1)
+      }
+      else
+      {
+          self.Day0Name?.textColor = UIColor(white: 0, alpha: 1)
+          self.Day0Hours?.textColor = UIColor(white: 0, alpha: 1)
+      }
+        if WeeklyGlance.getDaySelected() == 1
+        {
+            self.Day1Name?.textColor = UIColor(white: 1, alpha: 1)
+            self.Day1Hours?.textColor = UIColor(white: 1, alpha: 1)
+        }
+        else
+        {
+            self.Day1Name?.textColor = UIColor(white: 0, alpha: 1)
+            self.Day1Hours?.textColor = UIColor(white: 0, alpha: 1)
+        }
+        if WeeklyGlance.getDaySelected() == 2
+        {
+            self.Day2Name?.textColor = UIColor(white: 1, alpha: 1)
+            self.Day2Hours?.textColor = UIColor(white: 1, alpha: 1)
+        }
+        else
+        {
+            self.Day2Name?.textColor = UIColor(white: 0, alpha: 1)
+            self.Day2Hours?.textColor = UIColor(white: 0, alpha: 1)
+        }
+        if WeeklyGlance.getDaySelected() == 3
+        {
+            self.Day3Name?.textColor = UIColor(white: 1, alpha: 1)
+            self.Day3Hours?.textColor = UIColor(white: 1, alpha: 1)
+        }
+        else
+        {
+            self.Day3Name?.textColor = UIColor(white: 0, alpha: 1)
+            self.Day3Hours?.textColor = UIColor(white: 0, alpha: 1)
+        }
+        if WeeklyGlance.getDaySelected() == 4
+        {
+            self.Day4Name?.textColor = UIColor(white: 1, alpha: 1)
+            self.Day4Hours?.textColor = UIColor(white: 1, alpha: 1)
+        }
+        else
+        {
+            self.Day4Name?.textColor = UIColor(white: 0, alpha: 1)
+            self.Day4Hours?.textColor = UIColor(white: 0, alpha: 1)
+        }
     }
   }
 

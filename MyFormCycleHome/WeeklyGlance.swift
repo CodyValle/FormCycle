@@ -24,6 +24,7 @@ class WeeklyGlance
 
     // Refresh the table
     NSNotificationCenter.defaultCenter().postNotificationName("reloadOpenOrderTable", object: nil)
+    NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
   }
   
 }
