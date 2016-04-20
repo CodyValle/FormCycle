@@ -150,29 +150,29 @@ class AServicesTableViewController: UITableViewController
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var storedValues = [user]()
-        var mySelectedCell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-        if mySelectedCell.accessoryType == .Checkmark {
-            mySelectedCell.accessoryType = .None
-            switch section
-            {
-            case 0:
-                return brakeSection[indexPath.row]
-            default:
-                return 0 
-            }
-            storedValues.append(brakeSection[indexPath.row])
-            
-            print("setting checkmark")
-        }
-        else {
-            mySelectedCell.accessoryType = .Checkmark
-        }
-        
+  //  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   //     var storedValues = [user]()
+     //   var mySelectedCell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+//        if mySelectedCell.accessoryType == .Checkmark {
+//            mySelectedCell.accessoryType = .None
+//            switch section
+//            {
+//            case 0:
+//                return brakeSection[indexPath.row]
+//            default:
+//                return 0 
+//            }
+//            storedValues.append(brakeSection[indexPath.row])
+//            
+//            print("setting checkmark")
+//        }
+//        else {
+//            mySelectedCell.accessoryType = .Checkmark
+//        }
+//        
         //print(mySelectedCell)
-        print("here")
-    }
+  //      print("here")
+   // }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
