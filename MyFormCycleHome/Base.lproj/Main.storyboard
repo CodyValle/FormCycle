@@ -3251,7 +3251,7 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Invoice" id="ZzB-Zw-9gx">
+                                    <navigationItem title="Description of Service" id="ZzB-Zw-9gx">
                                         <barButtonItem key="leftBarButtonItem" title="Main" id="5D8-T2-yzA">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
