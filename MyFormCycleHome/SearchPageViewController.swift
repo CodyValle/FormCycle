@@ -40,7 +40,7 @@ class SearchPageViewController: UITableViewController  {
         searchController.dimsBackgroundDuringPresentation = false
         
         // Setup the Scope Bar
-        searchController.searchBar.scopeButtonTitles = ["All", "1 Month", "6 Months", "1 Year"]
+        searchController.searchBar.scopeButtonTitles = ["All", "Recent"]
         tableView.tableHeaderView = searchController.searchBar
         //Load data
         records.removeAll()
