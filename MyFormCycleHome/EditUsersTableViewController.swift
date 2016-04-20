@@ -64,12 +64,13 @@ class EditUsersTableViewController: UITableViewController
         
     }
     
+    
     /* Initially loads the table as soon as the view loads. */
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         //Load data
         editUser.removeAll()
         
@@ -142,11 +143,22 @@ class EditUsersTableViewController: UITableViewController
     {
         if (editingStyle == UITableViewCellEditingStyle.Delete)
         {
+            
             let user = editUser[indexPath.row]
             var DelParams = ["action":"updateLogin"]
             DelParams["logid"] = user.username
             ServerCom.send(DelParams, f: {(succ: Bool, retjson: JSON) in return succ})
             editUser.removeAtIndex(indexPath.row)
+            switch editingStyle {
+            case .Delete:
+                // remove the deleted item from the model
+                self.editUser.removeAtIndex(indexPath.row)
+                
+                // remove the deleted item from the `UITableView`
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            default:
+                return
+            }
             self.tableView.reloadData()
         }
     }
