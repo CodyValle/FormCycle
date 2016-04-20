@@ -96,13 +96,12 @@ class EditUsersTableViewController: UITableViewController
                 return succ
               })
               
-              while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+              while ServerCom.waiting() {}
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
@@ -127,40 +126,43 @@ class EditUsersTableViewController: UITableViewController
         //Setting cell attributes to those in our array
         cell.username.text = user.username
         cell.admin.text = user.admin
-        //cell.username.text = "161616"//order.tagNumber
         
+        //Setting the cell background color
         cell.backgroundColor = UIColor.clearColor()
         cell.backgroundColor = UIColor(white: 0.01, alpha:0.75) //Gives a nice dark transparent background
-        //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
         return cell
     }
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
         return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if (editingStyle == UITableViewCellEditingStyle.Delete)
+        {
             let user = editUser[indexPath.row]
             var DelParams = ["action":"updateLogin"]
             DelParams["logid"] = user.username
             ServerCom.send(DelParams, f: {(succ: Bool, retjson: JSON) in return succ})
             editUser.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
-            // handle delete (by removing the data from your array and updating the tableview)
         }
     }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     let editSegueIndetifier = "editUserSegue"
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         
-        if segue.identifier == editSegueIndetifier {
-            if let destination = segue.destinationViewController as? EditUserViewController {
-                if let orderIndex = tableView.indexPathForSelectedRow?.row {
+        if segue.identifier == editSegueIndetifier
+        {
+            if let destination = segue.destinationViewController as? EditUserViewController
+            {
+                if let orderIndex = tableView.indexPathForSelectedRow?.row
+                {
                     destination.useridPassed = editUser[orderIndex].username
                     destination.adminPassed = editUser[orderIndex].admin
                 }
