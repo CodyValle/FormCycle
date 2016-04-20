@@ -1,5 +1,5 @@
 //
-//  TechEdit.swift
+//  SearchResultsViewController.swift
 //  FormCycle
 //
 //  Created by Cross, Adam B on 2/6/16.
@@ -21,6 +21,7 @@ class SearchResultsViewController: UIViewController, UITextFieldDelegate, UIText
     @IBOutlet weak var tagNum: UILabel!
     @IBOutlet weak var notes: UITextView!
     @IBOutlet weak var userID: UILabel!
+    @IBOutlet weak var phoneNum: UILabel!
     
     @IBAction func backToSearchPage(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
@@ -104,6 +105,7 @@ class SearchResultsViewController: UIViewController, UITextFieldDelegate, UIText
                     self.bikeInfo.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
                     self.tune.text = retjson[0]["tune"].string!
                     self.tagNum.text = retjson[0]["tagnum"].string!
+                    self.phoneNum.text = Crypto.decrypt(retjson[0]["phone"].string!)
                     if(retjson[0]["notes"] != nil) {
                         self.storedNote = retjson[0]["notes"].string!
                     }

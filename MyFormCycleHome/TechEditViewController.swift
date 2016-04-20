@@ -28,6 +28,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
   @IBOutlet weak var tagNum: UILabel!
   @IBOutlet weak var notes: UITextView!
   @IBOutlet weak var userID: UILabel!
+  @IBOutlet weak var phoneNumer: UILabel!
 
   var storedNote = ""
   
@@ -105,6 +106,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
           }
           self.cityNState.text = Crypto.decrypt(retjson[0]["city"].string!) + ", " + retjson[0]["state"].string! + ", " + Crypto.decrypt(retjson[0]["zip"].string!)
           self.bikeInfo.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
+          self.phoneNumer.text = Crypto.decrypt(retjson[0]["phone"].string!)
 
           var tuneString = retjson[0]["tune"].string!
           if let tuneID = Int(tuneString)
