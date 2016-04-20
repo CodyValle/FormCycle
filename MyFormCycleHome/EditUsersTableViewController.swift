@@ -30,7 +30,10 @@ class EditUsersTableViewController: UITableViewController
         
         //Load data
         editUser.removeAll()
-        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.opaque.boolValue
+        self.tableView.backgroundView = nil
         
         //Get and display all users
         let MyParams = ["action":"retrieveUsers"]
@@ -126,8 +129,9 @@ class EditUsersTableViewController: UITableViewController
         cell.admin.text = user.admin
         //cell.username.text = "161616"//order.tagNumber
         
-        
-        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor(white: 0.01, alpha:0.75) //Gives a nice dark transparent background
+        //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
         return cell
     }
     

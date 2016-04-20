@@ -620,7 +620,7 @@
                                                 <constraint firstAttribute="width" constant="153" id="aop-BA-XiV"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWc-7j-h1h">
@@ -629,7 +629,7 @@
                                                 <constraint firstAttribute="width" constant="96" id="MSh-98-whV"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -642,6 +642,7 @@
                                         <constraint firstItem="PWc-7j-h1h" firstAttribute="top" secondItem="wU8-ME-Cio" secondAttribute="topMargin" constant="-5" id="zAU-D2-Zxu"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="admin" destination="PWc-7j-h1h" id="4mD-Q7-Jr3"/>
                                     <outlet property="username" destination="nrX-M7-3U4" id="HH8-28-mXv"/>
@@ -4287,7 +4288,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-Ri-70g">
                                 <rect key="frame" x="120" y="91" width="718" height="934"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-p8-Nof">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-p8-Nof">
                                         <rect key="frame" x="0.0" y="0.0" width="718" height="934"/>
                                     </stackView>
                                 </subviews>
