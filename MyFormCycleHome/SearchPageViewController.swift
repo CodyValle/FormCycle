@@ -22,19 +22,16 @@ class SearchPageViewController: UITableViewController  {
     var filteredRecords = [Record]()
     let searchController = UISearchController(searchResultsController: nil)
     
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
     
     // MARK: - View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.opaque.boolValue
+        self.tableView.backgroundView = nil
+        
         
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
@@ -128,7 +125,9 @@ class SearchPageViewController: UITableViewController  {
         //cell.textLabel!.text = order.name
         //cell.detailTextLabel!.text = order.address
         //cell.address!.text = Record.address
-        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
+        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor(white: 0.41, alpha:0.35) //Gives a nice dark transparent background
+        //cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor(white: 1.0, alpha: 1.0) : UIColor(white: 0.7, alpha: 1.0)
         return cell
     }
     

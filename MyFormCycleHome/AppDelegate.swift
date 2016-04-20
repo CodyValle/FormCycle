@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 extension UIColor {
     static func robinRed() -> UIColor {
-        return UIColor(red: 200/255.0, green: 55.0/255.0, blue: 0.0/255.0, alpha: 0.75)
+        return UIColor(red: 0.0706, green: 0.4235, blue: 0.61, alpha: 0.75)
     }
 }
 
