@@ -21,7 +21,7 @@ extension ViewController
   | or be emailed.                                                                          |
   | MARK: Variables and functions for Load Invoice Page.                                    |
   +-----------------------------------------------------------------------------------------+*/
-  
+
   /* generatePDF() This function runs when the user presses the "PDF" button on the invoice
   *  page. This code creates a virtual "screenshot" of this page and then saves it to the
   *  local photos saved on the phone. This will ask for permission before allowing it to
@@ -76,5 +76,14 @@ extension ViewController
   {
     controller.dismissViewControllerAnimated(true, completion: nil)
   }
+    
+    /* printTimestamp() creates a variable to store the current time and date. This can then
+     *  be used anywhere in this class to display the current time stamp.
+     */
+    func printTimestamp()->String
+    {
+        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+        return timestamp
+    }
 
 }

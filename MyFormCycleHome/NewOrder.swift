@@ -56,6 +56,7 @@ extension ViewController
     static var myListOfTunes: [String] = []
     static var returnValue = 0
     static var rowForPicker = 0
+    static var tuneName = ""
   }
   
  //This struct will be used to handle BikeAutoFill. When an order is selected, these values will be set and can then be passed on to the next page without causing a null exception.

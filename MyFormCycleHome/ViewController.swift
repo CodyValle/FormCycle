@@ -51,8 +51,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     @IBOutlet weak var address1: UILabel!
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var invTuneType: UILabel!
-    @IBOutlet weak var custSig: YPDrawSignatureView!
-    @IBOutlet weak var techSig: YPDrawSignatureView!
+    @IBOutlet weak var currentDate: UILabel!
+    
+//    @IBOutlet weak var custSig: YPDrawSignatureView!
+//    @IBOutlet weak var techSig: YPDrawSignatureView!
 
   // Weekly Glance Day Selectors
   @IBOutlet weak var Day0Button: UIButton?
@@ -147,38 +149,24 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
   }
 
   @IBAction func Day0Select(sender: AnyObject) {
-    //print("Setting Day 0")
     WeeklyGlance.setDaySelected(0)
   }
 
   @IBAction func Day1Select(sender: AnyObject) {
-    //print("Setting Day 1")
     WeeklyGlance.setDaySelected(1)
   }
 
   @IBAction func Day2Select(sender: AnyObject) {
-    //print("Setting Day 2")
     WeeklyGlance.setDaySelected(2)
   }
   
   @IBAction func Day3Select(sender: AnyObject) {
-    //print("Setting Day 3")
     WeeklyGlance.setDaySelected(3)
   }
 
   @IBAction func Day4Select(sender: AnyObject) {
-    //print("Setting Day 4")
     WeeklyGlance.setDaySelected(4)
   }
-
-    // CLear form buttons
-    @IBAction func clearCustSig(sender: AnyObject) {
-        custSig.clearSignature()
-    }
-    
-    @IBAction func clearTechSig(sender: AnyObject) {
-        techSig.clearSignature()
-    }
     
     @IBAction func moveToSearchPage(sender: AnyObject) {
         
@@ -232,7 +220,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         if newOrderTextFieldStruct.mainPage
         {
           NSNotificationCenter.defaultCenter().postNotificationName("refreshWeeklyGlance", object: nil)
-          //print("sent update")
 
           if newOrderTextFieldStruct.welcomePopup
           {
@@ -430,7 +417,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             makeModelColor.text = newOrderTextFieldStruct.myBrand + " " + newOrderTextFieldStruct.myModel + "  (" + newOrderTextFieldStruct.myColor + ")"
             invTagNum.text = newOrderTextFieldStruct.myTagNumber
             invNotes.text = newOrderTextFieldStruct.myNotes
-            invTuneType.text = newOrderTextFieldStruct.tunePicker
+            invTuneType.text = newOrderTextFieldStruct.tuneName
+            currentDate.text = printTimestamp()
         }
     }
     
@@ -1010,8 +998,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        //pickerTuneSelection.reloadAllComponents()
-        //print("Picker View Number of Tunes:",Tune.numberOfTunes())
         return newOrderTextFieldStruct.myListOfTunes.count
     }
     
@@ -1039,6 +1025,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     {
       pickerTuneSelection.reloadAllComponents()
       newOrderTextFieldStruct.tunePicker = String(Tune.getTunefromName(newOrderTextFieldStruct.myListOfTunes[row])!.sID)
+      newOrderTextFieldStruct.tuneName = newOrderTextFieldStruct.myListOfTunes[row]
     }
     
     //********************* PRACTICE TEST FUNCTIONS *********************
