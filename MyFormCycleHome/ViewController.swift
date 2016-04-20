@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     
     
     /* List all Text Fields imported from Load Invoice Page */
-    @IBOutlet weak var invNotes: UILabel!
+    @IBOutlet weak var invNotes: UITextView!
     @IBOutlet weak var invTagNum: UILabel!
     @IBOutlet weak var makeModelColor: UILabel!
     @IBOutlet weak var invEmail: UILabel!
@@ -233,6 +233,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidLoad()
+        
+        if newOrderTextFieldStruct.invoicePage
+        {
+            self.invNotes.text = newOrderTextFieldStruct.myNotes
+        }
+    }
     
     /*+------------------------------- viewDidLoad() --------------------------------------+
     | viewDidLoad() is a function that is overwritten here. Here we modify the view to   |
