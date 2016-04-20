@@ -4615,6 +4615,42 @@
                                             <action selector="clearTechSig:" destination="8t0-B2-z6u" eventType="touchUpInside" id="Pa3-A6-P6p"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOU-BF-8kK">
+                                        <rect key="frame" x="332" y="769" width="0.0" height="70"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kpa-ld-D4D">
+                                        <rect key="frame" x="82" y="769" width="1" height="67"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqr-Oh-gx0">
+                                        <rect key="frame" x="453" y="769" width="1" height="70"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Q2-ZJ-41j">
+                                        <rect key="frame" x="713" y="769" width="0.0" height="70"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYi-hv-x9N">
+                                        <rect key="frame" x="82" y="769" width="250" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWJ-VK-4lJ">
+                                        <rect key="frame" x="453" y="769" width="262" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VBa-qa-66U">
+                                        <rect key="frame" x="713" y="769" width="2" height="67"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IeR-X9-O3m">
+                                        <rect key="frame" x="330" y="769" width="2" height="66"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -5054,7 +5090,7 @@
         <image name="transparent-dark-gray" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g8R-MP-6NT"/>
+        <segue reference="iRt-VC-gcE"/>
         <segue reference="VUy-vi-UU1"/>
         <segue reference="lwk-5N-r6W"/>
         <segue reference="3ad-8N-N66"/>
