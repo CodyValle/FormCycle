@@ -264,15 +264,10 @@ class AServicesTableViewController: UITableViewController
         {
         //Setting cell attributes to those in our array
         case 0:
-            //var mySelectedCell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-            //print(mySelectedCell)
             let user = brakeSection[indexPath.row]
             cell.name.text = user.name
             cell.cost.text = "$" + String(user.cost)
             cell.time.text = String(user.time)
-          //
-            print(user.name)
-            
         case 1:
             let user = wheelSection[indexPath.row]
             cell.name.text = user.name
