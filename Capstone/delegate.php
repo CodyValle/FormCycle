@@ -6,14 +6,7 @@
 	determines what to do using the value of 'action'.
 	*/
 	
-	/* if started from commandline, wrap parameters to $_POST*/
-	if ($_SERVER['REQUEST_METHOD'] === "CMDLINE")
-	{
-		parse_str($argv[1], $_POST);
-		$_SERVER['REQUEST_METHOD'] = "POST";
-	}
-
-	include_once 'regexes.php';
+    include_once 'regexes.php';
 	include_once 'DebugMessage.php';
 	include_once 'ReturnString.php';
 
