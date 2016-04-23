@@ -121,6 +121,7 @@ class BinPacker
 
     for order in self.WorkOrders
     {
+        if self.IDinDay(order.id, day: 0) {continue}
       //if Days.count > 5 { order.day = 6 }
 //      print("For work order \(order.lname), \(order.tagNumber):")
 //      print(" Services:")
