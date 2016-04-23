@@ -9,7 +9,11 @@
 import UIKit 
 
 let defaults = NSUserDefaults.standardUserDefaults()
-
+struct AddServices {
+    
+    static var serviceName:[String] = []
+    static var workOrderId = ""
+}
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
     

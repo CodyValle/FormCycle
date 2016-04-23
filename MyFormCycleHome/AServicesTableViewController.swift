@@ -51,10 +51,10 @@ class AServicesTableViewController: UITableViewController
     var chainCranksSection = [EditTune]()
     var computerSection = [EditTune]()
     var boxingSection = [EditTune]()
-    struct AddServices
-    {
-        static var serviceName:[String] = []
-    }
+//    struct AddServices
+//    {
+//        static var serviceName:[String] = []
+//    }
     /* Initially loads the table as soon as the view loads. */
     override func viewDidLoad()
     {

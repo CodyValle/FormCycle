@@ -23,6 +23,8 @@
 		1430DF271C9943BA00AF1CDC /* AccountRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430DF261C9943BA00AF1CDC /* AccountRecoveryViewController.swift */; };
 		144C11D61CB2C097005F768C /* NewTuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C11D51CB2C097005F768C /* NewTuneViewController.swift */; };
 		144C11E51CB2C2B4005F768C /* ModifyTuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */; };
+		14691D191CCBFB210024E3B1 /* DisplayServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14691D181CCBFB210024E3B1 /* DisplayServicesTableViewController.swift */; };
+		14691D1B1CCBFB620024E3B1 /* DisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14691D1A1CCBFB620024E3B1 /* DisplayCell.swift */; };
 		1492D8881C98F0E600CB05BB /* SearchPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D8871C98F0E600CB05BB /* SearchPageTableViewCell.swift */; };
 		1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */; };
 		14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; };
@@ -248,6 +250,8 @@
 		1430DF261C9943BA00AF1CDC /* AccountRecoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRecoveryViewController.swift; sourceTree = "<group>"; };
 		144C11D51CB2C097005F768C /* NewTuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTuneViewController.swift; sourceTree = "<group>"; };
 		144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyTuneViewController.swift; sourceTree = "<group>"; };
+		14691D181CCBFB210024E3B1 /* DisplayServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayServicesTableViewController.swift; sourceTree = "<group>"; };
+		14691D1A1CCBFB620024E3B1 /* DisplayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCell.swift; sourceTree = "<group>"; };
 		1492D8871C98F0E600CB05BB /* SearchPageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPageTableViewCell.swift; sourceTree = "<group>"; };
 		1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
@@ -360,6 +364,15 @@
 			name = WaitingPickupTable;
 			sourceTree = "<group>";
 		};
+		14691D0A1CCBFAFF0024E3B1 /* DisplayServices */ = {
+			isa = PBXGroup;
+			children = (
+				14691D181CCBFB210024E3B1 /* DisplayServicesTableViewController.swift */,
+				14691D1A1CCBFB620024E3B1 /* DisplayCell.swift */,
+			);
+			name = DisplayServices;
+			sourceTree = "<group>";
+		};
 		1492D88B1C9909F800CB05BB /* SearchPageAndTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +419,7 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				14691D0A1CCBFAFF0024E3B1 /* DisplayServices */,
 				AF4C48D01CC1A4480091522D /* WGLabels.swift */,
 				14E9EFD01CBC59F300356250 /* AdditionalServices */,
 				14B1E48F1CB9C57000FC7BEC /* EditAdditionalService */,
@@ -785,6 +799,7 @@
 				1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */,
 				14B1E49E1CB9C59D00FC7BEC /* EditAddServiceTableViewController.swift in Sources */,
 				AF4C48D11CC1A4480091522D /* WGLabels.swift in Sources */,
+				14691D191CCBFB210024E3B1 /* DisplayServicesTableViewController.swift in Sources */,
 				14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
 				14F82DDE1CB0806A0062BC0D /* TuneTableViewCell.swift in Sources */,
@@ -827,6 +842,7 @@
 				14E9EFD41CBC5A7600356250 /* AddServCell.swift in Sources */,
 				0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */,
 				14CA7D481CAB063F004FBE6C /* EditUser.swift in Sources */,
+				14691D1B1CCBFB620024E3B1 /* DisplayCell.swift in Sources */,
 				014283CF1C5D65940097C61F /* PickupTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
