@@ -28,10 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="qKq-34-gyK">
-                                <rect key="frame" x="20" y="550" width="193" height="191"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gonzaga-logo" translatesAutoresizingMaskIntoConstraints="NO" id="05Y-oC-9jX">
-                                <rect key="frame" x="524" y="550" width="224" height="191"/>
+                                <rect key="frame" x="50" y="550" width="193" height="191"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Formcycle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nen-dW-057">
                                 <rect key="frame" x="107" y="0.0" width="536" height="117"/>
@@ -39,6 +36,9 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Iconcopy" translatesAutoresizingMaskIntoConstraints="NO" id="l0b-1i-cci">
+                                <rect key="frame" x="552" y="563" width="165" height="166"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,7 +63,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gonzaga-logo" width="288" height="216"/>
+        <image name="Iconcopy" width="180" height="180"/>
         <image name="img1" width="87" height="86"/>
         <image name="splash2" width="1250" height="1716"/>
     </resources>
