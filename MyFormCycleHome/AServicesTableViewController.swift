@@ -57,6 +57,12 @@ class AServicesTableViewController: UITableViewController
     {
         super.viewDidLoad()
         
+        struct AddServices
+        {
+            static var serviceName:[String] = []
+        }
+        
+        
         //Load data
         editTune.removeAll()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
@@ -181,11 +187,19 @@ class AServicesTableViewController: UITableViewController
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         switch indexPath.section
         {
+            
         case 0:
             let user = brakeSection[indexPath.row]
-            print(user.name)
+            //myArr = myArr.filter{$0 != user.name}
+            AddServices.serviceName.append(user.name)
+        //.append("New Item")
+          //  myArr.append(user.name)
+            
+            //print(user.name)
+            print("My Array:",myArr)
         case 1:
             let user = wheelSection[indexPath.row]
             print(user.name)
@@ -208,6 +222,11 @@ class AServicesTableViewController: UITableViewController
             let user = editTune[indexPath.row]
             print(user.name)
         }
+        
+        //var myArr = ["Hello", "there", "brakes", "cops"]
+        //print("Before:", myArr)
+        //myArr = myArr.filter{$0 != "bye"}
+        //print("After:", myArr)
         
     }
     
