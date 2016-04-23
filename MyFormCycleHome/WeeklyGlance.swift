@@ -17,7 +17,7 @@ class WeeklyGlance
   return daySelected
   }
 
-  static func setDaySelected(day: Int)
+  static func setDaySelected(day: Int) 
   {
     if daySelected == day { return }
     daySelected = day
