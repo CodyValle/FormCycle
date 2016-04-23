@@ -51,16 +51,16 @@ class AServicesTableViewController: UITableViewController
     var chainCranksSection = [EditTune]()
     var computerSection = [EditTune]()
     var boxingSection = [EditTune]()
-    
+    struct AddServices
+    {
+        static var serviceName:[String] = []
+    }
     /* Initially loads the table as soon as the view loads. */
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        struct AddServices
-        {
-            static var serviceName:[String] = []
-        }
+        
         
         
         //Load data
@@ -186,6 +186,40 @@ class AServicesTableViewController: UITableViewController
         }
     }
     
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.section
+        {
+            
+        case 0:
+            let user = brakeSection[indexPath.row]
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.name}
+        case 1:
+            let user = wheelSection[indexPath.row]
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.name}
+        case 2:
+            let user = barStemSection[indexPath.row]
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.name}
+        case 3:
+            let user = derailleurShifterSection[indexPath.row]
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.name}
+        case 4:
+            let user = chainCranksSection[indexPath.row]
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.name}
+        case 5:
+            let user = computerSection[indexPath.row]
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.name}
+        case 6:
+            let user = boxingSection[indexPath.row]
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.name}
+        default:
+            let user = editTune[indexPath.row]
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.name}
+        }
+        //print("My Array:",AddServices.serviceName)
+
+    }
+    
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         switch indexPath.section
@@ -193,40 +227,30 @@ class AServicesTableViewController: UITableViewController
             
         case 0:
             let user = brakeSection[indexPath.row]
-            //myArr = myArr.filter{$0 != user.name}
             AddServices.serviceName.append(user.name)
-        //.append("New Item")
-          //  myArr.append(user.name)
-            
-            //print(user.name)
-            print("My Array:",myArr)
         case 1:
             let user = wheelSection[indexPath.row]
-            print(user.name)
+            AddServices.serviceName.append(user.name)
         case 2:
             let user = barStemSection[indexPath.row]
-            print(user.name)
+            AddServices.serviceName.append(user.name)
         case 3:
             let user = derailleurShifterSection[indexPath.row]
-            print(user.name)
+            AddServices.serviceName.append(user.name)
         case 4:
             let user = chainCranksSection[indexPath.row]
-            print(user.name)
+            AddServices.serviceName.append(user.name)
         case 5:
             let user = computerSection[indexPath.row]
-            print(user.name)
+            AddServices.serviceName.append(user.name)
         case 6:
             let user = boxingSection[indexPath.row]
-            print(user.name)
+            AddServices.serviceName.append(user.name)
         default:
             let user = editTune[indexPath.row]
-            print(user.name)
+            AddServices.serviceName.append(user.name)
         }
-        
-        //var myArr = ["Hello", "there", "brakes", "cops"]
-        //print("Before:", myArr)
-        //myArr = myArr.filter{$0 != "bye"}
-        //print("After:", myArr)
+        //print("My Array:",AddServices.serviceName)
         
     }
     
