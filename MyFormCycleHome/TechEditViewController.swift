@@ -24,7 +24,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
   @IBOutlet weak var address: UILabel!
   @IBOutlet weak var cityNState: UILabel!
   @IBOutlet weak var bikeInfo: UILabel!
-  @IBOutlet weak var tune: UILabel!
+  //@IBOutlet weak var tune: UILabel!
   @IBOutlet weak var tagNum: UILabel!
   @IBOutlet weak var notes: UITextView!
   @IBOutlet weak var userID: UILabel!
@@ -109,15 +109,15 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
           self.bikeInfo.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
           self.phoneNumer.text = Crypto.decrypt(retjson[0]["phone"].string!)
 
-          var tuneString = retjson[0]["tune"].string!
-            var myString:[String] = []
-          myString = tuneString.componentsSeparatedByString(",")
-            let finalString = myString[0]
-          if let tuneID = Int(finalString)
-          {
-            tuneString = Tune.ID(tuneID)!
-          }
-          self.tune.text = tuneString
+//          var tuneString = retjson[0]["tune"].string!
+//            var myString:[String] = []
+//          myString = tuneString.componentsSeparatedByString(",")
+//            let finalString = myString[0]
+//          if let tuneID = Int(finalString)
+//          {
+//            tuneString = Tune.ID(tuneID)!
+//          }
+          //self.tune.text = tuneString
           self.tagNum.text = retjson[0]["tagnum"].string!
           if(retjson[0]["notes"] != nil) {
             self.storedNote = retjson[0]["notes"].string!
