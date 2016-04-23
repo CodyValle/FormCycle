@@ -192,28 +192,28 @@ class AServicesTableViewController: UITableViewController
             
         case 0:
             let user = brakeSection[indexPath.row]
-            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.tune}
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != (String(user.id))}
         case 1:
             let user = wheelSection[indexPath.row]
-            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.tune}
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != (String(user.id))}
         case 2:
             let user = barStemSection[indexPath.row]
-            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.tune}
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != (String(user.id))}
         case 3:
             let user = derailleurShifterSection[indexPath.row]
-            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.tune}
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != (String(user.id))}
         case 4:
             let user = chainCranksSection[indexPath.row]
-            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.tune}
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != (String(user.id))}
         case 5:
             let user = computerSection[indexPath.row]
-            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.tune}
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != (String(user.id))}
         case 6:
             let user = boxingSection[indexPath.row]
-            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.tune}
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != (String(user.id))}
         default:
             let user = editTune[indexPath.row]
-            AddServices.serviceName = AddServices.serviceName.filter{$0 != user.tune}
+            AddServices.serviceName = AddServices.serviceName.filter{$0 != (String(user.id))}
         }
            }
     
@@ -225,28 +225,31 @@ class AServicesTableViewController: UITableViewController
             
         case 0:
             let user = brakeSection[indexPath.row]
-            AddServices.serviceName.append(user.tune)
+            AddServices.serviceName.append(String(user.id))
+            print(user.id)
         case 1:
             let user = wheelSection[indexPath.row]
-            AddServices.serviceName.append(user.tune)
+            AddServices.serviceName.append(String(user.id))
+            print(user.id)
         case 2:
             let user = barStemSection[indexPath.row]
-            AddServices.serviceName.append(user.tune)
+            AddServices.serviceName.append(String(user.id))
+            print(user.id)
         case 3:
             let user = derailleurShifterSection[indexPath.row]
-            AddServices.serviceName.append(user.tune)
+            AddServices.serviceName.append(String(user.id))
         case 4:
             let user = chainCranksSection[indexPath.row]
-            AddServices.serviceName.append(user.tune)
+            AddServices.serviceName.append(String(user.id))
         case 5:
             let user = computerSection[indexPath.row]
-            AddServices.serviceName.append(user.tune)
+            AddServices.serviceName.append(String(user.id))
         case 6:
             let user = boxingSection[indexPath.row]
-            AddServices.serviceName.append(user.tune)
+            AddServices.serviceName.append(String(user.id))
         default:
             let user = editTune[indexPath.row]
-            AddServices.serviceName.append(user.tune)
+            AddServices.serviceName.append(String(user.id))
         }
         //print("My Array:",AddServices.serviceName)
         

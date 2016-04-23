@@ -368,48 +368,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             color.text = BikeAutoFillStruct.color
             model.text = BikeAutoFillStruct.model
             
-            
-            /*if newOrderTextFieldStruct.custid != ""
-            {
-            /* Submits the server request */
-            var MyParams = ["action":"bikeSearch"]
-            
-            // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
-            MyParams["custid"] = newOrderTextFieldStruct.custid
-            
-            ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-            if (succ)
-            {
-            if (retjson.count > 0) // Fill the form
-            {
-            // UI updates should not occur on a non-main thread. So call it on the main thread.
-            dispatch_async(dispatch_get_main_queue())
-            {
-            // Write all the data to the text fields. We first check to make sure the textfield does not already contain data and that the wanted value exists in the JSON string.
-            // The [0] is the index of the row that we want to auto fill with.
-            if (retjson[0]["brand"].isExists()) {
-            self.brand.text = retjson[0]["brand"].string!
-            }
-            if (retjson[0]["model"].isExists()) {
-            self.model.text = retjson[0]["model"].string!
-            }
-            if (retjson[0]["color"].isExists()) {
-            self.color.text = retjson[0]["color"].string!
-            }
-            newOrderTextFieldStruct.bikeid = retjson[0]["bikeid"].string!
-            } // dispatch_async
-            } // if (bikes.count > 0)
-            return true
-            } // if (json["success"])
-            return false
-            }) // ServerCom.send
-            } // custid != ""
-            else
-            {
-            brand.text = ""
-            model.text = ""
-            color.text = ""
-            }*/
+          
         }
         else if newOrderTextFieldStruct.invoicePage
         {
@@ -701,8 +660,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             
             /* Submits the server request */
             var MyParams = ["action": "workOrder"]
+            var myArray:[String] = AddServices.serviceName
+            var newArray:[String] = [newOrderTextFieldStruct.tunePicker == "0" ? "1" : newOrderTextFieldStruct.tunePicker]
+             var myString = ""
+           for (var i = 0; i < myArray.count; i++)
+            {
+               newArray[0] = newArray[0] + "," + myArray[i]
+           
+                
+            }
+            print(newArray)
+            
             MyParams["fname"] = Crypto.encrypt(newOrderTextFieldStruct.firstName)
-   
             MyParams["lname"] = Crypto.encrypt(newOrderTextFieldStruct.lastName)
             MyParams["address"] = Crypto.encrypt(newOrderTextFieldStruct.myAddress)
             MyParams["address2"] = Crypto.encrypt(newOrderTextFieldStruct.myAddress2)
@@ -723,6 +692,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
             
             newOrderTextFieldStruct.custid = ""
+            AddServices.serviceName = []
         }
             
             /* check if the user pressed the next button
