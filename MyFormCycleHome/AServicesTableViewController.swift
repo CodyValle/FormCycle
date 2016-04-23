@@ -180,29 +180,36 @@ class AServicesTableViewController: UITableViewController
         }
     }
     
-  //  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-   //     var storedValues = [user]()
-     //   var mySelectedCell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-//        if mySelectedCell.accessoryType == .Checkmark {
-//            mySelectedCell.accessoryType = .None
-//            switch section
-//            {
-//            case 0:
-//                return brakeSection[indexPath.row]
-//            default:
-//                return 0 
-//            }
-//            storedValues.append(brakeSection[indexPath.row])
-//            
-//            print("setting checkmark")
-//        }
-//        else {
-//            mySelectedCell.accessoryType = .Checkmark
-//        }
-//        
-        //print(mySelectedCell)
-  //      print("here")
-   // }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.section
+        {
+        case 0:
+            let user = brakeSection[indexPath.row]
+            print(user.name)
+        case 1:
+            let user = wheelSection[indexPath.row]
+            print(user.name)
+        case 2:
+            let user = barStemSection[indexPath.row]
+            print(user.name)
+        case 3:
+            let user = derailleurShifterSection[indexPath.row]
+            print(user.name)
+        case 4:
+            let user = chainCranksSection[indexPath.row]
+            print(user.name)
+        case 5:
+            let user = computerSection[indexPath.row]
+            print(user.name)
+        case 6:
+            let user = boxingSection[indexPath.row]
+            print(user.name)
+        default:
+            let user = editTune[indexPath.row]
+            print(user.name)
+        }
+        
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
@@ -217,11 +224,11 @@ class AServicesTableViewController: UITableViewController
             //var mySelectedCell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
             //print(mySelectedCell)
             let user = brakeSection[indexPath.row]
-            
             cell.name.text = user.name
             cell.cost.text = "$" + String(user.cost)
             cell.time.text = String(user.time)
-            print(user)
+          //
+            print(user.name)
             
         case 1:
             let user = wheelSection[indexPath.row]
