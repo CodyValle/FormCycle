@@ -92,12 +92,6 @@
 			include 'JunkData/JunkData.php';
 			$ret = true;
 			break;
-		
-		case "clean":
-			// Drops the database, then recreates it.
-			include 'clean.php';
-			$ret = true;
-			break;
 	
 		default:
 			// Invalid 'action'.
