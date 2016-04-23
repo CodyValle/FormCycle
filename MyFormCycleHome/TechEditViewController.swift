@@ -29,6 +29,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
   @IBOutlet weak var notes: UITextView!
   @IBOutlet weak var userID: UILabel!
   @IBOutlet weak var phoneNumer: UILabel!
+  @IBOutlet weak var waiting: UISegmentedControl!
 
   var storedNote = ""
   
@@ -42,6 +43,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     MyParams["workid"] = workid
     MyParams["open"] = "N"
     MyParams["notes"] = notes.text
+    MyParams["waiting"] = waiting.selectedSegmentIndex == 0 ? "Y" : "N"
 
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
       if succ { BinPacker.removerOrder(self.workid) }
@@ -55,22 +57,31 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     var MyParams = ["action":"workUpdate"]
     MyParams["workid"] = workid
     MyParams["notes"] = notes.text
-
+    MyParams["waiting"] = waiting.selectedSegmentIndex == 0 ? "Y" : "N"
     ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
   }
 
   @IBAction func closeOrder(sender: AnyObject)
   {
-    let refreshAlert = UIAlertController(title: "Confirmation", message: "Order will be closed and can no longer be edited.", preferredStyle: UIAlertControllerStyle.Alert)
+    if self.waiting.selectedSegmentIndex != 0
+    {
+        let refreshAlert = UIAlertController(title: "Confirmation", message: "Order will be closed and can no longer be edited.", preferredStyle: UIAlertControllerStyle.Alert)
 
-    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-      self.submitServerRequest()
-      self.performSegueWithIdentifier("closedOrderSegue", sender: self)
-    }))
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            self.submitServerRequest()
+            self.performSegueWithIdentifier("closedOrderSegue", sender: self)
+        }))
     
-    refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in }))
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in }))
     
-    presentViewController(refreshAlert, animated: true, completion: nil)
+        presentViewController(refreshAlert, animated: true, completion: nil)
+    }
+    else
+    {
+        let partAlert = UIAlertController(title: "Waiting on Part", message: "This order is still waiting on a part. To close this order, set Waiting on part to 'No'", preferredStyle: UIAlertControllerStyle.Alert)
+        partAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in }))
+        presentViewController(partAlert, animated: true, completion: nil)
+    }
   }
 
     //Calls this function when the tap is recognized.
@@ -119,6 +130,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
 //          }
           //self.tune.text = tuneString
           self.tagNum.text = retjson[0]["tagnum"].string!
+          self.waiting.selectedSegmentIndex = retjson[0]["waiting"].string! == "Y" ? 0 : 1
           if(retjson[0]["notes"] != nil) {
             self.storedNote = retjson[0]["notes"].string!
           }

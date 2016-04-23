@@ -622,6 +622,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
     /* text field for displaying first name */
     
     @IBOutlet weak var myFirstNameDisplay: UILabel!
+    @IBOutlet weak var partsWaiting: UISegmentedControl!
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
     {
@@ -696,6 +697,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             newOrderTextFieldStruct.myColor = color.text!
             newOrderTextFieldStruct.myNotes = notes.text!
             newOrderTextFieldStruct.myTagNumber = tagNumber.text!
+            newOrderTextFieldStruct.waiting = partsWaiting.selectedSegmentIndex == 0 ? "N" : "Y"
             
             /* Submits the server request */
             var MyParams = ["action": "workOrder"]
@@ -714,8 +716,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             MyParams["color"] = newOrderTextFieldStruct.myColor
             MyParams["tagNum"] = newOrderTextFieldStruct.myTagNumber
             MyParams["notes"] = newOrderTextFieldStruct.myNotes
-          MyParams["tune"] = newOrderTextFieldStruct.tunePicker == "0" ? "1" : newOrderTextFieldStruct.tunePicker // We need to add aditional services here
+            MyParams["tune"] = newOrderTextFieldStruct.tunePicker == "0" ? "1" : newOrderTextFieldStruct.tunePicker // We need to add aditional services here
             MyParams["userID"] = newOrderTextFieldStruct.USRname
+            MyParams["waiting"] = newOrderTextFieldStruct.waiting
             
             ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
             

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIg-b5-FmV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wIg-b5-FmV">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -3112,7 +3112,7 @@
                                     <segue destination="DXA-5t-kUb" kind="presentation" id="xdi-7K-QfQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parts Waiting?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95q-VB-ehD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Parts Waiting?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95q-VB-ehD">
                                 <rect key="frame" x="521" y="211" width="152" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3136,7 +3136,7 @@
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Model" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-rb-RCD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Model" textAlignment="natural" minimumFontSize="17" background="transparent-dark-gray" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-rb-RCD">
                                 <rect key="frame" x="386" y="92" width="362" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="272" id="wUu-vG-y8T"/>
@@ -3234,6 +3234,7 @@
                         <outlet property="color" destination="Tix-kP-ASq" id="Fh8-yl-0gd"/>
                         <outlet property="model" destination="gIY-rb-RCD" id="CaW-mP-VT4"/>
                         <outlet property="notes" destination="y4y-Sg-2fZ" id="WdU-EI-10u"/>
+                        <outlet property="partsWaiting" destination="xKh-z1-RlZ" id="2HD-MU-sCI"/>
                         <outlet property="pickerTuneSelection" destination="dHj-6i-Mdc" id="mOd-eO-J7s"/>
                         <outlet property="tagNumber" destination="7QM-zo-08U" id="vEs-CD-qPo"/>
                     </connections>
@@ -4142,6 +4143,7 @@
                         <outlet property="phoneNumer" destination="MYY-iP-moL" id="WNS-5z-wsq"/>
                         <outlet property="tagNum" destination="O9i-M9-Ibi" id="vfN-9S-26u"/>
                         <outlet property="userID" destination="dg4-KZ-Uue" id="w3T-1L-CC3"/>
+                        <outlet property="waiting" destination="sbz-hJ-M13" id="X2t-Wk-EvV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDB-Vn-5w6" userLabel="First Responder" sceneMemberID="firstResponder"/>
