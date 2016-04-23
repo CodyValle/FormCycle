@@ -82,7 +82,8 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
   override func viewDidLoad()
   {
     self.workid = workidPassed
-
+    
+    
     //Looks for single or multiple taps.
     let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
     view.addGestureRecognizer(tap)
@@ -109,7 +110,10 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
           self.phoneNumer.text = Crypto.decrypt(retjson[0]["phone"].string!)
 
           var tuneString = retjson[0]["tune"].string!
-          if let tuneID = Int(tuneString)
+            var myString:[String] = []
+          myString = tuneString.componentsSeparatedByString(",")
+            let finalString = myString[0]
+          if let tuneID = Int(finalString)
           {
             tuneString = Tune.ID(tuneID)!
           }
@@ -131,6 +135,7 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
   override func viewWillAppear(animated: Bool)
   {
     self.notes.text = storedNote //Only set the notes field when the view has finished loading. Cannot access the text area before this point.
+    //AddServices.workOrderId = workidPassed
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
