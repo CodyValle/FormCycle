@@ -31,7 +31,10 @@
  SOFTWARE.
 */
 
+import Foundation
 import UIKit
+import SwiftHTTP
+import SwiftyJSON
  
 class AddServicesViewController: UIViewController
 {
@@ -40,7 +43,27 @@ class AddServicesViewController: UIViewController
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     }
     @IBAction func SubmitAddServices(sender: AnyObject) {
-    
+        var myArray:[String] = AddServices.serviceName
+        var newArray:[String] = [""]
+        
+        for (var i = 0; i < myArray.count; i++)
+        {
+            if (i == 0)
+            {
+                newArray[0] = newArray[0] + myArray[i]
+            }
+            else
+            {
+                newArray[0] = newArray[0] + "," + myArray[i]
+            }
+        }
+        print(newArray)
+        /* Updates the notes */
+        var MyParams = ["action":"workUpdate"]
+        MyParams["tune"] = newArray[0]
+        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
+        AddServices.serviceName = []
+
     dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
 }
     

@@ -666,8 +666,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
            for (var i = 0; i < myArray.count; i++)
             {
                newArray[0] = newArray[0] + "," + myArray[i]
-           
-                
             }
             print(newArray)
             
@@ -685,7 +683,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             MyParams["color"] = newOrderTextFieldStruct.myColor
             MyParams["tagNum"] = newOrderTextFieldStruct.myTagNumber
             MyParams["notes"] = newOrderTextFieldStruct.myNotes
-            MyParams["tune"] = newOrderTextFieldStruct.tunePicker == "0" ? "1" : newOrderTextFieldStruct.tunePicker // We need to add aditional services here
+            MyParams["tune"] = newArray[0]
             MyParams["userID"] = newOrderTextFieldStruct.USRname
             MyParams["waiting"] = newOrderTextFieldStruct.waiting
             
