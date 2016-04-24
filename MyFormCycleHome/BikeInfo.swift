@@ -28,6 +28,7 @@ extension ViewController
   */
   @IBAction func backToCustInfo(sender: AnyObject)
   {
+    AddServices.serviceName = []
     newOrderTextFieldStruct.bikeInfoPage = false /* sets current view to false */
     dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     newOrderTextFieldStruct.neworderpage = true /* sets the new order page view to true since user just pressed the "back" button */

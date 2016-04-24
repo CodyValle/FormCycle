@@ -57,12 +57,12 @@ class AddServicesViewController: UIViewController
                 newArray[0] = newArray[0] + "," + myArray[i]
             }
         }
-        print(newArray)
+        //print(newArray)
         /* Updates the notes */
         var MyParams = ["action":"workUpdate"]
         MyParams["tune"] = newArray[0]
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
-        AddServices.serviceName = []
+        
 
     dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
 }

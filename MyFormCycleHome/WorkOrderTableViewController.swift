@@ -145,7 +145,7 @@ class WorkOrderTableViewController: UITableViewController
         if let orderIndex = tableView.indexPathForSelectedRow?.row {
           destination.workidPassed = workOrders[orderIndex].orderID
             AddServices.workOrderId = workOrders[orderIndex].orderID
-            print("Setting Work Order ID:" ,AddServices.workOrderId)
+            //print("Setting Work Order ID:" ,AddServices.workOrderId)
         }
       }
     }

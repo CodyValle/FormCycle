@@ -25,6 +25,8 @@
 		144C11E51CB2C2B4005F768C /* ModifyTuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */; };
 		14691D191CCBFB210024E3B1 /* DisplayServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14691D181CCBFB210024E3B1 /* DisplayServicesTableViewController.swift */; };
 		14691D1B1CCBFB620024E3B1 /* DisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14691D1A1CCBFB620024E3B1 /* DisplayCell.swift */; };
+		14691D5B1CCC4BF90024E3B1 /* LoadInvoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14691D5A1CCC4BF90024E3B1 /* LoadInvoiceTableViewController.swift */; };
+		14691D5D1CCC4C210024E3B1 /* InvoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14691D5C1CCC4C210024E3B1 /* InvoiceCell.swift */; };
 		1492D8881C98F0E600CB05BB /* SearchPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D8871C98F0E600CB05BB /* SearchPageTableViewCell.swift */; };
 		1492D88A1C9904EE00CB05BB /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */; };
 		14A0F8721BF2D5680077CFAD /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A0F8681BF2D3E60077CFAD /* SwiftHTTP.framework */; };
@@ -252,6 +254,8 @@
 		144C11E41CB2C2B4005F768C /* ModifyTuneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyTuneViewController.swift; sourceTree = "<group>"; };
 		14691D181CCBFB210024E3B1 /* DisplayServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayServicesTableViewController.swift; sourceTree = "<group>"; };
 		14691D1A1CCBFB620024E3B1 /* DisplayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCell.swift; sourceTree = "<group>"; };
+		14691D5A1CCC4BF90024E3B1 /* LoadInvoiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadInvoiceTableViewController.swift; sourceTree = "<group>"; };
+		14691D5C1CCC4C210024E3B1 /* InvoiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceCell.swift; sourceTree = "<group>"; };
 		1492D8871C98F0E600CB05BB /* SearchPageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPageTableViewCell.swift; sourceTree = "<group>"; };
 		1492D8891C9904EE00CB05BB /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		14A0F8601BF2D3E60077CFAD /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
@@ -373,6 +377,15 @@
 			name = DisplayServices;
 			sourceTree = "<group>";
 		};
+		14691D4C1CCC4BDC0024E3B1 /* LoadInvoice */ = {
+			isa = PBXGroup;
+			children = (
+				14691D5A1CCC4BF90024E3B1 /* LoadInvoiceTableViewController.swift */,
+				14691D5C1CCC4C210024E3B1 /* InvoiceCell.swift */,
+			);
+			name = LoadInvoice;
+			sourceTree = "<group>";
+		};
 		1492D88B1C9909F800CB05BB /* SearchPageAndTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +432,7 @@
 		14ADDC021BEC5510005ECABA /* MyFormCycleHome */ = {
 			isa = PBXGroup;
 			children = (
+				14691D4C1CCC4BDC0024E3B1 /* LoadInvoice */,
 				14691D0A1CCBFAFF0024E3B1 /* DisplayServices */,
 				AF4C48D01CC1A4480091522D /* WGLabels.swift */,
 				14E9EFD01CBC59F300356250 /* AdditionalServices */,
@@ -802,6 +816,7 @@
 				14691D191CCBFB210024E3B1 /* DisplayServicesTableViewController.swift in Sources */,
 				14D686A21C6713F30092770D /* AwaitingOrderViewController.swift in Sources */,
 				01F524091C540B7300AB3631 /* WorkOrderTableViewController.swift in Sources */,
+				14691D5D1CCC4C210024E3B1 /* InvoiceCell.swift in Sources */,
 				14F82DDE1CB0806A0062BC0D /* TuneTableViewCell.swift in Sources */,
 				14ADDC061BEC5510005ECABA /* ViewController.swift in Sources */,
 				14E9EFC21CBC588900356250 /* AddServicesViewController.swift in Sources */,
@@ -838,6 +853,7 @@
 				14F82DE01CB08A730062BC0D /* EditTune.swift in Sources */,
 				9D9E96761C517132002AD84C /* LoadInvoice.swift in Sources */,
 				1430DF181C993DC900AF1CDC /* RegisterUserViewController.swift in Sources */,
+				14691D5B1CCC4BF90024E3B1 /* LoadInvoiceTableViewController.swift in Sources */,
 				01D6ECC21C66A28A00945391 /* TechEditViewController.swift in Sources */,
 				14E9EFD41CBC5A7600356250 /* AddServCell.swift in Sources */,
 				0104AD851C7900000056B10F /* CustSearchTableViewCell.swift in Sources */,
