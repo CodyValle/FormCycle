@@ -72,6 +72,21 @@ class DisplayServicesTableViewController: UITableViewController
         return myStringArr.count
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            let tune = myStringArr[indexPath.row]
+            var DelParams = ["action":"workSearch"]
+            //DelParams["tunename"] = edit.tune
+            DelParams["workid"] = AddServices.workOrderId
+            DelParams["tune"] = myStringArr.removeAtIndex(indexPath.row)
+            ServerCom.send(DelParams, f: {(succ: Bool, retjson: JSON) in return succ})
+//            myStringArr.removeAtIndex(indexPath.row)
+            self.tableView.reloadData()
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cellIdentifier = "displayCell"

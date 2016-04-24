@@ -90,13 +90,35 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
               }
               self.cityStateZip.text = Crypto.decrypt(retjson[0]["city"].string!) + ", " + retjson[0]["state"].string! + ", " + Crypto.decrypt(retjson[0]["zip"].string!)
               self.makeModelColor.text = retjson[0]["brand"].string! + " " + retjson[0]["model"].string! + ", " + retjson[0]["color"].string!
-
+                var tuneArr:[String] = []
+                tuneArr.append(retjson[0]["tune"].string!)
               var tuneString = retjson[0]["tune"].string!
               if let tuneID = Int(tuneString)
               {
                 tuneString = Tune.ID(tuneID)!
               }
-              self.tune.text = tuneString
+                //print(tuneString)
+                
+                var myString = ""
+                var myStringArr:[String] = []
+                myStringArr = tuneArr[0].componentsSeparatedByString(",")
+                for var i = 0; i < myStringArr.count ; i++
+                {
+                    myStringArr[i] = Tune.ID(Int(myStringArr[i])!)!
+                    if( i == 0)
+                    {
+                        myString = myString + myStringArr[i]
+                    }
+                    else
+                    {
+                        myString = myString + ", " + myStringArr[i]
+                    }
+                }
+                
+                self.tune.text = myString
+                
+                
+              //self.tune.text = tuneString
               self.tagNum.text = retjson[0]["tagnum"].string!
               self.phone.text = Crypto.decrypt(retjson[0]["phone"].string!)
               if(retjson[0]["email"] != nil)
@@ -105,7 +127,15 @@ class AwaitingOrderViewController: UIViewController, UITextFieldDelegate, UIText
                 self.email.text = email
                 self.emailUsr = email
               }
-              //self.userNotes.text = order[0]["notes"].string!
+            
+            if(retjson[0]["notes"] != nil)
+            {
+              self.userNotes.text = retjson[0]["notes"].string!
+            }
+            else if(retjson[0]["notes"] == nil)
+            {
+              self.userNotes.text = ""
+            }
           }
         }
         //else you are done- TO DO LATER
