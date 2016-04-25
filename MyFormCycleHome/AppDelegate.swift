@@ -13,6 +13,7 @@ struct AddServices {
     
     static var serviceName:[String] = []
     static var workOrderId = ""
+    static var editServiceArray:[String] = []
 }
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {

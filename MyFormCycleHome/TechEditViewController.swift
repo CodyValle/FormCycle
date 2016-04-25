@@ -36,6 +36,10 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     var workidPassed = ""
     var workid = ""
     
+    var myArr :[String] = []
+    var myStringArr: [String] = []
+    
+    
     func submitServerRequest()
     {
         /* Submits the server request */
@@ -50,33 +54,71 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
             return succ
         })
     }
-    
-    @IBAction func BackToHomePage(sender: AnyObject)
+           @IBAction func BackToHomePage(sender: AnyObject)
     {
-        
-        
+//        
 //        var myArray:[String] = AddServices.serviceName
 //        var newArray:[String] = [""]
+//    
+//        var MyParams = ["action":"workSearch"]
 //        
-//        for (var i = 0; i < myArray.count; i++)
-//        {
-//            if (i == 0)
-//            {
-//                newArray[0] = newArray[0] + myArray[i]
+//        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+//        
+//        MyParams["workid"] = AddServices.workOrderId
+//        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+//            if (succ) {
+//                if (retjson.count > 0) {
+//                    self.myArr.append(retjson[0]["tune"].string!)
+//                    self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
+//                    var counter = 0
+//                    while( counter < self.myStringArr.count)
+//                    {
+//                        self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
+//                        counter++
+//                    }
+//                    print("self.myStringArr", self.myStringArr)
+//                    print("self.myArr", self.myArr)
+//                    
+//                    
+//                    for (var i = 0; i < myArray.count; i++)
+//                    {
+//                        if (i == 0)
+//                        {
+//                            newArray[0] = newArray[0] + myArray[i]
+//                        }
+//                        else
+//                        {
+//                            newArray[0] = newArray[0] + "," + myArray[i]
+//                        }
+//                    }
+//                    print("newArray",newArray)
+//                    print("myArray",myArray)
+//
+//                    self.myArr[0] = self.myArr[0] + "," + newArray[0]
+//                AddServices.editServiceArray = self.myArr
+//                    print("editservicarray",AddServices.editServiceArray)
+//                    print("self.myArr 2",self.myArr)
+//                    print("newArray 2", newArray)
+//                    newArray[0] = self.myArr[0]
+//                }
+//                return true
 //            }
-//            else
-//            {
-//                newArray[0] = newArray[0] + "," + myArray[i]
-//            }
-//        }
-//        print(newArray)
-//        /* Updates the notes */
-        var MyParams = ["action":"workUpdate"]
-        MyParams["workid"] = workid
-        MyParams["notes"] = notes.text
-        MyParams["waiting"] = waiting.selectedSegmentIndex == 0 ? "Y" : "N"
-      //  MyParams["tune"] = newArray[0]
-        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
+//            return false
+//        })
+        
+        
+        print("editservicarray",AddServices.editServiceArray)
+
+// print("self.myStringArr", self.myStringArr)
+//        print("self.myArr", self.myArr)
+//        
+//
+      //        /* Updates the notes */
+//               MyParams["workid"] = workid
+//        MyParams["notes"] = notes.text
+//        MyParams["waiting"] = waiting.selectedSegmentIndex == 0 ? "Y" : "N"
+//      //  MyParams["tune"] = newArray[0]
+//        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
         AddServices.serviceName = []
     }
     

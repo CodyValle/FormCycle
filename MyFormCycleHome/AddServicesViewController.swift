@@ -38,7 +38,10 @@ import SwiftyJSON
  
 class AddServicesViewController: UIViewController
 {
+    var myArr:[String] = []
+    var myStringArr:[String] = [""]
     
+
     @IBAction func backToOrderDetails(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
     }
@@ -62,7 +65,59 @@ class AddServicesViewController: UIViewController
         var MyParams = ["action":"workUpdate"]
         MyParams["tune"] = newArray[0]
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
-        AddServices.serviceName = []
+       // AddServices.serviceName = []
+  /****************************************************************************/
+  
+        
+        var myArray1:[String] = AddServices.serviceName
+        var newArray1:[String] = [""]
+        
+        
+               var MyParams1 = ["action":"workSearch"]
+        
+        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+        
+        MyParams1["workid"] = AddServices.workOrderId
+        ServerCom.send(MyParams1, f: {(succ: Bool, retjson: JSON) in
+            if (succ) {
+                if (retjson.count > 0) {
+                    self.myArr.append(retjson[0]["tune"].string!)
+                    self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
+                    var counter = 0
+                    while( counter < self.myStringArr.count)
+                    {
+                        self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
+                        counter++
+                    }
+                    print("self.myStringArr", self.myStringArr)
+                    print("self.myArr", self.myArr)
+                    
+                    
+                    for (var i = 0; i < myArray1.count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            newArray1[0] = newArray1[0] + myArray1[i]
+                        }
+                        else
+                        {
+                            newArray1[0] = newArray1[0] + "," + myArray1[i]
+                        }
+                    }
+                    print("newArray",newArray1)
+                    print("myArray",myArray1)
+                    
+                    self.myArr[0] = self.myArr[0] + "," + newArray1[0]
+                    AddServices.editServiceArray = self.myArr
+                    print("editservicarray",AddServices.editServiceArray)
+                    print("self.myArr 2",self.myArr)
+                    print("newArray 2", newArray1)
+                    newArray1[0] = self.myArr[0]
+                }
+                return true
+            }
+            return false
+        })
 
     dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
 }
