@@ -16,12 +16,55 @@ class DisplayServicesTableViewController: UITableViewController
     var myArr :[String] = []
     var myStringArr: [String] = []
     
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidLoad()
+        print("HEREHERHEHRH")
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshView",name:"reloadOpenOrderTable", object: nil)
+        
+        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.opaque.boolValue
+        self.tableView.backgroundView = nil
+        //Load data
+        /* Submits the server request */
+        var MyParams = ["action":"workSearch"]
+        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+        
+        MyParams["workid"] = AddServices.workOrderId
+        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+            if (succ) {
+                print("INSIDE CODE")
+                if (retjson.count > 0) {
+                    self.myArr.append(retjson[0]["tune"].string!)
+                    self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
+                    var counter = 0 
+                    
+                    while( counter < self.myStringArr.count)
+                    {
+                        self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
+                        counter++
+                    }
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableView.reloadData()
+                    }
+                }
+                return true
+            }
+            return false
+        })
+        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+
+    }
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshView",name:"reloadOpenOrderTable", object: nil)
-        
+        print("VIEWDIDLOAD")
         //Load data
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.backgroundColor = UIColor.clearColor()
@@ -37,13 +80,19 @@ class DisplayServicesTableViewController: UITableViewController
             if (succ) {
                 if (retjson.count > 0) {
                     self.myArr.append(retjson[0]["tune"].string!)
+                    
                     self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
                     var counter = 0
+                    
                     while( counter < self.myStringArr.count)
                     {
                         self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
                         counter++
                     }
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableView.reloadData()
+                    }
+                    
                 }
                 
                 
@@ -52,6 +101,7 @@ class DisplayServicesTableViewController: UITableViewController
             }
             return false 
         })
+        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
     }
     
     

@@ -48,10 +48,6 @@ class EditUsersTableViewController: UITableViewController
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
                     }
-                    //                    print("User \(i):")
-                    //                    print("username: \(retjson[i]["username"].string!)")
-                    //                    print("admin: \(retjson[i]["admin"].string!)")
-                    //                    print("\n")
                 }
             }
             else {

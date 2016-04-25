@@ -55,6 +55,7 @@ class AServicesTableViewController: UITableViewController
 //    {
 //        static var serviceName:[String] = []
 //    }
+    
     /* Initially loads the table as soon as the view loads. */
     override func viewDidLoad()
     {
@@ -86,10 +87,7 @@ class AServicesTableViewController: UITableViewController
                             id: Int(retjson[i]["tune"].string!)!,
                             time: retjson[i]["time"].string!.floatValue,
                             tune: retjson[i]["type"].string!))
-                        dispatch_async(dispatch_get_main_queue())
-                        {
-                            self.tableView.reloadData()
-                        }
+                        
                     }
                     else if(retjson[i]["type"].string! == "3")
                     {

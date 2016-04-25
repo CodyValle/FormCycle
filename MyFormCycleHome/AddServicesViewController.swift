@@ -70,11 +70,11 @@ class AddServicesViewController: UIViewController
   
         
         var myArray1:[String] = AddServices.serviceName
-        var newArray1:[String] = [""]
+        var newArray1:[String] = self.myArr
         
         
                var MyParams1 = ["action":"workSearch"]
-        
+                var MyParams2 = ["action":"workUpdate"]
         // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
         
         MyParams1["workid"] = AddServices.workOrderId
@@ -89,37 +89,68 @@ class AddServicesViewController: UIViewController
                         self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
                         counter++
                     }
+                    
                     print("self.myStringArr", self.myStringArr)
                     print("self.myArr", self.myArr)
+                    print("LENGTH OF SELECTED BEFORE:",myArray1)
                     
-                    
+//                    for (var i = 0; i < myArray1.count; i++)
+//                    {
+//                        if (i == 0)
+//                        {
+//                            newArray1[0] = newArray1[0] + myArray1[i]
+//                        }
+//                        else
+//                        {
+//                            //self.myArr[0] = self.myArr[0] + "," + newArray1[i]
+//                            newArray1[0] = newArray1[0] + "," + myArray1[i]
+//                        }
+//                    }
                     for (var i = 0; i < myArray1.count; i++)
                     {
-                        if (i == 0)
-                        {
-                            newArray1[0] = newArray1[0] + myArray1[i]
-                        }
-                        else
-                        {
-                            newArray1[0] = newArray1[0] + "," + myArray1[i]
-                        }
+                        //if ( i != 0)
+                        //{
+                            self.myArr[0] = self.myArr[0] + "," + myArray1[i]
+                        //}
                     }
-                    print("newArray",newArray1)
-                    print("myArray",myArray1)
                     
-                    self.myArr[0] = self.myArr[0] + "," + newArray1[0]
+                   
+                    
+                    //print("newArrayFINAL",newArray1)
+                    //print("FINAL ARRAY VALUE:", self.myArr)
+                    //print("myArray",myArray1)
+                    
+                    //self.myArr[0] = self.myArr[0] + "," + newArray1[0]
                     AddServices.editServiceArray = self.myArr
-                    print("editservicarray",AddServices.editServiceArray)
-                    print("self.myArr 2",self.myArr)
-                    print("newArray 2", newArray1)
-                    newArray1[0] = self.myArr[0]
+                    //print("editservicarray",AddServices.editServiceArray[0])
+                    //print("self.myArr 2",self.myArr)
+                    //print("newArray 2", newArray1)
+                    //newArray1[0] = self.myArr[0]
                 }
+                MyParams2["workid"] = AddServices.workOrderId
+                //MyParams1["notes"] = notes.text
+                // MyParams1["waiting"] = waiting.selectedSegmentIndex == 0 ? "Y" : "N"
+                MyParams2["tune"] = AddServices.editServiceArray[0]
+                //print("FINAL FINAL ARRAY VALUE:", AddServices.editServiceArray )
+                ServerCom.send(MyParams2, f: {(succ: Bool, retjson: JSON) in return succ})
+                AddServices.editServiceArray.removeAll()
                 return true
             }
             return false
         })
-
+        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+        
+        //        /* Updates the notes */
+//                       MyParams1["workid"] = AddServices.workOrderId
+//                //MyParams1["notes"] = notes.text
+//               // MyParams1["waiting"] = waiting.selectedSegmentIndex == 0 ? "Y" : "N"
+//                MyParams["tune"] = String(AddServices.editServiceArray)
+//                print("FINAL FINAL ARRAY VALUE:", AddServices.editServiceArray )
+//                ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
+//            AddServices.editServiceArray.removeAll()
+        
     dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+        
 }
     
 }
