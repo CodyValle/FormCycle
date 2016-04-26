@@ -98,7 +98,6 @@ class SearchPageViewController: UITableViewController  {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if  searchController.searchBar.text == "1 Month" {
-            print("\nIS THIS WORKING?\n")
             return filteredRecords.count
         }
         else if searchController.active && searchController.searchBar.text != "" {

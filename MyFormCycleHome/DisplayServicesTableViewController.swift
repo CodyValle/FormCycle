@@ -20,9 +20,7 @@ class DisplayServicesTableViewController: UITableViewController
     {
         super.viewDidLoad()
         
-        
         //Load data
-        //editUser.removeAll()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.opaque.boolValue
@@ -33,18 +31,17 @@ class DisplayServicesTableViewController: UITableViewController
         
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ {
-                print("INSIDE CODE")
-                                        if (retjson.count > 0) {
-                                            self.myArr.append(retjson[0]["tune"].string!)
-                                            self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
-                                            var counter = 0
-                
-                                            while( counter < self.myStringArr.count)
-                                            {
-                                                self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
-                                                counter++
-                                            }
-
+                if (retjson.count > 0) {
+                    self.myArr.append(retjson[0]["tune"].string!)
+                    self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
+                    var counter = 0
+                    
+                    while( counter < self.myStringArr.count)
+                    {
+                        self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
+                        counter++
+                    }
+                    
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
@@ -60,54 +57,59 @@ class DisplayServicesTableViewController: UITableViewController
         while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
         
         
-//        super.viewDidLoad()
-//        print("HEREHERHEHRH")
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshView",name:"reloadOpenOrderTable", object: nil)
-//        
-//        
-//        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-//        self.tableView.backgroundColor = UIColor.clearColor()
-//        self.tableView.opaque.boolValue
-//        self.tableView.backgroundView = nil
-//        //Load data
-//        /* Submits the server request */
-//        var MyParams = ["action":"workSearch"]
-//        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
-//        
-//        MyParams["workid"] = AddServices.workOrderId
-//        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
-//            if (succ) {
-//                
-//                    dispatch_async(dispatch_get_main_queue()) {
-//                        print("INSIDE CODE")
-//                        if (retjson.count > 0) {
-//                            self.myArr.append(retjson[0]["tune"].string!)
-//                            self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
-//                            var counter = 0
-//                            
-//                            while( counter < self.myStringArr.count)
-//                            {
-//                                self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
-//                                counter++
-//                            }
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//                return true
-//            }
-//            return false
-//        })
-//        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
-
-    }
+            }
     
+    func refresh(sender:AnyObject)
+    {
+        
+        myArr.removeAll()
+        myStringArr.removeAll()
+        // Updating your data here...
+        var MyParams = ["action":"workSearch"]
+        
+        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+        
+        MyParams["workid"] = AddServices.workOrderId
+        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
+            if (succ) {
+                if (retjson.count > 0) {
+                    self.myArr.append(retjson[0]["tune"].string!)
+                    
+                    self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
+                    var counter = 0
+                    
+                    while( counter < self.myStringArr.count)
+                    {
+                        self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
+                        counter++
+                    }
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tableView.reloadData()
+                    }
+                    
+                }
+                
+                
+                
+                return true
+            }
+            return false
+        })
+        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+        
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        myArr.removeAll()
+        myStringArr.removeAll()
+        self.refreshControl?.addTarget(self, action: #selector(DisplayServicesTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshView",name:"reloadOpenOrderTable", object: nil)
-        print("VIEWDIDLOAD")
+        
         //Load data
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.backgroundColor = UIColor.clearColor()
@@ -142,7 +144,7 @@ class DisplayServicesTableViewController: UITableViewController
                 
                 return true
             }
-            return false 
+            return false
         })
         while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
     }
@@ -179,5 +181,5 @@ class DisplayServicesTableViewController: UITableViewController
         return cell
     }
     
-
+    
 }

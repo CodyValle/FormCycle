@@ -157,7 +157,6 @@ class AServicesTableViewController: UITableViewController
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        print(self)
         return 8
     }
     
@@ -224,15 +223,15 @@ class AServicesTableViewController: UITableViewController
         case 0:
             let user = brakeSection[indexPath.row]
             AddServices.serviceName.append(String(user.id))
-            print(user.id)
+            //print(user.id)
         case 1:
             let user = wheelSection[indexPath.row]
             AddServices.serviceName.append(String(user.id))
-            print(user.id)
+            //print(user.id)
         case 2:
             let user = barStemSection[indexPath.row]
             AddServices.serviceName.append(String(user.id))
-            print(user.id)
+            //print(user.id)
         case 3:
             let user = derailleurShifterSection[indexPath.row]
             AddServices.serviceName.append(String(user.id))
@@ -249,7 +248,6 @@ class AServicesTableViewController: UITableViewController
             let user = editTune[indexPath.row]
             AddServices.serviceName.append(String(user.id))
         }
-        //print("My Array:",AddServices.serviceName)
         
     }
     

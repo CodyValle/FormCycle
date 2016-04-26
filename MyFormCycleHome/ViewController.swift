@@ -667,7 +667,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate,
             {
                newArray[0] = newArray[0] + "," + myArray[i]
             }
-            print(newArray)
             
             MyParams["fname"] = Crypto.encrypt(newOrderTextFieldStruct.firstName)
             MyParams["lname"] = Crypto.encrypt(newOrderTextFieldStruct.lastName)
