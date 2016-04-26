@@ -36,6 +36,10 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     var workidPassed = ""
     var workid = ""
     
+    var myArr :[String] = []
+    var myStringArr: [String] = []
+    
+    
     func submitServerRequest()
     {
         /* Submits the server request */
@@ -54,29 +58,6 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBAction func BackToHomePage(sender: AnyObject)
     {
         
-        
-//        var myArray:[String] = AddServices.serviceName
-//        var newArray:[String] = [""]
-//        
-//        for (var i = 0; i < myArray.count; i++)
-//        {
-//            if (i == 0)
-//            {
-//                newArray[0] = newArray[0] + myArray[i]
-//            }
-//            else
-//            {
-//                newArray[0] = newArray[0] + "," + myArray[i]
-//            }
-//        }
-//        print(newArray)
-//        /* Updates the notes */
-        var MyParams = ["action":"workUpdate"]
-        MyParams["workid"] = workid
-        MyParams["notes"] = notes.text
-        MyParams["waiting"] = waiting.selectedSegmentIndex == 0 ? "Y" : "N"
-      //  MyParams["tune"] = newArray[0]
-        ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
         AddServices.serviceName = []
     }
     
@@ -174,7 +155,6 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
         if segue.identifier == "AddlServices"
         {
             segue.destinationViewController
-            print(self)
         }
     }
     

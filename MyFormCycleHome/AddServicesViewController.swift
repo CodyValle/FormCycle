@@ -1,14 +1,14 @@
 /*
-*  AddServicesViewController.swift
-*
-*  This page is the View Controller for the Additional Services Page.
-*  This handles the actions for any buttons that may be defined on this
-*  page.
-*
-*  Created by FormCycle Development Team on 4/11/16.
-*  Copyright © 2016 FormCycle. All rights reserved.
-*  License:
-*   The MIT License (MIT)
+ *  AddServicesViewController.swift
+ *
+ *  This page is the View Controller for the Additional Services Page.
+ *  This handles the actions for any buttons that may be defined on this
+ *  page.
+ *
+ *  Created by FormCycle Development Team on 4/11/16.
+ *  Copyright © 2016 FormCycle. All rights reserved.
+ *  License:
+ *   The MIT License (MIT)
  
  Copyright (c) 2015 FormCycle.
  
@@ -29,15 +29,18 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
-*/
+ */
 
 import Foundation
 import UIKit
 import SwiftHTTP
 import SwiftyJSON
- 
+
 class AddServicesViewController: UIViewController
 {
+    var myArr:[String] = []
+    var myStringArr:[String] = [""]
+    
     
     @IBAction func backToOrderDetails(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
@@ -64,7 +67,45 @@ class AddServicesViewController: UIViewController
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in return succ})
         
 
-    dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
-}
+        var myArray1:[String] = AddServices.serviceName
+        var newArray1:[String] = self.myArr
+        
+        
+        var MyParams1 = ["action":"workSearch"]
+        var MyParams2 = ["action":"workUpdate"]
+        // Append possible search data to the parameters. Note: MyParams is changed to a var, instead of a let.
+        
+        MyParams1["workid"] = AddServices.workOrderId
+        ServerCom.send(MyParams1, f: {(succ: Bool, retjson: JSON) in
+            if (succ) {
+                if (retjson.count > 0) {
+                    self.myArr.append(retjson[0]["tune"].string!)
+                    self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
+                    var counter = 0
+                    while( counter < self.myStringArr.count)
+                    {
+                        self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
+                        counter++
+                    }
+                    
+                    for (var i = 0; i < myArray1.count; i++)
+                    {
+                        self.myArr[0] = self.myArr[0] + "," + myArray1[i]
+                    }
+                    AddServices.editServiceArray = self.myArr
+                }
+                MyParams2["workid"] = AddServices.workOrderId
+                MyParams2["tune"] = AddServices.editServiceArray[0]
+                ServerCom.send(MyParams2, f: {(succ: Bool, retjson: JSON) in return succ})
+                AddServices.editServiceArray.removeAll()
+                return true
+            }
+            return false
+        })
+        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+        
+        dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
+        
+    }
     
 }
