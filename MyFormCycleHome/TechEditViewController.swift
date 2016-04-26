@@ -54,6 +54,10 @@ class TechEditViewController: UIViewController, UITextFieldDelegate, UITextViewD
             return succ
         })
     } 
+    @IBAction func AddServicesBtn(sender: AnyObject) {
+        AddServices.editServiceArray.removeAll() //Empties the array
+        AddServices.serviceName.removeAll()
+    }
     
     @IBAction func BackToHomePage(sender: AnyObject)
     {
