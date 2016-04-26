@@ -112,7 +112,7 @@ extension ViewController
     // Uncomment these lines to quick login
 //   newOrderTextFieldStruct.loginPage = false
 //    newOrderTextFieldStruct.USRname = "Quick Login"
- //   return
+//    return
 
 		/* Submits the server request */
     var MyParams = ["action":"login"]

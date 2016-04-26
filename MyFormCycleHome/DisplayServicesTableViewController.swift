@@ -28,20 +28,21 @@ class DisplayServicesTableViewController: UITableViewController
         
         //Get and display all users
         var MyParams = ["action":"workSearch"]
+        MyParams["workid"] = AddServices.workOrderId
         
+        while ServerCom.waiting() {}
         ServerCom.send(MyParams, f: {(succ: Bool, retjson: JSON) in
             if succ {
                 if (retjson.count > 0) {
-                    self.myArr.append(retjson[0]["tune"].string!)
-                    self.myStringArr = self.myArr[0].componentsSeparatedByString(",")
-                    var counter = 0
+                    self.myStringArr.removeAll()
                     
-                    while( counter < self.myStringArr.count)
+                    let tuneIDs: [String] = retjson[0]["tune"].string!.componentsSeparatedByString(",")
+                    for id in tuneIDs
                     {
-                        self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
-                        counter++
+                        print(id)
+                        self.myStringArr.append(Tune.ID(Int(id)!)!)
                     }
-                    
+                    print(self.myStringArr)
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
@@ -53,11 +54,7 @@ class DisplayServicesTableViewController: UITableViewController
             }
             return succ
         })
-        
-        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
-        
-        
-            }
+    }
     
     func refresh(sender:AnyObject)
     {
@@ -81,7 +78,7 @@ class DisplayServicesTableViewController: UITableViewController
                     while( counter < self.myStringArr.count)
                     {
                         self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
-                        counter++
+                        counter += 1
                     }
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
@@ -108,13 +105,14 @@ class DisplayServicesTableViewController: UITableViewController
         myStringArr.removeAll()
         self.refreshControl?.addTarget(self, action: #selector(DisplayServicesTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshView",name:"reloadOpenOrderTable", object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshView",name:"reloadOpenOrderTable", object: nil)
         
         //Load data
         tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.opaque.boolValue
         self.tableView.backgroundView = nil
+        
         /* Submits the server request */
         var MyParams = ["action":"workSearch"]
         
@@ -132,7 +130,7 @@ class DisplayServicesTableViewController: UITableViewController
                     while( counter < self.myStringArr.count)
                     {
                         self.myStringArr[counter] = Tune.ID(Int(self.myStringArr[counter])!)!
-                        counter++
+                        counter += 1
                     }
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
@@ -146,7 +144,7 @@ class DisplayServicesTableViewController: UITableViewController
             }
             return false
         })
-        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+        //while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
     }
     
     
@@ -169,7 +167,7 @@ class DisplayServicesTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            let tune = myStringArr[indexPath.row]
+            //let tune = myStringArr[indexPath.row]
             var DelParams = ["action":"workSearch"]
             //DelParams["tunename"] = edit.tune
             DelParams["workid"] = AddServices.workOrderId

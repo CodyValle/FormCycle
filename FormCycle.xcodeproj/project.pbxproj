@@ -434,7 +434,6 @@
 			children = (
 				14691D4C1CCC4BDC0024E3B1 /* LoadInvoice */,
 				14691D0A1CCBFAFF0024E3B1 /* DisplayServices */,
-				AF4C48D01CC1A4480091522D /* WGLabels.swift */,
 				14E9EFD01CBC59F300356250 /* AdditionalServices */,
 				14B1E48F1CB9C57000FC7BEC /* EditAdditionalService */,
 				14F82DCD1CB07A130062BC0D /* EditRemoveTunes */,
@@ -452,6 +451,7 @@
 				9DEC52411C84F8D000DB2965 /* ServerCom.swift */,
 				9DE0558A1CB06F17001CA645 /* BinPacker.swift */,
 				9D222ECB1C88C9D300EBB5EE /* Crypto.swift */,
+				AF4C48D01CC1A4480091522D /* WGLabels.swift */,
 				14ADDC051BEC5510005ECABA /* ViewController.swift */,
 				14ADDC0A1BEC5510005ECABA /* Assets.xcassets */,
 				14ADDC0C1BEC5510005ECABA /* LaunchScreen.storyboard */,

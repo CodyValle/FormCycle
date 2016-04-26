@@ -68,7 +68,6 @@ class AddServicesViewController: UIViewController
         
 
         var myArray1:[String] = AddServices.serviceName
-        var newArray1:[String] = self.myArr
         
         
         var MyParams1 = ["action":"workSearch"]
@@ -102,7 +101,7 @@ class AddServicesViewController: UIViewController
             }
             return false
         })
-        while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
+        //while ServerCom.waiting() {} // Not neccesarily needed, but is for this example
         
         dismissViewControllerAnimated(true, completion: nil) /* dismisses the current view */
         
