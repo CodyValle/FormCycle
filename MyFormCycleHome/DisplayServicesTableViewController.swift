@@ -39,10 +39,8 @@ class DisplayServicesTableViewController: UITableViewController
                     let tuneIDs: [String] = retjson[0]["tune"].string!.componentsSeparatedByString(",")
                     for id in tuneIDs
                     {
-                        print(id)
                         self.myStringArr.append(Tune.ID(Int(id)!)!)
                     }
-                    print(self.myStringArr)
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         self.tableView.reloadData()
