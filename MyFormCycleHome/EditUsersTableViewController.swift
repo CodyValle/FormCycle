@@ -142,7 +142,7 @@ class EditUsersTableViewController: UITableViewController
             var DelParams = ["action":"updateLogin"]
             DelParams["logid"] = user.username
             ServerCom.send(DelParams, f: {(succ: Bool, retjson: JSON) in return succ})
-            editUser.removeAtIndex(indexPath.row)
+            //editUser.removeAtIndex(indexPath.row)
             switch editingStyle {
             case .Delete:
                 // remove the deleted item from the model
